@@ -51,6 +51,12 @@
 		032213192B14B30A00FF5CF1 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213182B14B30A00FF5CF1 /* Config.swift */; };
 		0322131B2B14B31E00FF5CF1 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322131A2B14B31E00FF5CF1 /* APIConstant.swift */; };
 		0322131D2B14B32B00FF5CF1 /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322131C2B14B32B00FF5CF1 /* URLConstant.swift */; };
+		032213202B14B75100FF5CF1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322131F2B14B75100FF5CF1 /* APIService.swift */; };
+		032213282B14B89700FF5CF1 /* ColorLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213272B14B89700FF5CF1 /* ColorLiterals.swift */; };
+		0322132A2B14B9E800FF5CF1 /* FontLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213292B14B9E800FF5CF1 /* FontLiterals.swift */; };
+		0322132C2B14B9F500FF5CF1 /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322132B2B14B9F500FF5CF1 /* ImageLiterals.swift */; };
+		0322132E2B14B9FD00FF5CF1 /* SizeLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322132D2B14B9FD00FF5CF1 /* SizeLiterals.swift */; };
+		032213302B14BA0F00FF5CF1 /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322132F2B14BA0F00FF5CF1 /* StringLiterals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +92,12 @@
 		032213182B14B30A00FF5CF1 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		0322131A2B14B31E00FF5CF1 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		0322131C2B14B32B00FF5CF1 /* URLConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
+		0322131F2B14B75100FF5CF1 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		032213272B14B89700FF5CF1 /* ColorLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLiterals.swift; sourceTree = "<group>"; };
+		032213292B14B9E800FF5CF1 /* FontLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLiterals.swift; sourceTree = "<group>"; };
+		0322132B2B14B9F500FF5CF1 /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
+		0322132D2B14B9FD00FF5CF1 /* SizeLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeLiterals.swift; sourceTree = "<group>"; };
+		0322132F2B14BA0F00FF5CF1 /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				032212E32B14B04600FF5CF1 /* API */,
+				0322131E2B14B73500FF5CF1 /* APIService */,
 				032212E42B14B04A00FF5CF1 /* Base */,
 				032212E52B14B05900FF5CF1 /* Enviornment */,
 			);
@@ -208,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				032212EA2B14B0C900FF5CF1 /* Extension */,
+				032213262B14B87B00FF5CF1 /* Literals */,
 				032212EB2B14B0CE00FF5CF1 /* Protocols */,
 				032212EC2B14B0D600FF5CF1 /* Resource */,
 				032212ED2B14B0E300FF5CF1 /* Utils */,
@@ -277,6 +291,26 @@
 				032212F42B14B1AA00FF5CF1 /* Font.swift */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		0322131E2B14B73500FF5CF1 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				0322131F2B14B75100FF5CF1 /* APIService.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		032213262B14B87B00FF5CF1 /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+				032213272B14B89700FF5CF1 /* ColorLiterals.swift */,
+				032213292B14B9E800FF5CF1 /* FontLiterals.swift */,
+				0322132B2B14B9F500FF5CF1 /* ImageLiterals.swift */,
+				0322132D2B14B9FD00FF5CF1 /* SizeLiterals.swift */,
+				0322132F2B14BA0F00FF5CF1 /* StringLiterals.swift */,
+			);
+			path = Literals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +412,8 @@
 			files = (
 				032212FD2B14B1E000FF5CF1 /* UIView+.swift in Sources */,
 				032212AA2B14AAFD00FF5CF1 /* ViewController.swift in Sources */,
+				0322132A2B14B9E800FF5CF1 /* FontLiterals.swift in Sources */,
+				032213202B14B75100FF5CF1 /* APIService.swift in Sources */,
 				032213172B14B2F800FF5CF1 /* NetworkLoggerPlugin.swift in Sources */,
 				0322130D2B14B26400FF5CF1 /* UILabel+.swift in Sources */,
 				032213112B14B28600FF5CF1 /* UITabBar+.swift in Sources */,
@@ -388,9 +424,12 @@
 				032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */,
 				032212A82B14AAFD00FF5CF1 /* SceneDelegate.swift in Sources */,
 				032213072B14B24500FF5CF1 /* UITextField+.swift in Sources */,
+				0322132E2B14B9FD00FF5CF1 /* SizeLiterals.swift in Sources */,
 				032212F52B14B1AA00FF5CF1 /* Font.swift in Sources */,
+				032213302B14BA0F00FF5CF1 /* StringLiterals.swift in Sources */,
 				032213132B14B29200FF5CF1 /* UIButton+.swift in Sources */,
 				032212F72B14B1B900FF5CF1 /* Protocol.swift in Sources */,
+				0322132C2B14B9F500FF5CF1 /* ImageLiterals.swift in Sources */,
 				032212FB2B14B1D600FF5CF1 /* NSObject+.swift in Sources */,
 				032212F32B14B18500FF5CF1 /* MakeAlert.swift in Sources */,
 				0322131D2B14B32B00FF5CF1 /* URLConstant.swift in Sources */,
@@ -398,6 +437,7 @@
 				032212E12B14B01F00FF5CF1 /* DTO.swift in Sources */,
 				032213192B14B30A00FF5CF1 /* Config.swift in Sources */,
 				0322131B2B14B31E00FF5CF1 /* APIConstant.swift in Sources */,
+				032213282B14B89700FF5CF1 /* ColorLiterals.swift in Sources */,
 				032213092B14B24F00FF5CF1 /* UITextView+.swift in Sources */,
 				032212E72B14B07C00FF5CF1 /* GeneralResponse.swift in Sources */,
 				032213032B14B22500FF5CF1 /* UIImage+.swift in Sources */,
