@@ -15,5 +15,40 @@ enum URLConstant {
     
     // MARK: - URL Path
     
+    // Reservations
+
+    static let reservation = "/api/v1/reservations"
+    static let reservationUser = "/api/v1/reservations/user"
+    static let reservationValidTime = "/api/v1/reservations/validTimes"
+    static let reservationGiftID = "/api/v1/reservations/giftId"
     
+    // MemoryPhotos
+    
+    static let memoryPhoto = "/api/v1/memory-photo"
+    
+    // Authorization
+    
+    static let shopOwnerChangePassword = "/auth/shop-owner/change-password"
+    static let ValidVerificationCode = "/auth/valid-verification-code"
+    static let signUp = "/auth/sign-up"
+    static let signOut = "/auth/sign-out"
+    static let signIn = "/auth/sign-in"
+    static let sendOne = "/auth/send-one"
+    static let refreshToken = "/auth/refresh"
+    
+    // ExperienceGifts
+    
+    static let experienceGift = "/api/v1/experience/gift"
+    static let experienceGiftSttCategory = "/api/v1/experience/gift/stt-category/{SttCategoryId}"
+    static let experienceGiftSearch = "/api/v1/experience/gift/search"
+    static let experienceGiftPopular = "/api/v1/experience/gift/popular"
+    static let experienceExpCategory = "/api/v1/experience/gift/exp-category/{ExpCategoryId}"
+    static let experienceDetails = "/api/v1/experience/gift/details/{ExperienceGiftId}"
+    
+    // Users
+    
+    static let user = "/api/v1/users"
+    static let userGiftSend = "/api/v1/users/gift/send"
+    static let userGiftReceive = "/api/v1/users/gift/receive"
+    static let userInactive = "/api/v1/users/inactive"
 }
