@@ -8,11 +8,11 @@
 import UIKit
 
 enum AppleSDGothicNeoType: String {
-    case EB = "AppleSDGothicNeoEB"
-    case B = "AppleSDGothicNeoB"
-    case SB = "AppleSDGothicNeoSB"
-    case M = "AppleSDGothicNeoM"
-    case R = "AppleSDGothicNeoR"
+    case EB = "AppleSDGothicNeoEB00"
+    case B = "AppleSDGothicNeoB00"
+    case SB = "AppleSDGothicNeoSB00"
+    case M = "AppleSDGothicNeoM00"
+    case R = "AppleSDGothicNeoR00"
 }
 
 enum FontLevel {
