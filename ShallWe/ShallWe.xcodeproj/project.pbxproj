@@ -30,7 +30,6 @@
 		032212E72B14B07C00FF5CF1 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212E62B14B07C00FF5CF1 /* GeneralResponse.swift */; };
 		032212F12B14B17600FF5CF1 /* MakeVibrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212F02B14B17600FF5CF1 /* MakeVibrate.swift */; };
 		032212F32B14B18500FF5CF1 /* MakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212F22B14B18500FF5CF1 /* MakeAlert.swift */; };
-		032212F52B14B1AA00FF5CF1 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212F42B14B1AA00FF5CF1 /* Font.swift */; };
 		032212F72B14B1B900FF5CF1 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212F62B14B1B900FF5CF1 /* Protocol.swift */; };
 		032212F92B14B1C800FF5CF1 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212F82B14B1C800FF5CF1 /* String+.swift */; };
 		032212FB2B14B1D600FF5CF1 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212FA2B14B1D600FF5CF1 /* NSObject+.swift */; };
@@ -57,6 +56,11 @@
 		0322132C2B14B9F500FF5CF1 /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322132B2B14B9F500FF5CF1 /* ImageLiterals.swift */; };
 		0322132E2B14B9FD00FF5CF1 /* SizeLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322132D2B14B9FD00FF5CF1 /* SizeLiterals.swift */; };
 		032213302B14BA0F00FF5CF1 /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322132F2B14BA0F00FF5CF1 /* StringLiterals.swift */; };
+		032213342B15E3B800FF5CF1 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 032213332B15E3B800FF5CF1 /* AppleSDGothicNeoR.ttf */; };
+		032213362B15E3C200FF5CF1 /* AppleSDGothicNeoM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 032213352B15E3C200FF5CF1 /* AppleSDGothicNeoM.ttf */; };
+		032213382B15E3CC00FF5CF1 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 032213372B15E3CC00FF5CF1 /* AppleSDGothicNeoSB.ttf */; };
+		0322133A2B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 032213392B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf */; };
+		0322133C2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0322133B2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +75,6 @@
 		032212E62B14B07C00FF5CF1 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		032212F02B14B17600FF5CF1 /* MakeVibrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeVibrate.swift; sourceTree = "<group>"; };
 		032212F22B14B18500FF5CF1 /* MakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAlert.swift; sourceTree = "<group>"; };
-		032212F42B14B1AA00FF5CF1 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		032212F62B14B1B900FF5CF1 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		032212F82B14B1C800FF5CF1 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		032212FA2B14B1D600FF5CF1 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
@@ -98,6 +101,11 @@
 		0322132B2B14B9F500FF5CF1 /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
 		0322132D2B14B9FD00FF5CF1 /* SizeLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeLiterals.swift; sourceTree = "<group>"; };
 		0322132F2B14BA0F00FF5CF1 /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLiterals.swift; sourceTree = "<group>"; };
+		032213332B15E3B800FF5CF1 /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoR.ttf; sourceTree = "<group>"; };
+		032213352B15E3C200FF5CF1 /* AppleSDGothicNeoM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoM.ttf; sourceTree = "<group>"; };
+		032213372B15E3CC00FF5CF1 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
+		032213392B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoB.ttf; sourceTree = "<group>"; };
+		0322133B2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoEB.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,7 +296,11 @@
 		032212EF2B14B11700FF5CF1 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				032212F42B14B1AA00FF5CF1 /* Font.swift */,
+				0322133B2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf */,
+				032213392B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf */,
+				032213372B15E3CC00FF5CF1 /* AppleSDGothicNeoSB.ttf */,
+				032213352B15E3C200FF5CF1 /* AppleSDGothicNeoM.ttf */,
+				032213332B15E3B800FF5CF1 /* AppleSDGothicNeoR.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -398,8 +410,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032213382B15E3CC00FF5CF1 /* AppleSDGothicNeoSB.ttf in Resources */,
 				032212B22B14AAFF00FF5CF1 /* LaunchScreen.storyboard in Resources */,
+				0322133A2B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf in Resources */,
 				032212AF2B14AAFF00FF5CF1 /* Assets.xcassets in Resources */,
+				032213342B15E3B800FF5CF1 /* AppleSDGothicNeoR.ttf in Resources */,
+				032213362B15E3C200FF5CF1 /* AppleSDGothicNeoM.ttf in Resources */,
+				0322133C2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +442,6 @@
 				032212A82B14AAFD00FF5CF1 /* SceneDelegate.swift in Sources */,
 				032213072B14B24500FF5CF1 /* UITextField+.swift in Sources */,
 				0322132E2B14B9FD00FF5CF1 /* SizeLiterals.swift in Sources */,
-				032212F52B14B1AA00FF5CF1 /* Font.swift in Sources */,
 				032213302B14BA0F00FF5CF1 /* StringLiterals.swift in Sources */,
 				032213132B14B29200FF5CF1 /* UIButton+.swift in Sources */,
 				032212F72B14B1B900FF5CF1 /* Protocol.swift in Sources */,
