@@ -11,6 +11,7 @@ class TabBarController: UITabBarController {
     
     // MARK: - Properties
     
+    private let tabBarHeight: CGFloat = SizeLiterals.Screen.screenHeight * 86 / 812
     private var tabs: [UIViewController] = []
     
     // MARK: - View Life Cycle
@@ -19,6 +20,7 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         setTabBarUI()
         setTabBarItems()
+        setTabBarHeight()
     }
     
     override func viewDidLayoutSubviews() {
@@ -32,9 +34,9 @@ extension TabBarController {
     private func setTabBarItems() {
         
         tabs = [
-            ViewController(),
-            ViewController(),
-            ViewController()
+            CategoryViewController(),
+            HomeViewController(),
+            MypageViewController()
         ]
         
         TabBarItemType.allCases.forEach {
@@ -53,6 +55,15 @@ extension TabBarController {
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowRadius = 0.7
         tabBar.tintColor = .main
+    }
+    
+    private func setTabBarHeight() {
+        if let tabBar = self.tabBarController?.tabBar {
+            let safeAreaBottomInset = self.view.safeAreaInsets.bottom
+            let tabBarHeight = tabBar.bounds.height
+            let newTabBarFrame = CGRect(x: tabBar.frame.origin.x, y: tabBar.frame.origin.y - safeAreaBottomInset, width: tabBar.frame.width, height: tabBarHeight + safeAreaBottomInset)
+            tabBar.frame = newTabBarFrame
+        }
     }
 }
 

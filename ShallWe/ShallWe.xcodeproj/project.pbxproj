@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212A52B14AAFD00FF5CF1 /* AppDelegate.swift */; };
 		032212A82B14AAFD00FF5CF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212A72B14AAFD00FF5CF1 /* SceneDelegate.swift */; };
-		032212AA2B14AAFD00FF5CF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212A92B14AAFD00FF5CF1 /* ViewController.swift */; };
 		032212AF2B14AAFF00FF5CF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 032212AE2B14AAFF00FF5CF1 /* Assets.xcassets */; };
 		032212B22B14AAFF00FF5CF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 032212B02B14AAFF00FF5CF1 /* LaunchScreen.storyboard */; };
 		032212BB2B14ACF800FF5CF1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 032212BA2B14ACF800FF5CF1 /* SnapKit */; };
@@ -64,13 +63,15 @@
 		0322136A2B15F60800FF5CF1 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 032213692B15F60800FF5CF1 /* Image.xcassets */; };
 		0322136D2B15F8C200FF5CF1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322136C2B15F8C200FF5CF1 /* TabBarController.swift */; };
 		0322136F2B15F8CF00FF5CF1 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322136E2B15F8CF00FF5CF1 /* TabBarItem.swift */; };
+		032213742B15FA2600FF5CF1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213732B15FA2600FF5CF1 /* CategoryViewController.swift */; };
+		032213762B15FA2D00FF5CF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213752B15FA2D00FF5CF1 /* HomeViewController.swift */; };
+		032213782B15FA3500FF5CF1 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213772B15FA3500FF5CF1 /* MypageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		032212A22B14AAFD00FF5CF1 /* ShallWe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShallWe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		032212A52B14AAFD00FF5CF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		032212A72B14AAFD00FF5CF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		032212A92B14AAFD00FF5CF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		032212AE2B14AAFF00FF5CF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		032212B12B14AAFF00FF5CF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		032212B32B14AAFF00FF5CF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +113,9 @@
 		032213692B15F60800FF5CF1 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		0322136C2B15F8C200FF5CF1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0322136E2B15F8CF00FF5CF1 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		032213732B15FA2600FF5CF1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		032213752B15FA2D00FF5CF1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		032213772B15FA3500FF5CF1 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,8 +230,10 @@
 		032212E82B14B0B200FF5CF1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				032213702B15F9FA00FF5CF1 /* Category */,
+				032213712B15FA0100FF5CF1 /* Home */,
+				032213722B15FA0500FF5CF1 /* Mypage */,
 				0322136B2B15F8B400FF5CF1 /* TabBar */,
-				032212A92B14AAFD00FF5CF1 /* ViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -342,6 +348,30 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		032213702B15F9FA00FF5CF1 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				032213732B15FA2600FF5CF1 /* CategoryViewController.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		032213712B15FA0100FF5CF1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				032213752B15FA2D00FF5CF1 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		032213722B15FA0500FF5CF1 /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				032213772B15FA3500FF5CF1 /* MypageViewController.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -446,8 +476,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				032212FD2B14B1E000FF5CF1 /* UIView+.swift in Sources */,
-				032212AA2B14AAFD00FF5CF1 /* ViewController.swift in Sources */,
+				032213782B15FA3500FF5CF1 /* MypageViewController.swift in Sources */,
 				0322132A2B14B9E800FF5CF1 /* FontLiterals.swift in Sources */,
+				032213762B15FA2D00FF5CF1 /* HomeViewController.swift in Sources */,
 				032213202B14B75100FF5CF1 /* APIService.swift in Sources */,
 				032213172B14B2F800FF5CF1 /* NetworkLoggerPlugin.swift in Sources */,
 				0322130D2B14B26400FF5CF1 /* UILabel+.swift in Sources */,
@@ -461,6 +492,7 @@
 				032213072B14B24500FF5CF1 /* UITextField+.swift in Sources */,
 				0322132E2B14B9FD00FF5CF1 /* SizeLiterals.swift in Sources */,
 				032213302B14BA0F00FF5CF1 /* StringLiterals.swift in Sources */,
+				032213742B15FA2600FF5CF1 /* CategoryViewController.swift in Sources */,
 				032213132B14B29200FF5CF1 /* UIButton+.swift in Sources */,
 				032212F72B14B1B900FF5CF1 /* Protocol.swift in Sources */,
 				0322132C2B14B9F500FF5CF1 /* ImageLiterals.swift in Sources */,
