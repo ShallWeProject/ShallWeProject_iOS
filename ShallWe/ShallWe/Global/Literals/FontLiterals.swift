@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+enum AppleSDGothicNeoType: String {
+    case EB = "AppleSDGothicNeoEB"
+    case B = "AppleSDGothicNeoB"
+    case SB = "AppleSDGothicNeoSB"
+    case M = "AppleSDGothicNeoM"
+    case R = "AppleSDGothicNeoR"
+}
+
+
