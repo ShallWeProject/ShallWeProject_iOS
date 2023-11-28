@@ -46,6 +46,7 @@ extension TabBarController {
         }
         
         setViewControllers(tabs, animated: false)
+        selectedViewController = tabs[1]
     }
     
     private func setTabBarUI() {
