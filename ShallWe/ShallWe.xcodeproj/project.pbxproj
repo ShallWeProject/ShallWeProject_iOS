@@ -61,6 +61,7 @@
 		032213382B15E3CC00FF5CF1 /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 032213372B15E3CC00FF5CF1 /* AppleSDGothicNeoSB.ttf */; };
 		0322133A2B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 032213392B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf */; };
 		0322133C2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0322133B2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf */; };
+		0322136A2B15F60800FF5CF1 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 032213692B15F60800FF5CF1 /* Image.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		032213372B15E3CC00FF5CF1 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
 		032213392B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoB.ttf; sourceTree = "<group>"; };
 		0322133B2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoEB.ttf; sourceTree = "<group>"; };
+		032213692B15F60800FF5CF1 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				032212AE2B14AAFF00FF5CF1 /* Assets.xcassets */,
+				032213692B15F60800FF5CF1 /* Image.xcassets */,
 			);
 			path = AssetCatalog;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				0322133A2B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf in Resources */,
 				032212AF2B14AAFF00FF5CF1 /* Assets.xcassets in Resources */,
 				032213342B15E3B800FF5CF1 /* AppleSDGothicNeoR.ttf in Resources */,
+				0322136A2B15F60800FF5CF1 /* Image.xcassets in Resources */,
 				032213362B15E3C200FF5CF1 /* AppleSDGothicNeoM.ttf in Resources */,
 				0322133C2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf in Resources */,
 			);
