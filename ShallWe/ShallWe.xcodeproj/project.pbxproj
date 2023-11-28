@@ -62,6 +62,8 @@
 		0322133A2B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 032213392B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf */; };
 		0322133C2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0322133B2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf */; };
 		0322136A2B15F60800FF5CF1 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 032213692B15F60800FF5CF1 /* Image.xcassets */; };
+		0322136D2B15F8C200FF5CF1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322136C2B15F8C200FF5CF1 /* TabBarController.swift */; };
+		0322136F2B15F8CF00FF5CF1 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322136E2B15F8CF00FF5CF1 /* TabBarItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +110,8 @@
 		032213392B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoB.ttf; sourceTree = "<group>"; };
 		0322133B2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoEB.ttf; sourceTree = "<group>"; };
 		032213692B15F60800FF5CF1 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
+		0322136C2B15F8C200FF5CF1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		0322136E2B15F8CF00FF5CF1 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +226,7 @@
 		032212E82B14B0B200FF5CF1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				0322136B2B15F8B400FF5CF1 /* TabBar */,
 				032212A92B14AAFD00FF5CF1 /* ViewController.swift */,
 			);
 			path = Presentation;
@@ -326,6 +331,15 @@
 				0322132F2B14BA0F00FF5CF1 /* StringLiterals.swift */,
 			);
 			path = Literals;
+			sourceTree = "<group>";
+		};
+		0322136B2B15F8B400FF5CF1 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				0322136C2B15F8C200FF5CF1 /* TabBarController.swift */,
+				0322136E2B15F8CF00FF5CF1 /* TabBarItem.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,6 +468,7 @@
 				032212F32B14B18500FF5CF1 /* MakeAlert.swift in Sources */,
 				0322131D2B14B32B00FF5CF1 /* URLConstant.swift in Sources */,
 				032213052B14B23000FF5CF1 /* UIViewController+.swift in Sources */,
+				0322136D2B15F8C200FF5CF1 /* TabBarController.swift in Sources */,
 				032212E12B14B01F00FF5CF1 /* DTO.swift in Sources */,
 				032213192B14B30A00FF5CF1 /* Config.swift in Sources */,
 				0322131B2B14B31E00FF5CF1 /* APIConstant.swift in Sources */,
@@ -462,6 +477,7 @@
 				032212E72B14B07C00FF5CF1 /* GeneralResponse.swift in Sources */,
 				032213032B14B22500FF5CF1 /* UIImage+.swift in Sources */,
 				032212FF2B14B20D00FF5CF1 /* UIResponder+.swift in Sources */,
+				0322136F2B15F8CF00FF5CF1 /* TabBarItem.swift in Sources */,
 				032213152B14B2EA00FF5CF1 /* API.swift in Sources */,
 				032213012B14B21700FF5CF1 /* UIColor+.swift in Sources */,
 			);
