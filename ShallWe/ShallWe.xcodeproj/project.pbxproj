@@ -74,6 +74,7 @@
 		032213962B1B6D9200FF5CF1 /* HomeRecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213952B1B6D9200FF5CF1 /* HomeRecommendCell.swift */; };
 		032213982B1B6DEA00FF5CF1 /* HomePopularCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213972B1B6DEA00FF5CF1 /* HomePopularCategoryCell.swift */; };
 		0322139A2B1B6ED300FF5CF1 /* ExperienceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213992B1B6ED300FF5CF1 /* ExperienceCell.swift */; };
+		0322139C2B1B8B3100FF5CF1 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322139B2B1B8B3100FF5CF1 /* HomeHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +133,7 @@
 		032213952B1B6D9200FF5CF1 /* HomeRecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCell.swift; sourceTree = "<group>"; };
 		032213972B1B6DEA00FF5CF1 /* HomePopularCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularCategoryCell.swift; sourceTree = "<group>"; };
 		032213992B1B6ED300FF5CF1 /* ExperienceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceCell.swift; sourceTree = "<group>"; };
+		0322139B2B1B8B3100FF5CF1 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				032213902B1B2EBB00FF5CF1 /* SearchView.swift */,
+				0322139B2B1B8B3100FF5CF1 /* HomeHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				0322139A2B1B6ED300FF5CF1 /* ExperienceCell.swift in Sources */,
 				0322136F2B15F8CF00FF5CF1 /* TabBarItem.swift in Sources */,
 				032213152B14B2EA00FF5CF1 /* API.swift in Sources */,
+				0322139C2B1B8B3100FF5CF1 /* HomeHeaderView.swift in Sources */,
 				032213012B14B21700FF5CF1 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
