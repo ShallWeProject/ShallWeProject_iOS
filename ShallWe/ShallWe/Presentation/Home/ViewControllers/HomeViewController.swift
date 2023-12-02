@@ -22,6 +22,11 @@ final class HomeViewController: BaseViewController {
     private let searchView = SearchView()
     private lazy var homeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: self.setSectionLayout())
     
+    // MARK: - Properties
+    
+    private let recommendModel: [RecommendModel] = RecommendModel.recommendCategoryData()
+    private let popularCategoryModel: [PopularCategoryModel] = PopularCategoryModel.popularCategoryTitleData()
+    
     // MARK: - UI Components Property
     
     override func setStyle() {
@@ -234,16 +239,18 @@ extension HomeViewController: UICollectionViewDataSource {
         let sectionType = SectionType.allCases[indexPath.section]
         switch sectionType {
         case .gallery:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGalleryCell.className, for: indexPath)
+            let cell = collectionView.dequeueCell(type: HomeGalleryCell.self, indexPath: indexPath)
             return cell
         case .recommend:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecommendCell.className, for: indexPath)
+            let cell = collectionView.dequeueCell(type: HomeRecommendCell.self, indexPath: indexPath)
+            cell.configureCell(recommendModel[indexPath.row])
             return cell
         case .popularCategory:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePopularCategoryCell.className, for: indexPath)
+            let cell = collectionView.dequeueCell(type: HomePopularCategoryCell.self, indexPath: indexPath)
+            cell.configureCell(popularCategoryModel[indexPath.row])
             return cell
         case .experience:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExperienceCell.className, for: indexPath)
+            let cell = collectionView.dequeueCell(type: ExperienceCell.self, indexPath: indexPath)
             return cell
         }
     }

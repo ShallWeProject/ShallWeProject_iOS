@@ -57,4 +57,10 @@ extension HomePopularCategoryCell {
             $0.center.equalToSuperview()
         }
     }
+    
+    // MARK: - Methods
+    
+    func configureCell(_ model: PopularCategoryModel) {
+        titleLabel.text = model.title
+    }
 }

@@ -54,4 +54,10 @@ extension HomeRecommendCell {
             $0.edges.equalToSuperview()
         }
     }
+    
+    // MARK: - Methods
+    
+    func configureCell(_ model: RecommendModel) {
+        recommendImageView.image = model.image
+    }
 }
