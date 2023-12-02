@@ -164,7 +164,7 @@ extension HomeViewController {
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(500),
+            widthDimension: .estimated(1.0),
             heightDimension: .absolute(27)
         )
         let group = NSCollectionLayoutGroup.horizontal(
@@ -191,6 +191,7 @@ extension HomeViewController {
         section.contentInsets = NSDirectionalEdgeInsets(top: 11, leading: 16, bottom: 14, trailing: 9)
         section.boundarySupplementaryItems = [header]
         section.orthogonalScrollingBehavior = .continuous
+        section.interGroupSpacing = 7
         
         return section
     }
@@ -227,9 +228,9 @@ extension HomeViewController: UICollectionViewDataSource {
         case .gallery:
             return 2
         case .recommend:
-            return 5
+            return recommendModel.count
         case .popularCategory:
-            return 10
+            return popularCategoryModel.count
         case .experience:
             return 20
         }

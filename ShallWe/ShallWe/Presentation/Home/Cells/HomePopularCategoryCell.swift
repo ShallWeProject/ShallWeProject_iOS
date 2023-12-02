@@ -54,7 +54,8 @@ extension HomePopularCategoryCell {
         self.contentView.addSubviews(titleLabel)
         
         titleLabel.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.centerY.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(13)
         }
     }
     
