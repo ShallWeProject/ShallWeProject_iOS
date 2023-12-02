@@ -12,14 +12,14 @@ import RxSwift
 import SnapKit
 import Then
 
-final class BaseView: UIView {
+class BaseView: UIView {
 
     private lazy var viewName = self.className
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         bindViewModel()
-        setStyles()
+        setStyle()
         setLayout()
     }
     
@@ -31,7 +31,7 @@ final class BaseView: UIView {
     /// Data 와 UI 를 bind 합니다.
     func bindViewModel() {}
     /// View 의 Style 을 set 합니다.
-    func setStyles() {}
+    func setStyle() {}
     /// View 의 Layout 을 set 합니다.
     func setLayout() {}
 
