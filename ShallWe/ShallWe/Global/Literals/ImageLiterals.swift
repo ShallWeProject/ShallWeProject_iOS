@@ -49,5 +49,7 @@ enum ImageLiterals {
         static var img_lover: UIImage { .load(name: "img_lover") }
         static var img_marriage: UIImage { .load(name: "img_marriage") }
         static var img_parents: UIImage { .load(name: "img_parents") }
+        static var img_ad1: UIImage { .load(name: "ad1") }
+        static var img_ad2: UIImage { .load(name: "ad2") }
     }
 }
