@@ -41,4 +41,13 @@ enum ImageLiterals {
         static var search_colored: UIImage { .load(name: "ic_search_colored") }
         static var search: UIImage { .load(name: "ic_search") }
     }
+    
+    enum Home {
+        static var logo_shallwe: UIImage { .load(name: "logo_shallwe") }
+        static var img_birthday: UIImage { .load(name: "img_birthday") }
+        static var img_grade: UIImage { .load(name: "img_grade") }
+        static var img_lover: UIImage { .load(name: "img_lover") }
+        static var img_marriage: UIImage { .load(name: "img_marriage") }
+        static var img_parents: UIImage { .load(name: "img_parents") }
+    }
 }
