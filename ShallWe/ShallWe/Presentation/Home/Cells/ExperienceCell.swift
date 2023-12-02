@@ -43,6 +43,7 @@ extension ExperienceCell {
         
         imageView.do {
             $0.image = ImageLiterals.Home.img_ad2
+            $0.makeCornerRound(radius: 10)
         }
         
         titleLabel.do {
@@ -52,9 +53,10 @@ extension ExperienceCell {
         }
         
         descriptionLabel.do {
-            $0.text = "체리 갈레트 비건 글루텐프리 쌀베이킹 클래스"
+            $0.text = "체리 갈레트 비건 글루텐프리 쌀 베이킹 클래스"
             $0.font = .fontGuide(.M00_12)
             $0.textColor = .black
+            $0.numberOfLines = 0
         }
         
         priceLabel.do {
@@ -85,6 +87,8 @@ extension ExperienceCell {
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(4)
             $0.leading.equalToSuperview()
+            $0.width.equalTo(156)
+            $0.height.equalTo(32)
         }
         
         priceLabel.snp.makeConstraints {

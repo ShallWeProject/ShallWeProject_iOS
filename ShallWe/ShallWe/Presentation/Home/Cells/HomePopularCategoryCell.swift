@@ -37,6 +37,7 @@ extension HomePopularCategoryCell {
         
         self.backgroundColor = .clear
         self.contentView.backgroundColor = .clear
+        self.makeBorder(width: 1, color: .gray0)
         self.makeCornerRound(radius: 13)
         
         titleLabel.do {
