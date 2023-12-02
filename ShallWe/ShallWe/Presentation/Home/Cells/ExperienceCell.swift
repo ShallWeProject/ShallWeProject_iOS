@@ -7,6 +7,90 @@
 
 import UIKit
 
-class ExperienceCell: UICollectionViewCell {
+import SnapKit
+import Then
+
+final class ExperienceCell: UICollectionViewCell {
     
+    // MARK: - UI Components
+    
+    private let imageView = UIImageView()
+    private let titleLabel = UILabel()
+    private let descriptionLabel = UILabel()
+    private let priceLabel = UILabel()
+    
+    // MARK: - Initializer
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUI()
+        setLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
+
+extension ExperienceCell {
+    
+    // MARK: - UI Components Property
+    
+    private func setUI() {
+        
+        self.backgroundColor = .clear
+        self.contentView.backgroundColor = .clear
+        
+        imageView.do {
+            $0.image = ImageLiterals.Home.img_ad2
+        }
+        
+        titleLabel.do {
+            $0.text = "[성수] 인기 공예 클래스"
+            $0.font = .fontGuide(.B00_12)
+            $0.textColor = .black
+        }
+        
+        descriptionLabel.do {
+            $0.text = "체리 갈레트 비건 글루텐프리 쌀베이킹 클래스"
+            $0.font = .fontGuide(.M00_12)
+            $0.textColor = .black
+        }
+        
+        priceLabel.do {
+            $0.text = "39,800 원"
+            $0.font = .fontGuide(.EB00_14)
+            $0.textColor = .point
+        }
+    }
+    
+    // MARK: - Layout Helper
+    
+    private func setLayout() {
+        
+        self.contentView.addSubviews(imageView, titleLabel,
+                                     descriptionLabel, priceLabel)
+        
+        imageView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 154 / 812)
+        }
+        
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(imageView.snp.bottom).offset(8)
+            $0.leading.equalToSuperview()
+        }
+        
+        descriptionLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(4)
+            $0.leading.equalToSuperview()
+        }
+        
+        priceLabel.snp.makeConstraints {
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(5)
+            $0.leading.equalToSuperview()
+        }
+    }
+}
+
