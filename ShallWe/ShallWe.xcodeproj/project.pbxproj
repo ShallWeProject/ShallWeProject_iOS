@@ -76,6 +76,8 @@
 		0322139A2B1B6ED300FF5CF1 /* ExperienceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213992B1B6ED300FF5CF1 /* ExperienceCell.swift */; };
 		0322139C2B1B8B3100FF5CF1 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322139B2B1B8B3100FF5CF1 /* HomeHeaderView.swift */; };
 		0322139E2B1B8F3200FF5CF1 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322139D2B1B8F3200FF5CF1 /* UICollectionView+.swift */; };
+		032213A12B1B92A000FF5CF1 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213A02B1B92A000FF5CF1 /* RecommendModel.swift */; };
+		032213A32B1B935800FF5CF1 /* PopularCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213A22B1B935800FF5CF1 /* PopularCategoryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +138,8 @@
 		032213992B1B6ED300FF5CF1 /* ExperienceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceCell.swift; sourceTree = "<group>"; };
 		0322139B2B1B8B3100FF5CF1 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		0322139D2B1B8F3200FF5CF1 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		032213A02B1B92A000FF5CF1 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
+		032213A22B1B935800FF5CF1 /* PopularCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCategoryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,6 +385,7 @@
 		032213712B15FA0100FF5CF1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0322139F2B1B929200FF5CF1 /* Models */,
 				0322138E2B1B2EA300FF5CF1 /* Views */,
 				0322138F2B1B2EA800FF5CF1 /* ViewControllers */,
 				032213922B1B6C1700FF5CF1 /* Cells */,
@@ -448,6 +453,15 @@
 				032213992B1B6ED300FF5CF1 /* ExperienceCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		0322139F2B1B929200FF5CF1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				032213A02B1B92A000FF5CF1 /* RecommendModel.swift */,
+				032213A22B1B935800FF5CF1 /* PopularCategoryModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -563,7 +577,9 @@
 				032213172B14B2F800FF5CF1 /* NetworkLoggerPlugin.swift in Sources */,
 				0322130D2B14B26400FF5CF1 /* UILabel+.swift in Sources */,
 				032213112B14B28600FF5CF1 /* UITabBar+.swift in Sources */,
+				032213A12B1B92A000FF5CF1 /* RecommendModel.swift in Sources */,
 				0322130F2B14B27B00FF5CF1 /* UITableView+.swift in Sources */,
+				032213A32B1B935800FF5CF1 /* PopularCategoryModel.swift in Sources */,
 				032213912B1B2EBB00FF5CF1 /* SearchView.swift in Sources */,
 				032212F12B14B17600FF5CF1 /* MakeVibrate.swift in Sources */,
 				0322130B2B14B25900FF5CF1 /* UIStackView+.swift in Sources */,
