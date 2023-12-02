@@ -69,10 +69,11 @@ final class HomeViewController: BaseViewController {
     }
     
     override func setRegister() {
-        homeCollectionView.register(HomeGalleryCell.self, forCellWithReuseIdentifier: HomeGalleryCell.className)
-        homeCollectionView.register(HomeRecommendCell.self, forCellWithReuseIdentifier: HomeRecommendCell.className)
-        homeCollectionView.register(HomePopularCategoryCell.self, forCellWithReuseIdentifier: HomePopularCategoryCell.className)
-        homeCollectionView.register(ExperienceCell.self, forCellWithReuseIdentifier: ExperienceCell.className)
+        homeCollectionView.registerCell(HomeGalleryCell.self)
+        homeCollectionView.registerCell(HomeRecommendCell.self)
+        homeCollectionView.registerCell(HomePopularCategoryCell.self)
+        homeCollectionView.registerCell(ExperienceCell.self)
+        homeCollectionView.registerHeader(HomeHeaderView.self)
     }
 }
 
@@ -111,7 +112,7 @@ extension HomeViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 13, leading: 0, bottom: 0, trailing: 0)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 13, leading: 0, bottom: 18, trailing: 0)
         section.orthogonalScrollingBehavior = .paging
         return section
     }
@@ -130,20 +131,21 @@ extension HomeViewController {
         )
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
-//        let headerSize = NSCollectionLayoutSize(
-//            widthDimension: .fractionalWidth(1.0),
-//            heightDimension: .absolute(70)
-//        )
-//        let header = NSCollectionLayoutBoundarySupplementaryItem(
-//            layoutSize: headerSize,
-//            elementKind: UICollectionView.elementKindSectionHeader,
-//            alignment: .top
-//        )
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(20)
+        )
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        header.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: -9, bottom: 0, trailing: 0)
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
-//        section.boundarySupplementaryItems = [header]
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 9, bottom: 0, trailing: 16)
+        section.boundarySupplementaryItems = [header]
+        section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 9, bottom: 22, trailing: 16)
         
         return section
     }
@@ -166,12 +168,23 @@ extension HomeViewController {
         )
         group.interItemSpacing = .fixed(7)
         
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(20)
+        )
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.scrollDirection = .vertical
         
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 4
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 9)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 11, leading: 16, bottom: 14, trailing: 9)
+        section.boundarySupplementaryItems = [header]
         section.orthogonalScrollingBehavior = .continuous
         
         return section
@@ -196,7 +209,7 @@ extension HomeViewController {
         group.interItemSpacing = .fixed(18)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 86, trailing: 16)
         return section
     }
 }
@@ -235,9 +248,25 @@ extension HomeViewController: UICollectionViewDataSource {
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//
-//    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let sectionType = SectionType.allCases[indexPath.section]
+        switch sectionType {
+        case .gallery:
+            let view = UICollectionReusableView()
+            return view
+        case .recommend:
+            let headerView = collectionView.dequeueReusableCell(kind: kind, type: HomeHeaderView.self, indexPath: indexPath)
+            headerView.isRecommendHeaderIncluded = true
+            return headerView
+        case .popularCategory:
+            let headerView = collectionView.dequeueReusableCell(kind: kind, type: HomeHeaderView.self, indexPath: indexPath)
+            headerView.isPopularHeaderIncluded = true
+            return headerView
+        case .experience:
+            let view = UICollectionReusableView()
+            return view
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {

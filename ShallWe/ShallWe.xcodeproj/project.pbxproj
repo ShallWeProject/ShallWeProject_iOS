@@ -75,6 +75,7 @@
 		032213982B1B6DEA00FF5CF1 /* HomePopularCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213972B1B6DEA00FF5CF1 /* HomePopularCategoryCell.swift */; };
 		0322139A2B1B6ED300FF5CF1 /* ExperienceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213992B1B6ED300FF5CF1 /* ExperienceCell.swift */; };
 		0322139C2B1B8B3100FF5CF1 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322139B2B1B8B3100FF5CF1 /* HomeHeaderView.swift */; };
+		0322139E2B1B8F3200FF5CF1 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322139D2B1B8F3200FF5CF1 /* UICollectionView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +135,7 @@
 		032213972B1B6DEA00FF5CF1 /* HomePopularCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePopularCategoryCell.swift; sourceTree = "<group>"; };
 		032213992B1B6ED300FF5CF1 /* ExperienceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceCell.swift; sourceTree = "<group>"; };
 		0322139B2B1B8B3100FF5CF1 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		0322139D2B1B8F3200FF5CF1 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 				0322130E2B14B27B00FF5CF1 /* UITableView+.swift */,
 				032213102B14B28600FF5CF1 /* UITabBar+.swift */,
 				032213122B14B29200FF5CF1 /* UIButton+.swift */,
+				0322139D2B1B8F3200FF5CF1 /* UICollectionView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 			files = (
 				032212FD2B14B1E000FF5CF1 /* UIView+.swift in Sources */,
 				032213782B15FA3500FF5CF1 /* MypageViewController.swift in Sources */,
+				0322139E2B1B8F3200FF5CF1 /* UICollectionView+.swift in Sources */,
 				0322132A2B14B9E800FF5CF1 /* FontLiterals.swift in Sources */,
 				032213762B15FA2D00FF5CF1 /* HomeViewController.swift in Sources */,
 				0322138B2B1B2B5100FF5CF1 /* CustomNavigationBar.swift in Sources */,

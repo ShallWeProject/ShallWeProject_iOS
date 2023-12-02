@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeHeaderView: UICollectionReusableView {
+final class HomeHeaderView: UICollectionReusableView {
     
     // MARK: - UI Components
     
@@ -77,7 +77,7 @@ extension HomeHeaderView {
         
         popularLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(16)
+            $0.leading.equalToSuperview()
         }
     }
 }
