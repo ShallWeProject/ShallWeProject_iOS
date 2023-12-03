@@ -304,7 +304,6 @@ extension HomeViewController: UICollectionViewDataSource {
         case .recommend:
             print("recommend")
         case .popularCategory:
-            print(indexPath.section)
             viewModel.inputs.popularCategoryCellTap(at: indexPath)
         case .experience:
             print("experience")
