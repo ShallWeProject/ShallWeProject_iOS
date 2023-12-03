@@ -7,24 +7,17 @@
 
 import UIKit
 
+enum HomeHeaderType {
+    case recommend
+    case popular
+}
+
 final class HomeHeaderView: UICollectionReusableView {
     
     // MARK: - UI Components
     
     private let recommendLabel = UILabel()
     private let popularLabel = UILabel()
-    
-    // MARK: - Properties
-    
-    var isRecommendHeaderIncluded: Bool {
-        get { !recommendLabel.isHidden }
-        set { recommendLabel.isHidden = !newValue }
-    }
-    
-    var isPopularHeaderIncluded: Bool {
-        get { !popularLabel.isHidden }
-        set { popularLabel.isHidden = !newValue }
-    }
     
     // MARK: - View Life Cycle
     
@@ -78,6 +71,17 @@ extension HomeHeaderView {
         popularLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview()
+        }
+    }
+    
+    // MARK: - Methods
+    
+    func homeHeaderType(_ type: HomeHeaderType) {
+        switch type {
+        case .recommend:
+            recommendLabel.isHidden = false
+        case .popular:
+            popularLabel.isHidden = false
         }
     }
 }

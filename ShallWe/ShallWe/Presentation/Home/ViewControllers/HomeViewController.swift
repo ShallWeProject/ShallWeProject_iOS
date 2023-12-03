@@ -266,6 +266,10 @@ extension HomeViewController: UICollectionViewDataSource {
         case .popularCategory:
             let cell = collectionView.dequeueCell(type: HomePopularCategoryCell.self, indexPath: indexPath)
             cell.configureCell(popularCategoryModel[indexPath.row])
+            if indexPath.row == 0 {
+                cell.isSelected = true
+                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+            } else { cell.isSelected = false }
             return cell
         case .experience:
             let cell = collectionView.dequeueCell(type: ExperienceCell.self, indexPath: indexPath)
@@ -281,11 +285,11 @@ extension HomeViewController: UICollectionViewDataSource {
             return view
         case .recommend:
             let headerView = collectionView.dequeueReusableCell(kind: kind, type: HomeHeaderView.self, indexPath: indexPath)
-            headerView.isRecommendHeaderIncluded = true
+            headerView.homeHeaderType(.recommend)
             return headerView
         case .popularCategory:
             let headerView = collectionView.dequeueReusableCell(kind: kind, type: HomeHeaderView.self, indexPath: indexPath)
-            headerView.isPopularHeaderIncluded = true
+            headerView.homeHeaderType(.popular)
             return headerView
         case .experience:
             let view = UICollectionReusableView()

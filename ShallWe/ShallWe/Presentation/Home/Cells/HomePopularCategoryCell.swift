@@ -55,7 +55,6 @@ extension HomePopularCategoryCell {
         self.makeCornerRound(radius: 13)
         
         titleLabel.do {
-            $0.text = "전체"
             $0.font = .fontGuide(.M00_12)
             $0.textColor = .gray4
         }
@@ -77,5 +76,17 @@ extension HomePopularCategoryCell {
     
     func configureCell(_ model: PopularCategoryModel) {
         titleLabel.text = model.title
+    }
+    
+    func isSelectedCell() {
+        self.backgroundColor = .bg2
+        self.titleLabel.textColor = .main
+        self.titleLabel.font = .fontGuide(.SB00_12)
+    }
+    
+    func isDeSelectedCell() {
+        self.backgroundColor = .clear
+        self.titleLabel.font = .fontGuide(.M00_12)
+        self.titleLabel.textColor = .gray4
     }
 }
