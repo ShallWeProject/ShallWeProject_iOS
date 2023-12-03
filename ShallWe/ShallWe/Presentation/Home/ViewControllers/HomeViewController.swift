@@ -30,6 +30,7 @@ final class HomeViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     private let recommendModel: [RecommendModel] = RecommendModel.recommendCategoryData()
     private let popularCategoryModel: [PopularCategoryModel] = PopularCategoryModel.popularCategoryTitleData()
+    var selectedIndexPath: IndexPath = IndexPath(row: 0, section: 2)
     
     override func bindViewModel() {
         viewModel.outputs.selectedCellIndex
@@ -38,6 +39,7 @@ final class HomeViewController: BaseViewController {
                 if let indexPath = indexPath {
                     if let cell = homeCollectionView.cellForItem(at: indexPath) as? HomePopularCategoryCell {
                         cell.isSelected = true
+                        self.selectedIndexPath = indexPath
                     }
                 }
             })
@@ -266,10 +268,7 @@ extension HomeViewController: UICollectionViewDataSource {
         case .popularCategory:
             let cell = collectionView.dequeueCell(type: HomePopularCategoryCell.self, indexPath: indexPath)
             cell.configureCell(popularCategoryModel[indexPath.row])
-            if indexPath.row == 0 {
-                cell.isSelected = true
-                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
-            } else { cell.isSelected = false }
+            collectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .init())
             return cell
         case .experience:
             let cell = collectionView.dequeueCell(type: ExperienceCell.self, indexPath: indexPath)
@@ -305,6 +304,7 @@ extension HomeViewController: UICollectionViewDataSource {
         case .recommend:
             print("recommend")
         case .popularCategory:
+            print(indexPath.section)
             viewModel.inputs.popularCategoryCellTap(at: indexPath)
         case .experience:
             print("experience")
@@ -316,5 +316,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return HomeSectionType.allCases.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let cell = cell as? HomePopularCategoryCell {
+            collectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .init())
+        }
     }
 }
