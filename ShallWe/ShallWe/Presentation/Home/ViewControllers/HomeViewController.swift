@@ -9,6 +9,8 @@ import UIKit
 
 import Then
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class HomeViewController: BaseViewController {
     
@@ -24,8 +26,23 @@ final class HomeViewController: BaseViewController {
     
     // MARK: - Properties
     
+    private let viewModel = HomeViewModel()
+    private let disposeBag = DisposeBag()
     private let recommendModel: [RecommendModel] = RecommendModel.recommendCategoryData()
     private let popularCategoryModel: [PopularCategoryModel] = PopularCategoryModel.popularCategoryTitleData()
+    
+    override func bindViewModel() {
+        viewModel.outputs.selectedCellIndex
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                if let indexPath = indexPath {
+                    if let cell = homeCollectionView.cellForItem(at: indexPath) as? HomePopularCategoryCell {
+                        cell.isSelected = true
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
+    }
     
     // MARK: - UI Components Property
     
@@ -273,6 +290,20 @@ extension HomeViewController: UICollectionViewDataSource {
         case .experience:
             let view = UICollectionReusableView()
             return view
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sectionType = SectionType.allCases[indexPath.section]
+        switch sectionType {
+        case .gallery:
+            return
+        case .recommend:
+            print("recommend")
+        case .popularCategory:
+            viewModel.inputs.popularCategoryCellTap(at: indexPath)
+        case .experience:
+            print("experience")
         }
     }
 }

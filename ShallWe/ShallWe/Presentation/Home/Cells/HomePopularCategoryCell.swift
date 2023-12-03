@@ -12,6 +12,20 @@ import Then
 
 final class HomePopularCategoryCell: UICollectionViewCell {
     
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                self.backgroundColor = .bg2
+                self.titleLabel.textColor = .main
+                self.titleLabel.font = .fontGuide(.SB00_12)
+            } else {
+                self.backgroundColor = .clear
+                self.titleLabel.font = .fontGuide(.M00_12)
+                self.titleLabel.textColor = .gray4
+            }
+        }
+    }
+    
     // MARK: - UI Components
     
     private let titleLabel = UILabel()

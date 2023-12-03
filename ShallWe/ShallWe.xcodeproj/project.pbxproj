@@ -78,6 +78,7 @@
 		0322139E2B1B8F3200FF5CF1 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322139D2B1B8F3200FF5CF1 /* UICollectionView+.swift */; };
 		032213A12B1B92A000FF5CF1 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213A02B1B92A000FF5CF1 /* RecommendModel.swift */; };
 		032213A32B1B935800FF5CF1 /* PopularCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213A22B1B935800FF5CF1 /* PopularCategoryModel.swift */; };
+		032213A82B1C5E5000FF5CF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213A72B1C5E5000FF5CF1 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,7 @@
 		0322139D2B1B8F3200FF5CF1 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		032213A02B1B92A000FF5CF1 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
 		032213A22B1B935800FF5CF1 /* PopularCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCategoryModel.swift; sourceTree = "<group>"; };
+		032213A72B1C5E5000FF5CF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +387,7 @@
 		032213712B15FA0100FF5CF1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				032213A62B1C5E3C00FF5CF1 /* ViewModels */,
 				0322139F2B1B929200FF5CF1 /* Models */,
 				0322138E2B1B2EA300FF5CF1 /* Views */,
 				0322138F2B1B2EA800FF5CF1 /* ViewControllers */,
@@ -462,6 +465,14 @@
 				032213A22B1B935800FF5CF1 /* PopularCategoryModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		032213A62B1C5E3C00FF5CF1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				032213A72B1C5E5000FF5CF1 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,6 +581,7 @@
 				032212FD2B14B1E000FF5CF1 /* UIView+.swift in Sources */,
 				032213782B15FA3500FF5CF1 /* MypageViewController.swift in Sources */,
 				0322139E2B1B8F3200FF5CF1 /* UICollectionView+.swift in Sources */,
+				032213A82B1C5E5000FF5CF1 /* HomeViewModel.swift in Sources */,
 				0322132A2B14B9E800FF5CF1 /* FontLiterals.swift in Sources */,
 				032213762B15FA2D00FF5CF1 /* HomeViewController.swift in Sources */,
 				0322138B2B1B2B5100FF5CF1 /* CustomNavigationBar.swift in Sources */,
