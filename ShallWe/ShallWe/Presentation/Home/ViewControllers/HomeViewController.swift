@@ -14,7 +14,7 @@ import RxCocoa
 
 final class HomeViewController: BaseViewController {
     
-    private enum SectionType: CaseIterable {
+    private enum HomeSectionType: CaseIterable {
         case gallery, recommend, popularCategory, experience
     }
     
@@ -105,7 +105,7 @@ extension HomeViewController {
     
     private func setSectionLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { section, env -> NSCollectionLayoutSection? in
-            let sectionType = SectionType.allCases[section]
+            let sectionType = HomeSectionType.allCases[section]
             switch sectionType {
             case .gallery:
                 return self.getLayoutGallerySection()
@@ -240,7 +240,7 @@ extension HomeViewController {
 extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sectionType = SectionType.allCases[section]
+        let sectionType = HomeSectionType.allCases[section]
         switch sectionType {
         case .gallery:
             return 2
@@ -254,7 +254,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let sectionType = SectionType.allCases[indexPath.section]
+        let sectionType = HomeSectionType.allCases[indexPath.section]
         switch sectionType {
         case .gallery:
             let cell = collectionView.dequeueCell(type: HomeGalleryCell.self, indexPath: indexPath)
@@ -274,7 +274,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let sectionType = SectionType.allCases[indexPath.section]
+        let sectionType = HomeSectionType.allCases[indexPath.section]
         switch sectionType {
         case .gallery:
             let view = UICollectionReusableView()
@@ -294,7 +294,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sectionType = SectionType.allCases[indexPath.section]
+        let sectionType = HomeSectionType.allCases[indexPath.section]
         switch sectionType {
         case .gallery:
             return
@@ -311,6 +311,6 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return SectionType.allCases.count
+        return HomeSectionType.allCases.count
     }
 }
