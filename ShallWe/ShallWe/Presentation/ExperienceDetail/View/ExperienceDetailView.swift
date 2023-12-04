@@ -153,7 +153,8 @@ extension ExperienceDetailView {
     func setLayout() {
         scrollView.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(safeAreaLayoutGuide)
         }
         
         contentView.snp.makeConstraints {
@@ -211,7 +212,8 @@ extension ExperienceDetailView {
         
         explainDetailView.snp.makeConstraints {
             $0.top.equalTo(underLineView.snp.bottom)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(100)
         }
         
         guideDetailView.snp.makeConstraints {

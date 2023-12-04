@@ -39,8 +39,8 @@ final class ExplainTableViewCell: UITableViewCell, UITableViewRegisterable {
     
     private let circleView: UIView = {
         let circle = UIView()
-        circle.backgroundColor = .line1
-        circle.layer.cornerRadius = 30
+        circle.layer.backgroundColor = UIColor.line1.cgColor
+        circle.layer.cornerRadius = 5
         return circle
     }()
     
@@ -77,14 +77,15 @@ extension ExplainTableViewCell {
     
     func setLayout() {
         circleView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(8)
+            $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.size.equalTo(10)
         }
         
         lineView.snp.makeConstraints {
             $0.top.equalTo(circleView.snp.bottom)
-            $0.leading.bottom.equalToSuperview()
+            $0.leading.equalToSuperview().inset(4)
+            $0.bottom.equalToSuperview()
             $0.width.equalTo(2)
         }
         

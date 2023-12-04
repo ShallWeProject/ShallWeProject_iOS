@@ -109,7 +109,7 @@ extension ExplainDetailView {
         addressLabel.snp.makeConstraints {
             $0.top.equalTo(addressTitle.snp.bottom).offset(12)
             $0.leading.equalTo(addressTitle.snp.leading)
-            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-124)
+            $0.bottom.equalToSuperview()
         }
     }
     

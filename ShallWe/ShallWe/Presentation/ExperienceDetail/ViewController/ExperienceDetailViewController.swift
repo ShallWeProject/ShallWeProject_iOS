@@ -74,7 +74,7 @@ extension ExperienceDetailViewController: UICollectionViewDataSource {
 
 extension ExperienceDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width, height: 110)
+        return CGSize(width: UIScreen.main.bounds.width, height: 222)
     }
 }
 
