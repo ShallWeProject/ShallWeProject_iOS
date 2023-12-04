@@ -145,29 +145,29 @@ extension ExperienceDetailView {
     }
     
     func setHierarchy() {
-        self.addSubview(scrollView)
-        scrollView.addSubviews(contentView, gifButton)
+        self.addSubviews(gifButton, scrollView)
+        scrollView.addSubviews(contentView)
         contentView.addSubviews(imageCollectionView, experienceTitle, experienceSubTitle, priceLabel, seperatorView, segmentControl, underLineView, guideDetailView, explainDetailView)
     }
     
     func setLayout() {
+        gifButton.snp.makeConstraints {
+            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-36)
+            $0.leading.equalToSuperview().inset(15)
+            $0.width.equalTo(UIScreen.main.bounds.width * 335 / 375)
+            $0.height.equalTo(43)
+        }
+        
         scrollView.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(safeAreaLayoutGuide)
+            $0.bottom.equalTo(gifButton.snp.top)
         }
         
         contentView.snp.makeConstraints {
             $0.edges.equalToSuperview()
             $0.width.equalTo(scrollView.snp.width)
             $0.height.greaterThanOrEqualTo(self.snp.height).priority(.low)
-        }
-        
-        gifButton.snp.makeConstraints {
-            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-36)
-            $0.leading.equalToSuperview().inset(15)
-            $0.width.equalTo(UIScreen.main.bounds.width * 335 / 375)
-            $0.height.equalTo(43)
         }
         
         imageCollectionView.snp.makeConstraints {
@@ -213,7 +213,7 @@ extension ExperienceDetailView {
         explainDetailView.snp.makeConstraints {
             $0.top.equalTo(underLineView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(100)
+            $0.bottom.equalToSuperview().inset(45)
         }
         
         guideDetailView.snp.makeConstraints {
