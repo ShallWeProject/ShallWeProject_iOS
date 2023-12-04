@@ -66,6 +66,14 @@
 		032213742B15FA2600FF5CF1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213732B15FA2600FF5CF1 /* CategoryViewController.swift */; };
 		032213762B15FA2D00FF5CF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213752B15FA2D00FF5CF1 /* HomeViewController.swift */; };
 		032213782B15FA3500FF5CF1 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213772B15FA3500FF5CF1 /* MypageViewController.swift */; };
+		A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */; };
+		A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE572B1A25180049C126 /* ExperienceDetailView.swift */; };
+		A431BE5C2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5B2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift */; };
+		A431BE5E2B1AFAF90049C126 /* UICollectionViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5D2B1AFAF90049C126 /* UICollectionViewRegisterable.swift */; };
+		A431BE602B1AFB160049C126 /* UITableViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5F2B1AFB160049C126 /* UITableViewRegisterable.swift */; };
+		A431BE6E2B1CDD150049C126 /* ExplainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE6D2B1CDD150049C126 /* ExplainDetailView.swift */; };
+		A431BE702B1CDD2B0049C126 /* GuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE6F2B1CDD2B0049C126 /* GuideDetailView.swift */; };
+		A431BE722B1CEA630049C126 /* ExplainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE712B1CEA630049C126 /* ExplainTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +124,14 @@
 		032213732B15FA2600FF5CF1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		032213752B15FA2D00FF5CF1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		032213772B15FA3500FF5CF1 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewController.swift; sourceTree = "<group>"; };
+		A431BE572B1A25180049C126 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
+		A431BE5B2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		A431BE5D2B1AFAF90049C126 /* UICollectionViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewRegisterable.swift; sourceTree = "<group>"; };
+		A431BE5F2B1AFB160049C126 /* UITableViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewRegisterable.swift; sourceTree = "<group>"; };
+		A431BE6D2B1CDD150049C126 /* ExplainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainDetailView.swift; sourceTree = "<group>"; };
+		A431BE6F2B1CDD2B0049C126 /* GuideDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideDetailView.swift; sourceTree = "<group>"; };
+		A431BE712B1CEA630049C126 /* ExplainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +246,7 @@
 		032212E82B14B0B200FF5CF1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A431BE522B1A24780049C126 /* ExperienceDetail */,
 				032213702B15F9FA00FF5CF1 /* Category */,
 				032213712B15FA0100FF5CF1 /* Home */,
 				032213722B15FA0500FF5CF1 /* Mypage */,
@@ -275,6 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				032212F62B14B1B900FF5CF1 /* Protocol.swift */,
+				A431BE5D2B1AFAF90049C126 /* UICollectionViewRegisterable.swift */,
+				A431BE5F2B1AFB160049C126 /* UITableViewRegisterable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -370,6 +389,43 @@
 				032213772B15FA3500FF5CF1 /* MypageViewController.swift */,
 			);
 			path = Mypage;
+			sourceTree = "<group>";
+		};
+		A431BE522B1A24780049C126 /* ExperienceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A431BE5A2B1AFA810049C126 /* Cell */,
+				A431BE562B1A25090049C126 /* View */,
+				A431BE532B1A24E40049C126 /* ViewController */,
+			);
+			path = ExperienceDetail;
+			sourceTree = "<group>";
+		};
+		A431BE532B1A24E40049C126 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A431BE562B1A25090049C126 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A431BE572B1A25180049C126 /* ExperienceDetailView.swift */,
+				A431BE6D2B1CDD150049C126 /* ExplainDetailView.swift */,
+				A431BE6F2B1CDD2B0049C126 /* GuideDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A431BE5A2B1AFA810049C126 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A431BE5B2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift */,
+				A431BE712B1CEA630049C126 /* ExplainTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,18 +535,26 @@
 				032213782B15FA3500FF5CF1 /* MypageViewController.swift in Sources */,
 				0322132A2B14B9E800FF5CF1 /* FontLiterals.swift in Sources */,
 				032213762B15FA2D00FF5CF1 /* HomeViewController.swift in Sources */,
+				A431BE5C2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift in Sources */,
 				032213202B14B75100FF5CF1 /* APIService.swift in Sources */,
 				032213172B14B2F800FF5CF1 /* NetworkLoggerPlugin.swift in Sources */,
 				0322130D2B14B26400FF5CF1 /* UILabel+.swift in Sources */,
+				A431BE722B1CEA630049C126 /* ExplainTableViewCell.swift in Sources */,
+				A431BE5E2B1AFAF90049C126 /* UICollectionViewRegisterable.swift in Sources */,
 				032213112B14B28600FF5CF1 /* UITabBar+.swift in Sources */,
 				0322130F2B14B27B00FF5CF1 /* UITableView+.swift in Sources */,
+				A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */,
+				A431BE702B1CDD2B0049C126 /* GuideDetailView.swift in Sources */,
 				032212F12B14B17600FF5CF1 /* MakeVibrate.swift in Sources */,
 				0322130B2B14B25900FF5CF1 /* UIStackView+.swift in Sources */,
+				A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */,
 				032212F92B14B1C800FF5CF1 /* String+.swift in Sources */,
 				032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */,
 				032212A82B14AAFD00FF5CF1 /* SceneDelegate.swift in Sources */,
+				A431BE6E2B1CDD150049C126 /* ExplainDetailView.swift in Sources */,
 				032213072B14B24500FF5CF1 /* UITextField+.swift in Sources */,
 				0322132E2B14B9FD00FF5CF1 /* SizeLiterals.swift in Sources */,
+				A431BE602B1AFB160049C126 /* UITableViewRegisterable.swift in Sources */,
 				032213302B14BA0F00FF5CF1 /* StringLiterals.swift in Sources */,
 				032213742B15FA2600FF5CF1 /* CategoryViewController.swift in Sources */,
 				032213132B14B29200FF5CF1 /* UIButton+.swift in Sources */,
