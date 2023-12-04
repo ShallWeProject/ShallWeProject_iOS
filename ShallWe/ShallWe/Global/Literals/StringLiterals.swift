@@ -19,5 +19,8 @@ enum I18N {
         static let giftButton = "선물하기"
         static let tableViewTitle = "커리큘럼"
         static let addressTitle = "오시는 길"
+        static let noteTitle = "신청 시 유의사항"
+        static let changeTitle = "예약 변경"
+        static let cancelTitle = "예약 취소"
     }
 }
