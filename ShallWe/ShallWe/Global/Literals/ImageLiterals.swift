@@ -31,7 +31,7 @@ enum ImageLiterals {
         static var check_round_default: UIImage { .load(name: "ic_check_round_default") }
         static var delete: UIImage { .load(name: "ic_delete") }
         static var gift: UIImage { .load(name: "ic_gift") }
-        static var eft_calender_1: UIImage { .load(name: "ic_left_calender-1") }
+        static var left_calender_1: UIImage { .load(name: "ic_left_calender-1") }
         static var left_calender: UIImage { .load(name: "ic_left_calender") }
         static var minus: UIImage { .load(name: "ic_minus") }
         static var plus_circle: UIImage { .load(name: "ic_plus_circle") }
@@ -40,5 +40,10 @@ enum ImageLiterals {
         static var right_calender: UIImage { .load(name: "ic_right_calender") }
         static var search_colored: UIImage { .load(name: "ic_search_colored") }
         static var search: UIImage { .load(name: "ic_search") }
+        static var kakao_login: UIImage { .load(name: "kakaoLoginIcon") }
+    }
+    
+    enum Logo {
+        static var shall_we_logo: UIImage { .load(name: "shallWeLogo") }
     }
 }

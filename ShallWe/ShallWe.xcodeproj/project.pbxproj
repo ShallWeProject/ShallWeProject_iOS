@@ -66,6 +66,7 @@
 		032213742B15FA2600FF5CF1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213732B15FA2600FF5CF1 /* CategoryViewController.swift */; };
 		032213762B15FA2D00FF5CF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213752B15FA2D00FF5CF1 /* HomeViewController.swift */; };
 		032213782B15FA3500FF5CF1 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213772B15FA3500FF5CF1 /* MypageViewController.swift */; };
+		954E45B62B1E5C4200D12242 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45B52B1E5C4200D12242 /* AuthViewController.swift */; };
 		A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */; };
 		A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE572B1A25180049C126 /* ExperienceDetailView.swift */; };
 		A431BE5C2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5B2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift */; };
@@ -124,6 +125,7 @@
 		032213732B15FA2600FF5CF1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		032213752B15FA2D00FF5CF1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		032213772B15FA3500FF5CF1 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		954E45B52B1E5C4200D12242 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewController.swift; sourceTree = "<group>"; };
 		A431BE572B1A25180049C126 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
 		A431BE5B2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		032212E82B14B0B200FF5CF1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				954E45B42B1E5C2800D12242 /* Auth */,
 				A431BE522B1A24780049C126 /* ExperienceDetail */,
 				032213702B15F9FA00FF5CF1 /* Category */,
 				032213712B15FA0100FF5CF1 /* Home */,
@@ -389,6 +392,14 @@
 				032213772B15FA3500FF5CF1 /* MypageViewController.swift */,
 			);
 			path = Mypage;
+			sourceTree = "<group>";
+		};
+		954E45B42B1E5C2800D12242 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				954E45B52B1E5C4200D12242 /* AuthViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		A431BE522B1A24780049C126 /* ExperienceDetail */ = {
@@ -547,6 +558,7 @@
 				A431BE702B1CDD2B0049C126 /* GuideDetailView.swift in Sources */,
 				032212F12B14B17600FF5CF1 /* MakeVibrate.swift in Sources */,
 				0322130B2B14B25900FF5CF1 /* UIStackView+.swift in Sources */,
+				954E45B62B1E5C4200D12242 /* AuthViewController.swift in Sources */,
 				A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */,
 				032212F92B14B1C800FF5CF1 /* String+.swift in Sources */,
 				032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */,
