@@ -6,10 +6,11 @@
 //
 
 import UIKit
-import SnapKit
 import AuthenticationServices
 
-class AuthViewController: UIViewController {
+import SnapKit
+
+final class LoginViewController: UIViewController {
     
     // MARK: - UI Components
     
@@ -128,12 +129,14 @@ class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setAddTarget()
     }
 }
 
 // MARK: - Extensions
 
-extension AuthViewController {
+extension LoginViewController {
     func setUI() {
         authView.backgroundColor = .bg0
     }
@@ -204,5 +207,15 @@ extension AuthViewController {
             $0.centerY.equalToSuperview()
             $0.horizontalEdges.equalTo(authView.safeAreaLayoutGuide).inset(38)
         }
+    }
+    
+    func setAddTarget() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenDidTap(_:)))
+        authView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func screenDidTap(_ view: UIView) {
+        let phoneNumberVerificationViewController = PhoneNumberVerificationViewController()
+        self.navigationController?.pushViewController(phoneNumberVerificationViewController, animated: true)
     }
 }
