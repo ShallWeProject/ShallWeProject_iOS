@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import AuthenticationServices
 
 class AuthViewController: UIViewController {
     
@@ -125,7 +126,7 @@ extension AuthViewController {
     
     func setLayout() {
         shallWeLogoImageView.snp.makeConstraints {
-            $0.height.equalTo(165.67)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight*(165.67/768))
         }
         
         kakaoIconImageView.snp.makeConstraints {
