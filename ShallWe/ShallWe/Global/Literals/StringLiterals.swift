@@ -28,5 +28,6 @@ enum I18N {
         static let mainIntroText = "경험을 선물하는 서비스 셸위"
         static let subIntroText = "소중한 사람들과 잊지 못할 추억을 만들어보세요"
         static let kakaoLoginText = "카카오 로그인"
+        static let appleLoginText = "Apple로 로그인"
     }
 }

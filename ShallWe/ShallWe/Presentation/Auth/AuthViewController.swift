@@ -48,6 +48,7 @@ class AuthViewController: UIViewController {
     private let kakaoIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiterals.Icon.kakao_login
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -55,12 +56,34 @@ class AuthViewController: UIViewController {
         let label = UILabel()
         label.text = I18N.Auth.kakaoLoginText
         label.textColor = .black.withAlphaComponent(0.85)
-        label.font = UIFont.systemFont(ofSize: 14.5)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.textAlignment = .center
         return label
     }()
     
-//    private let appleLogin
+    private let appleLoginView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        view.layer.cornerRadius = 6
+        return view
+    }()
+    
+    private let appleIconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "apple.logo")
+        imageView.tintColor = .white
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    private let appleLoginLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Auth.appleLoginText
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.textAlignment = .center
+        return label
+    }()
     
     private var labelStackView: UIStackView = {
         var stackView = UIStackView()
@@ -90,7 +113,7 @@ class AuthViewController: UIViewController {
         return stackView
     }()
     
-    private var superView = UIView()
+    private var authView = UIView()
     
     // MARK: - Life Cycles
     
@@ -100,7 +123,7 @@ class AuthViewController: UIViewController {
         setUI()
         setHierarchy()
         setLayout()
-        view = superView
+        view = authView
     }
     
     override func viewDidLoad() {
@@ -112,16 +135,17 @@ class AuthViewController: UIViewController {
 
 extension AuthViewController {
     func setUI() {
-        superView.backgroundColor = .bg0
+        authView.backgroundColor = .bg0
     }
     
     func setHierarchy() {
-        superView.addSubview(totalStackView)
+        authView.addSubview(totalStackView)
         totalStackView.addArrangedSubviews(topStackView, loginStackView)
         topStackView.addArrangedSubviews(shallWeLogoImageView, labelStackView)
-        loginStackView.addArrangedSubviews(kakaoLoginView)
+        loginStackView.addArrangedSubviews(kakaoLoginView, appleLoginView)
         labelStackView.addArrangedSubviews(mainIntroLabel, subIntroLabel)
         kakaoLoginView.addSubviews(kakaoIconImageView, kakaoLoginLabel)
+        appleLoginView.addSubviews(appleIconImageView, appleLoginLabel)
     }
     
     func setLayout() {
@@ -131,7 +155,6 @@ extension AuthViewController {
         
         kakaoIconImageView.snp.makeConstraints {
             $0.width.equalTo(18)
-            $0.height.equalTo(18)
             $0.leading.equalToSuperview().inset(20)
             $0.centerY.equalToSuperview()
         }
@@ -143,6 +166,23 @@ extension AuthViewController {
         }
         
         kakaoLoginView.snp.makeConstraints {
+            $0.height.equalTo(45)
+            $0.horizontalEdges.equalToSuperview()
+        }
+        
+        appleIconImageView.snp.makeConstraints {
+            $0.width.equalTo(18)
+            $0.leading.equalToSuperview().inset(20)
+            $0.centerY.equalToSuperview()
+        }
+        
+        appleLoginLabel.snp.makeConstraints {
+            $0.leading.equalTo(appleIconImageView.snp.trailing).offset(10)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.centerY.equalToSuperview()
+        }
+        
+        appleLoginView.snp.makeConstraints {
             $0.height.equalTo(45)
             $0.horizontalEdges.equalToSuperview()
         }
@@ -162,7 +202,7 @@ extension AuthViewController {
         totalStackView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview()
-            $0.horizontalEdges.equalTo(superView.safeAreaLayoutGuide).inset(38)
+            $0.horizontalEdges.equalTo(authView.safeAreaLayoutGuide).inset(38)
         }
     }
 }
