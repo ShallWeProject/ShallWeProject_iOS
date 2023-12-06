@@ -31,8 +31,11 @@ final class HomeViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     private let recommendModel: [RecommendModel] = RecommendModel.recommendCategoryData()
     private let popularCategoryModel: [PopularCategoryModel] = PopularCategoryModel.popularCategoryTitleData()
+    private var galleryModel: [GalleryModel] = GalleryModel.galleryDummydata()
+    private var experienceModel: [HomeExperienceModel] = HomeExperienceModel.homeExperienceDummyData()
     var selectedIndexPath: IndexPath = IndexPath(row: 0, section: 2)
-    var galleryCount: Int = 2
+    var galleryCount: Int = GalleryModel.galleryDummydata().count
+    private let currentIndex = PublishSubject<Int>()
     
     override func bindViewModel() {
         viewModel.outputs.selectedCellIndex
@@ -48,9 +51,7 @@ final class HomeViewController: BaseViewController {
             .disposed(by: disposeBag)
         viewModel.outputs.currentIndexSubject
             .subscribe(onNext: { [weak self] index in
-                guard let self = self else { return }
-                galleryIndexLabel.text = "\(index + 1) | \(galleryCount)"
-                galleryIndexLabel.partColorChange(targetString: "\(index + 1)", textColor: .white)
+                self?.galleryCount = index
             })
             .disposed(by: disposeBag)
     }
@@ -124,6 +125,7 @@ final class HomeViewController: BaseViewController {
         homeCollectionView.registerCell(HomePopularCategoryCell.self)
         homeCollectionView.registerCell(ExperienceCell.self)
         homeCollectionView.registerHeader(HomeHeaderView.self)
+        homeCollectionView.registerFooter(GalleryFooterView.self)
     }
 }
 
@@ -166,11 +168,18 @@ extension HomeViewController {
         section.contentInsets = NSDirectionalEdgeInsets(top: 13, leading: 0, bottom: 18, trailing: 0)
         section.orthogonalScrollingBehavior = .paging
         
+        let footerSize = NSCollectionLayoutSize(widthDimension: .absolute(46), heightDimension: .absolute(20))
+        
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
+        footer.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        
         // 현재 셀의 인덱스
         section.visibleItemsInvalidationHandler = { [weak self] (visibleItems, offset, env) in
             let currentPage = Int(max(0, round(offset.x / env.container.contentSize.width)))
-            self?.viewModel.inputs.updateCurrentIndex(to: currentPage)
+//            self?.viewModel.inputs.updateCurrentIndex(to: currentPage)
+            self?.currentIndex.onNext(currentPage)
         }
+        section.boundarySupplementaryItems = [footer]
         return section
     }
     
@@ -278,13 +287,13 @@ extension HomeViewController: UICollectionViewDataSource {
         let sectionType = HomeSectionType.allCases[section]
         switch sectionType {
         case .gallery:
-            return 2
+            return galleryModel.count
         case .recommend:
             return recommendModel.count
         case .popularCategory:
             return popularCategoryModel.count
         case .experience:
-            return 20
+            return experienceModel.count
         }
     }
     
@@ -293,6 +302,7 @@ extension HomeViewController: UICollectionViewDataSource {
         switch sectionType {
         case .gallery:
             let cell = collectionView.dequeueCell(type: HomeGalleryCell.self, indexPath: indexPath)
+            cell.configureCell(galleryModel[indexPath.row])
             return cell
         case .recommend:
             let cell = collectionView.dequeueCell(type: HomeRecommendCell.self, indexPath: indexPath)
@@ -305,6 +315,7 @@ extension HomeViewController: UICollectionViewDataSource {
             return cell
         case .experience:
             let cell = collectionView.dequeueCell(type: ExperienceCell.self, indexPath: indexPath)
+            cell.configureCell(experienceModel[indexPath.row])
             return cell
         }
     }
@@ -313,8 +324,9 @@ extension HomeViewController: UICollectionViewDataSource {
         let sectionType = HomeSectionType.allCases[indexPath.section]
         switch sectionType {
         case .gallery:
-            let view = UICollectionReusableView()
-            return view
+            let footerView = collectionView.dequeueReusableCell(kind: kind, type: GalleryFooterView.self, indexPath: indexPath)
+            footerView.bind(input: currentIndex)
+            return footerView
         case .recommend:
             let headerView = collectionView.dequeueReusableCell(kind: kind, type: HomeHeaderView.self, indexPath: indexPath)
             headerView.homeHeaderType(.recommend)
@@ -332,14 +344,10 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sectionType = HomeSectionType.allCases[indexPath.section]
         switch sectionType {
-        case .gallery:
-            return
-        case .recommend:
-            print("recommend")
         case .popularCategory:
             viewModel.inputs.popularCategoryCellTap(at: indexPath)
-        case .experience:
-            print("experience")
+        case .gallery, .recommend, .experience:
+            return
         }
     }
 }

@@ -33,4 +33,9 @@ extension UICollectionView {
     func dequeueReusableCell<T: UICollectionReusableView>(kind: String, type: T.Type, indexPath: IndexPath) -> T {
         return self.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: type.className, for: indexPath) as! T
     }
+    
+    func registerFooter<T: UICollectionReusableView>(_ type: T.Type) {
+        let className = type.className
+        register(type.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: className)
+    }
 }

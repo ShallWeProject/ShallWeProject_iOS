@@ -81,6 +81,7 @@
 		032213A82B1C5E5000FF5CF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213A72B1C5E5000FF5CF1 /* HomeViewModel.swift */; };
 		032213AA2B20770F00FF5CF1 /* GalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213A92B20770E00FF5CF1 /* GalleryModel.swift */; };
 		032213AC2B20777600FF5CF1 /* HomeExperienceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213AB2B20777600FF5CF1 /* HomeExperienceModel.swift */; };
+		032213B32B20839100FF5CF1 /* GalleryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213B22B20839100FF5CF1 /* GalleryFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +147,7 @@
 		032213A72B1C5E5000FF5CF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		032213A92B20770E00FF5CF1 /* GalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModel.swift; sourceTree = "<group>"; };
 		032213AB2B20777600FF5CF1 /* HomeExperienceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceModel.swift; sourceTree = "<group>"; };
+		032213B22B20839100FF5CF1 /* GalleryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +441,7 @@
 			children = (
 				032213902B1B2EBB00FF5CF1 /* SearchView.swift */,
 				0322139B2B1B8B3100FF5CF1 /* HomeHeaderView.swift */,
+				032213B22B20839100FF5CF1 /* GalleryFooterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				032213762B15FA2D00FF5CF1 /* HomeViewController.swift in Sources */,
 				0322138B2B1B2B5100FF5CF1 /* CustomNavigationBar.swift in Sources */,
 				032213202B14B75100FF5CF1 /* APIService.swift in Sources */,
+				032213B32B20839100FF5CF1 /* GalleryFooterView.swift in Sources */,
 				032213172B14B2F800FF5CF1 /* NetworkLoggerPlugin.swift in Sources */,
 				0322130D2B14B26400FF5CF1 /* UILabel+.swift in Sources */,
 				032213112B14B28600FF5CF1 /* UITabBar+.swift in Sources */,
