@@ -32,6 +32,7 @@ final class HomeViewController: BaseViewController {
     private let recommendModel: [RecommendModel] = RecommendModel.recommendCategoryData()
     private let popularCategoryModel: [PopularCategoryModel] = PopularCategoryModel.popularCategoryTitleData()
     var selectedIndexPath: IndexPath = IndexPath(row: 0, section: 2)
+    var galleryCount: Int = 2
     
     override func bindViewModel() {
         viewModel.outputs.selectedCellIndex
@@ -43,6 +44,13 @@ final class HomeViewController: BaseViewController {
                         self.selectedIndexPath = indexPath
                     }
                 }
+            })
+            .disposed(by: disposeBag)
+        viewModel.outputs.currentIndexSubject
+            .subscribe(onNext: { [weak self] index in
+                guard let self = self else { return }
+                galleryIndexLabel.text = "\(index + 1) | \(galleryCount)"
+                galleryIndexLabel.partColorChange(targetString: "\(index + 1)", textColor: .white)
             })
             .disposed(by: disposeBag)
     }
@@ -65,13 +73,13 @@ final class HomeViewController: BaseViewController {
         }
         
         galleryIndexLabel.do {
-            $0.text = "1 | 2"
+            $0.text = "1 | \(galleryCount)"
             $0.font = .fontGuide(.SB00_12)
-            $0.textColor = .white
+            $0.textColor = .white.withAlphaComponent(0.7)
             $0.textAlignment = .center
             $0.backgroundColor = .black_50
             $0.makeCornerRound(radius: 10)
-            $0.partColorChange(targetString: "| 2", textColor: .white.withAlphaComponent(0.7))
+            $0.partColorChange(targetString: "1", textColor: .white)
         }
     }
     
