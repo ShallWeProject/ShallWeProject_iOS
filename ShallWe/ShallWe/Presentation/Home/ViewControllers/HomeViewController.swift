@@ -170,7 +170,6 @@ extension HomeViewController {
         section.visibleItemsInvalidationHandler = { [weak self] (visibleItems, offset, env) in
             let currentPage = Int(max(0, round(offset.x / env.container.contentSize.width)))
             self?.viewModel.inputs.updateCurrentIndex(to: currentPage)
-            print(currentPage)
         }
         return section
     }
@@ -352,7 +351,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let cell = cell as? HomePopularCategoryCell {
+        if cell is HomePopularCategoryCell {
             collectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .init())
         }
     }
