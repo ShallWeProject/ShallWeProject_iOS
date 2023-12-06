@@ -12,10 +12,12 @@ import RxCocoa
 
 protocol HomeViewModelInputs {
     func popularCategoryCellTap(at indexPath: IndexPath)
+    func updateCurrentIndex(to index: Int)
 }
 
 protocol HomeViewModelOutputs {
     var selectedCellIndex: BehaviorRelay<IndexPath?> { get }
+    var currentIndexSubject: BehaviorSubject<Int> { get }
 }
 
 protocol HomeViewModelType {
@@ -26,6 +28,7 @@ protocol HomeViewModelType {
 final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewModelType {
     
     var selectedCellIndex: BehaviorRelay<IndexPath?> = BehaviorRelay<IndexPath?>(value: nil)
+    var currentIndexSubject: BehaviorSubject<Int> = BehaviorSubject<Int>(value: 0)
     
     var inputs: HomeViewModelInputs { return self }
     var outputs: HomeViewModelOutputs { return self }
@@ -34,5 +37,9 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     
     func popularCategoryCellTap(at indexPath: IndexPath) {
         selectedCellIndex.accept(indexPath)
+    }
+    
+    func updateCurrentIndex(to index: Int) {
+        currentIndexSubject.onNext(index)
     }
 }

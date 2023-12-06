@@ -23,6 +23,7 @@ final class HomeViewController: BaseViewController {
     private let navigationBar = CustomNavigationBar()
     private let searchView = SearchView()
     private lazy var homeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: self.setSectionLayout())
+    private let galleryIndexLabel = UILabel()
     
     // MARK: - Properties
     
@@ -62,12 +63,22 @@ final class HomeViewController: BaseViewController {
             $0.contentInsetAdjustmentBehavior = .never
             $0.collectionViewLayout = self.setSectionLayout()
         }
+        
+        galleryIndexLabel.do {
+            $0.text = "1 | 2"
+            $0.font = .fontGuide(.SB00_12)
+            $0.textColor = .white
+            $0.textAlignment = .center
+            $0.backgroundColor = .black_50
+            $0.makeCornerRound(radius: 10)
+            $0.partColorChange(targetString: "| 2", textColor: .white.withAlphaComponent(0.7))
+        }
     }
     
     // MARK: - Layout Helper
     
     override func setLayout() {
-        self.view.addSubviews(navigationBar, searchView, homeCollectionView)
+        self.view.addSubviews(navigationBar, searchView, homeCollectionView, galleryIndexLabel)
         
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -84,6 +95,13 @@ final class HomeViewController: BaseViewController {
         homeCollectionView.snp.makeConstraints {
             $0.top.equalTo(searchView.snp.bottom)
             $0.horizontalEdges.bottom.equalToSuperview()
+        }
+        
+        galleryIndexLabel.snp.makeConstraints {
+            $0.top.equalTo(homeCollectionView.snp.top).offset(SizeLiterals.Screen.screenHeight * 220 / 812)
+            $0.trailing.equalToSuperview().inset(16)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 46 / 375)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 20 / 812)
         }
     }
     
@@ -121,7 +139,8 @@ extension HomeViewController {
         }
     }
     
-    private func getLayoutGallerySection() -> NSCollectionLayoutSection {
+    func getLayoutGallerySection() -> NSCollectionLayoutSection {
+        
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(1.0)
@@ -138,6 +157,13 @@ extension HomeViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 13, leading: 0, bottom: 18, trailing: 0)
         section.orthogonalScrollingBehavior = .paging
+        
+        // 현재 셀의 인덱스
+        section.visibleItemsInvalidationHandler = { [weak self] (visibleItems, offset, env) in
+            let currentPage = Int(max(0, round(offset.x / env.container.contentSize.width)))
+            self?.viewModel.inputs.updateCurrentIndex(to: currentPage)
+            print(currentPage)
+        }
         return section
     }
     
