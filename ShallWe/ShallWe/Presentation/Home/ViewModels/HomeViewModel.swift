@@ -16,6 +16,7 @@ protocol HomeViewModelInputs {
 }
 
 protocol HomeViewModelOutputs {
+    
     var selectedCellIndex: BehaviorRelay<IndexPath?> { get }
     var currentIndexSubject: BehaviorSubject<Int> { get }
 }
@@ -27,6 +28,8 @@ protocol HomeViewModelType {
 
 final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewModelType {
     
+    var recommend: BehaviorRelay<[RecommendModel]> = BehaviorRelay(value: [])
+    var popularCategory: BehaviorRelay<[PopularCategoryModel]> = BehaviorRelay(value: [])
     var selectedCellIndex: BehaviorRelay<IndexPath?> = BehaviorRelay<IndexPath?>(value: nil)
     var currentIndexSubject: BehaviorSubject<Int> = BehaviorSubject<Int>(value: 0)
     

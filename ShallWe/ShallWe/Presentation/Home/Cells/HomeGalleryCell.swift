@@ -54,4 +54,10 @@ extension HomeGalleryCell {
             $0.edges.equalToSuperview()
         }
     }
+    
+    // MARK: - Methods
+    
+    func configureCell(_ model: GalleryModel) {
+        galleryImage.image = model.image
+    }
 }

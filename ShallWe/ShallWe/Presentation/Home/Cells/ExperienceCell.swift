@@ -96,5 +96,14 @@ extension ExperienceCell {
             $0.leading.equalToSuperview()
         }
     }
+    
+    // MARK: - Methods
+    
+    func configureCell(_ model: HomeExperienceModel) {
+        imageView.image = model.image
+        titleLabel.text = model.title
+        descriptionLabel.text = model.description
+        priceLabel.text = model.price
+    }
 }
 

@@ -79,6 +79,8 @@
 		032213A12B1B92A000FF5CF1 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213A02B1B92A000FF5CF1 /* RecommendModel.swift */; };
 		032213A32B1B935800FF5CF1 /* PopularCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213A22B1B935800FF5CF1 /* PopularCategoryModel.swift */; };
 		032213A82B1C5E5000FF5CF1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213A72B1C5E5000FF5CF1 /* HomeViewModel.swift */; };
+		032213AA2B20770F00FF5CF1 /* GalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213A92B20770E00FF5CF1 /* GalleryModel.swift */; };
+		032213AC2B20777600FF5CF1 /* HomeExperienceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213AB2B20777600FF5CF1 /* HomeExperienceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +144,8 @@
 		032213A02B1B92A000FF5CF1 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
 		032213A22B1B935800FF5CF1 /* PopularCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCategoryModel.swift; sourceTree = "<group>"; };
 		032213A72B1C5E5000FF5CF1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		032213A92B20770E00FF5CF1 /* GalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModel.swift; sourceTree = "<group>"; };
+		032213AB2B20777600FF5CF1 /* HomeExperienceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -461,8 +465,10 @@
 		0322139F2B1B929200FF5CF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				032213A92B20770E00FF5CF1 /* GalleryModel.swift */,
 				032213A02B1B92A000FF5CF1 /* RecommendModel.swift */,
 				032213A22B1B935800FF5CF1 /* PopularCategoryModel.swift */,
+				032213AB2B20777600FF5CF1 /* HomeExperienceModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -606,6 +612,7 @@
 				032212F72B14B1B900FF5CF1 /* Protocol.swift in Sources */,
 				032213982B1B6DEA00FF5CF1 /* HomePopularCategoryCell.swift in Sources */,
 				0322132C2B14B9F500FF5CF1 /* ImageLiterals.swift in Sources */,
+				032213AA2B20770F00FF5CF1 /* GalleryModel.swift in Sources */,
 				032212FB2B14B1D600FF5CF1 /* NSObject+.swift in Sources */,
 				032212F32B14B18500FF5CF1 /* MakeAlert.swift in Sources */,
 				032213962B1B6D9200FF5CF1 /* HomeRecommendCell.swift in Sources */,
@@ -623,6 +630,7 @@
 				032212E72B14B07C00FF5CF1 /* GeneralResponse.swift in Sources */,
 				032213032B14B22500FF5CF1 /* UIImage+.swift in Sources */,
 				032212FF2B14B20D00FF5CF1 /* UIResponder+.swift in Sources */,
+				032213AC2B20777600FF5CF1 /* HomeExperienceModel.swift in Sources */,
 				0322139A2B1B6ED300FF5CF1 /* ExperienceCell.swift in Sources */,
 				0322136F2B15F8CF00FF5CF1 /* TabBarItem.swift in Sources */,
 				032213152B14B2EA00FF5CF1 /* API.swift in Sources */,
