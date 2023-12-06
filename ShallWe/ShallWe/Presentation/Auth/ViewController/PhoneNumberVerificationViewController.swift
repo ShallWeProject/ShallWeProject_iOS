@@ -58,7 +58,7 @@ extension PhoneNumberVerificationViewController {
     
     func setLayout() {
         authHeaderView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(64)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(SizeLiterals.Screen.screenHeight*(64/734))
             $0.leading.equalTo(view.safeAreaLayoutGuide).inset(24)
         }
         
