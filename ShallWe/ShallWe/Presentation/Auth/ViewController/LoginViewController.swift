@@ -134,6 +134,9 @@ final class LoginViewController: UIViewController {
 // MARK: - Extensions
 
 extension LoginViewController {
+    
+    // MARK: - Methods
+    
     func setUI() {
         view.backgroundColor = .bg0
     }
@@ -210,6 +213,8 @@ extension LoginViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenDidTap(_:)))
         view.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    // MARK: Actions
     
     @objc func screenDidTap(_ view: UIView) {
         let phoneNumberVerificationViewController = PhoneNumberVerificationViewController()

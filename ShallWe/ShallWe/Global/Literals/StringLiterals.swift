@@ -29,5 +29,10 @@ enum I18N {
         static let subIntroText = "소중한 사람들과 잊지 못할 추억을 만들어보세요"
         static let kakaoLoginText = "카카오 로그인"
         static let appleLoginText = "Apple로 로그인"
+        static let phoneNumberVerificationText = "원활한 서비스 이용을 위해\n전화번호를 인증해주세요"
+        static let agreementToTermsText = "추억을 만들기 위해서는\n약관 동의가 필요해요"
+        static let recommendationText = "딱 맞는 경험만 추천해 보여드릴게요"
+        static let nameInputText = "이름을 입력해주세요"
+        static let verificationCodeInputText = "인증번호를 입력해주세요"
     }
 }
