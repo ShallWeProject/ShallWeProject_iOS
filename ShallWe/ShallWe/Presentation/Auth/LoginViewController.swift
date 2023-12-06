@@ -114,8 +114,6 @@ final class LoginViewController: UIViewController {
         return stackView
     }()
     
-    private var authView = UIView()
-    
     // MARK: - Life Cycles
     
     override func loadView() {
@@ -124,7 +122,6 @@ final class LoginViewController: UIViewController {
         setUI()
         setHierarchy()
         setLayout()
-        view = authView
     }
     
     override func viewDidLoad() {
@@ -138,11 +135,11 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController {
     func setUI() {
-        authView.backgroundColor = .bg0
+        view.backgroundColor = .bg0
     }
     
     func setHierarchy() {
-        authView.addSubview(totalStackView)
+        view.addSubview(totalStackView)
         totalStackView.addArrangedSubviews(topStackView, loginStackView)
         topStackView.addArrangedSubviews(shallWeLogoImageView, labelStackView)
         loginStackView.addArrangedSubviews(kakaoLoginView, appleLoginView)
@@ -205,13 +202,13 @@ extension LoginViewController {
         totalStackView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview()
-            $0.horizontalEdges.equalTo(authView.safeAreaLayoutGuide).inset(38)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(38)
         }
     }
     
     func setAddTarget() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenDidTap(_:)))
-        authView.addGestureRecognizer(tapGestureRecognizer)
+        view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @objc func screenDidTap(_ view: UIView) {
