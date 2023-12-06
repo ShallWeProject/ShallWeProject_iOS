@@ -100,8 +100,8 @@ final class HomeViewController: BaseViewController {
         galleryIndexLabel.snp.makeConstraints {
             $0.top.equalTo(homeCollectionView.snp.top).offset(SizeLiterals.Screen.screenHeight * 220 / 812)
             $0.trailing.equalToSuperview().inset(16)
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 46 / 375)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 20 / 812)
+            $0.width.equalTo(46)
+            $0.height.equalTo(20)
         }
     }
     
