@@ -23,7 +23,6 @@ final class HomeViewController: BaseViewController {
     private let navigationBar = CustomNavigationBar()
     private let searchView = SearchView()
     private lazy var homeCollectionView = UICollectionView(frame: .zero, collectionViewLayout: self.setSectionLayout())
-    private let galleryIndexLabel = UILabel()
     
     // MARK: - Properties
     
@@ -34,7 +33,6 @@ final class HomeViewController: BaseViewController {
     private var galleryModel: [GalleryModel] = GalleryModel.galleryDummydata()
     private var experienceModel: [HomeExperienceModel] = HomeExperienceModel.homeExperienceDummyData()
     var selectedIndexPath: IndexPath = IndexPath(row: 0, section: 2)
-    var galleryCount: Int = GalleryModel.galleryDummydata().count
     private let currentIndex = PublishSubject<Int>()
     
     override func bindViewModel() {
@@ -47,11 +45,6 @@ final class HomeViewController: BaseViewController {
                         self.selectedIndexPath = indexPath
                     }
                 }
-            })
-            .disposed(by: disposeBag)
-        viewModel.outputs.currentIndexSubject
-            .subscribe(onNext: { [weak self] index in
-                self?.galleryCount = index
             })
             .disposed(by: disposeBag)
     }
@@ -72,22 +65,12 @@ final class HomeViewController: BaseViewController {
             $0.contentInsetAdjustmentBehavior = .never
             $0.collectionViewLayout = self.setSectionLayout()
         }
-        
-        galleryIndexLabel.do {
-            $0.text = "1 | \(galleryCount)"
-            $0.font = .fontGuide(.SB00_12)
-            $0.textColor = .white.withAlphaComponent(0.7)
-            $0.textAlignment = .center
-            $0.backgroundColor = .black_50
-            $0.makeCornerRound(radius: 10)
-            $0.partColorChange(targetString: "1", textColor: .white)
-        }
     }
     
     // MARK: - Layout Helper
     
     override func setLayout() {
-        self.view.addSubviews(navigationBar, searchView, homeCollectionView, galleryIndexLabel)
+        self.view.addSubviews(navigationBar, searchView, homeCollectionView)
         
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -104,13 +87,6 @@ final class HomeViewController: BaseViewController {
         homeCollectionView.snp.makeConstraints {
             $0.top.equalTo(searchView.snp.bottom)
             $0.horizontalEdges.bottom.equalToSuperview()
-        }
-        
-        galleryIndexLabel.snp.makeConstraints {
-            $0.top.equalTo(homeCollectionView.snp.top).offset(SizeLiterals.Screen.screenHeight * 220 / 812)
-            $0.trailing.equalToSuperview().inset(16)
-            $0.width.equalTo(46)
-            $0.height.equalTo(20)
         }
     }
     
@@ -168,15 +144,18 @@ extension HomeViewController {
         section.contentInsets = NSDirectionalEdgeInsets(top: 13, leading: 0, bottom: 18, trailing: 0)
         section.orthogonalScrollingBehavior = .paging
         
-        let footerSize = NSCollectionLayoutSize(widthDimension: .absolute(46), heightDimension: .absolute(20))
+        let footerSize = NSCollectionLayoutSize(
+            widthDimension: .absolute(46),
+            heightDimension: .absolute(20)
+        )
         
         let footer = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
-        footer.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-        
+//        let height = SizeLiterals.Screen.screenHeight * 57 / 812
+//        let width = SizeLiterals.Screen.screenWidth * 155 / 375
+        footer.contentInsets = NSDirectionalEdgeInsets(top: -57, leading: 155, bottom: 57, trailing: -155)
         // 현재 셀의 인덱스
         section.visibleItemsInvalidationHandler = { [weak self] (visibleItems, offset, env) in
             let currentPage = Int(max(0, round(offset.x / env.container.contentSize.width)))
-//            self?.viewModel.inputs.updateCurrentIndex(to: currentPage)
             self?.currentIndex.onNext(currentPage)
         }
         section.boundarySupplementaryItems = [footer]
