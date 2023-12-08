@@ -23,4 +23,10 @@ enum I18N {
         static let changeTitle = "예약 변경"
         static let cancelTitle = "예약 취소"
     }
+    
+    enum ExperienceGift {
+        static let experienceGiftTitle = "경험 선택"
+        static let personTitle = "인원 수"
+        static let reservationTitle = "예약 일시"
+    }
 }
