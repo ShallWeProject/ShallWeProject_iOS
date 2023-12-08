@@ -74,6 +74,8 @@
 		A431BE6E2B1CDD150049C126 /* ExplainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE6D2B1CDD150049C126 /* ExplainDetailView.swift */; };
 		A431BE702B1CDD2B0049C126 /* GuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE6F2B1CDD2B0049C126 /* GuideDetailView.swift */; };
 		A431BE722B1CEA630049C126 /* ExplainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE712B1CEA630049C126 /* ExplainTableViewCell.swift */; };
+		A431BE772B1EEF4A0049C126 /* ExperienceGiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */; };
+		A431BE792B1EEF500049C126 /* ExperienceGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE782B1EEF500049C126 /* ExperienceGiftView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +134,8 @@
 		A431BE6D2B1CDD150049C126 /* ExplainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainDetailView.swift; sourceTree = "<group>"; };
 		A431BE6F2B1CDD2B0049C126 /* GuideDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideDetailView.swift; sourceTree = "<group>"; };
 		A431BE712B1CEA630049C126 /* ExplainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainTableViewCell.swift; sourceTree = "<group>"; };
+		A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftViewController.swift; sourceTree = "<group>"; };
+		A431BE782B1EEF500049C126 /* ExperienceGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,7 +250,7 @@
 		032212E82B14B0B200FF5CF1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				A431BE522B1A24780049C126 /* ExperienceDetail */,
+				A431BE7A2B2335510049C126 /* ExperienceScene */,
 				032213702B15F9FA00FF5CF1 /* Category */,
 				032213712B15FA0100FF5CF1 /* Home */,
 				032213722B15FA0500FF5CF1 /* Mypage */,
@@ -428,6 +432,40 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		A431BE732B1EED7F0049C126 /* ExperienceGift */ = {
+			isa = PBXGroup;
+			children = (
+				A431BE752B1EEDD10049C126 /* View */,
+				A431BE742B1EEDC50049C126 /* ViewController */,
+			);
+			path = ExperienceGift;
+			sourceTree = "<group>";
+		};
+		A431BE742B1EEDC50049C126 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A431BE752B1EEDD10049C126 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A431BE782B1EEF500049C126 /* ExperienceGiftView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A431BE7A2B2335510049C126 /* ExperienceScene */ = {
+			isa = PBXGroup;
+			children = (
+				A431BE732B1EED7F0049C126 /* ExperienceGift */,
+				A431BE522B1A24780049C126 /* ExperienceDetail */,
+			);
+			path = ExperienceScene;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -543,10 +581,12 @@
 				A431BE5E2B1AFAF90049C126 /* UICollectionViewRegisterable.swift in Sources */,
 				032213112B14B28600FF5CF1 /* UITabBar+.swift in Sources */,
 				0322130F2B14B27B00FF5CF1 /* UITableView+.swift in Sources */,
+				A431BE792B1EEF500049C126 /* ExperienceGiftView.swift in Sources */,
 				A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */,
 				A431BE702B1CDD2B0049C126 /* GuideDetailView.swift in Sources */,
 				032212F12B14B17600FF5CF1 /* MakeVibrate.swift in Sources */,
 				0322130B2B14B25900FF5CF1 /* UIStackView+.swift in Sources */,
+				A431BE772B1EEF4A0049C126 /* ExperienceGiftViewController.swift in Sources */,
 				A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */,
 				032212F92B14B1C800FF5CF1 /* String+.swift in Sources */,
 				032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */,
