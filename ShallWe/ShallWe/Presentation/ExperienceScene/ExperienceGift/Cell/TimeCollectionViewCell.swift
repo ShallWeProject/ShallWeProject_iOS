@@ -16,6 +16,7 @@ final class TimeCollectionViewCell: UICollectionViewCell, UICollectionViewRegist
         label.text = "13시"
         label.textColor = .gray4
         label.font = .fontGuide(.M00_14)
+        label.textAlignment = .center
         label.clipsToBounds = true
         label.layer.cornerRadius = 10
         label.layer.borderColor = UIColor.gray0.cgColor

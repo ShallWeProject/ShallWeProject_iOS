@@ -147,6 +147,29 @@ final class ExperienceGiftView: UIView {
         return calendar
     }()
     
+    lazy var timeCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumInteritemSpacing = 9
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .bg0
+        return collectionView
+    }()
+    
+    private lazy var giftButton: UIButton = {
+        let button = UIButton()
+        button.setImage(ImageLiterals.Icon.gift, for: .normal)
+        button.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 15)
+        button.setTitle(I18N.ExperienceDetail.giftButton, for: .normal)
+        button.setTitleColor(.bg0, for: .normal)
+        button.titleLabel?.font = .fontGuide(.B00_14)
+        button.backgroundColor = .point
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -156,6 +179,7 @@ final class ExperienceGiftView: UIView {
         setCalenderUI()
         setHierarchy()
         setLayout()
+        setRegisterCell()
     }
     
     @available(*, unavailable)
@@ -192,15 +216,23 @@ extension ExperienceGiftView {
     func setHierarchy() {
         giftStackView.addArrangedSubviews(giftTitle, giftSubTitle, giftPriceLabel)
         personButtonStackView.addArrangedSubviews(minusButton, personCountLabel, plusButton)
-        addSubview(scrollView)
+        addSubviews(giftButton, scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(experienceTitle, giftImage, giftStackView, seperatorView, personTitle, personButtonStackView, seperatorView2, reservationTitle, calendarView)
+        contentView.addSubviews(experienceTitle, giftImage, giftStackView, seperatorView, personTitle, personButtonStackView, seperatorView2, reservationTitle, calendarView, timeCollectionView)
     }
     
     func setLayout() {
+        giftButton.snp.makeConstraints {
+            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-36)
+            $0.leading.equalToSuperview().inset(15)
+            $0.width.equalTo(UIScreen.main.bounds.width * 335 / 375)
+            $0.height.equalTo(43)
+        }
+        
         scrollView.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(giftButton.snp.top)
         }
         
         contentView.snp.makeConstraints {
@@ -268,5 +300,16 @@ extension ExperienceGiftView {
             $0.leading.trailing.equalToSuperview().inset(34)
             $0.height.equalTo(386)
         }
+        
+        timeCollectionView.snp.makeConstraints {
+            $0.top.equalTo(calendarView.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(44)
+            $0.height.equalTo(28)
+        }
+    }
+    
+    func setRegisterCell() {
+        TimeCollectionViewCell.register(collectionView: timeCollectionView)
     }
 }
