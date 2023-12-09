@@ -47,20 +47,17 @@ extension ExperienceCell {
         }
         
         titleLabel.do {
-            $0.text = "[성수] 인기 공예 클래스"
             $0.font = .fontGuide(.B00_12)
             $0.textColor = .black
         }
         
         descriptionLabel.do {
-            $0.text = "체리 갈레트 비건 글루텐프리 쌀 베이킹 클래스"
             $0.font = .fontGuide(.M00_12)
             $0.textColor = .black
             $0.numberOfLines = 0
         }
         
         priceLabel.do {
-            $0.text = "39,800 원"
             $0.font = .fontGuide(.EB00_14)
             $0.textColor = .point
         }
