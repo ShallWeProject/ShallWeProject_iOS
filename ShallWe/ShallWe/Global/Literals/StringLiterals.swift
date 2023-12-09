@@ -23,4 +23,12 @@ enum I18N {
         static let changeTitle = "예약 변경"
         static let cancelTitle = "예약 취소"
     }
+    
+    enum Home {
+        static let searchTitle = "찾고있는 경험이 있나요?"
+        static let headerTitle1 = "상황별 추천 경험"
+        static let headerTitle1Color = "상황별"
+        static let headerTitle2 = "실시간 인기 경험"
+        static let headerTitle2Color = "인기"
+    }
 }

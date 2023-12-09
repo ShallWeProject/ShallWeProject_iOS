@@ -28,7 +28,7 @@ final class SearchView: BaseView {
         }
         
         textLabel.do {
-            $0.text = "찾고있는 경험이 있나요?"
+            $0.text = I18N.Home.searchTitle
             $0.font = .fontGuide(.R00_14)
             $0.textColor = .line1
         }

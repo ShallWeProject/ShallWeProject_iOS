@@ -41,17 +41,17 @@ extension HomeHeaderView {
         self.backgroundColor = .clear
         
         recommendLabel.do {
-            $0.text = "상황별 추천 경험"
+            $0.text = I18N.Home.headerTitle1
             $0.textColor = .black0
-            $0.partColorChange(targetString: "상황별", textColor: .main)
+            $0.partColorChange(targetString: I18N.Home.headerTitle1Color, textColor: .main)
             $0.font = .fontGuide(.B00_14)
             $0.isHidden = true
         }
         
         popularLabel.do {
-            $0.text = "실시간 인기 경험"
+            $0.text = I18N.Home.headerTitle2
             $0.textColor = .black0
-            $0.partColorChange(targetString: "인기", textColor: .main)
+            $0.partColorChange(targetString: I18N.Home.headerTitle2Color, textColor: .main)
             $0.font = .fontGuide(.B00_14)
             $0.isHidden = true
         }
