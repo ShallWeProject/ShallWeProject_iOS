@@ -150,8 +150,6 @@ extension HomeViewController {
         )
         
         let footer = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
-//        let height = SizeLiterals.Screen.screenHeight * 57 / 812
-//        let width = SizeLiterals.Screen.screenWidth * 155 / 375
         footer.contentInsets = NSDirectionalEdgeInsets(top: -57, leading: 155, bottom: 57, trailing: -155)
         // 현재 셀의 인덱스
         section.visibleItemsInvalidationHandler = { [weak self] (visibleItems, offset, env) in
