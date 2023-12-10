@@ -46,4 +46,15 @@ enum ImageLiterals {
     enum Logo {
         static var shall_we_logo: UIImage { .load(name: "shallWeLogo") }
     }
+    
+    enum Home {
+        static var logo_shallwe: UIImage { .load(name: "logo_shallwe") }
+        static var img_birthday: UIImage { .load(name: "img_birthday") }
+        static var img_grade: UIImage { .load(name: "img_grade") }
+        static var img_lover: UIImage { .load(name: "img_lover") }
+        static var img_marriage: UIImage { .load(name: "img_marriage") }
+        static var img_parents: UIImage { .load(name: "img_parents") }
+        static var img_ad1: UIImage { .load(name: "ad1") }
+        static var img_ad2: UIImage { .load(name: "ad2") }
+    }
 }

@@ -23,7 +23,7 @@ enum I18N {
         static let changeTitle = "예약 변경"
         static let cancelTitle = "예약 취소"
     }
-    
+
     enum Auth {
         static let mainIntroText = "경험을 선물하는 서비스 셸위"
         static let subIntroText = "소중한 사람들과 잊지 못할 추억을 만들어보세요"
@@ -34,5 +34,13 @@ enum I18N {
         static let recommendationText = "딱 맞는 경험만 추천해 보여드릴게요"
         static let nameInputText = "이름을 입력해주세요"
         static let verificationCodeInputText = "인증번호를 입력해주세요"
+    }
+    
+    enum Home {
+        static let searchTitle = "찾고있는 경험이 있나요?"
+        static let headerTitle1 = "상황별 추천 경험"
+        static let headerTitle1Color = "상황별"
+        static let headerTitle2 = "실시간 인기 경험"
+        static let headerTitle2Color = "인기"
     }
 }
