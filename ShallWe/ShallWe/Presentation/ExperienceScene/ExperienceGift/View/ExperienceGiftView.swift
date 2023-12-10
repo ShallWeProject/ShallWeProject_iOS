@@ -12,6 +12,14 @@ import FSCalendar
 
 final class ExperienceGiftView: UIView {
     
+    // MARK: - Properties
+    
+    private var personCount: Int = 1 {
+        didSet {
+            personCountLabel.text = personCount.description
+        }
+    }
+    
     // MARK: - UI Components
     
     private let scrollView: UIScrollView = {
@@ -119,7 +127,7 @@ final class ExperienceGiftView: UIView {
     
     private lazy var personCountLabel: UILabel = {
         let label = UILabel()
-        label.text = "222"
+        label.text = String(self.personCount)
         label.textAlignment = .center
         label.font = .fontGuide(.SB00_14)
         return label
@@ -180,6 +188,7 @@ final class ExperienceGiftView: UIView {
         setHierarchy()
         setLayout()
         setRegisterCell()
+        setAddTarget()
     }
     
     @available(*, unavailable)
@@ -311,5 +320,24 @@ extension ExperienceGiftView {
     
     func setRegisterCell() {
         TimeCollectionViewCell.register(collectionView: timeCollectionView)
+    }
+    
+    func setAddTarget() {
+        self.minusButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        self.plusButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func buttonTapped(_ sender: UIButton) {
+        switch sender {
+        case minusButton:
+            if personCount >= 2 { personCount -= 1 }
+            if personCount == 1 { minusButton.isEnabled = false }
+        case plusButton:
+            if personCount <= 99 { personCount += 1 }
+            if personCount >= 2 { minusButton.isEnabled = true }
+        default:
+            break
+        }
     }
 }
