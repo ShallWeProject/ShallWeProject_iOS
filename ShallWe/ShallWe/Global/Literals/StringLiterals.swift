@@ -33,7 +33,10 @@ enum I18N {
         static let agreementToTermsText = "추억을 만들기 위해서는\n약관 동의가 필요해요"
         static let recommendationText = "딱 맞는 경험만 추천해 보여드릴게요"
         static let nameInputText = "이름을 입력해주세요"
+        static let phoneNumberInputText = "전화번호를 입력해주세요"
         static let verificationCodeInputText = "인증번호를 입력해주세요"
+        static let verificationRequestText = "인증 요청"
+        static let nextText = "다음"
     }
     
     enum Home {
