@@ -37,7 +37,19 @@ extension ExperienceGiftViewController {
 }
 
 extension ExperienceGiftViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? TimeCollectionViewCell {
+            cell.timeLabel.backgroundColor = .point
+            cell.timeLabel.textColor = .bg0
+        }
+        
+        for otherIndexPath in collectionView.indexPathsForVisibleItems where otherIndexPath != indexPath {
+            if let otherCell = collectionView.cellForItem(at: otherIndexPath) as? TimeCollectionViewCell {
+                otherCell.timeLabel.backgroundColor = .bg0
+                otherCell.timeLabel.textColor = .gray4
+            }
+        }
+    }
 }
 
 extension ExperienceGiftViewController: UICollectionViewDataSource {

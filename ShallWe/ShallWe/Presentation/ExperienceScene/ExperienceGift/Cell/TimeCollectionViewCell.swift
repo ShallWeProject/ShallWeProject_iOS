@@ -11,7 +11,7 @@ import SnapKit
 
 final class TimeCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
     
-    private let timeLabel: UILabel = {
+    let timeLabel: UILabel = {
         let label = UILabel()
         label.text = "13시"
         label.textColor = .gray4
