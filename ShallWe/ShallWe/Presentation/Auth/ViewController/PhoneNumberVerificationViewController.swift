@@ -23,9 +23,9 @@ final class PhoneNumberVerificationViewController: UIViewController {
         return label
     }()
     
-    private var nameTextField = AuthTextFieldView()
-    private var phoneNumberTextField = AuthTextFieldView()
-    private var verificationCodeTextField = AuthTextFieldView(frame: .zero, placeholder: I18N.Auth.verificationCodeInputText)
+    private var nameTextField = CustomTextFieldView()
+    private var phoneNumberTextField = CustomTextFieldView()
+    private var verificationCodeTextField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.verificationCodeInputText)
     
     // MARK: - Life Cycles
     

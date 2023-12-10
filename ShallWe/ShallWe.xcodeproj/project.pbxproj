@@ -84,7 +84,7 @@
 		032213B32B20839100FF5CF1 /* GalleryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213B22B20839100FF5CF1 /* GalleryFooterView.swift */; };
 		032213B52B241B3100FF5CF1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213B42B241B3100FF5CF1 /* HomeView.swift */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
-		954E45BE2B2109D400D12242 /* AuthTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* AuthTextFieldView.swift */; };
+		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
 		95748DD02B25FABF004157E0 /* PhoneNumberVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCF2B25FABF004157E0 /* PhoneNumberVerificationViewController.swift */; };
 		A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */; };
@@ -163,7 +163,7 @@
 		032213B22B20839100FF5CF1 /* GalleryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryFooterView.swift; sourceTree = "<group>"; };
 		032213B42B241B3100FF5CF1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
-		954E45BD2B2109D400D12242 /* AuthTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextFieldView.swift; sourceTree = "<group>"; };
+		954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		95748DCD2B25FAB4004157E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		95748DCF2B25FABF004157E0 /* PhoneNumberVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberVerificationViewController.swift; sourceTree = "<group>"; };
 		A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewController.swift; sourceTree = "<group>"; };
@@ -453,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				0322138A2B1B2B5100FF5CF1 /* CustomNavigationBar.swift */,
+				954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -528,7 +529,6 @@
 			isa = PBXGroup;
 			children = (
 				954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */,
-				954E45BD2B2109D400D12242 /* AuthTextFieldView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -695,7 +695,7 @@
 				032213172B14B2F800FF5CF1 /* NetworkLoggerPlugin.swift in Sources */,
 				0322130D2B14B26400FF5CF1 /* UILabel+.swift in Sources */,
 				A431BE722B1CEA630049C126 /* ExplainTableViewCell.swift in Sources */,
-				954E45BE2B2109D400D12242 /* AuthTextFieldView.swift in Sources */,
+				954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */,
 				A431BE5E2B1AFAF90049C126 /* UICollectionViewRegisterable.swift in Sources */,
 				032213112B14B28600FF5CF1 /* UITabBar+.swift in Sources */,
 				032213A12B1B92A000FF5CF1 /* RecommendModel.swift in Sources */,

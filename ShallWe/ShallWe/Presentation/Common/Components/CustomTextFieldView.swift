@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class AuthTextFieldView: UITextField {
+import SnapKit
+
+final class CustomTextFieldView: UITextField {
     
     // MARK: - View Life Cycle
     
@@ -33,7 +35,7 @@ final class AuthTextFieldView: UITextField {
 
 // MARK: - Extensions
 
-extension AuthTextFieldView {
+extension CustomTextFieldView {
     
     // MARK: - Methods
     
