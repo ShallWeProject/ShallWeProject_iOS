@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03115F912B271BD5009D1517 /* ExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03115F902B271BD5009D1517 /* ExperienceViewController.swift */; };
 		032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212A52B14AAFD00FF5CF1 /* AppDelegate.swift */; };
 		032212A82B14AAFD00FF5CF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212A72B14AAFD00FF5CF1 /* SceneDelegate.swift */; };
 		032212AF2B14AAFF00FF5CF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 032212AE2B14AAFF00FF5CF1 /* Assets.xcassets */; };
@@ -94,6 +95,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03115F902B271BD5009D1517 /* ExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewController.swift; sourceTree = "<group>"; };
 		032212A22B14AAFD00FF5CF1 /* ShallWe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShallWe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		032212A52B14AAFD00FF5CF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		032212A72B14AAFD00FF5CF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +195,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03115F8D2B271B8B009D1517 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				032213712B15FA0100FF5CF1 /* Home */,
+				03115F8E2B271B9C009D1517 /* Experience */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		03115F8E2B271B9C009D1517 /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+				03115F8F2B271BB8009D1517 /* ViewControllers */,
+			);
+			path = Experience;
+			sourceTree = "<group>";
+		};
+		03115F8F2B271BB8009D1517 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				03115F902B271BD5009D1517 /* ExperienceViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		032212992B14AAFD00FF5CF1 = {
 			isa = PBXGroup;
 			children = (
@@ -280,10 +307,10 @@
 		032212E82B14B0B200FF5CF1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				03115F8D2B271B8B009D1517 /* Main */,
 				032213832B1B2A7900FF5CF1 /* Common */,
 				A431BE522B1A24780049C126 /* ExperienceDetail */,
 				032213702B15F9FA00FF5CF1 /* Category */,
-				032213712B15FA0100FF5CF1 /* Home */,
 				032213722B15FA0500FF5CF1 /* Mypage */,
 				0322136B2B15F8B400FF5CF1 /* TabBar */,
 			);
@@ -667,6 +694,7 @@
 				032213912B1B2EBB00FF5CF1 /* SearchView.swift in Sources */,
 				A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */,
 				A431BE702B1CDD2B0049C126 /* GuideDetailView.swift in Sources */,
+				03115F912B271BD5009D1517 /* ExperienceViewController.swift in Sources */,
 				032212F12B14B17600FF5CF1 /* MakeVibrate.swift in Sources */,
 				0322130B2B14B25900FF5CF1 /* UIStackView+.swift in Sources */,
 				A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */,
