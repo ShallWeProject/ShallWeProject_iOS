@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03115F912B271BD5009D1517 /* ExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03115F902B271BD5009D1517 /* ExperienceViewController.swift */; };
+		03115F942B271D0E009D1517 /* ExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03115F932B271D0E009D1517 /* ExperienceView.swift */; };
 		032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212A52B14AAFD00FF5CF1 /* AppDelegate.swift */; };
 		032212A82B14AAFD00FF5CF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212A72B14AAFD00FF5CF1 /* SceneDelegate.swift */; };
 		032212AF2B14AAFF00FF5CF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 032212AE2B14AAFF00FF5CF1 /* Assets.xcassets */; };
@@ -96,6 +97,7 @@
 
 /* Begin PBXFileReference section */
 		03115F902B271BD5009D1517 /* ExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewController.swift; sourceTree = "<group>"; };
+		03115F932B271D0E009D1517 /* ExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceView.swift; sourceTree = "<group>"; };
 		032212A22B14AAFD00FF5CF1 /* ShallWe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShallWe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		032212A52B14AAFD00FF5CF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		032212A72B14AAFD00FF5CF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		03115F8E2B271B9C009D1517 /* Experience */ = {
 			isa = PBXGroup;
 			children = (
+				03115F922B271CF4009D1517 /* Views */,
 				03115F8F2B271BB8009D1517 /* ViewControllers */,
 			);
 			path = Experience;
@@ -218,6 +221,14 @@
 				03115F902B271BD5009D1517 /* ExperienceViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		03115F922B271CF4009D1517 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				03115F932B271D0E009D1517 /* ExperienceView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		032212992B14AAFD00FF5CF1 = {
@@ -691,6 +702,7 @@
 				032213A12B1B92A000FF5CF1 /* RecommendModel.swift in Sources */,
 				0322130F2B14B27B00FF5CF1 /* UITableView+.swift in Sources */,
 				032213A32B1B935800FF5CF1 /* PopularCategoryModel.swift in Sources */,
+				03115F942B271D0E009D1517 /* ExperienceView.swift in Sources */,
 				032213912B1B2EBB00FF5CF1 /* SearchView.swift in Sources */,
 				A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */,
 				A431BE702B1CDD2B0049C126 /* GuideDetailView.swift in Sources */,
