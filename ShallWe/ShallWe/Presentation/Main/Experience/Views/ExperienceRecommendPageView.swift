@@ -21,6 +21,10 @@ final class ExperienceRecommendPageView: BaseView {
     
     // MARK: - UI Components Property
     
+    private let menuTitleModel: [ExperienceType] = ExperienceType.recommendMenu()
+    
+    // MARK: - UI Components Property
+    
     override func setStyle() {
         
         self.backgroundColor = .clear
@@ -53,5 +57,19 @@ final class ExperienceRecommendPageView: BaseView {
             $0.top.equalTo(menuCollectionView.snp.bottom)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
+    }
+}
+
+extension ExperienceRecommendPageView {
+    
+    func labelWidthSize(index: Int) -> Int {
+        let size = menuTitleModel[index].type.size(
+            withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .regular)]).width
+        return Int(size)
+    }
+    
+    private func cellUnderLineSetting(cell: ExperienceMenuCollectionViewCell?, indexPath: IndexPath, selected: Bool) {
+        cell?.isSelected = selected
+        cell?.setUnderLineWidth(size: labelWidthSize(index: indexPath.row))
     }
 }

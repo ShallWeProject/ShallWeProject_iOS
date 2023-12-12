@@ -19,6 +19,12 @@ final class ExperienceMenuCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
+    override var isSelected: Bool {
+        didSet {
+            underLine.isHidden = !isSelected
+        }
+    }
+    
     // MARK: - Initializer
     
     override init(frame: CGRect) {
