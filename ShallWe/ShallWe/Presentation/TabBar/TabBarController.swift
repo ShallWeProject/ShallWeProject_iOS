@@ -10,8 +10,7 @@ import UIKit
 class TabBarController: UITabBarController {
     
     // MARK: - Properties
-    
-    private let tabBarHeight: CGFloat = SizeLiterals.Screen.screenHeight * 86 / 812
+
     private var tabs: [UIViewController] = []
     
     // MARK: - View Life Cycle
