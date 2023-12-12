@@ -13,19 +13,18 @@ struct ExperienceType {
 
 extension ExperienceType {
     
-    static func experienceRecommendMenu() -> [ExperienceType] {
+    static func recommendMenu() -> [ExperienceType] {
         return [
             ExperienceType(type: "생일"),
             ExperienceType(type: "연인"),
             ExperienceType(type: "부모님"),
             ExperienceType(type: "입학/졸업"),
-            ExperienceType(type: "결혼/집들이"),
             ExperienceType(type: "결혼/집들이")
             
         ]
     }
     
-    static func experienceCategoryMenu() -> [ExperienceType] {
+    static func categoryMenu() -> [ExperienceType] {
         return [
             ExperienceType(type: "전체"),
             ExperienceType(type: "공예"),
