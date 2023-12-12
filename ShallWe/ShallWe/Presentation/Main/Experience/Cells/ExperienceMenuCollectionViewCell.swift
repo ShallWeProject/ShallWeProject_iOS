@@ -58,6 +58,7 @@ extension ExperienceMenuCollectionViewCell {
         
         underLine.do {
             $0.backgroundColor = .main
+            $0.isHidden = true
         }
     }
     
@@ -74,6 +75,7 @@ extension ExperienceMenuCollectionViewCell {
         underLine.snp.makeConstraints {
             $0.bottom.centerX.equalToSuperview()
             $0.height.equalTo(2)
+            $0.width.equalTo(35)
         }
     }
     
@@ -84,8 +86,8 @@ extension ExperienceMenuCollectionViewCell {
     }
     
     func setUnderLineWidth(size: Int) {
-        underLine.snp.makeConstraints {
-            $0.width.equalTo(size + 20)
+        underLine.snp.updateConstraints {
+            $0.width.equalTo(size + 10)
         }
     }
     
