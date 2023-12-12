@@ -10,6 +10,12 @@ import UIKit
 import SnapKit
 import FSCalendar
 
+protocol CalendarDelegate: AnyObject {
+    func leftButtonTapped()
+    func rightButtonTapped()
+    func giftButtonTapped()
+}
+
 final class ExperienceGiftView: UIView {
     
     // MARK: - Properties
@@ -19,6 +25,8 @@ final class ExperienceGiftView: UIView {
             personCountLabel.text = personCount.description
         }
     }
+    
+    weak var calendarDelegate: CalendarDelegate?
     
     // MARK: - UI Components
     
@@ -147,12 +155,46 @@ final class ExperienceGiftView: UIView {
         return label
     }()
     
-    private var calendarView: FSCalendar = {
+    var calendarView: FSCalendar = {
         let calendar = FSCalendar(frame: .zero)
         calendar.scope = .month
         calendar.layer.cornerRadius = 10
-        calendar.backgroundColor = .bg3
+        calendar.backgroundColor = .bg1
         return calendar
+    }()
+    
+    private lazy var calendarHeaderView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.backgroundColor = .bg1
+        stackView.layer.cornerRadius = 10
+        stackView.layoutMargins = UIEdgeInsets(top: 12, left: 6, bottom: 5, right: 6)
+        stackView.isLayoutMarginsRelativeArrangement = true
+        return stackView
+    }()
+    
+    private lazy var leftButton: UIButton = {
+        let button = UIButton()
+        button.setImage(ImageLiterals.Icon.left_calender, for: .normal)
+        button.backgroundColor = .bg2
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    private lazy var rightButton: UIButton = {
+        let button = UIButton()
+        button.setImage(ImageLiterals.Icon.right_calender, for: .normal)
+        button.backgroundColor = .bg4
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    var monthLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black0
+        label.textAlignment = .center
+        label.font = .fontGuide(.SB00_16)
+        return label
     }()
     
     lazy var timeCollectionView: UICollectionView = {
@@ -176,6 +218,13 @@ final class ExperienceGiftView: UIView {
         button.backgroundColor = .point
         button.layer.cornerRadius = 10
         return button
+    }()
+    
+    private lazy var dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.locale = Locale(identifier: "ko_KR")
+        df.dateFormat = "yyyy년 M월"
+        return df
     }()
     
     // MARK: - Life Cycles
@@ -203,31 +252,31 @@ extension ExperienceGiftView {
     }
     
     func setCalenderUI() {
-        self.calendarView.locale = Locale(identifier: "ko_KR")
+        self.monthLabel.text = self.dateFormatter.string(from: Date())
         
+        self.calendarView.locale = Locale(identifier: "ko_KR")
         self.calendarView.appearance.weekdayFont = .systemFont(ofSize: 14, weight: .semibold)
         self.calendarView.appearance.weekdayTextColor = .black_50
         self.calendarView.weekdayHeight = 40
         self.calendarView.appearance.titleFont = .systemFont(ofSize: 16, weight: .medium)
         self.calendarView.appearance.titleDefaultColor = .gray4
         self.calendarView.appearance.titlePlaceholderColor = .gray2
-        self.calendarView.appearance.headerDateFormat = "YYYY년 MM월"
-        self.calendarView.appearance.headerTitleFont = .fontGuide(.SB00_16)
-        self.calendarView.appearance.headerTitleColor = .black0
-        self.calendarView.appearance.headerTitleAlignment = .center
+        self.calendarView.headerHeight = 0
         self.calendarView.appearance.selectionColor = .point
         self.calendarView.appearance.todayColor = .clear
         self.calendarView.appearance.titleTodayColor = .gray4
         self.calendarView.appearance.todaySelectionColor = .point
         self.calendarView.appearance.borderRadius = 0.5
+        self.calendarView.scrollEnabled = false
     }
     
     func setHierarchy() {
         giftStackView.addArrangedSubviews(giftTitle, giftSubTitle, giftPriceLabel)
         personButtonStackView.addArrangedSubviews(minusButton, personCountLabel, plusButton)
+        calendarHeaderView.addArrangedSubviews(leftButton, monthLabel, rightButton)
         addSubviews(giftButton, scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(experienceTitle, giftImage, giftStackView, seperatorView, personTitle, personButtonStackView, seperatorView2, reservationTitle, calendarView, timeCollectionView)
+        contentView.addSubviews(experienceTitle, giftImage, giftStackView, seperatorView, personTitle, personButtonStackView, seperatorView2, reservationTitle, calendarHeaderView, calendarView, timeCollectionView)
     }
     
     func setLayout() {
@@ -304,10 +353,25 @@ extension ExperienceGiftView {
             $0.leading.equalToSuperview().inset(16)
         }
         
-        calendarView.snp.makeConstraints {
+        calendarHeaderView.snp.makeConstraints {
             $0.top.equalTo(reservationTitle.snp.bottom).offset(9)
-            $0.leading.trailing.equalToSuperview().inset(34)
-            $0.height.equalTo(386)
+            $0.leading.trailing.equalToSuperview().inset(23)
+            $0.height.equalTo(57)
+        }
+        
+        leftButton.snp.makeConstraints {
+            $0.size.equalTo(40)
+        }
+        
+        rightButton.snp.makeConstraints {
+            $0.size.equalTo(40)
+        }
+        
+        calendarView.snp.makeConstraints {
+            $0.top.equalTo(calendarHeaderView.snp.bottom)
+            $0.leading.trailing.equalToSuperview().inset(23)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(329)
         }
         
         timeCollectionView.snp.makeConstraints {
@@ -323,8 +387,10 @@ extension ExperienceGiftView {
     }
     
     func setAddTarget() {
-        self.minusButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        self.plusButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        let buttons = [minusButton, plusButton, leftButton, rightButton, giftButton]
+        for button in buttons {
+            button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        }
     }
     
     @objc
@@ -336,6 +402,12 @@ extension ExperienceGiftView {
         case plusButton:
             if personCount <= 99 { personCount += 1 }
             if personCount >= 2 { minusButton.isEnabled = true }
+        case leftButton:
+            calendarDelegate?.leftButtonTapped()
+        case rightButton:
+            calendarDelegate?.rightButtonTapped()
+        case giftButton:
+            calendarDelegate?.giftButtonTapped()
         default:
             break
         }
