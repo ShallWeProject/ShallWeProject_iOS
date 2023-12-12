@@ -100,7 +100,7 @@ final class HomeRecommendViewController: BaseViewController {
         experiencePageView.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(self.tabBarHeight)
+            $0.bottom.equalToSuperview()
         }
     }
     
