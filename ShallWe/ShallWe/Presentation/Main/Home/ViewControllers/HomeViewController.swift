@@ -63,7 +63,7 @@ final class HomeViewController: BaseViewController {
         homeView.homeCollectionView.registerCell(HomeGalleryCell.self)
         homeView.homeCollectionView.registerCell(HomeRecommendCell.self)
         homeView.homeCollectionView.registerCell(HomePopularCategoryCell.self)
-        homeView.homeCollectionView.registerCell(ExperienceCell.self)
+        homeView.homeCollectionView.registerCell(HomeExperienceCell.self)
         homeView.homeCollectionView.registerHeader(HomeHeaderView.self)
         homeView.homeCollectionView.registerFooter(GalleryFooterView.self)
     }
@@ -102,7 +102,7 @@ extension HomeViewController: UICollectionViewDataSource {
             collectionView.selectItem(at: homeView.selectedIndexPath, animated: false, scrollPosition: .init())
             return cell
         case .experience:
-            let cell = collectionView.dequeueCell(type: ExperienceCell.self, indexPath: indexPath)
+            let cell = collectionView.dequeueCell(type: HomeExperienceCell.self, indexPath: indexPath)
             cell.configureCell(experienceModel[indexPath.row])
             return cell
         }

@@ -7,24 +7,43 @@
 
 import UIKit
 
-class BirthViewController: UIViewController {
+import Then
+import SnapKit
+import RxSwift
+import RxCocoa
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .blue
+class BirthViewController: BaseViewController {
 
-        // Do any additional setup after loading the view.
+    // MARK: - UI Components
+    
+    private let experienceView = HomeExperienceListView()
+    
+    // MARK: - Properties
+    
+    private let viewModel = HomeExperienceListViewModel()
+    private let disposeBag = DisposeBag()
+    
+    override func bindViewModel() {
+        viewModel.outputs.birthList
+            .bind(to: experienceView.homelistCollectionView.rx
+                .items(cellIdentifier: HomeExperienceCell.className, 
+                       cellType: HomeExperienceCell.self)) { (index, model, cell) in
+                    cell.configureCell(model)
+                }
+                .disposed(by: disposeBag)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func setStyle() {
+        
+        self.view.backgroundColor = .clear
     }
-    */
-
+    
+    override func setLayout() {
+        
+        self.view.addSubviews(experienceView)
+        
+        experienceView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
 }
