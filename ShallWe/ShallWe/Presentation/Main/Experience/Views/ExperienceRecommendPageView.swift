@@ -84,8 +84,8 @@ extension ExperienceRecommendPageView {
 extension ExperienceRecommendPageView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = SizeLiterals.Screen.screenWidth * CGFloat(labelWidthSize(index: indexPath.row) + 20) / 375
-        let height = CGFloat(44)
+        let width = SizeLiterals.Screen.screenWidth * CGFloat(labelWidthSize(index: indexPath.row) + 23) / 375
+        let height = SizeLiterals.Screen.screenHeight <= 800 ? CGFloat(34) : CGFloat(42)
         return CGSize(width: width, height: height)
     }
     
