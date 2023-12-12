@@ -1,5 +1,5 @@
 //
-//  ExperienceCell.swift
+//  HomeExperienceCell.swift
 //  ShallWe
 //
 //  Created by KJ on 12/2/23.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class ExperienceCell: UICollectionViewCell {
+final class HomeExperienceCell: UICollectionViewCell {
     
     // MARK: - UI Components
     
@@ -32,7 +32,7 @@ final class ExperienceCell: UICollectionViewCell {
     }
 }
 
-extension ExperienceCell {
+extension HomeExperienceCell {
     
     // MARK: - UI Components Property
     
