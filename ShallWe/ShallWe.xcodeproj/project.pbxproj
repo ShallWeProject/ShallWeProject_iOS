@@ -86,6 +86,7 @@
 		032213B32B20839100FF5CF1 /* GalleryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213B22B20839100FF5CF1 /* GalleryFooterView.swift */; };
 		032213B52B241B3100FF5CF1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213B42B241B3100FF5CF1 /* HomeView.swift */; };
 		0345806A2B2879F2002DDEBA /* ExperienceMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580692B2879F2002DDEBA /* ExperienceMenuCollectionViewCell.swift */; };
+		0345806D2B288104002DDEBA /* ExperienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345806C2B288104002DDEBA /* ExperienceViewModel.swift */; };
 		03AD68AF2B286EEB00ED54E1 /* ExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD68AE2B286EEB00ED54E1 /* ExperienceType.swift */; };
 		A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */; };
 		A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE572B1A25180049C126 /* ExperienceDetailView.swift */; };
@@ -165,6 +166,7 @@
 		032213B22B20839100FF5CF1 /* GalleryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryFooterView.swift; sourceTree = "<group>"; };
 		032213B42B241B3100FF5CF1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		034580692B2879F2002DDEBA /* ExperienceMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		0345806C2B288104002DDEBA /* ExperienceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewModel.swift; sourceTree = "<group>"; };
 		03AD68AE2B286EEB00ED54E1 /* ExperienceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceType.swift; sourceTree = "<group>"; };
 		A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewController.swift; sourceTree = "<group>"; };
 		A431BE572B1A25180049C126 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		03115F8E2B271B9C009D1517 /* Experience */ = {
 			isa = PBXGroup;
 			children = (
+				0345806B2B2880F0002DDEBA /* ViewModels */,
 				03AD68AD2B286EC300ED54E1 /* Models */,
 				03115F922B271CF4009D1517 /* Views */,
 				03115F8F2B271BB8009D1517 /* ViewControllers */,
@@ -558,6 +561,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		0345806B2B2880F0002DDEBA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0345806C2B288104002DDEBA /* ExperienceViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		03AD68AD2B286EC300ED54E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -734,6 +745,7 @@
 				032212F12B14B17600FF5CF1 /* MakeVibrate.swift in Sources */,
 				0322130B2B14B25900FF5CF1 /* UIStackView+.swift in Sources */,
 				A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */,
+				0345806D2B288104002DDEBA /* ExperienceViewModel.swift in Sources */,
 				032212F92B14B1C800FF5CF1 /* String+.swift in Sources */,
 				032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */,
 				032212A82B14AAFD00FF5CF1 /* SceneDelegate.swift in Sources */,
