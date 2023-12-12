@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03115F912B271BD5009D1517 /* ExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03115F902B271BD5009D1517 /* ExperienceViewController.swift */; };
-		03115F942B271D0E009D1517 /* ExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03115F932B271D0E009D1517 /* ExperienceView.swift */; };
+		03115F962B271F12009D1517 /* ExperiencePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03115F952B271F12009D1517 /* ExperiencePageView.swift */; };
 		032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212A52B14AAFD00FF5CF1 /* AppDelegate.swift */; };
 		032212A82B14AAFD00FF5CF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212A72B14AAFD00FF5CF1 /* SceneDelegate.swift */; };
 		032212AF2B14AAFF00FF5CF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 032212AE2B14AAFF00FF5CF1 /* Assets.xcassets */; };
@@ -85,6 +85,7 @@
 		032213AC2B20777600FF5CF1 /* HomeExperienceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213AB2B20777600FF5CF1 /* HomeExperienceModel.swift */; };
 		032213B32B20839100FF5CF1 /* GalleryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213B22B20839100FF5CF1 /* GalleryFooterView.swift */; };
 		032213B52B241B3100FF5CF1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213B42B241B3100FF5CF1 /* HomeView.swift */; };
+		03AD68AF2B286EEB00ED54E1 /* ExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD68AE2B286EEB00ED54E1 /* ExperienceType.swift */; };
 		A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */; };
 		A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE572B1A25180049C126 /* ExperienceDetailView.swift */; };
 		A431BE5C2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5B2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift */; };
@@ -97,7 +98,7 @@
 
 /* Begin PBXFileReference section */
 		03115F902B271BD5009D1517 /* ExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewController.swift; sourceTree = "<group>"; };
-		03115F932B271D0E009D1517 /* ExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceView.swift; sourceTree = "<group>"; };
+		03115F952B271F12009D1517 /* ExperiencePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencePageView.swift; sourceTree = "<group>"; };
 		032212A22B14AAFD00FF5CF1 /* ShallWe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShallWe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		032212A52B14AAFD00FF5CF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		032212A72B14AAFD00FF5CF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +163,7 @@
 		032213AB2B20777600FF5CF1 /* HomeExperienceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceModel.swift; sourceTree = "<group>"; };
 		032213B22B20839100FF5CF1 /* GalleryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryFooterView.swift; sourceTree = "<group>"; };
 		032213B42B241B3100FF5CF1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		03AD68AE2B286EEB00ED54E1 /* ExperienceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceType.swift; sourceTree = "<group>"; };
 		A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewController.swift; sourceTree = "<group>"; };
 		A431BE572B1A25180049C126 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
 		A431BE5B2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		03115F8E2B271B9C009D1517 /* Experience */ = {
 			isa = PBXGroup;
 			children = (
+				03AD68AD2B286EC300ED54E1 /* Models */,
 				03115F922B271CF4009D1517 /* Views */,
 				03115F8F2B271BB8009D1517 /* ViewControllers */,
 			);
@@ -226,7 +229,7 @@
 		03115F922B271CF4009D1517 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				03115F932B271D0E009D1517 /* ExperienceView.swift */,
+				03115F952B271F12009D1517 /* ExperiencePageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -544,6 +547,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		03AD68AD2B286EC300ED54E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				03AD68AE2B286EEB00ED54E1 /* ExperienceType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A431BE522B1A24780049C126 /* ExperienceDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +701,7 @@
 				032213A82B1C5E5000FF5CF1 /* HomeViewModel.swift in Sources */,
 				0322132A2B14B9E800FF5CF1 /* FontLiterals.swift in Sources */,
 				032213762B15FA2D00FF5CF1 /* HomeViewController.swift in Sources */,
+				03AD68AF2B286EEB00ED54E1 /* ExperienceType.swift in Sources */,
 				0322138B2B1B2B5100FF5CF1 /* CustomNavigationBar.swift in Sources */,
 				A431BE5C2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift in Sources */,
 				032213202B14B75100FF5CF1 /* APIService.swift in Sources */,
@@ -702,8 +714,8 @@
 				032213A12B1B92A000FF5CF1 /* RecommendModel.swift in Sources */,
 				0322130F2B14B27B00FF5CF1 /* UITableView+.swift in Sources */,
 				032213A32B1B935800FF5CF1 /* PopularCategoryModel.swift in Sources */,
-				03115F942B271D0E009D1517 /* ExperienceView.swift in Sources */,
 				032213912B1B2EBB00FF5CF1 /* SearchView.swift in Sources */,
+				03115F962B271F12009D1517 /* ExperiencePageView.swift in Sources */,
 				A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */,
 				A431BE702B1CDD2B0049C126 /* GuideDetailView.swift in Sources */,
 				03115F912B271BD5009D1517 /* ExperienceViewController.swift in Sources */,

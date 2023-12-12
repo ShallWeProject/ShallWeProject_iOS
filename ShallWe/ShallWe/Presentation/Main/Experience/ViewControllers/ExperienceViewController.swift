@@ -16,15 +16,31 @@ final class ExperienceViewController: BaseViewController {
     
     // MARK: - UI Components
     
-    private let experienceView = ExperienceView()
+    private let navigationBar = CustomNavigationBar()
+    private let experiencePageView = ExperiencePageView()
+    
+    // MARK: - UI Components Property
+    
+    override func setStyle() {
+        
+        self.view.backgroundColor = .white
+        
+        navigationBar.do {
+            $0.isBackButtonIncluded = true
+            $0.isLogoViewIncluded = true
+        }
+    }
     
     // MARK: - Layout Helper
     
     override func setLayout() {
-        self.view.addSubviews(experienceView)
         
-        experienceView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+        self.view.addSubviews(navigationBar)
+        
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
         }
     }
 }
