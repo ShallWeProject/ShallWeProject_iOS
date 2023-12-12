@@ -34,6 +34,32 @@ final class ExperienceRecommendViewController: BaseViewController {
                 }
                 .disposed(by: disposebag)
         
+        experiencePageView.menuCollectionView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                viewModel.inputs.menuCellTap(at: indexPath)
+            })
+            .disposed(by: disposebag)
+        
+        viewModel.outputs.menuSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                if let cell = experiencePageView.menuCollectionView.cellForItem(at: indexPath) as? ExperienceMenuCollectionViewCell {
+                    cell.isSelected = true
+                    cell.setUnderLineWidth(size: experiencePageView.labelWidthSize(index: indexPath.row))
+                }
+            })
+            .disposed(by: disposebag)
+        
+        viewModel.outputs.setMenuCell
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                experiencePageView.menuCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
+                
+            })
+            .disposed(by: disposebag)
+        
     }
     
     // MARK: - UI Components Property

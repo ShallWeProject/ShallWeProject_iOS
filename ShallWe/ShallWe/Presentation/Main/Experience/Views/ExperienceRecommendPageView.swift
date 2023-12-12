@@ -69,7 +69,7 @@ final class ExperienceRecommendPageView: BaseView {
 
 extension ExperienceRecommendPageView {
     
-    private func labelWidthSize(index: Int) -> Int {
+    func labelWidthSize(index: Int) -> Int {
         let size = menuTitleModel[index].type.size(
             withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .regular)]).width
         return Int(size)
