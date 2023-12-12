@@ -87,8 +87,12 @@
 		032213B52B241B3100FF5CF1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213B42B241B3100FF5CF1 /* HomeView.swift */; };
 		0345806A2B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580692B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift */; };
 		0345806D2B288104002DDEBA /* HomeExperienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */; };
-		034580702B28A1B6002DDEBA /* ExperienceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345806F2B28A1B6002DDEBA /* ExperienceListViewController.swift */; };
+		034580702B28A1B6002DDEBA /* BirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345806F2B28A1B6002DDEBA /* BirthViewController.swift */; };
 		034580722B28A3A6002DDEBA /* HomeExperiencePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580712B28A3A6002DDEBA /* HomeExperiencePageVC.swift */; };
+		034580742B28AA47002DDEBA /* LoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580732B28AA47002DDEBA /* LoverViewController.swift */; };
+		034580762B28AA59002DDEBA /* ParentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580752B28AA59002DDEBA /* ParentsViewController.swift */; };
+		034580782B28AA61002DDEBA /* GradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580772B28AA61002DDEBA /* GradeViewController.swift */; };
+		0345807A2B28AA7A002DDEBA /* MarriageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580792B28AA7A002DDEBA /* MarriageViewController.swift */; };
 		03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */; };
 		A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */; };
 		A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE572B1A25180049C126 /* ExperienceDetailView.swift */; };
@@ -169,8 +173,12 @@
 		032213B42B241B3100FF5CF1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		034580692B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceViewModel.swift; sourceTree = "<group>"; };
-		0345806F2B28A1B6002DDEBA /* ExperienceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceListViewController.swift; sourceTree = "<group>"; };
+		0345806F2B28A1B6002DDEBA /* BirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewController.swift; sourceTree = "<group>"; };
 		034580712B28A3A6002DDEBA /* HomeExperiencePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperiencePageVC.swift; sourceTree = "<group>"; };
+		034580732B28AA47002DDEBA /* LoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoverViewController.swift; sourceTree = "<group>"; };
+		034580752B28AA59002DDEBA /* ParentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentsViewController.swift; sourceTree = "<group>"; };
+		034580772B28AA61002DDEBA /* GradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
+		034580792B28AA7A002DDEBA /* MarriageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarriageViewController.swift; sourceTree = "<group>"; };
 		03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceType.swift; sourceTree = "<group>"; };
 		A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewController.swift; sourceTree = "<group>"; };
 		A431BE572B1A25180049C126 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
@@ -577,7 +585,11 @@
 		0345806E2B28A188002DDEBA /* PageViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0345806F2B28A1B6002DDEBA /* ExperienceListViewController.swift */,
+				0345806F2B28A1B6002DDEBA /* BirthViewController.swift */,
+				034580732B28AA47002DDEBA /* LoverViewController.swift */,
+				034580752B28AA59002DDEBA /* ParentsViewController.swift */,
+				034580772B28AA61002DDEBA /* GradeViewController.swift */,
+				034580792B28AA7A002DDEBA /* MarriageViewController.swift */,
 			);
 			path = PageViewControllers;
 			sourceTree = "<group>";
@@ -738,12 +750,14 @@
 				0322132A2B14B9E800FF5CF1 /* FontLiterals.swift in Sources */,
 				0345806A2B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift in Sources */,
 				032213762B15FA2D00FF5CF1 /* HomeViewController.swift in Sources */,
+				034580762B28AA59002DDEBA /* ParentsViewController.swift in Sources */,
+				034580742B28AA47002DDEBA /* LoverViewController.swift in Sources */,
 				03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */,
 				0322138B2B1B2B5100FF5CF1 /* CustomNavigationBar.swift in Sources */,
 				A431BE5C2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift in Sources */,
 				032213202B14B75100FF5CF1 /* APIService.swift in Sources */,
 				032213B32B20839100FF5CF1 /* GalleryFooterView.swift in Sources */,
-				034580702B28A1B6002DDEBA /* ExperienceListViewController.swift in Sources */,
+				034580702B28A1B6002DDEBA /* BirthViewController.swift in Sources */,
 				032213172B14B2F800FF5CF1 /* NetworkLoggerPlugin.swift in Sources */,
 				0322130D2B14B26400FF5CF1 /* UILabel+.swift in Sources */,
 				A431BE722B1CEA630049C126 /* ExplainTableViewCell.swift in Sources */,
@@ -775,6 +789,7 @@
 				032213982B1B6DEA00FF5CF1 /* HomePopularCategoryCell.swift in Sources */,
 				0322132C2B14B9F500FF5CF1 /* ImageLiterals.swift in Sources */,
 				034580722B28A3A6002DDEBA /* HomeExperiencePageVC.swift in Sources */,
+				034580782B28AA61002DDEBA /* GradeViewController.swift in Sources */,
 				032213AA2B20770F00FF5CF1 /* GalleryModel.swift in Sources */,
 				032212FB2B14B1D600FF5CF1 /* NSObject+.swift in Sources */,
 				032212F32B14B18500FF5CF1 /* MakeAlert.swift in Sources */,
@@ -790,6 +805,7 @@
 				032213192B14B30A00FF5CF1 /* Config.swift in Sources */,
 				0322131B2B14B31E00FF5CF1 /* APIConstant.swift in Sources */,
 				032213282B14B89700FF5CF1 /* ColorLiterals.swift in Sources */,
+				0345807A2B28AA7A002DDEBA /* MarriageViewController.swift in Sources */,
 				032213092B14B24F00FF5CF1 /* UITextView+.swift in Sources */,
 				032212E72B14B07C00FF5CF1 /* GeneralResponse.swift in Sources */,
 				032213032B14B22500FF5CF1 /* UIImage+.swift in Sources */,

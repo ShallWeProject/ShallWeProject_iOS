@@ -43,6 +43,7 @@ final class HomeExperienceViewModel: HomeExperienceViewModelInputs, HomeExperien
         self.categoryMenu.accept(HomeExperienceType.categoryMenu())
         self.setMenuCell.accept(IndexPath(item: 0, section: 0))
         self.setRecommendListVC.accept(HomeExperiencePageVC.recommendPageVC())
+        print(HomeExperiencePageVC.recommendPageVC())
     }
     
     func menuCellTap(at indexPath: IndexPath) {

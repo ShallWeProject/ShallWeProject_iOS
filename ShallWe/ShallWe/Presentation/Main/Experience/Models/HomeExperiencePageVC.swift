@@ -15,11 +15,11 @@ extension HomeExperiencePageVC {
     
     static func recommendPageVC() -> [UIViewController] {
         var menuVCs: [UIViewController] = []
-        menuVCs += [ExperienceListViewController()]
-        menuVCs += [ExperienceListViewController()]
-        menuVCs += [ExperienceListViewController()]
-        menuVCs += [ExperienceListViewController()]
-        menuVCs += [ExperienceListViewController()]
+        menuVCs += [BirthViewController()]
+        menuVCs += [LoverViewController()]
+        menuVCs += [ParentsViewController()]
+        menuVCs += [GradeViewController()]
+        menuVCs += [MarriageViewController()]
         return menuVCs
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ExperienceListViewController.swift
+//  LoverViewController.swift
 //  ShallWe
 //
 //  Created by KJ on 12/12/23.
@@ -7,11 +7,10 @@
 
 import UIKit
 
-class ExperienceListViewController: UIViewController {
+class LoverViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .blue
 
         // Do any additional setup after loading the view.
     }

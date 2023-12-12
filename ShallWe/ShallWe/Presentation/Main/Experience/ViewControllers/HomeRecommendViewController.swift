@@ -65,6 +65,7 @@ final class HomeRecommendViewController: BaseViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] vc in
                 guard let self = self else { return }
+                experiencePageView.menuVCs = vc
                 if let firstVC = vc.first {
                     experiencePageView.pageViewController.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
                 }
