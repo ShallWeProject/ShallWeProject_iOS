@@ -18,7 +18,8 @@ protocol ExperienceViewModelOutputs {
     var recommendMenu: BehaviorRelay<[ExperienceType]> { get }
     var categoryMenu: BehaviorRelay<[ExperienceType]> { get }
     var setMenuCell: BehaviorRelay<IndexPath> { get }
-    var menuSelected: PublishSubject<IndexPath> { get }
+    var isSelectedMenuCell: PublishSubject<IndexPath> { get }
+    var setRecommendListVC: BehaviorRelay<[UIViewController]> { get }
 }
 
 protocol ExperienceViewModelType {
@@ -30,8 +31,9 @@ final class ExperienceViewModel: ExperienceViewModelInputs, ExperienceViewModelO
     
     var recommendMenu: BehaviorRelay<[ExperienceType]> = BehaviorRelay(value: [])
     var categoryMenu: BehaviorRelay<[ExperienceType]> = BehaviorRelay(value: [])
-    var menuSelected: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
+    var isSelectedMenuCell: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     var setMenuCell: BehaviorRelay<IndexPath> = BehaviorRelay<IndexPath>(value: IndexPath(item: 0, section: 0))
+    var setRecommendListVC: BehaviorRelay<[UIViewController]> = BehaviorRelay<[UIViewController]>(value: [])
     
     var inputs: ExperienceViewModelInputs { return self }
     var outputs: ExperienceViewModelOutputs { return self }
@@ -40,9 +42,10 @@ final class ExperienceViewModel: ExperienceViewModelInputs, ExperienceViewModelO
         self.recommendMenu.accept(ExperienceType.recommendMenu())
         self.categoryMenu.accept(ExperienceType.categoryMenu())
         self.setMenuCell.accept(IndexPath(item: 0, section: 0))
+        self.setRecommendListVC.accept(ExperiencePageVC.recommendPageVC())
     }
     
     func menuCellTap(at indexPath: IndexPath) {
-        self.menuSelected.onNext(indexPath)
+        self.isSelectedMenuCell.onNext(indexPath)
     }
 }

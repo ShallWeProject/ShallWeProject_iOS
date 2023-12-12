@@ -18,10 +18,16 @@ final class ExperienceRecommendPageView: BaseView {
     lazy var pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                                navigationOrientation: .horizontal)
     private let menuCollectionFlowLayout = UICollectionViewFlowLayout()
+    private var menuVCs: [UIViewController] = []
     
     // MARK: - UI Components Property
     
     private let menuTitleModel: [ExperienceType] = ExperienceType.recommendMenu()
+    var nowIndex: Int = 0 {
+        didSet {
+            pageBind(oldValue: oldValue, newValue: nowIndex)
+        }
+    }
     
     // MARK: - UI Components Property
     
@@ -64,6 +70,8 @@ final class ExperienceRecommendPageView: BaseView {
     
     override func setDelegate() {
         menuCollectionView.delegate = self
+        pageViewController.dataSource = self
+        pageViewController.delegate = self
     }
 }
 
@@ -79,6 +87,22 @@ extension ExperienceRecommendPageView {
         cell?.isSelected = selected
         cell?.setUnderLineWidth(size: labelWidthSize(index: indexPath.row))
     }
+    
+    func pageBind(oldValue: Int, newValue: Int) {
+        let direction: UIPageViewController.NavigationDirection = oldValue < newValue ? .forward : .reverse
+        pageViewController.setViewControllers([menuVCs[nowIndex]], direction: direction, animated: true)
+        menuCollectionView.selectItem(at: IndexPath(item: nowIndex, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+    }
+    
+    func didTapCell(at indexPath: IndexPath) {
+        nowIndex = indexPath.item
+    }
+    
+    private func setViewControllersInPageVC() {
+        if let firstVC = menuVCs.first {
+            pageViewController.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
+        }
+    }
 }
 
 extension ExperienceRecommendPageView: UICollectionViewDelegateFlowLayout {
@@ -92,5 +116,42 @@ extension ExperienceRecommendPageView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let inset = SizeLiterals.Screen.screenWidth * 25 / 375
         return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let myCell = cell as? ExperienceMenuCollectionViewCell {
+            myCell.underLine.isHidden = !myCell.isSelected
+            myCell.setUnderLineWidth(size: labelWidthSize(index: indexPath.row))
+        }
+    }
+}
+
+
+extension ExperienceRecommendPageView: UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard let currentVC = pageViewController.viewControllers?.first,
+              let currentIndex = menuVCs.firstIndex(of: currentVC) else { return }
+        nowIndex = currentIndex
+        print(currentIndex)
+    }
+}
+
+extension ExperienceRecommendPageView: UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = menuVCs.firstIndex(of: viewController) else { return nil }
+        let previousIndex = index - 1
+        if previousIndex < 0 {
+            return nil
+        }
+        return menuVCs[previousIndex]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = menuVCs.firstIndex(of: viewController) else { return nil }
+        let nextIndex = index + 1
+        if nextIndex == menuVCs.count {
+            return nil
+        }
+        return menuVCs[nextIndex]
     }
 }
