@@ -41,7 +41,7 @@ final class HomeViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    // MARK: - Layout Helper ㅠㅜ
+    // MARK: - Layout Helper 
     
     override func setLayout() {
         
