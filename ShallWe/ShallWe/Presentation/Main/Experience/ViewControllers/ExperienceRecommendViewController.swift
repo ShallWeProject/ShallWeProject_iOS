@@ -25,13 +25,15 @@ final class ExperienceRecommendViewController: BaseViewController {
     private let disposebag = DisposeBag()
     
     override func bindViewModel() {
+        
         viewModel.outputs.recommendMenu
             .bind(to: experiencePageView.menuCollectionView.rx
                 .items(cellIdentifier: ExperienceMenuCollectionViewCell.className,
                        cellType: ExperienceMenuCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model)
-            }
-            .disposed(by: disposebag)
+                }
+                .disposed(by: disposebag)
+        
     }
     
     // MARK: - UI Components Property
@@ -68,19 +70,10 @@ final class ExperienceRecommendViewController: BaseViewController {
     // MARK: - Methods
     
     override func setDelegate() {
-        experiencePageView.menuCollectionView.delegate = self
+
     }
     
     override func setRegister() {
         experiencePageView.menuCollectionView.registerCell(ExperienceMenuCollectionViewCell.self)
-    }
-}
-
-extension ExperienceRecommendViewController: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = SizeLiterals.Screen.screenWidth * CGFloat(experiencePageView.labelWidthSize(index: indexPath.row) + 20) / 375
-        let height = CGFloat(44)
-        return CGSize(width: width, height: height)
     }
 }
