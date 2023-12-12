@@ -15,7 +15,7 @@ final class ExperienceRecommendPageView: BaseView {
     // MARK: - UI Components
     
     lazy var menuCollectionView = UICollectionView(frame: .zero, collectionViewLayout: menuCollectionFlowLayout)
-    private lazy var pageViewController = UIPageViewController(transitionStyle: .scroll,
+    lazy var pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                                navigationOrientation: .horizontal)
     private let menuCollectionFlowLayout = UICollectionViewFlowLayout()
     
@@ -54,9 +54,4 @@ final class ExperienceRecommendPageView: BaseView {
             $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
-    
-    
-    
-    
-
 }
