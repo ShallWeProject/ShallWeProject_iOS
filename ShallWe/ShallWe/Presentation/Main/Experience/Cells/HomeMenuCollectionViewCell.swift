@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-final class ExperienceMenuCollectionViewCell: UICollectionViewCell {
+final class HomeMenuCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Components
     
@@ -43,7 +43,7 @@ final class ExperienceMenuCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension ExperienceMenuCollectionViewCell {
+extension HomeMenuCollectionViewCell {
     
     // MARK: - UI Components Property
     
@@ -81,7 +81,7 @@ extension ExperienceMenuCollectionViewCell {
     
     // MARK: - Methods
     
-    func configureCell(_ model: ExperienceType) {
+    func configureCell(_ model: HomeExperienceType) {
         titleLabel.text = model.type
     }
     

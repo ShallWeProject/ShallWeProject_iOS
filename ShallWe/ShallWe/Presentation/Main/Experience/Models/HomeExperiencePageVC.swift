@@ -1,5 +1,5 @@
 //
-//  ExperiencePageVC.swift
+//  HomeExperiencePageVC.swift
 //  ShallWe
 //
 //  Created by KJ on 12/12/23.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-struct ExperiencePageVC {
+struct HomeExperiencePageVC {
     let vc: [UIViewController]
 }
 
-extension ExperiencePageVC {
+extension HomeExperiencePageVC {
     
     static func recommendPageVC() -> [UIViewController] {
         var menuVCs: [UIViewController] = []

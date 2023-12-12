@@ -1,5 +1,5 @@
 //
-//  ExperienceRecommendPageView.swift
+//  HomeRecommendView.swift
 //  ShallWe
 //
 //  Created by KJ on 12/11/23.
@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-final class ExperienceRecommendPageView: BaseView {
+final class HomeRecommendView: BaseView {
 
     // MARK: - UI Components
     
@@ -22,7 +22,7 @@ final class ExperienceRecommendPageView: BaseView {
     
     // MARK: - UI Components Property
     
-    private let menuTitleModel: [ExperienceType] = ExperienceType.recommendMenu()
+    private let menuTitleModel: [HomeExperienceType] = HomeExperienceType.recommendMenu()
     var nowIndex: Int = 0 {
         didSet {
             pageBind(oldValue: oldValue, newValue: nowIndex)
@@ -75,7 +75,7 @@ final class ExperienceRecommendPageView: BaseView {
     }
 }
 
-extension ExperienceRecommendPageView {
+extension HomeRecommendView {
     
     func labelWidthSize(index: Int) -> Int {
         let size = menuTitleModel[index].type.size(
@@ -83,7 +83,7 @@ extension ExperienceRecommendPageView {
         return Int(size)
     }
     
-    private func cellUnderLineSetting(cell: ExperienceMenuCollectionViewCell?, indexPath: IndexPath, selected: Bool) {
+    private func cellUnderLineSetting(cell: HomeMenuCollectionViewCell?, indexPath: IndexPath, selected: Bool) {
         cell?.isSelected = selected
         cell?.setUnderLineWidth(size: labelWidthSize(index: indexPath.row))
     }
@@ -105,7 +105,7 @@ extension ExperienceRecommendPageView {
     }
 }
 
-extension ExperienceRecommendPageView: UICollectionViewDelegateFlowLayout {
+extension HomeRecommendView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = SizeLiterals.Screen.screenWidth * CGFloat(labelWidthSize(index: indexPath.row) + 23) / 375
@@ -119,7 +119,7 @@ extension ExperienceRecommendPageView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let myCell = cell as? ExperienceMenuCollectionViewCell {
+        if let myCell = cell as? HomeMenuCollectionViewCell {
             myCell.underLine.isHidden = !myCell.isSelected
             myCell.setUnderLineWidth(size: labelWidthSize(index: indexPath.row))
         }
@@ -127,7 +127,7 @@ extension ExperienceRecommendPageView: UICollectionViewDelegateFlowLayout {
 }
 
 
-extension ExperienceRecommendPageView: UIPageViewControllerDelegate {
+extension HomeRecommendView: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard let currentVC = pageViewController.viewControllers?.first,
               let currentIndex = menuVCs.firstIndex(of: currentVC) else { return }
@@ -136,7 +136,7 @@ extension ExperienceRecommendPageView: UIPageViewControllerDelegate {
     }
 }
 
-extension ExperienceRecommendPageView: UIPageViewControllerDataSource {
+extension HomeRecommendView: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let index = menuVCs.firstIndex(of: viewController) else { return nil }
         let previousIndex = index - 1

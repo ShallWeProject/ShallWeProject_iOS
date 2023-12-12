@@ -12,24 +12,24 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class ExperienceRecommendViewController: BaseViewController {
+final class HomeRecommendViewController: BaseViewController {
     
     // MARK: - UI Components
     
     private let navigationBar = CustomNavigationBar()
-    private let experiencePageView = ExperienceRecommendPageView()
+    private let experiencePageView = HomeRecommendView()
     
     // MARK: - Properties
     
-    private let viewModel = ExperienceViewModel()
+    private let viewModel = HomeExperienceViewModel()
     private let disposebag = DisposeBag()
     
     override func bindViewModel() {
         
         viewModel.outputs.recommendMenu
             .bind(to: experiencePageView.menuCollectionView.rx
-                .items(cellIdentifier: ExperienceMenuCollectionViewCell.className,
-                       cellType: ExperienceMenuCollectionViewCell.self)) { (index, model, cell) in
+                .items(cellIdentifier: HomeMenuCollectionViewCell.className,
+                       cellType: HomeMenuCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model)
                 }
                 .disposed(by: disposebag)
@@ -44,7 +44,7 @@ final class ExperienceRecommendViewController: BaseViewController {
         viewModel.outputs.isSelectedMenuCell
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                if let cell = experiencePageView.menuCollectionView.cellForItem(at: indexPath) as? ExperienceMenuCollectionViewCell {
+                if let cell = experiencePageView.menuCollectionView.cellForItem(at: indexPath) as? HomeMenuCollectionViewCell {
                     cell.isSelected = true
                     cell.setUnderLineWidth(size: experiencePageView.labelWidthSize(index: indexPath.row))
                 }
@@ -110,6 +110,6 @@ final class ExperienceRecommendViewController: BaseViewController {
     }
     
     override func setRegister() {
-        experiencePageView.menuCollectionView.registerCell(ExperienceMenuCollectionViewCell.self)
+        experiencePageView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
     }
 }
