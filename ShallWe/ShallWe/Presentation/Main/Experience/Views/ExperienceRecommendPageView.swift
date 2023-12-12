@@ -1,5 +1,5 @@
 //
-//  ExperiencePageView.swift
+//  ExperienceRecommendPageView.swift
 //  ShallWe
 //
 //  Created by KJ on 12/11/23.
@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-final class ExperiencePageView: BaseView {
+final class ExperienceRecommendPageView: BaseView {
 
     // MARK: - UI Components
     

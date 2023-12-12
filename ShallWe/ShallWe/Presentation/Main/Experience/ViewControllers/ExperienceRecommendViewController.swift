@@ -1,5 +1,5 @@
 //
-//  ExperienceViewController.swift
+//  ExperienceRecommendViewController.swift
 //  ShallWe
 //
 //  Created by KJ on 12/11/23.
@@ -12,7 +12,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class ExperienceViewController: BaseViewController {
+final class ExperienceRecommendViewController: BaseViewController {
     
     // MARK: - UI Components
     
