@@ -22,6 +22,11 @@ final class ExperienceMenuCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             underLine.isHidden = !isSelected
+            if isSelected {
+                self.selectedCell()
+            } else {
+                self.unSelectedCell()
+            }
         }
     }
     
@@ -47,8 +52,8 @@ extension ExperienceMenuCollectionViewCell {
         self.backgroundColor = .clear
         
         titleLabel.do {
-            $0.font = .fontGuide(.SB00_14)
-            $0.textColor = .main
+            $0.font = .fontGuide(.M00_14)
+            $0.textColor = .gray3
         }
         
         underLine.do {
@@ -82,5 +87,15 @@ extension ExperienceMenuCollectionViewCell {
         underLine.snp.makeConstraints {
             $0.width.equalTo(size + 20)
         }
+    }
+    
+    private func selectedCell() {
+        titleLabel.font = .fontGuide(.SB00_14)
+        titleLabel.textColor = .main
+    }
+    
+    private func unSelectedCell() {
+        titleLabel.font = .fontGuide(.M00_14)
+        titleLabel.textColor = .gray3
     }
 }
