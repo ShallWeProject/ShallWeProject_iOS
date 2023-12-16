@@ -38,6 +38,10 @@ enum I18N {
         static let verificationRequestText = "인증 요청"
         static let checkText = "인증번호 확인"
         static let nextText = "다음"
+        static let loginCompletionText = "로그인 완료!"
+        static let signupCompletionText = "회원가입 완료!"
+        static let serviceAvailableText = "지금 바로 셸위의 다양한 서비스를\n이용하실 수 있습니다"
+        static let goHomeText = "홈으로"
     }
     
     enum Home {

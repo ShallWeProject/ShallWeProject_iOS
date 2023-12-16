@@ -89,6 +89,9 @@
 		95748DD02B25FABF004157E0 /* PhoneNumberVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCF2B25FABF004157E0 /* PhoneNumberVerificationViewController.swift */; };
 		95748DD22B25FF6D004157E0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD12B25FF6D004157E0 /* LoginView.swift */; };
 		95748DD42B26096A004157E0 /* PhoneNumberVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD32B26096A004157E0 /* PhoneNumberVerificationView.swift */; };
+		95748DD62B2D9CED004157E0 /* LoginCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD52B2D9CED004157E0 /* LoginCompletionViewController.swift */; };
+		95748DD82B2D9D86004157E0 /* SignUpCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD72B2D9D86004157E0 /* SignUpCompletionViewController.swift */; };
+		95748DDA2B2D9DC6004157E0 /* AuthCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD92B2D9DC6004157E0 /* AuthCompletionView.swift */; };
 		A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */; };
 		A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE572B1A25180049C126 /* ExperienceDetailView.swift */; };
 		A431BE5C2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5B2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift */; };
@@ -170,6 +173,9 @@
 		95748DCF2B25FABF004157E0 /* PhoneNumberVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberVerificationViewController.swift; sourceTree = "<group>"; };
 		95748DD12B25FF6D004157E0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		95748DD32B26096A004157E0 /* PhoneNumberVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberVerificationView.swift; sourceTree = "<group>"; };
+		95748DD52B2D9CED004157E0 /* LoginCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCompletionViewController.swift; sourceTree = "<group>"; };
+		95748DD72B2D9D86004157E0 /* SignUpCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompletionViewController.swift; sourceTree = "<group>"; };
+		95748DD92B2D9DC6004157E0 /* AuthCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCompletionView.swift; sourceTree = "<group>"; };
 		A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewController.swift; sourceTree = "<group>"; };
 		A431BE572B1A25180049C126 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
 		A431BE5B2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -535,6 +541,7 @@
 				954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */,
 				95748DD12B25FF6D004157E0 /* LoginView.swift */,
 				95748DD32B26096A004157E0 /* PhoneNumberVerificationView.swift */,
+				95748DD92B2D9DC6004157E0 /* AuthCompletionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -544,6 +551,8 @@
 			children = (
 				95748DCF2B25FABF004157E0 /* PhoneNumberVerificationViewController.swift */,
 				95748DCD2B25FAB4004157E0 /* LoginViewController.swift */,
+				95748DD52B2D9CED004157E0 /* LoginCompletionViewController.swift */,
+				95748DD72B2D9D86004157E0 /* SignUpCompletionViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -688,6 +697,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95748DD62B2D9CED004157E0 /* LoginCompletionViewController.swift in Sources */,
 				032212FD2B14B1E000FF5CF1 /* UIView+.swift in Sources */,
 				032213782B15FA3500FF5CF1 /* MypageViewController.swift in Sources */,
 				0322139E2B1B8F3200FF5CF1 /* UICollectionView+.swift in Sources */,
@@ -727,6 +737,7 @@
 				032213132B14B29200FF5CF1 /* UIButton+.swift in Sources */,
 				032212F72B14B1B900FF5CF1 /* Protocol.swift in Sources */,
 				032213982B1B6DEA00FF5CF1 /* HomePopularCategoryCell.swift in Sources */,
+				95748DDA2B2D9DC6004157E0 /* AuthCompletionView.swift in Sources */,
 				0322132C2B14B9F500FF5CF1 /* ImageLiterals.swift in Sources */,
 				032213AA2B20770F00FF5CF1 /* GalleryModel.swift in Sources */,
 				032212FB2B14B1D600FF5CF1 /* NSObject+.swift in Sources */,
@@ -739,6 +750,7 @@
 				032213942B1B6D1D00FF5CF1 /* HomeGalleryCell.swift in Sources */,
 				95748DD22B25FF6D004157E0 /* LoginView.swift in Sources */,
 				032213892B1B2ADC00FF5CF1 /* BaseView.swift in Sources */,
+				95748DD82B2D9D86004157E0 /* SignUpCompletionViewController.swift in Sources */,
 				032213B52B241B3100FF5CF1 /* HomeView.swift in Sources */,
 				032212E12B14B01F00FF5CF1 /* DTO.swift in Sources */,
 				954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */,

@@ -23,11 +23,25 @@ final class PhoneNumberVerificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setAddTarget()
     }
 }
 
 // MARK: - Extensions
 
 extension PhoneNumberVerificationViewController {
+    // MARK: - Methods
     
+    func setAddTarget() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenDidTap(_:)))
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    // MARK: Actions
+    
+    @objc func screenDidTap(_ view: UIView) {
+        let loginCompletionViewController = LoginCompletionViewController()
+        self.navigationController?.pushViewController(loginCompletionViewController, animated: true)
+    }
 }
