@@ -36,6 +36,7 @@ enum I18N {
         static let phoneNumberInputText = "전화번호를 입력해주세요"
         static let verificationCodeInputText = "인증번호를 입력해주세요"
         static let verificationRequestText = "인증 요청"
+        static let checkText = "인증번호 확인"
         static let nextText = "다음"
     }
     

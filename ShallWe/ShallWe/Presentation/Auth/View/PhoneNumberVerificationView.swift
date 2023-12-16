@@ -27,8 +27,6 @@ final class PhoneNumberVerificationView: UIView {
         return view
     }()
     
-    private let authHeaderView = AuthHeaderView(frame: .zero, text: I18N.Auth.phoneNumberVerificationText)
-    
     private let nextButton: UIButton = {
         let button = UIButton()
         button.setTitle(I18N.Auth.nextText, for: .normal)
@@ -47,9 +45,30 @@ final class PhoneNumberVerificationView: UIView {
         return label
     }()
     
-    var nameTextField = CustomTextFieldView()
-    var phoneNumberTextField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.phoneNumberInputText)
-    var verificationCodeTextField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.verificationCodeInputText)
+    private let requestButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(I18N.Auth.verificationRequestText, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .fontGuide(.M00_14)
+        button.backgroundColor = .black0
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    private let checkButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(I18N.Auth.checkText, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .fontGuide(.M00_14)
+        button.backgroundColor = .black0
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    private let authHeaderView = AuthHeaderView(frame: .zero, text: I18N.Auth.phoneNumberVerificationText)
+    private var nameTextField = CustomTextFieldView()
+    private var phoneNumberTextField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.phoneNumberInputText)
+    private var verificationCodeTextField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.verificationCodeInputText)
     
     // MARK: - View Life Cycle
     
@@ -76,7 +95,7 @@ extension PhoneNumberVerificationView {
     func setHierarchy() {
         self.addSubview(scrollView)
         scrollView.addSubviews(contentView, nextButton)
-        contentView.addSubviews(authHeaderView, nameInputLabel, nameTextField, phoneNumberTextField, verificationCodeTextField)
+        contentView.addSubviews(authHeaderView, nameInputLabel, nameTextField, phoneNumberTextField, requestButton,  verificationCodeTextField, checkButton)
     }
     
     func setLayout() {
@@ -94,7 +113,6 @@ extension PhoneNumberVerificationView {
         contentView.snp.makeConstraints {
             $0.edges.equalTo(scrollView.contentLayoutGuide)
             $0.width.equalTo(scrollView.snp.width)
-            $0.height.greaterThanOrEqualTo(self.snp.height).priority(.low)
         }
         
         authHeaderView.snp.makeConstraints {
@@ -115,14 +133,27 @@ extension PhoneNumberVerificationView {
         
         phoneNumberTextField.snp.makeConstraints {
             $0.width.equalTo(SizeLiterals.Screen.screenWidth*(212/375))
-            $0.top.equalTo(nameTextField.snp.bottom).offset(40)
+            $0.top.equalTo(nameTextField.snp.bottom).offset(SizeLiterals.Screen.screenHeight*(40/734))
             $0.leading.equalToSuperview().inset(24)
         }
         
         verificationCodeTextField.snp.makeConstraints {
             $0.top.equalTo(phoneNumberTextField.snp.bottom).offset(15)
             $0.horizontalEdges.equalToSuperview().inset(24)
-            $0.bottom.equalToSuperview().inset(30)
+        }
+        
+        requestButton.snp.makeConstraints {
+            $0.height.equalTo(40)
+            $0.leading.equalTo(phoneNumberTextField.snp.trailing).offset(13)
+            $0.trailing.equalToSuperview().inset(24)
+            $0.centerY.equalTo(phoneNumberTextField.snp.centerY)
+        }
+        
+        checkButton.snp.makeConstraints {
+            $0.height.equalTo(40)
+            $0.top.equalTo(verificationCodeTextField.snp.bottom).offset(9)
+            $0.horizontalEdges.equalToSuperview().inset(24)
+            $0.bottom.greaterThanOrEqualToSuperview().inset(30)
         }
     }
 }
