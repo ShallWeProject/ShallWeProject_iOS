@@ -21,7 +21,7 @@
 		032212C92B14AD6800FF5CF1 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 032212C82B14AD6800FF5CF1 /* RxCocoa */; };
 		032212CB2B14AD6800FF5CF1 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 032212CA2B14AD6800FF5CF1 /* RxRelay */; };
 		032212CD2B14AD6800FF5CF1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 032212CC2B14AD6800FF5CF1 /* RxSwift */; };
-		032212D02B14AD8200FF5CF1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 032212CF2B14AD8200FF5CF1 /* Alamofire */; };
+		032212D02B14AD8200FF5CF1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 032212CF2B14AD8200FF5CF1 /* Alamofire */; settings = {ATTRIBUTES = (Required, ); }; };
 		032212D32B14AD9000FF5CF1 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 032212D22B14AD9000FF5CF1 /* FSCalendar */; };
 		032212D62B14AE4100FF5CF1 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 032212D52B14AE4100FF5CF1 /* KakaoSDK */; };
 		032212D82B14AE4100FF5CF1 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 032212D72B14AE4100FF5CF1 /* KakaoSDKAuth */; };
@@ -716,6 +716,7 @@
 				032212D12B14AD9000FF5CF1 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				032212D42B14AE4100FF5CF1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				032212DB2B14AE7600FF5CF1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				034580932B2F2E34002DDEBA /* XCRemoteSwiftPackageReference "DropDown" */,
 			);
 			productRefGroup = 032212A32B14AAFD00FF5CF1 /* Products */;
 			projectDirPath = "";
@@ -893,7 +894,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -950,7 +951,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1110,6 +1111,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 4.3.3;
+			};
+		};
+		034580932B2F2E34002DDEBA /* XCRemoteSwiftPackageReference "DropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AssistoLab/DropDown";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
