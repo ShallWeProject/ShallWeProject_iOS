@@ -89,6 +89,8 @@
 		A42C325C2B26C6C800C4B477 /* ExperienceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C32592B26C6C800C4B477 /* ExperienceDetailView.swift */; };
 		A42C325F2B26C6D400C4B477 /* ExplainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C325D2B26C6D400C4B477 /* ExplainTableViewCell.swift */; };
 		A42C32602B26C6D400C4B477 /* ExperienceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C325E2B26C6D400C4B477 /* ExperienceImageCollectionViewCell.swift */; };
+		A42C32662B3040FA00C4B477 /* ExperienceLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C32652B3040FA00C4B477 /* ExperienceLetterView.swift */; };
+		A42C32682B30410900C4B477 /* ExperienceLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C32672B30410900C4B477 /* ExperienceLetterViewController.swift */; };
 		A431BE5E2B1AFAF90049C126 /* UICollectionViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5D2B1AFAF90049C126 /* UICollectionViewRegisterable.swift */; };
 		A431BE602B1AFB160049C126 /* UITableViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5F2B1AFB160049C126 /* UITableViewRegisterable.swift */; };
 		A431BE772B1EEF4A0049C126 /* ExperienceGiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */; };
@@ -167,6 +169,8 @@
 		A42C32592B26C6C800C4B477 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
 		A42C325D2B26C6D400C4B477 /* ExplainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplainTableViewCell.swift; sourceTree = "<group>"; };
 		A42C325E2B26C6D400C4B477 /* ExperienceImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		A42C32652B3040FA00C4B477 /* ExperienceLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceLetterView.swift; sourceTree = "<group>"; };
+		A42C32672B30410900C4B477 /* ExperienceLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceLetterViewController.swift; sourceTree = "<group>"; };
 		A431BE5D2B1AFAF90049C126 /* UICollectionViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewRegisterable.swift; sourceTree = "<group>"; };
 		A431BE5F2B1AFB160049C126 /* UITableViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewRegisterable.swift; sourceTree = "<group>"; };
 		A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftViewController.swift; sourceTree = "<group>"; };
@@ -549,6 +553,31 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		A42C32612B30358100C4B477 /* ExperienceLetter */ = {
+			isa = PBXGroup;
+			children = (
+				A42C32632B30359900C4B477 /* View */,
+				A42C32622B30358F00C4B477 /* ViewController */,
+			);
+			path = ExperienceLetter;
+			sourceTree = "<group>";
+		};
+		A42C32622B30358F00C4B477 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A42C32672B30410900C4B477 /* ExperienceLetterViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A42C32632B30359900C4B477 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A42C32652B3040FA00C4B477 /* ExperienceLetterView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A431BE732B1EED7F0049C126 /* ExperienceGift */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +609,7 @@
 			children = (
 				A42C32512B26C67600C4B477 /* ExperienceDetail */,
 				A431BE732B1EED7F0049C126 /* ExperienceGift */,
+				A42C32612B30358100C4B477 /* ExperienceLetter */,
 			);
 			path = ExperienceScene;
 			sourceTree = "<group>";
@@ -722,6 +752,7 @@
 				032212F92B14B1C800FF5CF1 /* String+.swift in Sources */,
 				032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */,
 				032212A82B14AAFD00FF5CF1 /* SceneDelegate.swift in Sources */,
+				A42C32682B30410900C4B477 /* ExperienceLetterViewController.swift in Sources */,
 				032213072B14B24500FF5CF1 /* UITextField+.swift in Sources */,
 				A42C325C2B26C6C800C4B477 /* ExperienceDetailView.swift in Sources */,
 				0322132E2B14B9FD00FF5CF1 /* SizeLiterals.swift in Sources */,
@@ -735,6 +766,7 @@
 				A42C325A2B26C6C800C4B477 /* GuideDetailView.swift in Sources */,
 				032213AA2B20770F00FF5CF1 /* GalleryModel.swift in Sources */,
 				032212FB2B14B1D600FF5CF1 /* NSObject+.swift in Sources */,
+				A42C32662B3040FA00C4B477 /* ExperienceLetterView.swift in Sources */,
 				032212F32B14B18500FF5CF1 /* MakeAlert.swift in Sources */,
 				032213962B1B6D9200FF5CF1 /* HomeRecommendCell.swift in Sources */,
 				032213862B1B2A8D00FF5CF1 /* BaseViewController.swift in Sources */,

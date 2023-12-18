@@ -52,4 +52,8 @@ enum ImageLiterals {
         static var img_ad1: UIImage { .load(name: "ad1") }
         static var img_ad2: UIImage { .load(name: "ad2") }
     }
+    
+    enum ExperienceLetter {
+        static var img_letter: UIImage { .load(name: "letter") }
+    }
 }
