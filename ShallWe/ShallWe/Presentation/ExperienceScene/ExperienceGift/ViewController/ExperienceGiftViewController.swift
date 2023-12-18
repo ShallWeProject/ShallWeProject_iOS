@@ -42,11 +42,16 @@ final class ExperienceGiftViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUI()
         setDelegate()
     }
 }
 
 extension ExperienceGiftViewController {
+    func setUI() {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     func setDelegate() {
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -70,12 +75,12 @@ extension ExperienceGiftViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? TimeCollectionViewCell {
             cell.timeLabel.backgroundColor = .point
-            cell.timeLabel.textColor = .bg0
+            cell.timeLabel.textColor = .white
         }
         
         for otherIndexPath in collectionView.indexPathsForVisibleItems where otherIndexPath != indexPath {
             if let otherCell = collectionView.cellForItem(at: otherIndexPath) as? TimeCollectionViewCell {
-                otherCell.timeLabel.backgroundColor = .bg0
+                otherCell.timeLabel.backgroundColor = .white
                 otherCell.timeLabel.textColor = .gray4
             }
         }

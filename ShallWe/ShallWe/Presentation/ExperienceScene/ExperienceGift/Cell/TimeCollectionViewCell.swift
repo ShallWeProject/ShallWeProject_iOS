@@ -21,6 +21,7 @@ final class TimeCollectionViewCell: UICollectionViewCell, UICollectionViewRegist
         label.layer.cornerRadius = 10
         label.layer.borderColor = UIColor.gray0.cgColor
         label.layer.borderWidth = 1
+        label.backgroundColor = .white
         return label
     }()
     

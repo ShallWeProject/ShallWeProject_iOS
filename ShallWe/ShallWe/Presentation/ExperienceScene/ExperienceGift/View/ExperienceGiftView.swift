@@ -30,6 +30,14 @@ final class ExperienceGiftView: UIView {
     
     // MARK: - UI Components
     
+    private let navigationBar: CustomNavigationBar = {
+        let navigationBar = CustomNavigationBar()
+        navigationBar.isBackButtonIncluded = true
+        navigationBar.isTitleLabelIncluded = true
+        navigationBar.titleText = I18N.ExperienceGift.navigationTitle
+        return navigationBar
+    }()
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -204,7 +212,7 @@ final class ExperienceGiftView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .bg0
+        collectionView.backgroundColor = .white
         return collectionView
     }()
     
@@ -248,7 +256,7 @@ final class ExperienceGiftView: UIView {
 
 extension ExperienceGiftView {
     func setUI() {
-        backgroundColor = .bg0
+        backgroundColor = .white
     }
     
     func setCalenderUI() {
@@ -274,12 +282,18 @@ extension ExperienceGiftView {
         giftStackView.addArrangedSubviews(giftTitle, giftSubTitle, giftPriceLabel)
         personButtonStackView.addArrangedSubviews(minusButton, personCountLabel, plusButton)
         calendarHeaderView.addArrangedSubviews(leftButton, monthLabel, rightButton)
-        addSubviews(giftButton, scrollView)
+        addSubviews(navigationBar, giftButton, scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubviews(experienceTitle, giftImage, giftStackView, seperatorView, personTitle, personButtonStackView, seperatorView2, reservationTitle, calendarHeaderView, calendarView, timeCollectionView)
     }
     
     func setLayout() {
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(safeAreaLayoutGuide)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(50)
+        }
+        
         giftButton.snp.makeConstraints {
             $0.bottom.equalTo(safeAreaLayoutGuide).offset(-36)
             $0.leading.equalToSuperview().inset(15)
@@ -288,7 +302,7 @@ extension ExperienceGiftView {
         }
         
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide)
+            $0.top.equalTo(navigationBar.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(giftButton.snp.top)
         }
