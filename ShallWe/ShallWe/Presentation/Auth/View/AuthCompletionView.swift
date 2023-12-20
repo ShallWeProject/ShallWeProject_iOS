@@ -87,6 +87,9 @@ final class AuthCompletionView: UIView {
 // MARK: - Extensions
 
 extension AuthCompletionView {
+    
+    // MARK: - Methods
+    
     func setUI() {
         self.backgroundColor = .white
         mainLabel.text = mainText
@@ -128,5 +131,16 @@ extension AuthCompletionView {
             $0.bottom.equalToSuperview().inset(49)
             $0.horizontalEdges.equalToSuperview().inset(20)
         }
+    }
+    
+    func setAddTarget() {
+        homeButton.addTarget(self, action: #selector(homeButtonDidTap), for: .touchUpInside)
+    }
+    
+    // MARK: Actions
+    
+    @objc func homeButtonDidTap(_ view: UIView) {
+        let tabBarController = TabBarController()
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVC(tabBarController, animated: false)
     }
 }
