@@ -15,7 +15,7 @@ final class LoginView: UIView {
     
     private let shallWeLogoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = ImageLiterals.Logo.shall_we_logo
+        imageView.image = ImageLiterals.Auth.logo_shallWe_big
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -47,7 +47,7 @@ final class LoginView: UIView {
     
     private let kakaoIconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = ImageLiterals.Icon.kakao_login
+        imageView.image = ImageLiterals.Auth.ic_kakao_login
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()

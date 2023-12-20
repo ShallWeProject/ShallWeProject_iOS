@@ -40,11 +40,6 @@ enum ImageLiterals {
         static var right_calender: UIImage { .load(name: "ic_right_calender") }
         static var search_colored: UIImage { .load(name: "ic_search_colored") }
         static var search: UIImage { .load(name: "ic_search") }
-        static var kakao_login: UIImage { .load(name: "kakaoLoginIcon") }
-    }
-    
-    enum Logo {
-        static var shall_we_logo: UIImage { .load(name: "shallWeLogo") }
     }
     
     enum Home {
@@ -56,5 +51,11 @@ enum ImageLiterals {
         static var img_parents: UIImage { .load(name: "img_parents") }
         static var img_ad1: UIImage { .load(name: "ad1") }
         static var img_ad2: UIImage { .load(name: "ad2") }
+    }
+    
+    enum Auth {
+        static var logo_shallWe_big: UIImage { .load(name: "shallWeLogo") }
+        static var ic_kakao_login: UIImage { .load(name: "kakaoLoginIcon") }
+        static var img_firework: UIImage { .load(name: "firework") }
     }
 }
