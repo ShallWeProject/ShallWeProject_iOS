@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shallWeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Kgf-lh-aUb">
-                                <rect key="frame" x="68" y="271" width="257" height="224"/>
+                                <rect key="frame" x="68" y="305.66666666666669" width="257" height="224.00000000000006"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Kgf-lh-aUb" secondAttribute="height" multiplier="240:209" id="fmR-sd-QwI"/>
                                 </constraints>
@@ -26,7 +26,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="Kgf-lh-aUb" secondAttribute="centerY" constant="43" id="EsV-sh-TxF"/>
+                            <constraint firstAttribute="centerY" secondItem="Kgf-lh-aUb" secondAttribute="centerY" multiplier="1.02" id="EsV-sh-TxF"/>
                             <constraint firstItem="Kgf-lh-aUb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Jg6-Ia-72C"/>
                             <constraint firstAttribute="trailing" secondItem="Kgf-lh-aUb" secondAttribute="trailing" constant="68" id="OIi-Z6-V4V"/>
                             <constraint firstItem="Kgf-lh-aUb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="68" id="ov5-0Q-b5C"/>

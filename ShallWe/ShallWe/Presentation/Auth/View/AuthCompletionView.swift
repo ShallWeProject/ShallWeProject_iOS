@@ -18,6 +18,7 @@ final class AuthCompletionView: UIView {
     // MARK: - UI Components
     
     private let navigationBar = CustomNavigationBar()
+    private let centerLayoutGuide = UILayoutGuide()
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -28,6 +29,7 @@ final class AuthCompletionView: UIView {
     
     private let mainLabel: UILabel = {
         let label = UILabel()
+        label.backgroundColor = .clear
         label.textColor = .main
         label.font = .fontGuide(.SB00_18)
         label.textAlignment = .center
@@ -99,6 +101,7 @@ extension AuthCompletionView {
     }
     
     func setHierarchy() {
+        self.addLayoutGuide(centerLayoutGuide)
         self.addSubviews(navigationBar, fullStackView, homeButton)
         fullStackView.addArrangedSubviews(imageView, labelStackView)
         labelStackView.addArrangedSubviews(mainLabel, subLabel)
@@ -112,8 +115,8 @@ extension AuthCompletionView {
         }
         
         imageView.snp.makeConstraints {
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight*(170/734))
-            $0.centerX.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(68)
+            $0.centerX.equalTo(safeAreaLayoutGuide)
         }
         
         labelStackView.snp.makeConstraints {
@@ -121,9 +124,14 @@ extension AuthCompletionView {
         }
         
         fullStackView.snp.makeConstraints {
-            $0.top.lessThanOrEqualTo(navigationBar.snp.bottom).offset(SizeLiterals.Screen.screenHeight*(119/734))
-            $0.bottom.lessThanOrEqualTo(homeButton.snp.top).offset(SizeLiterals.Screen.screenHeight*(250/734))
             $0.centerX.equalToSuperview()
+            $0.centerY.equalTo(centerLayoutGuide).multipliedBy(1-(65.5/592.0))
+        }
+        
+        centerLayoutGuide.snp.makeConstraints {
+            $0.top.equalTo(navigationBar.snp.bottom)
+            $0.horizontalEdges.equalTo(navigationBar.snp.horizontalEdges)
+            $0.bottom.equalTo(homeButton.snp.top)
         }
         
         homeButton.snp.makeConstraints {

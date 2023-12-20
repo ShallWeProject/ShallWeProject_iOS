@@ -118,12 +118,12 @@ extension PhoneNumberVerificationView {
         }
         
         authHeaderView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(SizeLiterals.Screen.screenHeight*(64/734))
+            $0.top.equalToSuperview().inset(SizeLiterals.Screen.screenHeight*(64/768))
             $0.leading.equalToSuperview().inset(24)
         }
         
         nameInputLabel.snp.makeConstraints {
-            $0.top.equalTo(authHeaderView.snp.bottom).offset(SizeLiterals.Screen.screenHeight*(60/734))
+            $0.top.equalTo(authHeaderView.snp.bottom).offset(SizeLiterals.Screen.screenHeight*(59/768))
             $0.leading.equalToSuperview().inset(24)
         }
         
@@ -135,7 +135,7 @@ extension PhoneNumberVerificationView {
         
         phoneNumberTextField.snp.makeConstraints {
             $0.width.equalTo(SizeLiterals.Screen.screenWidth*(212/375))
-            $0.top.equalTo(nameTextField.snp.bottom).offset(SizeLiterals.Screen.screenHeight*(40/734))
+            $0.top.equalTo(nameTextField.snp.bottom).offset(SizeLiterals.Screen.screenHeight*(40/768))
             $0.leading.equalToSuperview().inset(24)
         }
         
