@@ -12,11 +12,11 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class BirthViewController: BaseViewController {
+final class BirthViewController: BaseViewController {
 
     // MARK: - UI Components
     
-    private let experienceView = HomeExperienceListView()
+    let experienceView = HomeExperienceListView()
     
     // MARK: - Properties
     
@@ -31,6 +31,12 @@ class BirthViewController: BaseViewController {
                     cell.configureCell(model)
                 }
                 .disposed(by: disposeBag)
+        
+        experienceView.dropDownButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.experienceView.homeDropDown.show()
+            })
+            .disposed(by: disposeBag)
     }
     
     override func setStyle() {

@@ -95,6 +95,7 @@
 		0345807A2B28AA7A002DDEBA /* MarriageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580792B28AA7A002DDEBA /* MarriageViewController.swift */; };
 		0345807C2B28ACF6002DDEBA /* HomeExperienceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345807B2B28ACF6002DDEBA /* HomeExperienceListView.swift */; };
 		0345807E2B28B0FE002DDEBA /* HomeExperienceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345807D2B28B0FE002DDEBA /* HomeExperienceListViewModel.swift */; };
+		034580952B2F356C002DDEBA /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 034580942B2F356C002DDEBA /* DropDown */; };
 		03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */; };
 		A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */; };
 		A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE572B1A25180049C126 /* ExperienceDetailView.swift */; };
@@ -200,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				032212D02B14AD8200FF5CF1 /* Alamofire in Frameworks */,
+				034580952B2F356C002DDEBA /* DropDown in Frameworks */,
 				032212DD2B14AE7600FF5CF1 /* Lottie in Frameworks */,
 				032212D62B14AE4100FF5CF1 /* KakaoSDK in Frameworks */,
 				032212C92B14AD6800FF5CF1 /* RxCocoa in Frameworks */,
@@ -677,6 +679,7 @@
 				032212D72B14AE4100FF5CF1 /* KakaoSDKAuth */,
 				032212D92B14AE4100FF5CF1 /* KakaoSDKUser */,
 				032212DC2B14AE7600FF5CF1 /* Lottie */,
+				034580942B2F356C002DDEBA /* DropDown */,
 			);
 			productName = ShallWe;
 			productReference = 032212A22B14AAFD00FF5CF1 /* ShallWe.app */;
@@ -1193,6 +1196,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 032212DB2B14AE7600FF5CF1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		034580942B2F356C002DDEBA /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 034580932B2F2E34002DDEBA /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
