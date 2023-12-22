@@ -24,6 +24,7 @@ final class PhoneNumberVerificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationBar()
         setAddTarget()
     }
 }
@@ -31,7 +32,17 @@ final class PhoneNumberVerificationViewController: UIViewController {
 // MARK: - Extensions
 
 extension PhoneNumberVerificationViewController {
+    
     // MARK: - Methods
+    
+    func setNavigationBar() {
+        let backButton = UIBarButtonItem(image: ImageLiterals.Icon.arrow_left,
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(backButtonDidTap))
+        navigationItem.leftBarButtonItem = backButton
+        navigationItem.leftBarButtonItem?.tintColor = .black
+    }
     
     func setAddTarget() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenDidTap(_:)))
@@ -39,6 +50,10 @@ extension PhoneNumberVerificationViewController {
     }
     
     // MARK: Actions
+    
+    @objc func backButtonDidTap() {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @objc func screenDidTap(_ view: UIView) {
         let loginCompletionViewController = LoginCompletionViewController()
