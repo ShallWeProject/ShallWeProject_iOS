@@ -7,20 +7,11 @@
 
 import UIKit
 
-final class CustomBoxView: UIView {
+final class CustomButton: UIButton {
     
     // MARK: - Properties
     
     private var titleText: String
-
-    // MARK: - UI Components
-    
-    private let title: UILabel = {
-        let label = UILabel()
-        label.textColor = .black0
-        label.font = .fontGuide(.M00_14)
-        return label
-    }()
     
     // MARK: - View Life Cycle
     
@@ -29,7 +20,6 @@ final class CustomBoxView: UIView {
         super.init(frame: frame)
         
         setUI()
-        setHierarchy()
         setLayout()
     }
     
@@ -40,43 +30,36 @@ final class CustomBoxView: UIView {
 
 // MARK: - Extensions
 
-extension CustomBoxView {
+extension CustomButton {
     
     // MARK: - Methods
     
     private func setUI() {
-        title.text = titleText
+        setTitle(titleText, for: .normal)
+        setTitleColor(.black0, for: .normal)
+        titleLabel?.font = .fontGuide(.M00_14)
         backgroundColor = .gray0
         makeBorder(width: 1, color: .gray2)
         layer.cornerRadius = 10
-    }
-    
-    private func setHierarchy() {
-        self.addSubviews(title)
     }
     
     private func setLayout() {
         self.snp.makeConstraints {
             $0.height.equalTo(47)
         }
-        
-        title.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview()
-        }
     }
     
     func changeToPink() {
         backgroundColor = .bg2
         makeBorder(width: 1, color: .line1)
-        title.textColor = .main
-        title.font = .fontGuide(.SB00_14)
+        setTitleColor(.main, for: .normal)
+        titleLabel?.font = .fontGuide(.SB00_14)
     }
     
     func changeToGray() {
         backgroundColor = .gray0
         makeBorder(width: 1, color: .gray2)
-        title.textColor = .black0
-        title.font = .fontGuide(.M00_14)
+        setTitleColor(.black0, for: .normal)
+        titleLabel?.font = .fontGuide(.M00_14)
     }
 }

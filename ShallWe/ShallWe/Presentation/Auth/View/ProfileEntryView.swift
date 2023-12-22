@@ -14,6 +14,7 @@ final class ProfileEntryView: UIView {
     // MARK: - Properties
     
     private var isCompleted = false
+    private var selectedGenderButton: CustomButton? = nil
     
     // MARK: - UI Components
     
@@ -61,9 +62,9 @@ final class ProfileEntryView: UIView {
     
     private let authHeaderView = AuthHeaderView(frame: .zero, text: I18N.Auth.recommendationText)
     private var ageTextField = CustomTextFieldView()
-    private let maleBox = CustomBoxView(frame: .zero, title: I18N.Auth.maleText)
-    private let femaleBox = CustomBoxView(frame: .zero, title: I18N.Auth.femaleText)
-    private let noneBox = CustomBoxView(frame: .zero, title: I18N.Auth.noneText)
+    private let maleButton = CustomButton(frame: .zero, title: I18N.Auth.maleText)
+    private let femaleButton = CustomButton(frame: .zero, title: I18N.Auth.femaleText)
+    private let noneButton = CustomButton(frame: .zero, title: I18N.Auth.noneText)
     
     // MARK: - View Life Cycle
     
@@ -73,6 +74,8 @@ final class ProfileEntryView: UIView {
         setUI()
         setHierarchy()
         setLayout()
+        setTag()
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -100,7 +103,7 @@ extension ProfileEntryView {
             genderStackView,
             nextButton
         )
-        genderStackView.addArrangedSubviews(maleBox, femaleBox, noneBox)
+        genderStackView.addArrangedSubviews(maleButton, femaleButton, noneButton)
     }
     
     func setLayout() {
@@ -140,5 +143,45 @@ extension ProfileEntryView {
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.bottom.equalToSuperview().inset(49)
         }
+    }
+    
+    func setTag() {
+        maleButton.tag = 0
+        femaleButton.tag = 1
+        noneButton.tag = 2
+    }
+    
+    func setAddTarget() {
+        maleButton.addTarget(self, action: #selector(maleButtonDidTap), for: .touchUpInside)
+        femaleButton.addTarget(self, action: #selector(femaleButtonDidTap), for: .touchUpInside)
+        noneButton.addTarget(self, action: #selector(noneButtonDidTap), for: .touchUpInside)
+    }
+    
+    func selectGender(tappedButton: CustomButton) {
+        if selectedGenderButton == nil {
+            selectedGenderButton = tappedButton
+            tappedButton.changeToPink()
+        } else if tappedButton == selectedGenderButton {
+            selectedGenderButton = nil
+            tappedButton.changeToGray()
+        } else {
+            selectedGenderButton!.changeToGray()
+            selectedGenderButton = tappedButton
+            tappedButton.changeToPink()
+        }
+    }
+    
+    // MARK: - Actions
+    
+    @objc func maleButtonDidTap() {
+        selectGender(tappedButton: maleButton)
+    }
+    
+    @objc func femaleButtonDidTap() {
+        selectGender(tappedButton: femaleButton)
+    }
+    
+    @objc func noneButtonDidTap() {
+        selectGender(tappedButton: noneButton)
     }
 }
