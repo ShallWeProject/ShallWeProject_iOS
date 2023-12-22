@@ -147,7 +147,7 @@ extension AuthCompletionView {
     
     // MARK: Actions
     
-    @objc func homeButtonDidTap(_ view: UIView) {
+    @objc func homeButtonDidTap() {
         let tabBarController = TabBarController()
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVC(tabBarController, animated: false)
     }

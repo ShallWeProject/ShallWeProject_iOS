@@ -36,13 +36,13 @@ extension LoginViewController {
     // MARK: - Methods
     
     func setAddTarget() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenDidTap(_:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenDidTap))
         view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     // MARK: Actions
     
-    @objc func screenDidTap(_ view: UIView) {
+    @objc func screenDidTap() {
         let phoneNumberVerificationViewController = PhoneNumberVerificationViewController()
         self.navigationController?.pushViewController(phoneNumberVerificationViewController, animated: true)
     }

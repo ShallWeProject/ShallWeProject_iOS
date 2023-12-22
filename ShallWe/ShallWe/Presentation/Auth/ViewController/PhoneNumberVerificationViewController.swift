@@ -45,8 +45,7 @@ extension PhoneNumberVerificationViewController {
     }
     
     func setAddTarget() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenDidTap(_:)))
-        view.addGestureRecognizer(tapGestureRecognizer)
+        phoneNumberVerificationView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
     
     // MARK: Actions
@@ -55,7 +54,7 @@ extension PhoneNumberVerificationViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc func screenDidTap(_ view: UIView) {
+    @objc func nextButtonDidTap() {
         let profileEntryViewController = ProfileEntryViewController()
         self.navigationController?.pushViewController(profileEntryViewController, animated: true)
     }

@@ -54,7 +54,7 @@ extension ProfileEntryViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc func nextButtonDidTap(_ view: UIView) {
+    @objc func nextButtonDidTap() {
         let signUpCompletionViewController = SignUpCompletionViewController()
         self.navigationController?.pushViewController(signUpCompletionViewController, animated: true)
     }

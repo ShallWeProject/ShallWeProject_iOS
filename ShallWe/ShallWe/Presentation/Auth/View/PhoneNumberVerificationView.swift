@@ -27,7 +27,7 @@ final class PhoneNumberVerificationView: UIView {
         return view
     }()
     
-    private let nextButton: UIButton = {
+    let nextButton: UIButton = {
         let button = UIButton()
         button.setTitle(I18N.Auth.nextText, for: .normal)
         button.setTitleColor(.white, for: .normal)
