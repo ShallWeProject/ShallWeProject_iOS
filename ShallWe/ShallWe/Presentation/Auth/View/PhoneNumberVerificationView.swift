@@ -88,6 +88,7 @@ final class PhoneNumberVerificationView: UIView {
 // MARK: - Extensions
 
 extension PhoneNumberVerificationView {
+    
     // MARK: - Methods
     
     func setUI() {

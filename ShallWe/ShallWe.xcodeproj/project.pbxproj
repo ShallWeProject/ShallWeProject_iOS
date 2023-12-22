@@ -92,6 +92,10 @@
 		95748DD62B2D9CED004157E0 /* LoginCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD52B2D9CED004157E0 /* LoginCompletionViewController.swift */; };
 		95748DD82B2D9D86004157E0 /* SignUpCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD72B2D9D86004157E0 /* SignUpCompletionViewController.swift */; };
 		95748DDA2B2D9DC6004157E0 /* AuthCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD92B2D9DC6004157E0 /* AuthCompletionView.swift */; };
+		95748DDC2B35810C004157E0 /* ProfileEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDB2B35810C004157E0 /* ProfileEntryViewController.swift */; };
+		95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDD2B358190004157E0 /* ProfileEntryView.swift */; };
+		95748DE02B359802004157E0 /* CustomBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDF2B359802004157E0 /* CustomBoxView.swift */; };
+		95748DE52B35A95F004157E0 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DE42B35A95F004157E0 /* Enums.swift */; };
 		A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */; };
 		A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE572B1A25180049C126 /* ExperienceDetailView.swift */; };
 		A431BE5C2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5B2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift */; };
@@ -176,6 +180,10 @@
 		95748DD52B2D9CED004157E0 /* LoginCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCompletionViewController.swift; sourceTree = "<group>"; };
 		95748DD72B2D9D86004157E0 /* SignUpCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCompletionViewController.swift; sourceTree = "<group>"; };
 		95748DD92B2D9DC6004157E0 /* AuthCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCompletionView.swift; sourceTree = "<group>"; };
+		95748DDB2B35810C004157E0 /* ProfileEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEntryViewController.swift; sourceTree = "<group>"; };
+		95748DDD2B358190004157E0 /* ProfileEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEntryView.swift; sourceTree = "<group>"; };
+		95748DDF2B359802004157E0 /* CustomBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBoxView.swift; sourceTree = "<group>"; };
+		95748DE42B35A95F004157E0 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewController.swift; sourceTree = "<group>"; };
 		A431BE572B1A25180049C126 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
 		A431BE5B2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -464,6 +472,7 @@
 			children = (
 				0322138A2B1B2B5100FF5CF1 /* CustomNavigationBar.swift */,
 				954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */,
+				95748DDF2B359802004157E0 /* CustomBoxView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -529,6 +538,7 @@
 		954E45B42B1E5C2800D12242 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				95748DE32B35A952004157E0 /* Util */,
 				95748DCC2B25FA88004157E0 /* ViewController */,
 				954E45B92B20AE6800D12242 /* View */,
 			);
@@ -542,6 +552,7 @@
 				95748DD12B25FF6D004157E0 /* LoginView.swift */,
 				95748DD32B26096A004157E0 /* PhoneNumberVerificationView.swift */,
 				95748DD92B2D9DC6004157E0 /* AuthCompletionView.swift */,
+				95748DDD2B358190004157E0 /* ProfileEntryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -553,8 +564,17 @@
 				95748DCD2B25FAB4004157E0 /* LoginViewController.swift */,
 				95748DD52B2D9CED004157E0 /* LoginCompletionViewController.swift */,
 				95748DD72B2D9D86004157E0 /* SignUpCompletionViewController.swift */,
+				95748DDB2B35810C004157E0 /* ProfileEntryViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		95748DE32B35A952004157E0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				95748DE42B35A95F004157E0 /* Enums.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		A431BE522B1A24780049C126 /* ExperienceDetail */ = {
@@ -707,6 +727,7 @@
 				0322138B2B1B2B5100FF5CF1 /* CustomNavigationBar.swift in Sources */,
 				A431BE5C2B1AFAA10049C126 /* ExperienceImageCollectionViewCell.swift in Sources */,
 				032213202B14B75100FF5CF1 /* APIService.swift in Sources */,
+				95748DDC2B35810C004157E0 /* ProfileEntryViewController.swift in Sources */,
 				032213B32B20839100FF5CF1 /* GalleryFooterView.swift in Sources */,
 				032213172B14B2F800FF5CF1 /* NetworkLoggerPlugin.swift in Sources */,
 				95748DD42B26096A004157E0 /* PhoneNumberVerificationView.swift in Sources */,
@@ -719,8 +740,10 @@
 				0322130F2B14B27B00FF5CF1 /* UITableView+.swift in Sources */,
 				032213A32B1B935800FF5CF1 /* PopularCategoryModel.swift in Sources */,
 				032213912B1B2EBB00FF5CF1 /* SearchView.swift in Sources */,
+				95748DE02B359802004157E0 /* CustomBoxView.swift in Sources */,
 				A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */,
 				A431BE702B1CDD2B0049C126 /* GuideDetailView.swift in Sources */,
+				95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */,
 				032212F12B14B17600FF5CF1 /* MakeVibrate.swift in Sources */,
 				0322130B2B14B25900FF5CF1 /* UIStackView+.swift in Sources */,
 				A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */,
@@ -746,6 +769,7 @@
 				032213862B1B2A8D00FF5CF1 /* BaseViewController.swift in Sources */,
 				0322131D2B14B32B00FF5CF1 /* URLConstant.swift in Sources */,
 				032213052B14B23000FF5CF1 /* UIViewController+.swift in Sources */,
+				95748DE52B35A95F004157E0 /* Enums.swift in Sources */,
 				0322136D2B15F8C200FF5CF1 /* TabBarController.swift in Sources */,
 				032213942B1B6D1D00FF5CF1 /* HomeGalleryCell.swift in Sources */,
 				95748DD22B25FF6D004157E0 /* LoginView.swift in Sources */,

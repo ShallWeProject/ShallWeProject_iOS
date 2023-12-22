@@ -1,24 +1,24 @@
 //
-//  PhoneNumberVerificationViewController.swift
+//  ProfileEntryViewController.swift
 //  ShallWe
 //
-//  Created by 김나연 on 12/6/23.
+//  Created by 김나연 on 12/22/23.
 //
 
 import UIKit
 
-final class PhoneNumberVerificationViewController: UIViewController {
-    
+final class ProfileEntryViewController: UIViewController {
+
     // MARK: - UI Components
     
-    private let phoneNumberVerificationView = PhoneNumberVerificationView()
+    private let profileEntryView = ProfileEntryView()
     
     // MARK: - Life Cycles
     
     override func loadView() {
         super.loadView()
         
-        view = phoneNumberVerificationView
+        view = profileEntryView
     }
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ final class PhoneNumberVerificationViewController: UIViewController {
 
 // MARK: - Extensions
 
-extension PhoneNumberVerificationViewController {
+extension ProfileEntryViewController {
     
     // MARK: - Methods
     
@@ -45,8 +45,7 @@ extension PhoneNumberVerificationViewController {
     }
     
     func setAddTarget() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenDidTap(_:)))
-        view.addGestureRecognizer(tapGestureRecognizer)
+        profileEntryView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
     
     // MARK: Actions
@@ -55,8 +54,8 @@ extension PhoneNumberVerificationViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc func screenDidTap(_ view: UIView) {
-        let profileEntryViewController = ProfileEntryViewController()
-        self.navigationController?.pushViewController(profileEntryViewController, animated: true)
+    @objc func nextButtonDidTap(_ view: UIView) {
+        let signUpCompletionViewController = SignUpCompletionViewController()
+        self.navigationController?.pushViewController(signUpCompletionViewController, animated: true)
     }
 }
