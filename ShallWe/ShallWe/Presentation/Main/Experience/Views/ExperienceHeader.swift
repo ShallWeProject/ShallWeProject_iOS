@@ -23,7 +23,7 @@ final class ExperienceHeader: UICollectionReusableView {
     
     let dropDownButton = UIButton()
     
-    // MARK: - View Life Cycle
+    // MARK: - Initializer
     
     override init(frame: CGRect) {
         super.init(frame: frame)
