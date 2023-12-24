@@ -23,6 +23,10 @@ final class ExperienceHeader: UICollectionReusableView {
     
     let dropDownButton = UIButton()
     
+    // MARK: - Properties
+    
+    var titleType: DropDownTitleType = .popular
+    
     // MARK: - Initializer
     
     override init(frame: CGRect) {
@@ -71,7 +75,8 @@ extension ExperienceHeader {
     // MARK: - Methods
     
     func setButtonTitle(_ type: DropDownTitleType) {
-        switch type {
+        self.titleType = type
+        switch titleType {
         case .popular:
             dropDownButton.setTitle("인기순", for: .normal)
         case .recommend:

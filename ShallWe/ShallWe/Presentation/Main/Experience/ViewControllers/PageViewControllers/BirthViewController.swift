@@ -17,6 +17,7 @@ final class BirthViewController: BaseViewController {
     // MARK: - UI Components
     
     let experienceView = HomeExperienceListView()
+    private lazy var activateDropDownAlert = ActivateDropDownAlert()
     
     // MARK: - Properties
     

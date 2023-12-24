@@ -34,7 +34,7 @@ final class ActivateDropDownAlert: BaseView {
         mainButton.do {
             $0.titleLabel?.font = .fontGuide(.M00_12)
             $0.setTitleColor(.black0, for: .normal)
-            $0.set(image: ImageLiterals.Icon.arrow_up, withTitle: "인기순", forState: .normal)
+            $0.set(image: ImageLiterals.Icon.arrow_down_small, withTitle: "인기순", forState: .normal)
             $0.backgroundColor = .bg2
             $0.makeBorder(width: 0.8, color: .bg4)
         }
@@ -42,7 +42,7 @@ final class ActivateDropDownAlert: BaseView {
         subButton1.do {
             $0.titleLabel?.font = .fontGuide(.R00_10)
             $0.setTitleColor(.black0, for: .normal)
-            $0.backgroundColor = .bg2
+            $0.backgroundColor = .bg1
             $0.makeBorder(width: 0.5, color: .bg4)
             $0.setTitle("추천순", for: .normal)
         }
@@ -50,7 +50,7 @@ final class ActivateDropDownAlert: BaseView {
         subButton2.do {
             $0.titleLabel?.font = .fontGuide(.R00_10)
             $0.setTitleColor(.black0, for: .normal)
-            $0.backgroundColor = .bg2
+            $0.backgroundColor = .bg1
             $0.makeBorder(width: 0.5, color: .bg4)
             $0.setTitle("추천순", for: .normal)
         }
@@ -58,7 +58,7 @@ final class ActivateDropDownAlert: BaseView {
         subButton3.do {
             $0.titleLabel?.font = .fontGuide(.R00_10)
             $0.setTitleColor(.black0, for: .normal)
-            $0.backgroundColor = .bg2
+            $0.backgroundColor = .bg1
             $0.makeBorder(width: 0.5, color: .bg4)
             $0.setTitle("추천순", for: .normal)
         }
@@ -72,7 +72,7 @@ final class ActivateDropDownAlert: BaseView {
         contentView.addSubviews(mainButton, subButton1, subButton2, subButton3)
         
         contentView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(148)
+            $0.top.equalToSuperview().inset(20)
             $0.trailing.equalToSuperview().inset(16)
             $0.width.equalTo(82)
             $0.height.equalTo(88)

@@ -9,6 +9,8 @@ import UIKit
 
 import Then
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class HomeExperienceListView: BaseView {
     
@@ -19,7 +21,11 @@ final class HomeExperienceListView: BaseView {
     
     // MARK: - Properties
     
+    private let dispoeBag = DisposeBag()
+    private let viewModel = HomeExperienceListViewModel()
     private let dummyModel = HomeExperienceModel.homeExperienceDummyData()
+    private lazy var activateDropDownAlert = ActivateDropDownAlert()
+
     
     // MARK: - UI Components Property
     
@@ -94,6 +100,17 @@ extension HomeExperienceListView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableCell(kind: kind, type: ExperienceHeader.self, indexPath: indexPath)
+        header.dropDownButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.inputs.dropDownButtonTap(at: header.titleType)
+                print("tap")
+                self.addSubview(activateDropDownAlert)
+                self.activateDropDownAlert.snp.makeConstraints {
+                    $0.edges.equalToSuperview()
+                }
+            })
+            .disposed(by: dispoeBag)
         return header
     }
 }
