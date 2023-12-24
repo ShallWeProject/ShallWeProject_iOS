@@ -58,7 +58,7 @@ final class HomeExperienceListView: BaseView {
         homelistCollectionView.delegate = self
         homelistCollectionView.dataSource = self
         homelistCollectionView.registerCell(HomeExperienceCell.self)
-        homelistCollectionView.registerHeader(RecommendHeader.self)
+        homelistCollectionView.registerHeader(ExperienceHeader.self)
     }
 }
 
@@ -93,7 +93,7 @@ extension HomeExperienceListView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableCell(kind: kind, type: RecommendHeader.self, indexPath: indexPath)
+        let header = collectionView.dequeueReusableCell(kind: kind, type: ExperienceHeader.self, indexPath: indexPath)
         return header
     }
 }

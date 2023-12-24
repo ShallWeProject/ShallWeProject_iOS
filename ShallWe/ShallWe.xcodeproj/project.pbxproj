@@ -96,7 +96,8 @@
 		0345807C2B28ACF6002DDEBA /* HomeExperienceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345807B2B28ACF6002DDEBA /* HomeExperienceListView.swift */; };
 		0345807E2B28B0FE002DDEBA /* HomeExperienceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345807D2B28B0FE002DDEBA /* HomeExperienceListViewModel.swift */; };
 		034580952B2F356C002DDEBA /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 034580942B2F356C002DDEBA /* DropDown */; };
-		034580992B37EEA1002DDEBA /* RecommendHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580982B37EEA1002DDEBA /* RecommendHeader.swift */; };
+		034580992B37EEA1002DDEBA /* ExperienceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580982B37EEA1002DDEBA /* ExperienceHeader.swift */; };
+		0345809B2B380299002DDEBA /* ActivateDropDownAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345809A2B380299002DDEBA /* ActivateDropDownAlert.swift */; };
 		03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */; };
 		A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */; };
 		A431BE582B1A25180049C126 /* ExperienceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE572B1A25180049C126 /* ExperienceDetailView.swift */; };
@@ -185,7 +186,8 @@
 		034580792B28AA7A002DDEBA /* MarriageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarriageViewController.swift; sourceTree = "<group>"; };
 		0345807B2B28ACF6002DDEBA /* HomeExperienceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceListView.swift; sourceTree = "<group>"; };
 		0345807D2B28B0FE002DDEBA /* HomeExperienceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceListViewModel.swift; sourceTree = "<group>"; };
-		034580982B37EEA1002DDEBA /* RecommendHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendHeader.swift; sourceTree = "<group>"; };
+		034580982B37EEA1002DDEBA /* ExperienceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceHeader.swift; sourceTree = "<group>"; };
+		0345809A2B380299002DDEBA /* ActivateDropDownAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateDropDownAlert.swift; sourceTree = "<group>"; };
 		03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceType.swift; sourceTree = "<group>"; };
 		A431BE542B1A24F90049C126 /* ExperienceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewController.swift; sourceTree = "<group>"; };
 		A431BE572B1A25180049C126 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
@@ -258,7 +260,8 @@
 			children = (
 				03115F952B271F12009D1517 /* HomeRecommendView.swift */,
 				0345807B2B28ACF6002DDEBA /* HomeExperienceListView.swift */,
-				034580982B37EEA1002DDEBA /* RecommendHeader.swift */,
+				034580982B37EEA1002DDEBA /* ExperienceHeader.swift */,
+				0345809A2B380299002DDEBA /* ActivateDropDownAlert.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				0345806A2B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift in Sources */,
 				032213762B15FA2D00FF5CF1 /* HomeViewController.swift in Sources */,
 				034580762B28AA59002DDEBA /* ParentsViewController.swift in Sources */,
+				0345809B2B380299002DDEBA /* ActivateDropDownAlert.swift in Sources */,
 				034580742B28AA47002DDEBA /* LoverViewController.swift in Sources */,
 				03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */,
 				0322138B2B1B2B5100FF5CF1 /* CustomNavigationBar.swift in Sources */,
@@ -819,7 +823,7 @@
 				032213192B14B30A00FF5CF1 /* Config.swift in Sources */,
 				0322131B2B14B31E00FF5CF1 /* APIConstant.swift in Sources */,
 				032213282B14B89700FF5CF1 /* ColorLiterals.swift in Sources */,
-				034580992B37EEA1002DDEBA /* RecommendHeader.swift in Sources */,
+				034580992B37EEA1002DDEBA /* ExperienceHeader.swift in Sources */,
 				0345807A2B28AA7A002DDEBA /* MarriageViewController.swift in Sources */,
 				032213092B14B24F00FF5CF1 /* UITextView+.swift in Sources */,
 				032212E72B14B07C00FF5CF1 /* GeneralResponse.swift in Sources */,
