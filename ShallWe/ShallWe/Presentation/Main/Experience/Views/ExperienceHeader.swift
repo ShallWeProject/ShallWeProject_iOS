@@ -17,16 +17,11 @@ enum DropDownTitleType {
     case priceMin
 }
 
-final class RecommendHeader: UICollectionReusableView {
+final class ExperienceHeader: UICollectionReusableView {
     
     // MARK: - UI Components
     
     let dropDownButton = UIButton()
-    lazy var activateButtonView = UIView()
-    lazy var mainButton = UIButton()
-    lazy var subButton1 = UIButton()
-    lazy var subButton2 = UIButton()
-    lazy var subButton3 = UIButton()
     
     // MARK: - View Life Cycle
     
@@ -41,7 +36,7 @@ final class RecommendHeader: UICollectionReusableView {
     }
 }
 
-extension RecommendHeader {
+extension ExperienceHeader {
     
     // MARK: - UI Components Property
     
@@ -63,7 +58,7 @@ extension RecommendHeader {
     
     private func setLayout() {
         
-        self.addSubviews(dropDownButton, activateButtonView)
+        self.addSubviews(dropDownButton)
         
         dropDownButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
