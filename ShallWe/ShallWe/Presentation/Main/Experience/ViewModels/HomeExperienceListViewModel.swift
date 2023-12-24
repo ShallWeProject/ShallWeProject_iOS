@@ -14,7 +14,7 @@ protocol HomeExperienceListViewModelInputs {
 }
 
 protocol HomeExperienceListViewModelOutputs {
-    var birthList: BehaviorRelay<[HomeExperienceModel]> { get }
+
 }
 
 protocol HomeExperienceListViewModelType {
@@ -24,12 +24,10 @@ protocol HomeExperienceListViewModelType {
 
 final class HomeExperienceListViewModel: HomeExperienceListViewModelInputs, HomeExperienceListViewModelOutputs, HomeExperienceListViewModelType {
     
-    var birthList: BehaviorRelay<[HomeExperienceModel]> = BehaviorRelay(value: [])
-    
     var inputs: HomeExperienceListViewModelInputs { return self }
     var outputs: HomeExperienceListViewModelOutputs { return self }
     
     init(){
-        self.birthList.accept(HomeExperienceModel.homeExperienceDummyData())
+
     }
 }

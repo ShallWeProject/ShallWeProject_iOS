@@ -24,13 +24,7 @@ final class MarriageViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     
     override func bindViewModel() {
-        viewModel.outputs.birthList
-            .bind(to: experienceView.homelistCollectionView.rx
-                .items(cellIdentifier: HomeExperienceCell.className,
-                       cellType: HomeExperienceCell.self)) { (index, model, cell) in
-                    cell.configureCell(model)
-                }
-                .disposed(by: disposeBag)
+
     }
     
     override func setStyle() {
