@@ -10,6 +10,13 @@ import UIKit
 import SnapKit
 import Then
 
+enum DropDownTitleType {
+    case popular
+    case recommend
+    case priceMax
+    case priceMin
+}
+
 final class RecommendHeader: UICollectionReusableView {
     
     // MARK: - UI Components
@@ -20,10 +27,6 @@ final class RecommendHeader: UICollectionReusableView {
     lazy var subButton1 = UIButton()
     lazy var subButton2 = UIButton()
     lazy var subButton3 = UIButton()
-    
-    // MARK: - Properties
-    
-    // MARK: - Initializer
     
     // MARK: - View Life Cycle
     
@@ -60,8 +63,7 @@ extension RecommendHeader {
     
     private func setLayout() {
         
-        self.addSubviews(dropDownButton)
-//        activateButtonView.addSubviews(mainButton, subButton1, subButton2, subButton3)
+        self.addSubviews(dropDownButton, activateButtonView)
         
         dropDownButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
@@ -69,10 +71,20 @@ extension RecommendHeader {
             $0.width.equalTo(82)
             $0.height.equalTo(25)
         }
-        
-        
     }
     
     // MARK: - Methods
-   
+    
+    func setButtonTitle(_ type: DropDownTitleType) {
+        switch type {
+        case .popular:
+            dropDownButton.setTitle("인기순", for: .normal)
+        case .recommend:
+            dropDownButton.setTitle("추천순", for: .normal)
+        case .priceMax:
+            dropDownButton.setTitle("가격높은순", for: .normal)
+        case .priceMin:
+            dropDownButton.setTitle("가격낮은순", for: .normal)
+        }
+    }
 }
