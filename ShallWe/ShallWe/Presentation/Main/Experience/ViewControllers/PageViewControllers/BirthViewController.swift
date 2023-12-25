@@ -23,9 +23,16 @@ final class BirthViewController: BaseViewController {
     
     private let viewModel = HomeExperienceListViewModel()
     private let disposeBag = DisposeBag()
+    private var isDropDownActivated: Bool = false
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        experienceView.buttonTap()
+    }
     
     override func bindViewModel() {
-
+        
+//        experienceView.buttonTap()
     }
     
     override func setStyle() {

@@ -15,10 +15,10 @@ final class ActivateDropDownAlert: BaseView {
     // MARK: - UI Components
     
     lazy var contentView = UIView()
-    lazy var mainButton = UIButton()
-    lazy var subButton1 = UIButton()
-    lazy var subButton2 = UIButton()
-    lazy var subButton3 = UIButton()
+    lazy var mainButton = CustomDropDownButton(.popular)
+    lazy var subButton1 = CustomDropDownButton(.recommend)
+    lazy var subButton2 = CustomDropDownButton(.priceMax)
+    lazy var subButton3 = CustomDropDownButton(.priceMin)
     
     // MARK: - UI Components Property
     
@@ -44,7 +44,6 @@ final class ActivateDropDownAlert: BaseView {
             $0.setTitleColor(.black0, for: .normal)
             $0.backgroundColor = .bg1
             $0.makeBorder(width: 0.5, color: .bg4)
-            $0.setTitle("추천순", for: .normal)
         }
         
         subButton2.do {
@@ -52,7 +51,6 @@ final class ActivateDropDownAlert: BaseView {
             $0.setTitleColor(.black0, for: .normal)
             $0.backgroundColor = .bg1
             $0.makeBorder(width: 0.5, color: .bg4)
-            $0.setTitle("추천순", for: .normal)
         }
         
         subButton3.do {
@@ -60,7 +58,6 @@ final class ActivateDropDownAlert: BaseView {
             $0.setTitleColor(.black0, for: .normal)
             $0.backgroundColor = .bg1
             $0.makeBorder(width: 0.5, color: .bg4)
-            $0.setTitle("추천순", for: .normal)
         }
     }
 
