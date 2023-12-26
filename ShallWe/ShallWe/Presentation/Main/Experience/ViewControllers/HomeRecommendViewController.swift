@@ -26,6 +26,12 @@ final class HomeRecommendViewController: BaseViewController {
     
     override func bindViewModel() {
         
+        navigationBar.backButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposebag)
+        
         viewModel.outputs.recommendMenu
             .bind(to: experiencePageView.menuCollectionView.rx
                 .items(cellIdentifier: HomeMenuCollectionViewCell.className,
