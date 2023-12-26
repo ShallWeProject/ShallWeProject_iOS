@@ -356,8 +356,8 @@
 		032212E82B14B0B200FF5CF1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				03115F8D2B271B8B009D1517 /* Main */,
 				032213832B1B2A7900FF5CF1 /* Common */,
+				03115F8D2B271B8B009D1517 /* Main */,
 				A431BE522B1A24780049C126 /* ExperienceDetail */,
 				032213702B15F9FA00FF5CF1 /* Category */,
 				032213722B15FA0500FF5CF1 /* Mypage */,
