@@ -13,12 +13,13 @@ import RxCocoa
 protocol HomeViewModelInputs {
     func popularCategoryCellTap(at indexPath: IndexPath)
     func updateCurrentIndex(to index: Int)
+    func recommendCellTap(at indexPath: IndexPath)
 }
 
 protocol HomeViewModelOutputs {
-    
-    var selectedCellIndex: BehaviorRelay<IndexPath?> { get }
+    var selectedPopularCellIndex: BehaviorRelay<IndexPath?> { get }
     var currentIndexSubject: BehaviorSubject<Int> { get }
+    var selectedRecommendCellIndex: PublishSubject<IndexPath> { get }
 }
 
 protocol HomeViewModelType {
@@ -30,8 +31,9 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     
     var recommend: BehaviorRelay<[RecommendModel]> = BehaviorRelay(value: [])
     var popularCategory: BehaviorRelay<[PopularCategoryModel]> = BehaviorRelay(value: [])
-    var selectedCellIndex: BehaviorRelay<IndexPath?> = BehaviorRelay<IndexPath?>(value: nil)
+    var selectedPopularCellIndex: BehaviorRelay<IndexPath?> = BehaviorRelay<IndexPath?>(value: nil)
     var currentIndexSubject: BehaviorSubject<Int> = BehaviorSubject<Int>(value: 0)
+    var selectedRecommendCellIndex: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     
     var inputs: HomeViewModelInputs { return self }
     var outputs: HomeViewModelOutputs { return self }
@@ -39,10 +41,14 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     init(){}
     
     func popularCategoryCellTap(at indexPath: IndexPath) {
-        selectedCellIndex.accept(indexPath)
+        selectedPopularCellIndex.accept(indexPath)
     }
     
     func updateCurrentIndex(to index: Int) {
         currentIndexSubject.onNext(index)
+    }
+    
+    func recommendCellTap(at indexPath: IndexPath) {
+        selectedRecommendCellIndex.onNext(indexPath)
     }
 }

@@ -32,10 +32,14 @@ extension TabBarController {
     
     private func setTabBarItems() {
         
+        let categoryVC = UINavigationController(rootViewController: CategoryViewController())
+        let homeVC = UINavigationController(rootViewController: HomeViewController())
+        let mypageVC = UINavigationController(rootViewController: MypageViewController())
+        
         tabs = [
-            CategoryViewController(),
-            HomeViewController(),
-            MypageViewController()
+            categoryVC,
+            homeVC,
+            mypageVC
         ]
         
         TabBarItemType.allCases.forEach {

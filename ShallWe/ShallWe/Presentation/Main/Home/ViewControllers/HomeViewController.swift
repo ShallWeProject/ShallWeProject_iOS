@@ -26,9 +26,14 @@ final class HomeViewController: BaseViewController {
     private let popularCategoryModel: [PopularCategoryModel] = PopularCategoryModel.popularCategoryTitleData()
     private var galleryModel: [GalleryModel] = GalleryModel.galleryDummydata()
     private var experienceModel: [HomeExperienceModel] = HomeExperienceModel.homeExperienceDummyData()
+    private let recommendVC = HomeRecommendViewController()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
     
     override func bindViewModel() {
-        viewModel.outputs.selectedCellIndex
+        viewModel.outputs.selectedPopularCellIndex
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 if let indexPath = indexPath {
@@ -37,6 +42,14 @@ final class HomeViewController: BaseViewController {
                         self.homeView.selectedIndexPath = indexPath
                     }
                 }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.selectedRecommendCellIndex
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                print(indexPath)
+                self.navigationController?.pushViewController(HomeRecommendViewController(), animated: true)
             })
             .disposed(by: disposeBag)
     }
@@ -134,7 +147,9 @@ extension HomeViewController: UICollectionViewDataSource {
         switch sectionType {
         case .popularCategory:
             viewModel.inputs.popularCategoryCellTap(at: indexPath)
-        case .gallery, .recommend, .experience:
+        case .recommend:
+            viewModel.inputs.recommendCellTap(at: indexPath)
+        case .gallery, .experience:
             return
         }
     }
