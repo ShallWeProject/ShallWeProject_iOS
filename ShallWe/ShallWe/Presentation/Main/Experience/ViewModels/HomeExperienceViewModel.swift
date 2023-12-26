@@ -19,7 +19,6 @@ protocol HomeExperienceViewModelOutputs {
     var categoryMenu: BehaviorRelay<[HomeExperienceType]> { get }
     var setMenuCell: BehaviorRelay<IndexPath> { get }
     var isSelectedMenuCell: PublishSubject<IndexPath> { get }
-    var setRecommendListVC: BehaviorRelay<[UIViewController]> { get }
 }
 
 protocol HomeExperienceViewModelType {
@@ -33,7 +32,6 @@ final class HomeExperienceViewModel: HomeExperienceViewModelInputs, HomeExperien
     var categoryMenu: BehaviorRelay<[HomeExperienceType]> = BehaviorRelay(value: [])
     var isSelectedMenuCell: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     var setMenuCell: BehaviorRelay<IndexPath> = BehaviorRelay<IndexPath>(value: IndexPath(item: 0, section: 0))
-    var setRecommendListVC: BehaviorRelay<[UIViewController]> = BehaviorRelay<[UIViewController]>(value: [])
     
     var inputs: HomeExperienceViewModelInputs { return self }
     var outputs: HomeExperienceViewModelOutputs { return self }
@@ -42,8 +40,6 @@ final class HomeExperienceViewModel: HomeExperienceViewModelInputs, HomeExperien
         self.recommendMenu.accept(HomeExperienceType.recommendMenu())
         self.categoryMenu.accept(HomeExperienceType.categoryMenu())
         self.setMenuCell.accept(IndexPath(item: 0, section: 0))
-        self.setRecommendListVC.accept(HomeExperiencePageVC.recommendPageVC())
-        print(HomeExperiencePageVC.recommendPageVC())
     }
     
     func menuCellTap(at indexPath: IndexPath) {

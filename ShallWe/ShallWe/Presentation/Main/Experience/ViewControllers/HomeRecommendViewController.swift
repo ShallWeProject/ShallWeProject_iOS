@@ -23,6 +23,15 @@ final class HomeRecommendViewController: BaseViewController {
     
     private let viewModel = HomeExperienceViewModel()
     private let disposebag = DisposeBag()
+    var index: Int = 0
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let vc = HomeExperiencePageVC.recommendPageVC()
+        print(index)
+            experiencePageView.pageViewController.setViewControllers([vc[index]], direction: .forward, animated: true, completion: nil)
+        experiencePageView.menuCollectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+    }
     
     override func bindViewModel() {
         
@@ -37,8 +46,8 @@ final class HomeRecommendViewController: BaseViewController {
                 .items(cellIdentifier: HomeMenuCollectionViewCell.className,
                        cellType: HomeMenuCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model)
-                }
-                .disposed(by: disposebag)
+            }
+                       .disposed(by: disposebag)
         
         experiencePageView.menuCollectionView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
@@ -67,16 +76,16 @@ final class HomeRecommendViewController: BaseViewController {
             })
             .disposed(by: disposebag)
         
-        viewModel.outputs.setRecommendListVC
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] vc in
-                guard let self = self else { return }
-                experiencePageView.menuVCs = vc
-                if let firstVC = vc.first {
-                    experiencePageView.pageViewController.setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
-                }
-            })
-            .disposed(by: disposebag)
+//        viewModel.outputs.setRecommendListVC
+//            .observe(on: MainScheduler.instance)
+//            .subscribe(onNext: { [weak self] vc in
+//                guard let self = self else { return }
+////                experiencePageView.menuVCs = vc
+//                print(index)
+//                    experiencePageView.pageViewController.setViewControllers([vc[index]], direction: .forward, animated: true, completion: nil)
+//                experiencePageView.menuCollectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+//            })
+//            .disposed(by: disposebag)
     }
     
     // MARK: - UI Components Property
@@ -113,7 +122,7 @@ final class HomeRecommendViewController: BaseViewController {
     // MARK: - Methods
     
     override func setDelegate() {
-
+        
     }
     
     override func setRegister() {

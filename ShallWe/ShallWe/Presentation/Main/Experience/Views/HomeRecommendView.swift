@@ -18,7 +18,7 @@ final class HomeRecommendView: BaseView {
     lazy var pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                                navigationOrientation: .horizontal)
     private let menuCollectionFlowLayout = UICollectionViewFlowLayout()
-    var menuVCs: [UIViewController] = []
+    var menuVCs: [UIViewController] = HomeExperiencePageVC.recommendPageVC()
     
     // MARK: - UI Components Property
     
@@ -51,7 +51,7 @@ final class HomeRecommendView: BaseView {
     // MARK: - Layout Helper
     
     override func setLayout() {
-        
+
         self.addSubviews(menuCollectionView, pageViewController.view)
         
         menuCollectionView.snp.makeConstraints {

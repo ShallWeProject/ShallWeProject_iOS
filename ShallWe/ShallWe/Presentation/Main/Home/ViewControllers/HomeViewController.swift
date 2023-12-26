@@ -48,8 +48,10 @@ final class HomeViewController: BaseViewController {
         viewModel.outputs.selectedRecommendCellIndex
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                print(indexPath)
-                self.navigationController?.pushViewController(HomeRecommendViewController(), animated: true)
+                print("aaaaa", indexPath)
+                let index = indexPath.row
+                recommendVC.index = index
+                self.navigationController?.pushViewController(recommendVC, animated: true)
             })
             .disposed(by: disposeBag)
     }
