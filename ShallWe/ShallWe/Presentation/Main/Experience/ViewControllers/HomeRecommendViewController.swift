@@ -75,17 +75,6 @@ final class HomeRecommendViewController: BaseViewController {
                 
             })
             .disposed(by: disposebag)
-        
-//        viewModel.outputs.setRecommendListVC
-//            .observe(on: MainScheduler.instance)
-//            .subscribe(onNext: { [weak self] vc in
-//                guard let self = self else { return }
-////                experiencePageView.menuVCs = vc
-//                print(index)
-//                    experiencePageView.pageViewController.setViewControllers([vc[index]], direction: .forward, animated: true, completion: nil)
-//                experiencePageView.menuCollectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
-//            })
-//            .disposed(by: disposebag)
     }
     
     // MARK: - UI Components Property
