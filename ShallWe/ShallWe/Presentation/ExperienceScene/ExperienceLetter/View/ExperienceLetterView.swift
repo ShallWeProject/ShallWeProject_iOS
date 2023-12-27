@@ -11,6 +11,10 @@ import SnapKit
 
 final class ExperienceLetterView: UIView {
     
+    // MARK: - Properties
+    
+    let maxNumberOfLines = 5
+    
     // MARK: - UI Components
     
     private let navigationBar: CustomNavigationBar = {
@@ -151,13 +155,26 @@ final class ExperienceLetterView: UIView {
         return image
     }()
     
-    private let letterLabel: UITextField = {
-        let textfield = UITextField()
-        textfield.text = "예시\n예시\n예시\n예시\n예시"
-        textfield.textColor = .black
-        textfield.font = .fontGuide(.M00_12)
-        textfield.backgroundColor = .clear
-        return textfield
+    private let letterTextView: UITextView = {
+        let textview = UITextView()
+        let exampletext = "예시"
+        let attributedString = NSAttributedString(string: exampletext, attributes: [
+            NSAttributedString.Key.font: UIFont.fontGuide(.M00_12_20),
+            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.paragraphStyle: {
+                let style = NSMutableParagraphStyle()
+                style.lineSpacing = 5
+                return style
+            }()
+        ])
+        textview.attributedText = attributedString
+        textview.backgroundColor = .clear
+        textview.isEditable = true
+        textview.isScrollEnabled = false
+        textview.translatesAutoresizingMaskIntoConstraints = false
+        textview.textContainer.lineBreakMode = .byWordWrapping
+        textview.textContainerInset = UIEdgeInsets(top: 3, left: 0, bottom: 0, right: 0)
+        return textview
     }()
     
     private lazy var giftButton: UIButton = {
@@ -178,6 +195,7 @@ final class ExperienceLetterView: UIView {
         super.init(frame: frame)
         
         setUI()
+        setDelegate()
         setHierarchy()
         setLayout()
     }
@@ -195,8 +213,16 @@ extension ExperienceLetterView {
         infoTitle.isHidden = true
     }
     
+    func setDelegate() {
+        senderTextField.delegate = self
+        recipientNameTextField.delegate = self
+        phoneMidText.delegate = self
+        phoneEndText.delegate = self
+        letterTextView.delegate = self
+    }
+    
     func setHierarchy() {
-        addSubviews(navigationBar, seperatorView1, senderTitle, senderTextField, seperatorView2, recipientTitle, recipientNameTextField, infoIcon, infoTitle, phoneFirstText, phoneMidText, phoneEndText, seperatorView3, inviteTitle, letterImage, letterLabel, giftButton)
+        addSubviews(navigationBar, seperatorView1, senderTitle, senderTextField, seperatorView2, recipientTitle, recipientNameTextField, infoIcon, infoTitle, phoneFirstText, phoneMidText, phoneEndText, seperatorView3, inviteTitle, letterImage, letterTextView, giftButton)
     }
     
     func setLayout() {
@@ -234,7 +260,7 @@ extension ExperienceLetterView {
             $0.top.equalTo(seperatorView2.snp.bottom).offset(12)
             $0.leading.equalToSuperview().inset(16)
         }
-    
+        
         infoIcon.snp.makeConstraints {
             $0.top.equalTo(recipientTitle.snp.bottom).offset(8)
             $0.leading.equalToSuperview().inset(15)
@@ -291,9 +317,11 @@ extension ExperienceLetterView {
             $0.height.equalTo(212)
         }
         
-        letterLabel.snp.makeConstraints {
+        letterTextView.snp.makeConstraints {
             $0.top.equalTo(letterImage.snp.top).offset(64)
-            $0.horizontalEdges.equalTo(letterImage.snp.horizontalEdges).offset(SizeLiterals.Screen.screenWidth * 37 / 375)
+            $0.leading.equalTo(letterImage.snp.leading).offset(SizeLiterals.Screen.screenWidth * 36 / 375)
+            $0.width.equalTo(260)
+            $0.height.equalTo(100)
         }
         
         giftButton.snp.makeConstraints {
@@ -302,5 +330,26 @@ extension ExperienceLetterView {
             $0.width.equalTo(UIScreen.main.bounds.width * 335 / 375)
             $0.height.equalTo(43)
         }
+    }
+}
+
+extension ExperienceLetterView: UITextFieldDelegate {
+    
+}
+
+extension ExperienceLetterView: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let currentText = textView.text else {
+            return true
+        }
+        let newText = (currentText as NSString).replacingCharacters(in: range, with: text)
+        let newLines = newText.components(separatedBy: .newlines)
+        let totalLines = letterTextView.numberOfLines()
+        if totalLines > maxNumberOfLines {
+            let visibleText = newLines.prefix(maxNumberOfLines).joined(separator: " ")
+            textView.text = visibleText
+            return false
+        }
+        return true
     }
 }
