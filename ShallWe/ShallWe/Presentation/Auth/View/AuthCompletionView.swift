@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class AuthCompletionView: UIView {
+final class AuthCompletionView: BaseView {
     
     // MARK: - Properties
     
@@ -76,23 +76,17 @@ final class AuthCompletionView: UIView {
         self.mainText = mainText
         super.init(frame: frame)
         
-        setUI()
-        setHierarchy()
+        setStyle()
         setLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-// MARK: - Extensions
-
-extension AuthCompletionView {
     
     // MARK: - Methods
     
-    func setUI() {
+    override func setStyle() {
         self.backgroundColor = .white
         mainLabel.text = mainText
         navigationBar.do {
@@ -100,14 +94,12 @@ extension AuthCompletionView {
         }
     }
     
-    func setHierarchy() {
+    override func setLayout() {
         self.addLayoutGuide(centerLayoutGuide)
         self.addSubviews(navigationBar, fullStackView, homeButton)
         fullStackView.addArrangedSubviews(imageView, labelStackView)
         labelStackView.addArrangedSubviews(mainLabel, subLabel)
-    }
-    
-    func setLayout() {
+        
         navigationBar.snp.makeConstraints {
             $0.height.equalTo(50)
             $0.top.equalTo(safeAreaLayoutGuide)
@@ -140,14 +132,18 @@ extension AuthCompletionView {
             $0.horizontalEdges.equalToSuperview().inset(20)
         }
     }
-    
+}
+
+// MARK: - Extensions
+
+extension AuthCompletionView {
     func setAddTarget() {
         homeButton.addTarget(self, action: #selector(homeButtonDidTap), for: .touchUpInside)
     }
     
     // MARK: Actions
     
-    @objc func homeButtonDidTap() {
+    @objc private func homeButtonDidTap() {
         let tabBarController = TabBarController()
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVC(tabBarController, animated: false)
     }

@@ -43,19 +43,19 @@ final class AuthHeaderView: UIView {
 
 // MARK: - Extensions
 
-extension AuthHeaderView {
+private extension AuthHeaderView {
     
     // MARK: - Methods
     
-    private func setUI() {
+    func setUI() {
         title.text = text
     }
     
-    private func setHierarchy() {
+    func setHierarchy() {
         self.addSubview(title)
     }
 
-    private func setLayout() {
+    func setLayout() {
         title.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }

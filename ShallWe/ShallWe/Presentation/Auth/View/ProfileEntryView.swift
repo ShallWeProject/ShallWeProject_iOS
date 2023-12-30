@@ -85,7 +85,7 @@ final class ProfileEntryView: UIView {
 
 // MARK: - Extensions
 
-extension ProfileEntryView {
+private extension ProfileEntryView {
     
     // MARK: - Methods
     
@@ -94,15 +94,7 @@ extension ProfileEntryView {
     }
     
     func setHierarchy() {
-        self.addSubviews(
-            authHeaderView,
-            ageInputLabel,
-            ageTextField,
-            ageUnitLabel,
-            genderSelectionLabel,
-            genderStackView,
-            nextButton
-        )
+        self.addSubviews(authHeaderView, ageInputLabel, ageTextField, ageUnitLabel, genderSelectionLabel, genderStackView, nextButton)
         genderStackView.addArrangedSubviews(maleButton, femaleButton, noneButton)
     }
     

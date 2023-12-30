@@ -87,7 +87,7 @@ final class PhoneNumberVerificationView: UIView {
 
 // MARK: - Extensions
 
-extension PhoneNumberVerificationView {
+private extension PhoneNumberVerificationView {
     
     // MARK: - Methods
     

@@ -130,7 +130,7 @@ final class LoginView: UIView {
 
 // MARK: - Extensions
 
-extension LoginView {
+private extension LoginView {
     
     // MARK: - Methods
     
