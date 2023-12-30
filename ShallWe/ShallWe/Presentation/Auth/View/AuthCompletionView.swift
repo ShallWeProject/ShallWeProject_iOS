@@ -17,8 +17,13 @@ final class AuthCompletionView: BaseView {
     
     // MARK: - UI Components
     
-    private let navigationBar = CustomNavigationBar()
     private let centerLayoutGuide = UILayoutGuide()
+    
+    private let navigationBar: CustomNavigationBar = {
+        let navigationBar = CustomNavigationBar()
+        navigationBar.isLogoViewIncluded = true
+        return navigationBar
+    }()
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -89,9 +94,6 @@ final class AuthCompletionView: BaseView {
     override func setStyle() {
         self.backgroundColor = .white
         mainLabel.text = mainText
-        navigationBar.do {
-            $0.isLogoViewIncluded = true
-        }
     }
     
     override func setLayout() {
