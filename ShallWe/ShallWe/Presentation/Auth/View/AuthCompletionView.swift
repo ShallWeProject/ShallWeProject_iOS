@@ -115,7 +115,7 @@ extension AuthCompletionView {
         }
         
         imageView.snp.makeConstraints {
-            $0.horizontalEdges.equalToSuperview().inset(68)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight*(170/734))
             $0.centerX.equalTo(safeAreaLayoutGuide)
         }
         
