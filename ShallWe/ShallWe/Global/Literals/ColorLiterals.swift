@@ -65,6 +65,14 @@ extension UIColor {
         return UIColor(hex: "#000000").withAlphaComponent(0.5)
     }
     
+    static var black1: UIColor {
+        return UIColor(hex: "#333333")
+    }
+    
+    static var black2: UIColor {
+        return UIColor(hex: "#4A4A4A")
+    }
+    
     // MARK: - Background
     
     static var bg0: UIColor {
@@ -85,5 +93,9 @@ extension UIColor {
     
     static var bg4: UIColor {
         return UIColor(hex: "#FFE4E8")
+    }
+    
+    static var kakaoYellow: UIColor {
+        return UIColor(hex: "#FEE500")
     }
 }
