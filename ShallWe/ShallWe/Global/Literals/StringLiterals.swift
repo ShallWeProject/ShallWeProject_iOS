@@ -31,4 +31,20 @@ enum I18N {
         static let headerTitle2 = "실시간 인기 경험"
         static let headerTitle2Color = "인기"
     }
+    
+    enum HomeExperience {
+        static let birth = "생일"
+        static let lover = "연인"
+        static let parents = "부모님"
+        static let graduate = "입학/졸업"
+        static let marriage = "결혼/집들이"
+        static let all = "전체"
+        static let craft = "공예"
+        static let baking = "베이킹"
+        static let culture = "문화예술"
+        static let outdoor = "아웃도어"
+        static let sport = "스포츠"
+        static let consulting = "컨설팅"
+        static let other = "기타"
+    }
 }

@@ -15,25 +15,25 @@ extension HomeExperienceType {
     
     static func recommendMenu() -> [HomeExperienceType] {
         return [
-            HomeExperienceType(type: "생일"),
-            HomeExperienceType(type: "연인"),
-            HomeExperienceType(type: "부모님"),
-            HomeExperienceType(type: "입학/졸업"),
-            HomeExperienceType(type: "결혼/집들이")
+            HomeExperienceType(type: I18N.HomeExperience.birth),
+            HomeExperienceType(type: I18N.HomeExperience.lover),
+            HomeExperienceType(type: I18N.HomeExperience.parents),
+            HomeExperienceType(type: I18N.HomeExperience.graduate),
+            HomeExperienceType(type: I18N.HomeExperience.marriage)
             
         ]
     }
     
     static func categoryMenu() -> [HomeExperienceType] {
         return [
-            HomeExperienceType(type: "전체"),
-            HomeExperienceType(type: "공예"),
-            HomeExperienceType(type: "베이킹"),
-            HomeExperienceType(type: "문화예술"),
-            HomeExperienceType(type: "아웃도어"),
-            HomeExperienceType(type: "스포츠"),
-            HomeExperienceType(type: "컨설팅"),
-            HomeExperienceType(type: "기타")
+            HomeExperienceType(type: I18N.HomeExperience.all),
+            HomeExperienceType(type: I18N.HomeExperience.craft),
+            HomeExperienceType(type: I18N.HomeExperience.baking),
+            HomeExperienceType(type: I18N.HomeExperience.culture),
+            HomeExperienceType(type: I18N.HomeExperience.outdoor),
+            HomeExperienceType(type: I18N.HomeExperience.sport),
+            HomeExperienceType(type: I18N.HomeExperience.consulting),
+            HomeExperienceType(type: I18N.HomeExperience.other)
         ]
     }
 }
