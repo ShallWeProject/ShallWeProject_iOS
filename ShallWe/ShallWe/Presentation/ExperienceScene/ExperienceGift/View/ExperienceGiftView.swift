@@ -2,7 +2,7 @@
 //  ExperienceGiftView.swift
 //  ShallWe
 //
-//  Created by 고아라 on 2023/12/05.
+//  Created by 고아라 on 2023/12/31.
 //
 
 import UIKit
@@ -427,3 +427,4 @@ extension ExperienceGiftView {
         }
     }
 }
+

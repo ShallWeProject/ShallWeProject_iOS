@@ -90,12 +90,12 @@
 		95748DD22B25FF6D004157E0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD12B25FF6D004157E0 /* LoginView.swift */; };
 		95748DD42B26096A004157E0 /* PhoneNumberVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD32B26096A004157E0 /* PhoneNumberVerificationView.swift */; };
 		95748DD62B2D9CED004157E0 /* LoginCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD52B2D9CED004157E0 /* LoginCompletionViewController.swift */; };
-		95748DE52B35A95F004157E0 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DE42B35A95F004157E0 /* Enums.swift */; };
-		95748DE02B359802004157E0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDF2B359802004157E0 /* CustomButton.swift */; };
-		95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDD2B358190004157E0 /* ProfileEntryView.swift */; };
-		95748DDC2B35810C004157E0 /* ProfileEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDB2B35810C004157E0 /* ProfileEntryViewController.swift */; };
-		95748DDA2B2D9DC6004157E0 /* AuthCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD92B2D9DC6004157E0 /* AuthCompletionView.swift */; };
 		95748DD82B2D9D86004157E0 /* SignUpCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD72B2D9D86004157E0 /* SignUpCompletionViewController.swift */; };
+		95748DDA2B2D9DC6004157E0 /* AuthCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DD92B2D9DC6004157E0 /* AuthCompletionView.swift */; };
+		95748DDC2B35810C004157E0 /* ProfileEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDB2B35810C004157E0 /* ProfileEntryViewController.swift */; };
+		95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDD2B358190004157E0 /* ProfileEntryView.swift */; };
+		95748DE02B359802004157E0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDF2B359802004157E0 /* CustomButton.swift */; };
+		95748DE52B35A95F004157E0 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DE42B35A95F004157E0 /* Enums.swift */; };
 		A42C32562B26C6AE00C4B477 /* ExperienceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C32552B26C6AE00C4B477 /* ExperienceDetailViewController.swift */; };
 		A42C325A2B26C6C800C4B477 /* GuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C32572B26C6C800C4B477 /* GuideDetailView.swift */; };
 		A42C325B2B26C6C800C4B477 /* ExplainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C32582B26C6C800C4B477 /* ExplainDetailView.swift */; };
@@ -104,11 +104,11 @@
 		A42C32602B26C6D400C4B477 /* ExperienceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C325E2B26C6D400C4B477 /* ExperienceImageCollectionViewCell.swift */; };
 		A42C32662B3040FA00C4B477 /* ExperienceLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C32652B3040FA00C4B477 /* ExperienceLetterView.swift */; };
 		A42C32682B30410900C4B477 /* ExperienceLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C32672B30410900C4B477 /* ExperienceLetterViewController.swift */; };
+		A42C33672B416AE300C4B477 /* ExperienceGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C33662B416AE300C4B477 /* ExperienceGiftView.swift */; };
+		A42C33692B416B3E00C4B477 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C33682B416B3E00C4B477 /* TimeCollectionViewCell.swift */; };
 		A431BE5E2B1AFAF90049C126 /* UICollectionViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5D2B1AFAF90049C126 /* UICollectionViewRegisterable.swift */; };
 		A431BE602B1AFB160049C126 /* UITableViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5F2B1AFB160049C126 /* UITableViewRegisterable.swift */; };
 		A431BE772B1EEF4A0049C126 /* ExperienceGiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */; };
-		A431BE792B1EEF500049C126 /* ExperienceGiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE782B1EEF500049C126 /* ExperienceGiftView.swift */; };
-		A431BE802B24B1340049C126 /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE7F2B24B1340049C126 /* TimeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,14 +176,6 @@
 		032213AB2B20777600FF5CF1 /* HomeExperienceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceModel.swift; sourceTree = "<group>"; };
 		032213B22B20839100FF5CF1 /* GalleryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryFooterView.swift; sourceTree = "<group>"; };
 		032213B42B241B3100FF5CF1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		A42C32552B26C6AE00C4B477 /* ExperienceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewController.swift; sourceTree = "<group>"; };
-		A42C32572B26C6C800C4B477 /* GuideDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideDetailView.swift; sourceTree = "<group>"; };
-		A42C32582B26C6C800C4B477 /* ExplainDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplainDetailView.swift; sourceTree = "<group>"; };
-		A42C32592B26C6C800C4B477 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
-		A42C325D2B26C6D400C4B477 /* ExplainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplainTableViewCell.swift; sourceTree = "<group>"; };
-		A42C325E2B26C6D400C4B477 /* ExperienceImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		A42C32652B3040FA00C4B477 /* ExperienceLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceLetterView.swift; sourceTree = "<group>"; };
-		A42C32672B30410900C4B477 /* ExperienceLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceLetterViewController.swift; sourceTree = "<group>"; };
 		954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		95748DCD2B25FAB4004157E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -197,11 +189,19 @@
 		95748DDD2B358190004157E0 /* ProfileEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEntryView.swift; sourceTree = "<group>"; };
 		95748DDF2B359802004157E0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		95748DE42B35A95F004157E0 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		A42C32552B26C6AE00C4B477 /* ExperienceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewController.swift; sourceTree = "<group>"; };
+		A42C32572B26C6C800C4B477 /* GuideDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideDetailView.swift; sourceTree = "<group>"; };
+		A42C32582B26C6C800C4B477 /* ExplainDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplainDetailView.swift; sourceTree = "<group>"; };
+		A42C32592B26C6C800C4B477 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
+		A42C325D2B26C6D400C4B477 /* ExplainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplainTableViewCell.swift; sourceTree = "<group>"; };
+		A42C325E2B26C6D400C4B477 /* ExperienceImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		A42C32652B3040FA00C4B477 /* ExperienceLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceLetterView.swift; sourceTree = "<group>"; };
+		A42C32672B30410900C4B477 /* ExperienceLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceLetterViewController.swift; sourceTree = "<group>"; };
+		A42C33662B416AE300C4B477 /* ExperienceGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftView.swift; sourceTree = "<group>"; };
+		A42C33682B416B3E00C4B477 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		A431BE5D2B1AFAF90049C126 /* UICollectionViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewRegisterable.swift; sourceTree = "<group>"; };
 		A431BE5F2B1AFB160049C126 /* UITableViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewRegisterable.swift; sourceTree = "<group>"; };
 		A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftViewController.swift; sourceTree = "<group>"; };
-		A431BE782B1EEF500049C126 /* ExperienceGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftView.swift; sourceTree = "<group>"; };
-		A431BE7F2B24B1340049C126 /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -670,7 +670,7 @@
 		A431BE752B1EEDD10049C126 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A431BE782B1EEF500049C126 /* ExperienceGiftView.swift */,
+				A42C33662B416AE300C4B477 /* ExperienceGiftView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -688,7 +688,7 @@
 		A431BE7E2B24B0B10049C126 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				A431BE7F2B24B1340049C126 /* TimeCollectionViewCell.swift */,
+				A42C33682B416B3E00C4B477 /* TimeCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -821,9 +821,11 @@
 				032213912B1B2EBB00FF5CF1 /* SearchView.swift in Sources */,
 				95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */,
 				95748DE02B359802004157E0 /* CustomButton.swift in Sources */,
+				A42C33672B416AE300C4B477 /* ExperienceGiftView.swift in Sources */,
 				032212F12B14B17600FF5CF1 /* MakeVibrate.swift in Sources */,
 				0322130B2B14B25900FF5CF1 /* UIStackView+.swift in Sources */,
 				A431BE772B1EEF4A0049C126 /* ExperienceGiftViewController.swift in Sources */,
+				A42C33692B416B3E00C4B477 /* TimeCollectionViewCell.swift in Sources */,
 				032212F92B14B1C800FF5CF1 /* String+.swift in Sources */,
 				032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */,
 				95748DD02B25FABF004157E0 /* PhoneNumberVerificationViewController.swift in Sources */,
