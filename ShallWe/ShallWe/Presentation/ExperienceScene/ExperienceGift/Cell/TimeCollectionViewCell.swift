@@ -2,7 +2,7 @@
 //  TimeCollectionViewCell.swift
 //  ShallWe
 //
-//  Created by 고아라 on 2023/12/09.
+//  Created by 고아라 on 2023/12/31.
 //
 
 import UIKit
@@ -29,7 +29,7 @@ final class TimeCollectionViewCell: UICollectionViewCell, UICollectionViewRegist
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
+        
         setHierarchy()
         setLayout()
     }
