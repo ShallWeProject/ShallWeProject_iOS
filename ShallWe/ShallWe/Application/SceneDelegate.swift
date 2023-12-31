@@ -17,11 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-//        let rootVC = ExperienceDetailViewController()
-        let rootVC = UINavigationController(rootViewController: ExperienceGiftViewController())
+        let rootVC = UINavigationController(rootViewController: LoginViewController())
+        
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
     }
+    
+    func changeRootVC(_ vc: UIViewController, animated: Bool) {
+        guard let window = self.window else { return }
+        window.rootViewController = vc
+        UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+      }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

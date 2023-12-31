@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "shallwe_logo_all.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

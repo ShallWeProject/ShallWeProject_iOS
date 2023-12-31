@@ -31,7 +31,7 @@ enum ImageLiterals {
         static var check_round_default: UIImage { .load(name: "ic_check_round_default") }
         static var delete: UIImage { .load(name: "ic_delete") }
         static var gift: UIImage { .load(name: "ic_gift") }
-        static var eft_calender_1: UIImage { .load(name: "ic_left_calender-1") }
+        static var left_calender_1: UIImage { .load(name: "ic_left_calender-1") }
         static var left_calender: UIImage { .load(name: "ic_left_calender") }
         static var minus: UIImage { .load(name: "ic_minus") }
         static var plus_circle: UIImage { .load(name: "ic_plus_circle") }
@@ -51,6 +51,12 @@ enum ImageLiterals {
         static var img_parents: UIImage { .load(name: "img_parents") }
         static var img_ad1: UIImage { .load(name: "ad1") }
         static var img_ad2: UIImage { .load(name: "ad2") }
+    }
+    
+    enum Auth {
+        static var logo_shallWe_big: UIImage { .load(name: "shallWeLogo") }
+        static var ic_kakao_login: UIImage { .load(name: "kakaoLoginIcon") }
+        static var img_firework: UIImage { .load(name: "firework") }
     }
     
     enum ExperienceLetter {
