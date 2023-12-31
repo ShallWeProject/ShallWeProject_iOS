@@ -58,4 +58,8 @@ enum ImageLiterals {
         static var ic_kakao_login: UIImage { .load(name: "kakaoLoginIcon") }
         static var img_firework: UIImage { .load(name: "firework") }
     }
+    
+    enum ExperienceLetter {
+        static var img_letter: UIImage { .load(name: "letter") }
+    }
 }

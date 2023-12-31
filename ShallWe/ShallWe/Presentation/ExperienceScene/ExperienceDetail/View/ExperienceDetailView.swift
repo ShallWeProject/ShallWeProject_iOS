@@ -184,6 +184,7 @@ extension ExperienceDetailView {
         experienceSubTitle.snp.makeConstraints {
             $0.top.equalTo(experienceTitle.snp.bottom).offset(5)
             $0.leading.equalTo(experienceTitle.snp.leading)
+            $0.width.equalTo(218)
         }
         
         priceLabel.snp.makeConstraints {

@@ -88,6 +88,7 @@ extension ExplainDetailView {
         explainDetailLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(73)
             $0.leading.equalToSuperview().inset(16)
+            $0.width.equalTo(343)
         }
         
         tableViewTitle.snp.makeConstraints {

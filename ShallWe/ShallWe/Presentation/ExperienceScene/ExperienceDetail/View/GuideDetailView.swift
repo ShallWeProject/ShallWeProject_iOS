@@ -98,7 +98,7 @@ extension GuideDetailView {
         noteLabel.snp.makeConstraints {
             $0.top.equalTo(noteTitle.snp.bottom).offset(18)
             $0.leading.equalTo(noteTitle.snp.leading)
-            $0.width.equalTo(320)
+            $0.width.equalTo(343)
         }
         
         changeTitle.snp.makeConstraints {
@@ -109,7 +109,7 @@ extension GuideDetailView {
         changeLabel.snp.makeConstraints {
             $0.top.equalTo(changeTitle.snp.bottom).offset(11)
             $0.leading.equalTo(changeTitle.snp.leading)
-            $0.width.equalTo(320)
+            $0.width.equalTo(343)
         }
         
         cancelTitle.snp.makeConstraints {
@@ -120,7 +120,7 @@ extension GuideDetailView {
         cancelLabel.snp.makeConstraints {
             $0.top.equalTo(cancelTitle.snp.bottom).offset(21)
             $0.leading.equalTo(cancelTitle.snp.leading)
-            $0.width.equalTo(320)
+            $0.width.equalTo(343)
         }
     }
 }

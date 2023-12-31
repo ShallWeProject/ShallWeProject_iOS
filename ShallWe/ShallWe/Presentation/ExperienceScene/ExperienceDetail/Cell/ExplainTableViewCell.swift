@@ -92,6 +92,7 @@ extension ExplainTableViewCell {
         explainTitle.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.equalTo(lineView.snp.trailing).offset(15)
+            $0.width.equalTo(290)
         }
         
         explainImage.snp.makeConstraints {
@@ -103,6 +104,7 @@ extension ExplainTableViewCell {
         explainSubTitle.snp.makeConstraints {
             $0.top.equalTo(explainImage.snp.bottom).offset(12)
             $0.leading.equalTo(explainTitle.snp.leading)
+            $0.width.equalTo(290)
         }
     }
 }
