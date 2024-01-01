@@ -53,6 +53,19 @@ enum ImageLiterals {
         static var img_ad2: UIImage { .load(name: "ad2") }
     }
     
+    enum Category {
+        static var ic_album: UIImage { .load(name: "ic_album") }
+        static var ic_baking: UIImage { .load(name: "ic_baking") }
+        static var ic_craft: UIImage { .load(name: "ic_craft") }
+        static var ic_culture: UIImage { .load(name: "ic_culture") }
+        static var ic_faq: UIImage { .load(name: "ic_faq") }
+        static var ic_getGift: UIImage { .load(name: "ic_getGift") }
+        static var ic_mail: UIImage { .load(name: "ic_mail") }
+        static var ic_outdoor: UIImage { .load(name: "ic_outdoor") }
+        static var ic_sendGift: UIImage { .load(name: "ic_sendGift") }
+        static var ic_sport: UIImage { .load(name: "ic_sport") }
+    }
+    
     enum Auth {
         static var logo_shallWe_big: UIImage { .load(name: "shallWeLogo") }
         static var ic_kakao_login: UIImage { .load(name: "kakaoLoginIcon") }
