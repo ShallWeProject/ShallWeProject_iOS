@@ -32,7 +32,7 @@ extension UITextField {
         attributedPlaceholder = NSAttributedString(
             string: placeholder ?? "",
             attributes: [ .foregroundColor: placeholderColor,
-                          .font: font
+                          .font: UIFont.fontGuide(.M00_12)
             ].compactMapValues { $0 }
         )
     }

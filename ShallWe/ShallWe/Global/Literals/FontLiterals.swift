@@ -43,7 +43,7 @@ extension FontLevel {
     
     var fontWeight: String {
         switch self {
-        case .R00_12, .R00_14, .R00_10:
+        case .R00_10, .R00_12, .R00_14:
             return AppleSDGothicNeoType.R.rawValue
         case .M00_12, .M00_12_20, .M00_12_underlined, .M00_14:
             return AppleSDGothicNeoType.M.rawValue
