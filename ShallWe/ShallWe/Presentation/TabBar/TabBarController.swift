@@ -10,8 +10,7 @@ import UIKit
 class TabBarController: UITabBarController {
     
     // MARK: - Properties
-    
-    private let tabBarHeight: CGFloat = SizeLiterals.Screen.screenHeight * 86 / 812
+
     private var tabs: [UIViewController] = []
     
     // MARK: - View Life Cycle
@@ -33,10 +32,14 @@ extension TabBarController {
     
     private func setTabBarItems() {
         
+        let categoryVC = UINavigationController(rootViewController: CategoryViewController())
+        let homeVC = UINavigationController(rootViewController: HomeViewController())
+        let mypageVC = UINavigationController(rootViewController: MypageViewController())
+        
         tabs = [
-            CategoryViewController(),
-            HomeViewController(),
-            MypageViewController()
+            categoryVC,
+            homeVC,
+            mypageVC
         ]
         
         TabBarItemType.allCases.forEach {

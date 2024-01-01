@@ -26,9 +26,14 @@ final class HomeViewController: BaseViewController {
     private let popularCategoryModel: [PopularCategoryModel] = PopularCategoryModel.popularCategoryTitleData()
     private var galleryModel: [GalleryModel] = GalleryModel.galleryDummydata()
     private var experienceModel: [HomeExperienceModel] = HomeExperienceModel.homeExperienceDummyData()
+    private let recommendVC = HomeRecommendViewController()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
     
     override func bindViewModel() {
-        viewModel.outputs.selectedCellIndex
+        viewModel.outputs.selectedPopularCellIndex
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 if let indexPath = indexPath {
@@ -39,9 +44,19 @@ final class HomeViewController: BaseViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        viewModel.outputs.selectedRecommendCellIndex
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                print("aaaaa", indexPath)
+                let index = indexPath.row
+                recommendVC.index = index
+                self.navigationController?.pushViewController(recommendVC, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
-    // MARK: - Layout Helper
+    // MARK: - Layout Helper 
     
     override func setLayout() {
         
@@ -63,7 +78,7 @@ final class HomeViewController: BaseViewController {
         homeView.homeCollectionView.registerCell(HomeGalleryCell.self)
         homeView.homeCollectionView.registerCell(HomeRecommendCell.self)
         homeView.homeCollectionView.registerCell(HomePopularCategoryCell.self)
-        homeView.homeCollectionView.registerCell(ExperienceCell.self)
+        homeView.homeCollectionView.registerCell(HomeExperienceCell.self)
         homeView.homeCollectionView.registerHeader(HomeHeaderView.self)
         homeView.homeCollectionView.registerFooter(GalleryFooterView.self)
     }
@@ -102,7 +117,7 @@ extension HomeViewController: UICollectionViewDataSource {
             collectionView.selectItem(at: homeView.selectedIndexPath, animated: false, scrollPosition: .init())
             return cell
         case .experience:
-            let cell = collectionView.dequeueCell(type: ExperienceCell.self, indexPath: indexPath)
+            let cell = collectionView.dequeueCell(type: HomeExperienceCell.self, indexPath: indexPath)
             cell.configureCell(experienceModel[indexPath.row])
             return cell
         }
@@ -134,7 +149,9 @@ extension HomeViewController: UICollectionViewDataSource {
         switch sectionType {
         case .popularCategory:
             viewModel.inputs.popularCategoryCellTap(at: indexPath)
-        case .gallery, .recommend, .experience:
+        case .recommend:
+            viewModel.inputs.recommendCellTap(at: indexPath)
+        case .gallery, .experience:
             return
         }
     }
