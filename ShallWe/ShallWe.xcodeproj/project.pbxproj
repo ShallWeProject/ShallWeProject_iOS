@@ -98,7 +98,7 @@
 		034580992B37EEA1002DDEBA /* ExperienceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580982B37EEA1002DDEBA /* ExperienceHeader.swift */; };
 		0345809B2B380299002DDEBA /* ActivateDropDownAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345809A2B380299002DDEBA /* ActivateDropDownAlert.swift */; };
 		0345809D2B3858DF002DDEBA /* CustomDropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345809C2B3858DF002DDEBA /* CustomDropDownButton.swift */; };
-		035A9F082B42AB4B007B3F50 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F072B42AB4B007B3F50 /* CategoryView.swift */; };
+		035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */; };
 		03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
@@ -209,7 +209,7 @@
 		034580982B37EEA1002DDEBA /* ExperienceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceHeader.swift; sourceTree = "<group>"; };
 		0345809A2B380299002DDEBA /* ActivateDropDownAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateDropDownAlert.swift; sourceTree = "<group>"; };
 		0345809C2B3858DF002DDEBA /* CustomDropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownButton.swift; sourceTree = "<group>"; };
-		035A9F072B42AB4B007B3F50 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceType.swift; sourceTree = "<group>"; };
 		954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
@@ -655,7 +655,7 @@
 		035A9F062B42AB3F007B3F50 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				035A9F072B42AB4B007B3F50 /* CategoryView.swift */,
+				035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -993,7 +993,7 @@
 				0322131D2B14B32B00FF5CF1 /* URLConstant.swift in Sources */,
 				032213052B14B23000FF5CF1 /* UIViewController+.swift in Sources */,
 				95748DE52B35A95F004157E0 /* Enums.swift in Sources */,
-				035A9F082B42AB4B007B3F50 /* CategoryView.swift in Sources */,
+				035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */,
 				0322136D2B15F8C200FF5CF1 /* TabBarController.swift in Sources */,
 				032213942B1B6D1D00FF5CF1 /* HomeGalleryCell.swift in Sources */,
 				95748DD22B25FF6D004157E0 /* LoginView.swift in Sources */,
