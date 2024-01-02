@@ -21,6 +21,6 @@ extension UIViewController {
         if let tabBarHeight = self.tabBarController?.tabBar.frame.size.height {
             return tabBarHeight
         }
-        return 0
+        return 49
     }
 }
