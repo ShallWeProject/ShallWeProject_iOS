@@ -35,9 +35,11 @@ final class CategoryViewController: BaseViewController {
     
     // MARK: - View Life Cycle
     
-//    override func viewDidLoad() {
-//        setTapScreen()
-//    }
+    override func viewDidLoad() {
+        setStyle()
+        setLayout()
+        setTapScreen()
+    }
     
     // MARK: - UI Components Property
     
@@ -223,7 +225,7 @@ extension CategoryViewController {
         // 배경을 탭했을 때 모달을 닫습니다.
         let touchLocation = gesture.location(in: self.view)
         if !categoryView.frame.contains(touchLocation) {
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: false, completion: nil)
         }
     }
 }

@@ -88,7 +88,7 @@ extension TabBarController {
         let vc = CategoryViewController()
         vc.modalPresentationStyle = .overCurrentContext
         // 현재 뷰컨트롤러를 모달로 띄웁니다.
-        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: false, completion: nil)
     }
 }
 
