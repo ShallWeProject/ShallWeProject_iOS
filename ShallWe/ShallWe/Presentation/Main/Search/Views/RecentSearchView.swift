@@ -9,6 +9,8 @@ import UIKit
 
 import Then
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class RecentSearchView: BaseView {
 
@@ -18,6 +20,10 @@ final class RecentSearchView: BaseView {
     let deleteAllButton = UIButton()
     lazy var recentCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let flowLayout = UICollectionViewFlowLayout()
+    
+    // MARK: - Properties
+    
+    private let disposeBag = DisposeBag()
     
     // MARK: - UI Components Property
     
@@ -101,6 +107,19 @@ extension RecentSearchView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(type: RecentSearchCollectionViewCell.self, indexPath: indexPath)
+        print(indexPath.row)
+        cell.deleteButton.rx.tap
+            .subscribe(onNext: {
+                if indexPath.row >= 0 && indexPath.row < recentSearchModel.count {
+                    recentSearchModel.remove(at: indexPath.row)
+                    self.recentCollectionView.reloadData()
+                    print(recentSearchModel)
+                    if recentSearchModel.isEmpty {
+                        searchTypeRelay.accept(.clear)
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
         cell.configureCell(recentSearchModel[indexPath.row])
         return cell
     }

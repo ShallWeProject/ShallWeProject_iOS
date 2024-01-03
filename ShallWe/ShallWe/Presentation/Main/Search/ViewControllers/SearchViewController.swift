@@ -18,7 +18,7 @@ enum SearchType {
     case recent
 }
 
-var searchType: SearchType = .clear
+var searchTypeRelay = BehaviorRelay<SearchType>(value: .clear)
 var recentSearchModel: [RecentSearchModel] = []
 
 final class SearchViewController: BaseViewController {
@@ -44,7 +44,7 @@ final class SearchViewController: BaseViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         searchView.searchTextField.becomeFirstResponder()
-        setSearchLabel()
+        setSearchLabel(searchTypeRelay.value)
     }
     
     override func bindViewModel() {
@@ -74,8 +74,14 @@ final class SearchViewController: BaseViewController {
                 guard let self = self else { return }
                 recentSearchModel.removeAll()
                 recentSearchView.recentCollectionView.reloadData()
-                searchType = .clear
-                setSearchLabel()
+                searchTypeRelay.accept(.clear)
+            })
+            .disposed(by: disposeBag)
+        
+        searchTypeRelay
+            .asObservable()
+            .subscribe(onNext: { [weak self] newSearchType in
+                self?.setSearchLabel(newSearchType)
             })
             .disposed(by: disposeBag)
     }
@@ -173,8 +179,8 @@ extension SearchViewController {
     
     // MARK: - Methods
     
-    private func setSearchLabel() {
-        switch searchType {
+    private func setSearchLabel(_ newSearchType: SearchType) {
+        switch newSearchType {
         case .clear:
             clearLabel.text = "최근 검색어 내역이 없습니다."
             recentSearchView.isHidden = true
@@ -207,12 +213,11 @@ extension SearchViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        setSearch()
         if let text = textField.text {
             recentSearchModel.append(RecentSearchModel(title: text))
-            searchType = .recent
+            searchTypeRelay.accept(.recent)
             textField.text = ""
-            
+            setSearch()
             // 서버통신 기능 추가
             if text == "nn" {
                 noResultLabel.isHidden = false

@@ -16,7 +16,7 @@ final class RecentSearchCollectionViewCell: UICollectionViewCell {
     
     private let searchIconView = UIImageView()
     private let titleLabel = UILabel()
-    private let deleteButton = UIButton()
+    let deleteButton = UIButton()
     
     // MARK: - Initializer
 
