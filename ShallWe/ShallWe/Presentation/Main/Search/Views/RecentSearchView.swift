@@ -16,12 +16,12 @@ final class RecentSearchView: BaseView {
     
     private let recentSearchLabel = UILabel()
     private let deleteAllButton = UIButton()
-    private lazy var recentCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    lazy var recentCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let flowLayout = UICollectionViewFlowLayout()
     
     // MARK: - Properties
     
-    private let dummyModel: [RecentSearchModel] = RecentSearchModel.recentSearchDummy()
+    var recentSearchModel: [RecentSearchModel] = []
     
     // MARK: - UI Components Property
     
@@ -100,12 +100,12 @@ extension RecentSearchView: UICollectionViewDelegateFlowLayout {
 extension RecentSearchView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dummyModel.count
+        return recentSearchModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(type: RecentSearchCollectionViewCell.self, indexPath: indexPath)
-        cell.configureCell(dummyModel[indexPath.row])
+        cell.configureCell(recentSearchModel[indexPath.row])
         return cell
     }
 }

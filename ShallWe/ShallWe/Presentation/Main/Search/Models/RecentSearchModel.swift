@@ -8,7 +8,7 @@
 import Foundation
 
 struct RecentSearchModel {
-    let title: String
+    var title: String
 }
 
 extension RecentSearchModel {

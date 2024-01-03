@@ -27,7 +27,8 @@ final class SearchViewController: BaseViewController {
     private let navigationBar = CustomNavigationBar()
     private let searchView = SearchTextFieldView()
     private let underLineView = UIView()
-    private lazy var resultLabel = UILabel()
+    private lazy var clearLabel = UILabel()
+    private lazy var noResultLabel = UILabel()
     private lazy var searchResultView = SearchResultView()
     private lazy var recentSearchView = RecentSearchView()
     
@@ -35,7 +36,6 @@ final class SearchViewController: BaseViewController {
     
     private var searchType: SearchType = .clear
     private let disposeBag = DisposeBag()
-    private var recentSearchModel: [RecentSearchModel] = []
     private let tapGesture = UITapGestureRecognizer()
     
     // MARK: - View Life Cycle
@@ -44,18 +44,21 @@ final class SearchViewController: BaseViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         searchView.searchTextField.becomeFirstResponder()
+        setSearchLabel()
     }
     
     override func bindViewModel() {
         navigationBar.backButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.popToHomeVC()
+                self?.view.endEditing(true)
             })
             .disposed(by: disposeBag)
         
         searchView.cancelButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.popToHomeVC()
+                self?.view.endEditing(true)
             })
             .disposed(by: disposeBag)
         
@@ -82,9 +85,15 @@ final class SearchViewController: BaseViewController {
             $0.backgroundColor = .bg2
         }
         
-        resultLabel.do {
+        clearLabel.do {
             $0.font = .fontGuide(.SB00_14)
             $0.textColor = .gray4
+        }
+        
+        noResultLabel.do {
+            $0.font = .fontGuide(.SB00_14)
+            $0.textColor = .gray4
+            $0.isHidden = true
         }
         
         searchResultView.do {
@@ -101,7 +110,8 @@ final class SearchViewController: BaseViewController {
     override func setLayout() {
         
         self.view.addSubviews(navigationBar, searchView, underLineView,
-                              resultLabel, searchResultView, recentSearchView)
+                              noResultLabel, clearLabel, searchResultView,
+                              recentSearchView)
         
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -121,7 +131,12 @@ final class SearchViewController: BaseViewController {
             $0.height.equalTo(1)
         }
         
-        resultLabel.snp.makeConstraints {
+        clearLabel.snp.makeConstraints {
+            $0.top.equalTo(underLineView.snp.bottom).offset(109)
+            $0.centerX.equalToSuperview()
+        }
+        
+        noResultLabel.snp.makeConstraints {
             $0.top.equalTo(underLineView.snp.bottom).offset(109)
             $0.centerX.equalToSuperview()
         }
@@ -136,6 +151,12 @@ final class SearchViewController: BaseViewController {
             $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
+    
+    // MARK: - Methods
+    
+    override func setDelegate() {
+        searchView.searchTextField.delegate = self
+    }
 }
 
 extension SearchViewController {
@@ -145,9 +166,12 @@ extension SearchViewController {
     private func setSearchLabel() {
         switch searchType {
         case .clear:
-            resultLabel.text = "최근 검색어 내역이 없습니다."
-        case .NoResults:
-            resultLabel.text = "에 대한 검색결과가 없습니다."
+            clearLabel.text = "최근 검색어 내역이 없습니다."
+            recentSearchView.isHidden = true
+            clearLabel.isHidden = false
+        case .recent:
+            recentSearchView.isHidden = false
+            clearLabel.isHidden = true
         default:
             return
         }
@@ -162,5 +186,19 @@ extension SearchViewController {
         if !searchView.frame.contains(touchLocation) {
             self.view.endEditing(true)
         }
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if let text = textField.text {
+            recentSearchView.recentSearchModel.append(RecentSearchModel(title: text))
+            recentSearchView.recentCollectionView.reloadData()
+            searchType = .recent
+            setSearchLabel()
+        }
+        return true
     }
 }
