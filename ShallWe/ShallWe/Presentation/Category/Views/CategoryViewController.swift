@@ -137,7 +137,7 @@ final class CategoryViewController: BaseViewController {
         }
         
         cultureButton.do {
-            $0.setImage(ImageLiterals.Category.ic_craft, for: .normal)
+            $0.setImage(ImageLiterals.Category.ic_culture, for: .normal)
         }
         
         outdoorButton.do {
@@ -239,6 +239,8 @@ final class CategoryViewController: BaseViewController {
         getGiftButton.snp.makeConstraints {
             $0.top.equalTo(albumButton)
             $0.leading.equalTo(cultureButton)
+            $0.width.equalTo(48)
+            $0.height.equalTo(68)
         }
         
         customerServiceLabel.snp.makeConstraints {
