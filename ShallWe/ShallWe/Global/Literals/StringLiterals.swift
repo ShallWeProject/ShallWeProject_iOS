@@ -84,6 +84,20 @@ enum I18N {
         static let other = "기타"
     }
     
+    enum Search {
+        static let notRecentSearch = "최근 검색어 내역이 없습니다."
+        static let notSearchResult = "에 대한 검색결과가 없습니다."
+        static let cancel = "취소"
+        static let recentSearch = "최근 검색어"
+        static let deleteAll = "전체 삭제"
+    }
+    
+    enum Category {
+        static let experienceCategory = "경험 카테고리"
+        static let myPage = "마이페이지"
+        static let customerService = "고객 센터"
+    }
+    
     enum AuthAlert {
         static let codeSentText = "인증번호가 전송되었습니다."
         static let verifiedText = "인증되었습니다."
