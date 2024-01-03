@@ -30,6 +30,11 @@ final class SearchViewController: BaseViewController {
     private lazy var deleteTextButton = UIButton()
     private lazy var cancelButton = UIButton()
     private let underLineView = UIView()
+    private lazy var resultLabel = UILabel()
+    
+    // MARK: - Properties
+    
+    private var searchType: SearchType = .clear
     
     // MARK: - View Life Cycle
     
@@ -77,13 +82,18 @@ final class SearchViewController: BaseViewController {
         underLineView.do {
             $0.backgroundColor = .bg2
         }
+        
+        resultLabel.do {
+            $0.font = .fontGuide(.SB00_14)
+            $0.textColor = .gray4
+        }
     }
     
     // MARK: - Layout Helper
     
     override func setLayout() {
         
-        self.view.addSubviews(navigationBar, searchView, underLineView)
+        self.view.addSubviews(navigationBar, searchView, underLineView, resultLabel)
         searchView.addSubviews(searchIconView, searchTextField, deleteTextButton, cancelButton)
         
         navigationBar.snp.makeConstraints {
@@ -125,6 +135,27 @@ final class SearchViewController: BaseViewController {
             $0.top.equalTo(searchView.snp.bottom).offset(25)
             $0.horizontalEdges.equalToSuperview().inset(24)
             $0.height.equalTo(1)
+        }
+        
+        resultLabel.snp.makeConstraints {
+            $0.top.equalTo(underLineView.snp.bottom).offset(109)
+            $0.centerX.equalToSuperview()
+        }
+    }
+}
+
+extension SearchViewController {
+    
+    // MARK: - Methods
+    
+    private func setSearchLabel() {
+        switch searchType {
+        case .clear:
+            resultLabel.text = "최근 검색어 내역이 없습니다."
+        case .NoResults:
+            resultLabel.text = "에 대한 검색결과가 없습니다."
+        default:
+            return
         }
     }
 }
