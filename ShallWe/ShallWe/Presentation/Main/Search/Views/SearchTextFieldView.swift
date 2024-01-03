@@ -41,7 +41,7 @@ final class SearchTextFieldView: BaseView {
         }
         
         cancelButton.do {
-            $0.setTitle("취소", for: .normal)
+            $0.setTitle(I18N.Search.cancel, for: .normal)
             $0.titleLabel?.font = .fontGuide(.R00_14)
             $0.setTitleColor(.line1, for: .normal)
         }

@@ -184,7 +184,7 @@ extension SearchViewController {
     private func setSearchLabel(_ newSearchType: SearchType) {
         switch newSearchType {
         case .clear:
-            clearLabel.text = "최근 검색어 내역이 없습니다."
+            clearLabel.text = I18N.Search.notRecentSearch
             recentSearchView.isHidden = true
             clearLabel.isHidden = false
         case .recent:
@@ -225,7 +225,7 @@ extension SearchViewController: UITextFieldDelegate {
             // 서버통신 기능 추가
             if text == "nn" {
                 noResultLabel.isHidden = false
-                noResultLabel.text = "\"\(text)\"에 대한 검색결과가 없습니다."
+                noResultLabel.text = "\"\(text)\"\(I18N.Search.notSearchResult)"
                 searchResultView.isHidden = true
             } else {
                 searchResultView.isHidden = false

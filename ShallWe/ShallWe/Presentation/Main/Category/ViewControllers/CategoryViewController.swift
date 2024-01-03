@@ -111,19 +111,19 @@ final class CategoryViewController: BaseViewController {
         }
         
         experienceLabel.do {
-            $0.text = "경험 카테고리"
+            $0.text = I18N.Category.experienceCategory
             $0.font = .fontGuide(.B00_12)
             $0.textColor = .black0
         }
         
         myPageLabel.do {
-            $0.text = "마이페이지"
+            $0.text = I18N.Category.myPage
             $0.font = .fontGuide(.B00_12)
             $0.textColor = .black0
         }
         
         customerServiceLabel.do {
-            $0.text = "고객 센터"
+            $0.text = I18N.Category.customerService
             $0.font = .fontGuide(.B00_12)
             $0.textColor = .black0
         }

@@ -32,13 +32,13 @@ final class RecentSearchView: BaseView {
         self.backgroundColor = .clear
         
         recentSearchLabel.do {
-            $0.text = "최근 검색어"
+            $0.text = I18N.Search.recentSearch
             $0.font = .fontGuide(.M00_12)
             $0.textColor = .gray4
         }
         
         deleteAllButton.do {
-            $0.setTitle("전체 삭제", for: .normal)
+            $0.setTitle(I18N.Search.deleteAll, for: .normal)
             $0.titleLabel?.font = .fontGuide(.M00_12)
             $0.setTitleColor(.gray4, for: .normal)
         }
