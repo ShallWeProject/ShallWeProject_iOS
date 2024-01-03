@@ -65,7 +65,7 @@ final class HomeView: BaseView {
         }
         
         homeCollectionView.snp.makeConstraints {
-            $0.top.equalTo(searchView.snp.bottom)
+            $0.top.equalTo(searchView.snp.bottom).offset(13)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
@@ -107,7 +107,7 @@ extension HomeView {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 13, leading: 0, bottom: 18, trailing: 0)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 18, trailing: 0)
         section.orthogonalScrollingBehavior = .paging
         
         let footerSize = NSCollectionLayoutSize(
