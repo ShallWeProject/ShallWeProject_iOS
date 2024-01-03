@@ -38,7 +38,7 @@ final class HomeExperienceViewModel: HomeExperienceViewModelInputs, HomeExperien
     
     init(){
         self.recommendMenu.accept(HomeExperienceType.recommendMenu())
-        self.categoryMenu.accept(HomeExperienceType.categoryMenu())
+        self.categoryMenu.accept(HomeExperienceType.experienceMenu())
         self.setMenuCell.accept(IndexPath(item: 0, section: 0))
     }
     

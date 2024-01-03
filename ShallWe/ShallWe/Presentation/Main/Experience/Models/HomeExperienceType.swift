@@ -24,16 +24,13 @@ extension HomeExperienceType {
         ]
     }
     
-    static func categoryMenu() -> [HomeExperienceType] {
+    static func experienceMenu() -> [HomeExperienceType] {
         return [
-            HomeExperienceType(type: I18N.HomeExperience.all),
             HomeExperienceType(type: I18N.HomeExperience.craft),
             HomeExperienceType(type: I18N.HomeExperience.baking),
             HomeExperienceType(type: I18N.HomeExperience.culture),
             HomeExperienceType(type: I18N.HomeExperience.outdoor),
-            HomeExperienceType(type: I18N.HomeExperience.sport),
-            HomeExperienceType(type: I18N.HomeExperience.consulting),
-            HomeExperienceType(type: I18N.HomeExperience.other)
+            HomeExperienceType(type: I18N.HomeExperience.sport)
         ]
     }
 }
