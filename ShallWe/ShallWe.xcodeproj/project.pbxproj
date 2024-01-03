@@ -113,6 +113,7 @@
 		03C7A6692B456654000F1E39 /* RecentSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A6682B456654000F1E39 /* RecentSearchView.swift */; };
 		03C7A66C2B4567AC000F1E39 /* RecentSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A66B2B4567AC000F1E39 /* RecentSearchCollectionViewCell.swift */; };
 		03C7A66F2B456A45000F1E39 /* RecentSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A66E2B456A45000F1E39 /* RecentSearchModel.swift */; };
+		03C7A6722B459EEB000F1E39 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 03C7A6712B459EEB000F1E39 /* RxGesture */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
@@ -272,6 +273,7 @@
 			files = (
 				032212D02B14AD8200FF5CF1 /* Alamofire in Frameworks */,
 				034580952B2F356C002DDEBA /* DropDown in Frameworks */,
+				03C7A6722B459EEB000F1E39 /* RxGesture in Frameworks */,
 				032212DD2B14AE7600FF5CF1 /* Lottie in Frameworks */,
 				032212D62B14AE4100FF5CF1 /* KakaoSDK in Frameworks */,
 				032212C92B14AD6800FF5CF1 /* RxCocoa in Frameworks */,
@@ -960,6 +962,7 @@
 				032212D92B14AE4100FF5CF1 /* KakaoSDKUser */,
 				032212DC2B14AE7600FF5CF1 /* Lottie */,
 				034580942B2F356C002DDEBA /* DropDown */,
+				03C7A6712B459EEB000F1E39 /* RxGesture */,
 			);
 			productName = ShallWe;
 			productReference = 032212A22B14AAFD00FF5CF1 /* ShallWe.app */;
@@ -1000,6 +1003,7 @@
 				032212D42B14AE4100FF5CF1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				032212DB2B14AE7600FF5CF1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				034580932B2F2E34002DDEBA /* XCRemoteSwiftPackageReference "DropDown" */,
+				03C7A6702B459EEB000F1E39 /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = 032212A32B14AAFD00FF5CF1 /* Products */;
 			projectDirPath = "";
@@ -1441,6 +1445,14 @@
 				kind = branch;
 			};
 		};
+		03C7A6702B459EEB000F1E39 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1518,6 +1530,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 034580932B2F2E34002DDEBA /* XCRemoteSwiftPackageReference "DropDown" */;
 			productName = DropDown;
+		};
+		03C7A6712B459EEB000F1E39 /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 03C7A6702B459EEB000F1E39 /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
