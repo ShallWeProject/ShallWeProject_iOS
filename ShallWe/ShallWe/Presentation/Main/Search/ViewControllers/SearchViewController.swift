@@ -37,12 +37,27 @@ final class SearchViewController: BaseViewController {
     // MARK: - Properties
     
     private var searchType: SearchType = .clear
+    private let disposeBag = DisposeBag()
     
     // MARK: - View Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func bindViewModel() {
+        navigationBar.backButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.popToHomeVC()
+            })
+            .disposed(by: disposeBag)
+        
+        cancelButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.popToHomeVC()
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - UI Components Property
@@ -93,8 +108,6 @@ final class SearchViewController: BaseViewController {
         searchResultView.do {
             $0.isHidden = true
         }
-        
-        
     }
     
     // MARK: - Layout Helper
@@ -176,5 +189,9 @@ extension SearchViewController {
         default:
             return
         }
+    }
+    
+    private func popToHomeVC() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
