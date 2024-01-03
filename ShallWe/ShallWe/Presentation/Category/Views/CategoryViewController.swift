@@ -55,7 +55,10 @@ final class CategoryViewController: BaseViewController {
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 experienceVC.index = 0
-                self.navigationController?.pushViewController(experienceVC, animated: true)
+                guard let vc = self.presentingViewController else { return }
+//                self.dismiss(animated: false) {
+                    vc.navigationController?.pushViewController(self.experienceVC, animated: true)
+//                    }
             })
             .disposed(by: disposeBag)
         
