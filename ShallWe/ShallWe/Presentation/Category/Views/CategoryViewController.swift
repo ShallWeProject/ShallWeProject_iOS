@@ -282,9 +282,14 @@ extension CategoryViewController {
     
     @objc
     private func handleBackgroundTap(_ gesture: UITapGestureRecognizer) {
-        // 배경을 탭했을 때 모달을 닫습니다.
         let touchLocation = gesture.location(in: self.view)
+        guard let vc = self.presentingViewController else { return }
+        
         if !categoryView.frame.contains(touchLocation) {
+            // 모달을 호출한 뷰 컨트롤러가 탭바 컨트롤러인지 확인
+            if let tabBarController = vc as? ShallWe.TabBarController {
+                tabBarController.selectedIndex = 1
+            }
             dismissToCategory()
         }
     }
