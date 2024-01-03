@@ -15,13 +15,9 @@ final class RecentSearchView: BaseView {
     // MARK: - UI Components
     
     private let recentSearchLabel = UILabel()
-    private let deleteAllButton = UIButton()
+    let deleteAllButton = UIButton()
     lazy var recentCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let flowLayout = UICollectionViewFlowLayout()
-    
-    // MARK: - Properties
-    
-    var recentSearchModel: [RecentSearchModel] = []
     
     // MARK: - UI Components Property
     

@@ -20,6 +20,9 @@ enum SearchType {
     case NoResults
 }
 
+var searchType: SearchType = .clear
+var recentSearchModel: [RecentSearchModel] = []
+
 final class SearchViewController: BaseViewController {
 
     // MARK: - UI Components
@@ -33,8 +36,7 @@ final class SearchViewController: BaseViewController {
     private lazy var recentSearchView = RecentSearchView()
     
     // MARK: - Properties
-    
-    private var searchType: SearchType = .clear
+
     private let disposeBag = DisposeBag()
     private let tapGesture = UITapGestureRecognizer()
     
@@ -67,6 +69,16 @@ final class SearchViewController: BaseViewController {
             .bind { [weak self] gesture in
                 self?.didTapScreen(gesture)
             }
+            .disposed(by: disposeBag)
+        
+        recentSearchView.deleteAllButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                recentSearchModel.removeAll()
+                recentSearchView.recentCollectionView.reloadData()
+                searchType = .clear
+                setSearchLabel()
+            })
             .disposed(by: disposeBag)
     }
     
@@ -175,6 +187,7 @@ extension SearchViewController {
         default:
             return
         }
+        recentSearchView.recentCollectionView.reloadData()
     }
     
     private func popToHomeVC() {
@@ -194,10 +207,9 @@ extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         if let text = textField.text {
-            recentSearchView.recentSearchModel.append(RecentSearchModel(title: text))
-            recentSearchView.recentCollectionView.reloadData()
+            recentSearchModel.append(RecentSearchModel(title: text))
             searchType = .recent
-            setSearchLabel()
+            textField.text = ""
         }
         return true
     }
