@@ -31,6 +31,7 @@ final class SearchViewController: BaseViewController {
     private lazy var cancelButton = UIButton()
     private let underLineView = UIView()
     private lazy var resultLabel = UILabel()
+    private lazy var searchResultView = SearchResultView()
     
     // MARK: - Properties
     
@@ -87,13 +88,18 @@ final class SearchViewController: BaseViewController {
             $0.font = .fontGuide(.SB00_14)
             $0.textColor = .gray4
         }
+        
+        searchResultView.do {
+            $0.isHidden = true
+        }
     }
     
     // MARK: - Layout Helper
     
     override func setLayout() {
         
-        self.view.addSubviews(navigationBar, searchView, underLineView, resultLabel)
+        self.view.addSubviews(navigationBar, searchView, underLineView,
+                              resultLabel, searchResultView)
         searchView.addSubviews(searchIconView, searchTextField, deleteTextButton, cancelButton)
         
         navigationBar.snp.makeConstraints {
@@ -140,6 +146,11 @@ final class SearchViewController: BaseViewController {
         resultLabel.snp.makeConstraints {
             $0.top.equalTo(underLineView.snp.bottom).offset(109)
             $0.centerX.equalToSuperview()
+        }
+        
+        searchResultView.snp.makeConstraints {
+            $0.top.equalTo(underLineView.snp.bottom)
+            $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
 }
