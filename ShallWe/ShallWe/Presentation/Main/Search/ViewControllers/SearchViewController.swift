@@ -14,10 +14,8 @@ import RxCocoa
 import RxGesture
 
 enum SearchType {
-    case results
     case clear
     case recent
-    case NoResults
 }
 
 var searchType: SearchType = .clear
@@ -184,8 +182,6 @@ extension SearchViewController {
         case .recent:
             recentSearchView.isHidden = false
             clearLabel.isHidden = true
-        default:
-            return
         }
         recentSearchView.recentCollectionView.reloadData()
     }
@@ -200,16 +196,32 @@ extension SearchViewController {
             self.view.endEditing(true)
         }
     }
+    
+    private func setSearch() {
+        clearLabel.isHidden = true
+        recentSearchView.isHidden = true
+    }
 }
 
 extension SearchViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        setSearch()
         if let text = textField.text {
             recentSearchModel.append(RecentSearchModel(title: text))
             searchType = .recent
             textField.text = ""
+            
+            // 서버통신 기능 추가
+            if text == "nn" {
+                noResultLabel.isHidden = false
+                noResultLabel.text = "\"\(text)\"에 대한 검색결과가 없습니다."
+                searchResultView.isHidden = true
+            } else {
+                searchResultView.isHidden = false
+                noResultLabel.isHidden = true
+            }
         }
         return true
     }
