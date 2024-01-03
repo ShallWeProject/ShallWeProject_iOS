@@ -11,6 +11,7 @@ import Then
 import SnapKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 enum SearchType {
     case results
@@ -35,12 +36,14 @@ final class SearchViewController: BaseViewController {
     private var searchType: SearchType = .clear
     private let disposeBag = DisposeBag()
     private var recentSearchModel: [RecentSearchModel] = []
+    private let tapGesture = UITapGestureRecognizer()
     
     // MARK: - View Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+        searchView.searchTextField.becomeFirstResponder()
     }
     
     override func bindViewModel() {
@@ -56,7 +59,12 @@ final class SearchViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        
+        self.view.rx.tapGesture()
+            .when(.recognized)
+            .bind { [weak self] gesture in
+                self?.didTapScreen(gesture)
+            }
+            .disposed(by: disposeBag)
     }
     
     // MARK: - UI Components Property
@@ -150,6 +158,9 @@ extension SearchViewController {
     }
     
     private func didTapScreen(_ gesture: UITapGestureRecognizer) {
-        
+        let touchLocation = gesture.location(in: self.view)
+        if !searchView.frame.contains(touchLocation) {
+            self.view.endEditing(true)
+        }
     }
 }
