@@ -31,6 +31,7 @@ final class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     override func bindViewModel() {
@@ -58,7 +59,7 @@ final class HomeViewController: BaseViewController {
         
         homeView.searchView.rx.tapGesture()
             .when(.recognized)
-            .bind { _ in 
+            .bind { _ in
                 self.navigationController?.pushViewController(SearchViewController(), animated: true)
             }
             .disposed(by: disposeBag)

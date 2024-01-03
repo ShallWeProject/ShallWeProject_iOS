@@ -42,9 +42,10 @@ final class SearchViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-        searchView.searchTextField.becomeFirstResponder()
-        setSearchLabel(searchTypeRelay.value)
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+        self.searchView.searchTextField.becomeFirstResponder()
+        self.setSearchLabel(searchTypeRelay.value)
     }
     
     override func bindViewModel() {
