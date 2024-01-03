@@ -32,6 +32,7 @@ final class SearchViewController: BaseViewController {
     private let underLineView = UIView()
     private lazy var resultLabel = UILabel()
     private lazy var searchResultView = SearchResultView()
+    private lazy var recentSearchView = RecentSearchView()
     
     // MARK: - Properties
     
@@ -92,6 +93,8 @@ final class SearchViewController: BaseViewController {
         searchResultView.do {
             $0.isHidden = true
         }
+        
+        
     }
     
     // MARK: - Layout Helper
@@ -99,7 +102,7 @@ final class SearchViewController: BaseViewController {
     override func setLayout() {
         
         self.view.addSubviews(navigationBar, searchView, underLineView,
-                              resultLabel, searchResultView)
+                              resultLabel, searchResultView, recentSearchView)
         searchView.addSubviews(searchIconView, searchTextField, deleteTextButton, cancelButton)
         
         navigationBar.snp.makeConstraints {
@@ -149,6 +152,11 @@ final class SearchViewController: BaseViewController {
         }
         
         searchResultView.snp.makeConstraints {
+            $0.top.equalTo(underLineView.snp.bottom)
+            $0.horizontalEdges.bottom.equalToSuperview()
+        }
+        
+        recentSearchView.snp.makeConstraints {
             $0.top.equalTo(underLineView.snp.bottom)
             $0.horizontalEdges.bottom.equalToSuperview()
         }

@@ -22,6 +22,8 @@ final class RecentSearchCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setUI()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -42,7 +44,6 @@ extension RecentSearchCollectionViewCell {
         }
         
         titleLabel.do {
-            $0.text = "케이크"
             $0.font = .fontGuide(.R00_14)
             $0.textColor = .black
         }
@@ -56,20 +57,23 @@ extension RecentSearchCollectionViewCell {
     
     private func setLayout() {
         
-        self.addSubviews(searchIconView, titleLabel, deleteButton)
+        self.contentView.addSubviews(searchIconView, titleLabel, deleteButton)
         
         searchIconView.snp.makeConstraints {
             $0.centerY.leading.equalToSuperview()
+            $0.size.equalTo(24)
         }
         
         titleLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(searchIconView.snp.trailing).offset(6)
             $0.width.equalTo(147)
+            $0.height.equalTo(28)
         }
         
         deleteButton.snp.makeConstraints {
             $0.centerY.trailing.equalToSuperview()
+            $0.size.equalTo(24)
         }
     }
 }
