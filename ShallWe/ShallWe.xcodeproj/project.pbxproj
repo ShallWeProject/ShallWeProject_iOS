@@ -99,7 +99,14 @@
 		0345809B2B380299002DDEBA /* ActivateDropDownAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345809A2B380299002DDEBA /* ActivateDropDownAlert.swift */; };
 		0345809D2B3858DF002DDEBA /* CustomDropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345809C2B3858DF002DDEBA /* CustomDropDownButton.swift */; };
 		035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */; };
+		035A9F102B448047007B3F50 /* HomeExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F0F2B448047007B3F50 /* HomeExperienceViewController.swift */; };
+		035A9F132B44825E007B3F50 /* CraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F122B44825E007B3F50 /* CraftViewController.swift */; };
+		035A9F152B448266007B3F50 /* BakingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F142B448266007B3F50 /* BakingViewController.swift */; };
+		035A9F172B44826D007B3F50 /* CultureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F162B44826D007B3F50 /* CultureViewController.swift */; };
+		035A9F192B448274007B3F50 /* OutdoorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F182B448274007B3F50 /* OutdoorViewController.swift */; };
+		035A9F1B2B44827B007B3F50 /* SportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F1A2B44827B007B3F50 /* SportViewController.swift */; };
 		03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */; };
+		03C7A65D2B452131000F1E39 /* HomeExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A65C2B452131000F1E39 /* HomeExperienceView.swift */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
@@ -210,7 +217,14 @@
 		0345809A2B380299002DDEBA /* ActivateDropDownAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateDropDownAlert.swift; sourceTree = "<group>"; };
 		0345809C2B3858DF002DDEBA /* CustomDropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownButton.swift; sourceTree = "<group>"; };
 		035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		035A9F0F2B448047007B3F50 /* HomeExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceViewController.swift; sourceTree = "<group>"; };
+		035A9F122B44825E007B3F50 /* CraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CraftViewController.swift; sourceTree = "<group>"; };
+		035A9F142B448266007B3F50 /* BakingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakingViewController.swift; sourceTree = "<group>"; };
+		035A9F162B44826D007B3F50 /* CultureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureViewController.swift; sourceTree = "<group>"; };
+		035A9F182B448274007B3F50 /* OutdoorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdoorViewController.swift; sourceTree = "<group>"; };
+		035A9F1A2B44827B007B3F50 /* SportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportViewController.swift; sourceTree = "<group>"; };
 		03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceType.swift; sourceTree = "<group>"; };
+		03C7A65C2B452131000F1E39 /* HomeExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceView.swift; sourceTree = "<group>"; };
 		954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		95748DCD2B25FAB4004157E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -289,8 +303,8 @@
 		03115F8F2B271BB8009D1517 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				03115F902B271BD5009D1517 /* HomeRecommendViewController.swift */,
-				0345806E2B28A188002DDEBA /* PageViewControllers */,
+				035A9F0E2B448023007B3F50 /* Experience */,
+				035A9F0D2B448016007B3F50 /* Recommend */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -299,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				03115F952B271F12009D1517 /* HomeRecommendView.swift */,
+				03C7A65C2B452131000F1E39 /* HomeExperienceView.swift */,
 				0345807B2B28ACF6002DDEBA /* HomeExperienceListView.swift */,
 				034580982B37EEA1002DDEBA /* ExperienceHeader.swift */,
 				0345809A2B380299002DDEBA /* ActivateDropDownAlert.swift */,
@@ -660,6 +675,36 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		035A9F0D2B448016007B3F50 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				03115F902B271BD5009D1517 /* HomeRecommendViewController.swift */,
+				0345806E2B28A188002DDEBA /* PageViewControllers */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		035A9F0E2B448023007B3F50 /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+				035A9F0F2B448047007B3F50 /* HomeExperienceViewController.swift */,
+				035A9F112B44823C007B3F50 /* PageViewControllers */,
+			);
+			path = Experience;
+			sourceTree = "<group>";
+		};
+		035A9F112B44823C007B3F50 /* PageViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				035A9F122B44825E007B3F50 /* CraftViewController.swift */,
+				035A9F142B448266007B3F50 /* BakingViewController.swift */,
+				035A9F162B44826D007B3F50 /* CultureViewController.swift */,
+				035A9F182B448274007B3F50 /* OutdoorViewController.swift */,
+				035A9F1A2B44827B007B3F50 /* SportViewController.swift */,
+			);
+			path = PageViewControllers;
+			sourceTree = "<group>";
+		};
 		03AD68AD2B286EC300ED54E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -923,6 +968,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0345807E2B28B0FE002DDEBA /* HomeExperienceListViewModel.swift in Sources */,
+				035A9F172B44826D007B3F50 /* CultureViewController.swift in Sources */,
 				95748DD62B2D9CED004157E0 /* LoginCompletionViewController.swift in Sources */,
 				032212FD2B14B1E000FF5CF1 /* UIView+.swift in Sources */,
 				A42C32562B26C6AE00C4B477 /* ExperienceDetailViewController.swift in Sources */,
@@ -978,7 +1024,9 @@
 				032213302B14BA0F00FF5CF1 /* StringLiterals.swift in Sources */,
 				032213132B14B29200FF5CF1 /* UIButton+.swift in Sources */,
 				032212F72B14B1B900FF5CF1 /* Protocol.swift in Sources */,
+				035A9F192B448274007B3F50 /* OutdoorViewController.swift in Sources */,
 				032213982B1B6DEA00FF5CF1 /* HomePopularCategoryCell.swift in Sources */,
+				03C7A65D2B452131000F1E39 /* HomeExperienceView.swift in Sources */,
 				95748DDA2B2D9DC6004157E0 /* AuthCompletionView.swift in Sources */,
 				0322132C2B14B9F500FF5CF1 /* ImageLiterals.swift in Sources */,
 				034580722B28A3A6002DDEBA /* HomeExperiencePageVC.swift in Sources */,
@@ -991,6 +1039,8 @@
 				032213962B1B6D9200FF5CF1 /* HomeRecommendCell.swift in Sources */,
 				032213862B1B2A8D00FF5CF1 /* BaseViewController.swift in Sources */,
 				0322131D2B14B32B00FF5CF1 /* URLConstant.swift in Sources */,
+				035A9F102B448047007B3F50 /* HomeExperienceViewController.swift in Sources */,
+				035A9F152B448266007B3F50 /* BakingViewController.swift in Sources */,
 				032213052B14B23000FF5CF1 /* UIViewController+.swift in Sources */,
 				95748DE52B35A95F004157E0 /* Enums.swift in Sources */,
 				035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */,
@@ -1001,6 +1051,7 @@
 				95748DD82B2D9D86004157E0 /* SignUpCompletionViewController.swift in Sources */,
 				032213B52B241B3100FF5CF1 /* HomeView.swift in Sources */,
 				032212E12B14B01F00FF5CF1 /* DTO.swift in Sources */,
+				035A9F1B2B44827B007B3F50 /* SportViewController.swift in Sources */,
 				954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */,
 				032213192B14B30A00FF5CF1 /* Config.swift in Sources */,
 				0322131B2B14B31E00FF5CF1 /* APIConstant.swift in Sources */,
@@ -1018,6 +1069,7 @@
 				032213152B14B2EA00FF5CF1 /* API.swift in Sources */,
 				0322139C2B1B8B3100FF5CF1 /* HomeHeaderView.swift in Sources */,
 				95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */,
+				035A9F132B44825E007B3F50 /* CraftViewController.swift in Sources */,
 				032213012B14B21700FF5CF1 /* UIColor+.swift in Sources */,
 				A42C325B2B26C6C800C4B477 /* ExplainDetailView.swift in Sources */,
 				A42C32602B26C6D400C4B477 /* ExperienceImageCollectionViewCell.swift in Sources */,

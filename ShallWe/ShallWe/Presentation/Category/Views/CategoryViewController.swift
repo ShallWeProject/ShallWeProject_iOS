@@ -41,6 +41,10 @@ final class CategoryViewController: BaseViewController {
         setTapScreen()
     }
     
+    override func bindViewModel() {
+        
+    }
+    
     // MARK: - UI Components Property
     
     override func setStyle() {
@@ -218,6 +222,10 @@ extension CategoryViewController {
         view.addGestureRecognizer(tapGestureRecognizer)
     }
     
+    private func dismissToCategory() {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     // MARK: - @objc Methods
     
     @objc
@@ -225,7 +233,7 @@ extension CategoryViewController {
         // 배경을 탭했을 때 모달을 닫습니다.
         let touchLocation = gesture.location(in: self.view)
         if !categoryView.frame.contains(touchLocation) {
-            dismiss(animated: false, completion: nil)
+            dismissToCategory()
         }
     }
 }

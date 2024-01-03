@@ -22,4 +22,14 @@ extension HomeExperiencePageVC {
         menuVCs += [MarriageViewController()]
         return menuVCs
     }
+    
+    static func experiencePageVC() -> [UIViewController] {
+        var menuVCs: [UIViewController] = []
+        menuVCs += [CraftViewController()]
+        menuVCs += [BakingViewController()]
+        menuVCs += [CultureViewController()]
+        menuVCs += [OutdoorViewController()]
+        menuVCs += [SportViewController()]
+        return menuVCs
+    }
 }
