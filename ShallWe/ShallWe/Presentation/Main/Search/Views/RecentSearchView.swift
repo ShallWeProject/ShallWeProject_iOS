@@ -10,14 +10,13 @@ import UIKit
 import Then
 import SnapKit
 
-class RecentSearchView: UIView {
+final class RecentSearchView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+    // MARK: - UI Components
+    
+    private let recentSearchLabel = UILabel()
+    private let deleteAllButton = UIButton()
+    private lazy var recentCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    private let flowLayout = UICollectionViewFlowLayout()
 
 }
