@@ -108,11 +108,29 @@ extension RecentSearchView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(type: RecentSearchCollectionViewCell.self, indexPath: indexPath)
         print(indexPath.row)
+//        cell.deleteButton.rx.tap
+//            .subscribe(onNext: {
+//                if indexPath.row >= 0 && indexPath.row < recentSearchModel.count {
+//                    recentSearchModel.remove(at: indexPath.row)
+//                    self.recentCollectionView.reloadData()
+//                    print(recentSearchModel)
+//                    if recentSearchModel.isEmpty {
+//                        searchTypeRelay.accept(.clear)
+//                    }
+//                }
+//            })
+//            .disposed(by: disposeBag)
         cell.deleteButton.rx.tap
-            .subscribe(onNext: {
+            .flatMapLatest { [weak self] _ -> Observable<IndexPath> in
+                guard let indexPath = self?.recentCollectionView.indexPath(for: cell) else {
+                    return Observable.empty()
+                }
+                return Observable.just(indexPath)
+            }
+            .subscribe(onNext: { [weak self] indexPath in
                 if indexPath.row >= 0 && indexPath.row < recentSearchModel.count {
                     recentSearchModel.remove(at: indexPath.row)
-                    self.recentCollectionView.reloadData()
+                    self?.recentCollectionView.reloadData()
                     print(recentSearchModel)
                     if recentSearchModel.isEmpty {
                         searchTypeRelay.accept(.clear)
