@@ -65,6 +65,7 @@ final class SearchViewController: BaseViewController {
         
         self.view.rx.tapGesture()
             .when(.recognized)
+            .observe(on: MainScheduler.instance)
             .bind { [weak self] gesture in
                 self?.didTapScreen(gesture)
             }
