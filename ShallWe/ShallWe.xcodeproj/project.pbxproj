@@ -107,6 +107,7 @@
 		035A9F1B2B44827B007B3F50 /* SportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F1A2B44827B007B3F50 /* SportViewController.swift */; };
 		03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */; };
 		03C7A65D2B452131000F1E39 /* HomeExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A65C2B452131000F1E39 /* HomeExperienceView.swift */; };
+		03C7A6612B453FD3000F1E39 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A6602B453FD3000F1E39 /* SearchViewController.swift */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
@@ -225,6 +226,7 @@
 		035A9F1A2B44827B007B3F50 /* SportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportViewController.swift; sourceTree = "<group>"; };
 		03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceType.swift; sourceTree = "<group>"; };
 		03C7A65C2B452131000F1E39 /* HomeExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceView.swift; sourceTree = "<group>"; };
+		03C7A6602B453FD3000F1E39 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		95748DCD2B25FAB4004157E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +286,8 @@
 			children = (
 				032213712B15FA0100FF5CF1 /* Home */,
 				03115F8E2B271B9C009D1517 /* Experience */,
+				03C7A65E2B453F59000F1E39 /* Search */,
+				032213702B15F9FA00FF5CF1 /* Category */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -413,7 +417,6 @@
 				032213832B1B2A7900FF5CF1 /* Common */,
 				03115F8D2B271B8B009D1517 /* Main */,
 				A431BE7A2B2335510049C126 /* ExperienceScene */,
-				032213702B15F9FA00FF5CF1 /* Category */,
 				032213722B15FA0500FF5CF1 /* Mypage */,
 				0322136B2B15F8B400FF5CF1 /* TabBar */,
 			);
@@ -536,7 +539,7 @@
 		032213702B15F9FA00FF5CF1 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				035A9F062B42AB3F007B3F50 /* Views */,
+				035A9F062B42AB3F007B3F50 /* ViewControllers */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -667,12 +670,12 @@
 			path = PageViewControllers;
 			sourceTree = "<group>";
 		};
-		035A9F062B42AB3F007B3F50 /* Views */ = {
+		035A9F062B42AB3F007B3F50 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */,
 			);
-			path = Views;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		035A9F0D2B448016007B3F50 /* Recommend */ = {
@@ -712,6 +715,30 @@
 				034580712B28A3A6002DDEBA /* HomeExperiencePageVC.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		03C7A65E2B453F59000F1E39 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				03C7A6622B454097000F1E39 /* Views */,
+				03C7A65F2B453FBE000F1E39 /* ViewControllers */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		03C7A65F2B453FBE000F1E39 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				03C7A6602B453FD3000F1E39 /* SearchViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		03C7A6622B454097000F1E39 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		954E45B42B1E5C2800D12242 /* Auth */ = {
@@ -1036,6 +1063,7 @@
 				032212FB2B14B1D600FF5CF1 /* NSObject+.swift in Sources */,
 				A42C32662B3040FA00C4B477 /* ExperienceLetterView.swift in Sources */,
 				032212F32B14B18500FF5CF1 /* MakeAlert.swift in Sources */,
+				03C7A6612B453FD3000F1E39 /* SearchViewController.swift in Sources */,
 				032213962B1B6D9200FF5CF1 /* HomeRecommendCell.swift in Sources */,
 				032213862B1B2A8D00FF5CF1 /* BaseViewController.swift in Sources */,
 				0322131D2B14B32B00FF5CF1 /* URLConstant.swift in Sources */,
