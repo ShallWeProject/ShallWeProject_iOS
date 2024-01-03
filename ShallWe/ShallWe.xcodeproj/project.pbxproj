@@ -114,6 +114,7 @@
 		03C7A66C2B4567AC000F1E39 /* RecentSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A66B2B4567AC000F1E39 /* RecentSearchCollectionViewCell.swift */; };
 		03C7A66F2B456A45000F1E39 /* RecentSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A66E2B456A45000F1E39 /* RecentSearchModel.swift */; };
 		03C7A6722B459EEB000F1E39 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 03C7A6712B459EEB000F1E39 /* RxGesture */; };
+		03C7A6742B45A8E3000F1E39 /* SearchTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A6732B45A8E2000F1E39 /* SearchTextFieldView.swift */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
@@ -238,6 +239,7 @@
 		03C7A6682B456654000F1E39 /* RecentSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchView.swift; sourceTree = "<group>"; };
 		03C7A66B2B4567AC000F1E39 /* RecentSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		03C7A66E2B456A45000F1E39 /* RecentSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchModel.swift; sourceTree = "<group>"; };
+		03C7A6732B45A8E2000F1E39 /* SearchTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldView.swift; sourceTree = "<group>"; };
 		954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		95748DCD2B25FAB4004157E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -754,6 +756,7 @@
 			children = (
 				03C7A6632B45617E000F1E39 /* SearchResultView.swift */,
 				03C7A6682B456654000F1E39 /* RecentSearchView.swift */,
+				03C7A6732B45A8E2000F1E39 /* SearchTextFieldView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1100,6 +1103,7 @@
 				03C7A65D2B452131000F1E39 /* HomeExperienceView.swift in Sources */,
 				95748DDA2B2D9DC6004157E0 /* AuthCompletionView.swift in Sources */,
 				03C7A6642B45617E000F1E39 /* SearchResultView.swift in Sources */,
+				03C7A6742B45A8E3000F1E39 /* SearchTextFieldView.swift in Sources */,
 				0322132C2B14B9F500FF5CF1 /* ImageLiterals.swift in Sources */,
 				034580722B28A3A6002DDEBA /* HomeExperiencePageVC.swift in Sources */,
 				034580782B28AA61002DDEBA /* GradeViewController.swift in Sources */,
