@@ -22,7 +22,7 @@ var searchTypeRelay = BehaviorRelay<SearchType>(value: .clear)
 var recentSearchModel: [RecentSearchModel] = []
 
 final class SearchViewController: BaseViewController {
-
+    
     // MARK: - UI Components
     
     private let navigationBar = CustomNavigationBar()
@@ -34,7 +34,7 @@ final class SearchViewController: BaseViewController {
     private lazy var recentSearchView = RecentSearchView()
     
     // MARK: - Properties
-
+    
     private let disposeBag = DisposeBag()
     private let tapGesture = UITapGestureRecognizer()
     
@@ -141,7 +141,7 @@ final class SearchViewController: BaseViewController {
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(37)
         }
-    
+        
         underLineView.snp.makeConstraints {
             $0.top.equalTo(searchView.snp.bottom).offset(25)
             $0.horizontalEdges.equalToSuperview().inset(24)
@@ -198,9 +198,11 @@ extension SearchViewController {
     }
     
     private func didTapScreen(_ gesture: UITapGestureRecognizer) {
-        let touchLocation = gesture.location(in: self.view)
-        if !searchView.frame.contains(touchLocation) {
-            self.view.endEditing(true)
+        DispatchQueue.main.async { [weak self] in
+            let touchLocation = gesture.location(in: self?.view)
+            if ((self?.searchView.frame.contains(touchLocation)) == nil) {
+                self?.view.endEditing(true)
+            }
         }
     }
     
