@@ -25,6 +25,7 @@ final class SearchViewController: BaseViewController {
     
     private let navigationBar = CustomNavigationBar()
     private let searchView = SearchTextFieldView()
+    private let underLineView = UIView()
     private lazy var resultLabel = UILabel()
     private lazy var searchResultView = SearchResultView()
     private lazy var recentSearchView = RecentSearchView()
@@ -33,6 +34,7 @@ final class SearchViewController: BaseViewController {
     
     private var searchType: SearchType = .clear
     private let disposeBag = DisposeBag()
+    private var recentSearchModel: [RecentSearchModel] = []
     
     // MARK: - View Life Cycle
     
@@ -53,6 +55,8 @@ final class SearchViewController: BaseViewController {
                 self?.popToHomeVC()
             })
             .disposed(by: disposeBag)
+        
+        
     }
     
     // MARK: - UI Components Property
@@ -66,6 +70,10 @@ final class SearchViewController: BaseViewController {
             $0.isBackButtonIncluded = true
         }
         
+        underLineView.do {
+            $0.backgroundColor = .bg2
+        }
+        
         resultLabel.do {
             $0.font = .fontGuide(.SB00_14)
             $0.textColor = .gray4
@@ -74,13 +82,17 @@ final class SearchViewController: BaseViewController {
         searchResultView.do {
             $0.isHidden = true
         }
+        
+        recentSearchView.do {
+            $0.isHidden = true
+        }
     }
     
     // MARK: - Layout Helper
     
     override func setLayout() {
         
-        self.view.addSubviews(navigationBar, searchView,
+        self.view.addSubviews(navigationBar, searchView, underLineView,
                               resultLabel, searchResultView, recentSearchView)
         
         navigationBar.snp.makeConstraints {
@@ -90,23 +102,29 @@ final class SearchViewController: BaseViewController {
         }
         
         searchView.snp.makeConstraints {
-            $0.top.equalTo(navigationBar.snp.bottom)
-            $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(63)
+            $0.top.equalTo(navigationBar.snp.bottom).offset(13)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(37)
+        }
+    
+        underLineView.snp.makeConstraints {
+            $0.top.equalTo(searchView.snp.bottom).offset(25)
+            $0.horizontalEdges.equalToSuperview().inset(24)
+            $0.height.equalTo(1)
         }
         
         resultLabel.snp.makeConstraints {
-            $0.top.equalTo(searchView.snp.bottom).offset(109)
+            $0.top.equalTo(underLineView.snp.bottom).offset(109)
             $0.centerX.equalToSuperview()
         }
         
         searchResultView.snp.makeConstraints {
-            $0.top.equalTo(searchView.snp.bottom)
+            $0.top.equalTo(underLineView.snp.bottom)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
         
         recentSearchView.snp.makeConstraints {
-            $0.top.equalTo(searchView.snp.bottom).offset(12)
+            $0.top.equalTo(underLineView.snp.bottom).offset(12)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
@@ -129,5 +147,9 @@ extension SearchViewController {
     
     private func popToHomeVC() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func didTapScreen(_ gesture: UITapGestureRecognizer) {
+        
     }
 }
