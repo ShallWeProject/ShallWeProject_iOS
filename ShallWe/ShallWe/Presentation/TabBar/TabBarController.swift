@@ -85,7 +85,7 @@ extension TabBarController {
     }
     
     func showAnotherViewController() {
-        let vc = CategoryViewController()
+        let vc = UINavigationController(rootViewController: CategoryViewController())
         vc.modalPresentationStyle = .overCurrentContext
         // 현재 뷰컨트롤러를 모달로 띄웁니다.
         self.present(vc, animated: false, completion: nil)
