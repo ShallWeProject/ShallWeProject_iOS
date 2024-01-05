@@ -21,7 +21,7 @@ final class ExperienceHeader: UICollectionReusableView {
     
     // MARK: - UI Components
     
-    let dropDownButton = UIButton()
+    let sortButton = UIButton()
     
     // MARK: - Properties
     
@@ -48,7 +48,7 @@ extension ExperienceHeader {
         
         backgroundColor = .white
         
-        dropDownButton.do {
+        sortButton.do {
             $0.titleLabel?.font = .fontGuide(.M00_12)
             $0.setTitleColor(.black0, for: .normal)
             $0.set(image: ImageLiterals.Icon.arrow_down_small, withTitle: "인기순", forState: .normal)
@@ -62,9 +62,9 @@ extension ExperienceHeader {
     
     private func setLayout() {
         
-        self.addSubviews(dropDownButton)
+        self.addSubviews(sortButton)
         
-        dropDownButton.snp.makeConstraints {
+        sortButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(16)
             $0.width.equalTo(82)
@@ -78,13 +78,13 @@ extension ExperienceHeader {
         self.titleType = type
         switch titleType {
         case .popular:
-            dropDownButton.setTitle("인기순", for: .normal)
+            sortButton.setTitle("인기순", for: .normal)
         case .recommend:
-            dropDownButton.setTitle("추천순", for: .normal)
+            sortButton.setTitle("추천순", for: .normal)
         case .priceMax:
-            dropDownButton.setTitle("가격높은순", for: .normal)
+            sortButton.setTitle("가격높은순", for: .normal)
         case .priceMin:
-            dropDownButton.setTitle("가격낮은순", for: .normal)
+            sortButton.setTitle("가격낮은순", for: .normal)
         }
     }
 }
