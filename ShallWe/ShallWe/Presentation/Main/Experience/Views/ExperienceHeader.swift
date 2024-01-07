@@ -26,6 +26,7 @@ final class ExperienceHeader: UICollectionReusableView {
     // MARK: - Properties
     
     var titleType: DropDownTitleType = .popular
+    var sortButtonTapHandler: (() -> Void)?
     
     // MARK: - Initializer
     
@@ -33,6 +34,7 @@ final class ExperienceHeader: UICollectionReusableView {
         super.init(frame: frame)
         setUI()
         setLayout()
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -86,5 +88,14 @@ extension ExperienceHeader {
         case .priceMin:
             sortButton.setTitle("가격낮은순", for: .normal)
         }
+    }
+    
+    private func setAddTarget() {
+        sortButton.addTarget(self, action: #selector(sortButtonTap), for: .touchUpInside)
+    }
+    
+    @objc
+    private func sortButtonTap() {
+        sortButtonTapHandler?()
     }
 }

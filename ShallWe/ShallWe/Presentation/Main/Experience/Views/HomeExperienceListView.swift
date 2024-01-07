@@ -97,6 +97,9 @@ extension HomeExperienceListView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableCell(kind: kind, type: ExperienceHeader.self, indexPath: indexPath)
+        header.sortButtonTapHandler = { 
+            print("tapp")
+        }
         return header
     }
 }
