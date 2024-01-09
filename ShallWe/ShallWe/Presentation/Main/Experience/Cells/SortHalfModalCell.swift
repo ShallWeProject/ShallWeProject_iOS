@@ -34,6 +34,8 @@ final class SortHalfModalCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setUI()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -71,4 +73,7 @@ extension SortHalfModalCell {
     
     // MARK: - Methods
 
+    func configureCell(_ model: SortModel) {
+        titleLabel.text = model.title
+    }
 }

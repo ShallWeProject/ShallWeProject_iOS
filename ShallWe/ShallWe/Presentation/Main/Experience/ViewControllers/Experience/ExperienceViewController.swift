@@ -23,6 +23,7 @@ final class ExperienceViewController: BaseViewController {
     private let viewModel: HomeExperienceViewModel
     private let disposeBag = DisposeBag()
     private var isDropDownActivated: Bool = false
+    var presentSortModal: (() -> Void)?
     
     // MARK: - Initializer
 
@@ -32,20 +33,21 @@ final class ExperienceViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-        
-        experienceView.headerView.sortButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                guard self != nil else { return }
-                print("버튼 탭")
+        viewModel.outputs.sortTypeChange
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.experienceView.indexPath = indexPath
             })
             .disposed(by: disposeBag)
-        
     }
+    
+    // MARK: - UI Components Property
     
     override func setStyle() {
         
         self.view.backgroundColor = .clear
     }
+    
+    // MARK: - Layout Helper
     
     override func setLayout() {
         
@@ -56,7 +58,20 @@ final class ExperienceViewController: BaseViewController {
         }
     }
     
+    // MARK: - Methods
+    
+    override func setDelegate() {
+        experienceView.sortButtonDelegate = self
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension ExperienceViewController: SortButtonTapProtocol {
+    
+    func presentToSortModal() {
+        viewModel.inputs.sortButtonTap()
     }
 }

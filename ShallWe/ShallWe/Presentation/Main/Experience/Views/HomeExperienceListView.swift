@@ -12,6 +12,10 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
+protocol SortButtonTapProtocol: AnyObject {
+    func presentToSortModal()
+}
+
 final class HomeExperienceListView: BaseView {
     
     // MARK: - UI Components
@@ -23,6 +27,12 @@ final class HomeExperienceListView: BaseView {
     // MARK: - Properties
      
     private let dummyModel = HomeExperienceModel.homeExperienceDummyData()
+    weak var sortButtonDelegate: SortButtonTapProtocol?
+    var indexPath: IndexPath? {
+        didSet {
+            homelistCollectionView.reloadSections(IndexSet(integer: indexPath?.section ?? 0))
+        }
+    }
     
     // MARK: - UI Components Property
     
@@ -98,7 +108,10 @@ extension HomeExperienceListView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableCell(kind: kind, type: ExperienceHeader.self, indexPath: indexPath)
         header.sortButtonTapHandler = { 
-            print("tapp")
+            self.sortButtonDelegate?.presentToSortModal()
+        }
+        if let indexPath = self.indexPath {
+            header.setButtonTitle(indexPath)
         }
         return header
     }
