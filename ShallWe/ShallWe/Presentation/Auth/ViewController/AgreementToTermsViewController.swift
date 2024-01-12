@@ -1,29 +1,29 @@
 //
-//  PhoneNumberVerificationViewController.swift
+//  AgreementToTermsViewController.swift
 //  ShallWe
 //
-//  Created by 김나연 on 12/6/23.
+//  Created by 김나연 on 1/12/24.
 //
 
 import UIKit
 
-final class PhoneNumberVerificationViewController: UIViewController {
+final class AgreementToTermsViewController: UIViewController {
     
     // MARK: - UI Components
     
-    private let phoneNumberVerificationView = PhoneNumberVerificationView()
+    private let agreementOfTermsView = AgreementOfTermsView()
     
     // MARK: - Life Cycles
     
     override func loadView() {
         super.loadView()
         
-        view = phoneNumberVerificationView
+        view = agreementOfTermsView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setNavigationBar()
         setAddTarget()
     }
@@ -31,7 +31,7 @@ final class PhoneNumberVerificationViewController: UIViewController {
 
 // MARK: - Extensions
 
-extension PhoneNumberVerificationViewController {
+extension AgreementToTermsViewController {
     
     // MARK: - Methods
     
@@ -45,7 +45,7 @@ extension PhoneNumberVerificationViewController {
     }
     
     func setAddTarget() {
-        phoneNumberVerificationView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
+        agreementOfTermsView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
     }
     
     // MARK: Actions
@@ -55,7 +55,7 @@ extension PhoneNumberVerificationViewController {
     }
     
     @objc func nextButtonDidTap() {
-        let agreementToTermsViewController = AgreementToTermsViewController()
-        self.navigationController?.pushViewController(agreementToTermsViewController, animated: true)
+        let profileEntryViewController = ProfileEntryViewController()
+        self.navigationController?.pushViewController(profileEntryViewController, animated: true)
     }
 }

@@ -50,12 +50,10 @@ enum I18N {
         static let femaleText = "여성"
         static let noneText = "선택안함"
         static let totallyAgreeText = "전체 동의"
-        static let age14OrOlderText = "만 14세 이상입니다"
+        static let age14OrOlderText = "만 14세 이상입니다 [필수]"
         static let agreeToTermsOfServiceText = "서비스 이용약관 동의"
         static let agreeToCollectionAndUsePersonalInfoText = "개인정보 수집 및 이용 동의"
         static let agreeToReceiveMarketingInfoText = "마케팅 정보 수신 동의"
-        static let requiredText = "필수"
-        static let optionalText = "선택"
         static let seeDetailText = "내용보기"
         static let closeText = "닫기"
     }
