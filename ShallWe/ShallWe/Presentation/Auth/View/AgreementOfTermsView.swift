@@ -36,7 +36,7 @@ final class AgreementOfTermsView: UIView {
     
     private let divider: UIView = {
         let view = UIView()
-        view.tintColor = .line1
+        view.backgroundColor = .line1
         return view
     }()
     
@@ -46,7 +46,7 @@ final class AgreementOfTermsView: UIView {
         label.textColor = .black0
         label.font = .fontGuide(.M00_14)
         let attributedStr = NSMutableAttributedString(string: label.text!)
-        attributedStr.addAttribute(.foregroundColor, value: UIColor.point, range: (label.text! as NSString).range(of: "[필수]"))
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.point, range: (label.text! as NSString).range(of: I18N.Auth.requiredText))
         label.attributedText = attributedStr
         return label
     }()
@@ -56,6 +56,9 @@ final class AgreementOfTermsView: UIView {
         label.text = I18N.Auth.agreeToTermsOfServiceText
         label.textColor = .black0
         label.font = .fontGuide(.M00_14)
+        let attributedStr = NSMutableAttributedString(string: label.text!)
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.point, range: (label.text! as NSString).range(of: I18N.Auth.requiredText))
+        label.attributedText = attributedStr
         return label
     }()
     
@@ -64,6 +67,9 @@ final class AgreementOfTermsView: UIView {
         label.text = I18N.Auth.agreeToCollectionAndUsePersonalInfoText
         label.textColor = .black0
         label.font = .fontGuide(.M00_14)
+        let attributedStr = NSMutableAttributedString(string: label.text!)
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.point, range: (label.text! as NSString).range(of: I18N.Auth.requiredText))
+        label.attributedText = attributedStr
         return label
     }()
     
@@ -73,6 +79,50 @@ final class AgreementOfTermsView: UIView {
         label.textColor = .black0
         label.font = .fontGuide(.M00_14)
         return label
+    }()
+    
+    private let age14OrOlderStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        return stackView
+    }()
+    
+    private let agreeToTermsOfServiceStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        return stackView
+    }()
+    
+    private let agreeToCollectionAndUsePersonalInfoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        return stackView
+    }()
+    
+    private let agreeToReceiveMarketingInfoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        return stackView
+    }()
+    
+    private let viewTermsOfServiceButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(I18N.Auth.viewDetailsText, for: .normal)
+        button.setTitleColor(.gray4, for: .normal)
+        button.titleLabel?.setUnderlinePartFontChange(targetString: I18N.Auth.viewDetailsText, font: .fontGuide(.M00_12_underlined))
+        return button
+    }()
+    
+    private let viewCollectionAndUsePersonalInfoButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(I18N.Auth.viewDetailsText, for: .normal)
+        button.setTitleColor(.gray4, for: .normal)
+        button.titleLabel?.setUnderlinePartFontChange(targetString: I18N.Auth.viewDetailsText, font: .fontGuide(.M00_12_underlined))
+        return button
     }()
     
     let nextButton: UIButton = {
@@ -118,8 +168,12 @@ private extension AgreementOfTermsView {
     }
     
     func setHierarchy() {
-        self.addSubviews(authHeaderView, agreeToAllStackView, divider, nextButton, age14OrOlderLabel)
+        self.addSubviews(authHeaderView, agreeToAllStackView, divider, age14OrOlderStackView, agreeToTermsOfServiceStackView, agreeToCollectionAndUsePersonalInfoStackView, agreeToReceiveMarketingInfoStackView, viewTermsOfServiceButton, viewCollectionAndUsePersonalInfoButton, nextButton)
         agreeToAllStackView.addArrangedSubviews(agreeToAllButton, agreeToAllLabel)
+        age14OrOlderStackView.addArrangedSubviews(age14OrOlderButton, age14OrOlderLabel)
+        agreeToTermsOfServiceStackView.addArrangedSubviews(agreeToTermsOfServiceButton, agreeToTermsOfServiceLabel)
+        agreeToCollectionAndUsePersonalInfoStackView.addArrangedSubviews(agreeToCollectionAndUsePersonalInfoButton, agreeToCollectionAndUsePersonalInfoLabel)
+        agreeToReceiveMarketingInfoStackView.addArrangedSubviews(agreeToReceiveMarketingInfoButton, agreeToReceiveMarketingInfoLabel)
     }
     
     func setLayout() {
@@ -130,17 +184,44 @@ private extension AgreementOfTermsView {
         
         agreeToAllStackView.snp.makeConstraints {
             $0.top.equalTo(authHeaderView.snp.bottom).offset(SizeLiterals.Screen.screenHeight*(43/768))
+            $0.leading.equalToSuperview().inset(21)
         }
         
         divider.snp.makeConstraints {
             $0.height.equalTo(1)
-            $0.top.equalTo(agreeToAllStackView).offset(8)
-            $0.leading.equalTo(21)
-            $0.trailing.equalTo(27)
+            $0.top.equalTo(agreeToAllStackView.snp.bottom).offset(8)
+            $0.leading.equalToSuperview().inset(21)
+            $0.trailing.equalToSuperview().inset(27)
         }
         
-        age14OrOlderLabel.snp.makeConstraints {
-            $0.top.equalTo(divider).offset(18)
+        age14OrOlderStackView.snp.makeConstraints {
+            $0.top.equalTo(divider.snp.bottom).offset(18)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        agreeToTermsOfServiceStackView.snp.makeConstraints {
+            $0.top.equalTo(age14OrOlderStackView.snp.bottom).offset(7)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        agreeToCollectionAndUsePersonalInfoStackView.snp.makeConstraints {
+            $0.top.equalTo(agreeToTermsOfServiceStackView.snp.bottom).offset(7)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        agreeToReceiveMarketingInfoStackView.snp.makeConstraints {
+            $0.top.equalTo(agreeToCollectionAndUsePersonalInfoStackView.snp.bottom).offset(7)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        viewTermsOfServiceButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(21)
+            $0.centerY.equalTo(agreeToTermsOfServiceStackView.snp.centerY)
+        }
+        
+        viewCollectionAndUsePersonalInfoButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(21)
+            $0.centerY.equalTo(agreeToCollectionAndUsePersonalInfoStackView.snp.centerY)
         }
         
         nextButton.snp.makeConstraints {
