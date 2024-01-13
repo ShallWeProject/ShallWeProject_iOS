@@ -82,13 +82,14 @@ final class CustomCheckbutton: UIButton {
     
     private func setUI() {
         setImage(ImageLiterals.Icon.check_default, for: .normal)
+        isUserInteractionEnabled = false
     }
     
-    func changeIcnoToPink() {
+    func changeIconToPink() {
         setImage(ImageLiterals.Icon.check_activated, for: .normal)
     }
     
-    func changeIcnoToGray() {
+    func changeIconToGray() {
         setImage(ImageLiterals.Icon.check_default, for: .normal)
     }
 }

@@ -11,11 +11,17 @@ import SnapKit
 
 final class AgreementOfTermsView: UIView {
     
+    // MARK: - Properties
+    
+    lazy private var agreeButtons = [age14OrOlderButton, agreeToTermsOfServiceButton, agreeToCollectionAndUsePersonalInfoButton, agreeToReceiveMarketingInfoButton]
+    private var statusOfAgreement = Array.init(repeating: false, count: 4)
+    
     // MARK: - UI Components
     
     private let agreeToAllButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.Icon.check_round_default, for: .normal)
+        button.isUserInteractionEnabled = false
         return button
     }()
     
@@ -149,6 +155,7 @@ final class AgreementOfTermsView: UIView {
         setUI()
         setHierarchy()
         setLayout()
+        setTag()
         setAddTarget()
     }
     
@@ -231,9 +238,72 @@ private extension AgreementOfTermsView {
         }
     }
     
+    func setTag() {
+        age14OrOlderStackView.tag = 0
+        agreeToTermsOfServiceStackView.tag = 1
+        agreeToCollectionAndUsePersonalInfoStackView.tag = 2
+        agreeToReceiveMarketingInfoStackView.tag = 3
+    }
+    
     func setAddTarget() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(agreeToAllSVDidTap))
+        agreeToAllStackView.addGestureRecognizer(tapGestureRecognizer)
+        
+        let stackViews = [age14OrOlderStackView, agreeToTermsOfServiceStackView, agreeToCollectionAndUsePersonalInfoStackView, agreeToReceiveMarketingInfoStackView]
+        for i in stackViews.indices {
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(agreeWithOneSVDidTap(_:)))
+            stackViews[i].addGestureRecognizer(tapGestureRecognizer)
+        }
+        
+        let buttons = [viewTermsOfServiceButton, viewCollectionAndUsePersonalInfoButton]
+        for button in buttons {
+            button.addTarget(self, action: #selector(viewDetailsButtonDidTap), for: .touchUpInside)
+        }
     }
     
     // MARK: - Actions
     
+    @objc func agreeToAllSVDidTap() {
+        if statusOfAgreement.allSatisfy({$0}) {
+            statusOfAgreement = Array.init(repeating: false, count: 4)
+            agreeToAllButton.setImage(ImageLiterals.Icon.check_round_default, for: .normal)
+        } else {
+            statusOfAgreement = Array.init(repeating: true, count: 4)
+            agreeToAllButton.setImage(ImageLiterals.Icon.check_round_activated, for: .normal)
+        }
+        changeAllIconState()
+    }
+    
+    @objc func agreeWithOneSVDidTap(_ sender: UITapGestureRecognizer) {
+        let index = (sender.view as! UIStackView).tag
+        statusOfAgreement[index] = !statusOfAgreement[index]
+        changeOneIconState(index: index)
+    }
+    
+    @objc func viewDetailsButtonDidTap(_ sender: UIButton) {
+    }
+    
+    func changeAllIconState() {
+        for i in 0..<4 {
+            if statusOfAgreement[i] {
+                (agreeButtons[i] as CustomCheckbutton).changeIconToPink()
+            } else {
+                (agreeButtons[i] as CustomCheckbutton).changeIconToGray()
+            }
+        }
+    }
+    
+    func changeOneIconState(index: Int) {
+        if statusOfAgreement[index] {
+            agreeButtons[index].changeIconToPink()
+        } else {
+            agreeButtons[index].changeIconToGray()
+        }
+        
+        if statusOfAgreement.allSatisfy({$0}) {
+            agreeToAllButton.setImage(ImageLiterals.Icon.check_round_activated, for: .normal)
+        } else {
+            agreeToAllButton.setImage(ImageLiterals.Icon.check_round_default, for: .normal)
+        }
+    }
 }
