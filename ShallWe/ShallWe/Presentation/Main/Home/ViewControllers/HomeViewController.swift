@@ -11,6 +11,7 @@ import Then
 import SnapKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 final class HomeViewController: BaseViewController {
     
@@ -30,6 +31,7 @@ final class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     override func bindViewModel() {
@@ -53,6 +55,13 @@ final class HomeViewController: BaseViewController {
                 recommendVC.index = index
                 self.navigationController?.pushViewController(recommendVC, animated: true)
             })
+            .disposed(by: disposeBag)
+        
+        homeView.searchView.rx.tapGesture()
+            .when(.recognized)
+            .bind { _ in
+                self.navigationController?.pushViewController(SearchViewController(), animated: true)
+            }
             .disposed(by: disposeBag)
     }
     
