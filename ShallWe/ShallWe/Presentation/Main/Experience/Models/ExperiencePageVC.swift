@@ -15,21 +15,21 @@ extension ExperiencePageVC {
     
     static func recommendPageVC() -> [UIViewController] {
         var menuVCs: [UIViewController] = []
-        menuVCs += [BirthViewController()]
-        menuVCs += [BirthViewController()]
-        menuVCs += [BirthViewController()]
-        menuVCs += [BirthViewController()]
-        menuVCs += [BirthViewController()]
+        menuVCs += [ExperienceViewController()]
+        menuVCs += [ExperienceViewController()]
+        menuVCs += [ExperienceViewController()]
+        menuVCs += [ExperienceViewController()]
+        menuVCs += [ExperienceViewController()]
         return menuVCs
     }
     
     static func categoryPageVC() -> [UIViewController] {
         var menuVCs: [UIViewController] = []
-        menuVCs += [CraftViewController()]
-        menuVCs += [BakingViewController()]
-        menuVCs += [CultureViewController()]
-        menuVCs += [OutdoorViewController()]
-        menuVCs += [SportViewController()]
+        menuVCs += [ExperienceViewController()]
+        menuVCs += [ExperienceViewController()]
+        menuVCs += [ExperienceViewController()]
+        menuVCs += [ExperienceViewController()]
+        menuVCs += [ExperienceViewController()]
         return menuVCs
     }
 }
