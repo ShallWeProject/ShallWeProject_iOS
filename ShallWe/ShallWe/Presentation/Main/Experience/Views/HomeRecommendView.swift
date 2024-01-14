@@ -18,7 +18,7 @@ final class HomeRecommendView: BaseView {
     lazy var pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                                navigationOrientation: .horizontal)
     private let menuCollectionFlowLayout = UICollectionViewFlowLayout()
-    var menuVCs: [UIViewController] = HomeExperiencePageVC.recommendPageVC()
+    var menuVCs: [UIViewController] = ExperiencePageVC.recommendPageVC()
     
     // MARK: - UI Components Property
     

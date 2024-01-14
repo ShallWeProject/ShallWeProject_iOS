@@ -28,7 +28,7 @@ final class HomeRecommendViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        let vc = HomeExperiencePageVC.recommendPageVC()
+        let vc = ExperiencePageVC.recommendPageVC()
         print(index)
             experiencePageView.pageViewController.setViewControllers([vc[index]], direction: .forward, animated: true, completion: nil)
         experiencePageView.menuCollectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)

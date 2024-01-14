@@ -1,5 +1,5 @@
 //
-//  HomeExperienceViewController.swift
+//  HomeCategoryViewController.swift
 //  ShallWe
 //
 //  Created by KJ on 1/3/24.
@@ -12,12 +12,12 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class HomeExperienceViewController: BaseViewController {
+final class HomeCategoryViewController: BaseViewController {
     
     // MARK: - UI Components
     
     private let navigationBar = CustomNavigationBar()
-    private let experiencePageView = HomeExperienceView()
+    private let experiencePageView = HomeCategoryView()
     
     // MARK: - Properties
     
@@ -28,7 +28,7 @@ final class HomeExperienceViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        let vc = HomeExperiencePageVC.experiencePageVC()
+        let vc = ExperiencePageVC.categoryPageVC()
         print(index)
             experiencePageView.pageViewController.setViewControllers([vc[index]], direction: .forward, animated: true, completion: nil)
         experiencePageView.menuCollectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)

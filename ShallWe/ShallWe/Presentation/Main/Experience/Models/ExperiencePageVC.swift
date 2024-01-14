@@ -7,23 +7,23 @@
 
 import UIKit
 
-struct HomeExperiencePageVC {
+struct ExperiencePageVC {
     let vc: [UIViewController]
 }
 
-extension HomeExperiencePageVC {
+extension ExperiencePageVC {
     
     static func recommendPageVC() -> [UIViewController] {
         var menuVCs: [UIViewController] = []
         menuVCs += [BirthViewController()]
-        menuVCs += [LoverViewController()]
-        menuVCs += [ParentsViewController()]
-        menuVCs += [GradeViewController()]
-        menuVCs += [MarriageViewController()]
+        menuVCs += [BirthViewController()]
+        menuVCs += [BirthViewController()]
+        menuVCs += [BirthViewController()]
+        menuVCs += [BirthViewController()]
         return menuVCs
     }
     
-    static func experiencePageVC() -> [UIViewController] {
+    static func categoryPageVC() -> [UIViewController] {
         var menuVCs: [UIViewController] = []
         menuVCs += [CraftViewController()]
         menuVCs += [BakingViewController()]

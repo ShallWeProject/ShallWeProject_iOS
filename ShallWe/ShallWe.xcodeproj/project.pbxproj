@@ -87,7 +87,7 @@
 		0345806A2B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580692B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift */; };
 		0345806D2B288104002DDEBA /* HomeExperienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */; };
 		034580702B28A1B6002DDEBA /* BirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345806F2B28A1B6002DDEBA /* BirthViewController.swift */; };
-		034580722B28A3A6002DDEBA /* HomeExperiencePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580712B28A3A6002DDEBA /* HomeExperiencePageVC.swift */; };
+		034580722B28A3A6002DDEBA /* ExperiencePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580712B28A3A6002DDEBA /* ExperiencePageVC.swift */; };
 		034580742B28AA47002DDEBA /* LoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580732B28AA47002DDEBA /* LoverViewController.swift */; };
 		034580762B28AA59002DDEBA /* ParentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580752B28AA59002DDEBA /* ParentsViewController.swift */; };
 		034580782B28AA61002DDEBA /* GradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580772B28AA61002DDEBA /* GradeViewController.swift */; };
@@ -98,14 +98,14 @@
 		034580992B37EEA1002DDEBA /* ExperienceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580982B37EEA1002DDEBA /* ExperienceHeader.swift */; };
 		0345809D2B3858DF002DDEBA /* CustomDropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345809C2B3858DF002DDEBA /* CustomDropDownButton.swift */; };
 		035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */; };
-		035A9F102B448047007B3F50 /* HomeExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F0F2B448047007B3F50 /* HomeExperienceViewController.swift */; };
+		035A9F102B448047007B3F50 /* HomeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F0F2B448047007B3F50 /* HomeCategoryViewController.swift */; };
 		035A9F132B44825E007B3F50 /* CraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F122B44825E007B3F50 /* CraftViewController.swift */; };
 		035A9F152B448266007B3F50 /* BakingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F142B448266007B3F50 /* BakingViewController.swift */; };
 		035A9F172B44826D007B3F50 /* CultureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F162B44826D007B3F50 /* CultureViewController.swift */; };
 		035A9F192B448274007B3F50 /* OutdoorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F182B448274007B3F50 /* OutdoorViewController.swift */; };
 		035A9F1B2B44827B007B3F50 /* SportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F1A2B44827B007B3F50 /* SportViewController.swift */; };
 		03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */; };
-		03C7A65D2B452131000F1E39 /* HomeExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A65C2B452131000F1E39 /* HomeExperienceView.swift */; };
+		03C7A65D2B452131000F1E39 /* HomeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A65C2B452131000F1E39 /* HomeCategoryView.swift */; };
 		03C7A6612B453FD3000F1E39 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A6602B453FD3000F1E39 /* SearchViewController.swift */; };
 		03C7A6642B45617E000F1E39 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A6632B45617E000F1E39 /* SearchResultView.swift */; };
 		03C7A6672B456230000F1E39 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A6662B456230000F1E39 /* SearchViewModel.swift */; };
@@ -213,7 +213,7 @@
 		034580692B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceViewModel.swift; sourceTree = "<group>"; };
 		0345806F2B28A1B6002DDEBA /* BirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewController.swift; sourceTree = "<group>"; };
-		034580712B28A3A6002DDEBA /* HomeExperiencePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperiencePageVC.swift; sourceTree = "<group>"; };
+		034580712B28A3A6002DDEBA /* ExperiencePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencePageVC.swift; sourceTree = "<group>"; };
 		034580732B28AA47002DDEBA /* LoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoverViewController.swift; sourceTree = "<group>"; };
 		034580752B28AA59002DDEBA /* ParentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentsViewController.swift; sourceTree = "<group>"; };
 		034580772B28AA61002DDEBA /* GradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
@@ -223,14 +223,14 @@
 		034580982B37EEA1002DDEBA /* ExperienceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceHeader.swift; sourceTree = "<group>"; };
 		0345809C2B3858DF002DDEBA /* CustomDropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownButton.swift; sourceTree = "<group>"; };
 		035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		035A9F0F2B448047007B3F50 /* HomeExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceViewController.swift; sourceTree = "<group>"; };
+		035A9F0F2B448047007B3F50 /* HomeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryViewController.swift; sourceTree = "<group>"; };
 		035A9F122B44825E007B3F50 /* CraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CraftViewController.swift; sourceTree = "<group>"; };
 		035A9F142B448266007B3F50 /* BakingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakingViewController.swift; sourceTree = "<group>"; };
 		035A9F162B44826D007B3F50 /* CultureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureViewController.swift; sourceTree = "<group>"; };
 		035A9F182B448274007B3F50 /* OutdoorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdoorViewController.swift; sourceTree = "<group>"; };
 		035A9F1A2B44827B007B3F50 /* SportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportViewController.swift; sourceTree = "<group>"; };
 		03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceType.swift; sourceTree = "<group>"; };
-		03C7A65C2B452131000F1E39 /* HomeExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceView.swift; sourceTree = "<group>"; };
+		03C7A65C2B452131000F1E39 /* HomeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryView.swift; sourceTree = "<group>"; };
 		03C7A6602B453FD3000F1E39 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		03C7A6632B45617E000F1E39 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		03C7A6662B456230000F1E39 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -319,7 +319,8 @@
 		03115F8F2B271BB8009D1517 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				035A9F0E2B448023007B3F50 /* Experience */,
+				0332A3A42B53EFAD00720CD3 /* Experience */,
+				035A9F0E2B448023007B3F50 /* Category */,
 				035A9F0D2B448016007B3F50 /* Recommend */,
 			);
 			path = ViewControllers;
@@ -329,7 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				03115F952B271F12009D1517 /* HomeRecommendView.swift */,
-				03C7A65C2B452131000F1E39 /* HomeExperienceView.swift */,
+				03C7A65C2B452131000F1E39 /* HomeCategoryView.swift */,
 				0345807B2B28ACF6002DDEBA /* HomeExperienceListView.swift */,
 				034580982B37EEA1002DDEBA /* ExperienceHeader.swift */,
 				0345809C2B3858DF002DDEBA /* CustomDropDownButton.swift */,
@@ -652,6 +653,13 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		0332A3A42B53EFAD00720CD3 /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Experience;
+			sourceTree = "<group>";
+		};
 		034580682B2879CF002DDEBA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -698,13 +706,13 @@
 			path = Recommend;
 			sourceTree = "<group>";
 		};
-		035A9F0E2B448023007B3F50 /* Experience */ = {
+		035A9F0E2B448023007B3F50 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				035A9F0F2B448047007B3F50 /* HomeExperienceViewController.swift */,
+				035A9F0F2B448047007B3F50 /* HomeCategoryViewController.swift */,
 				035A9F112B44823C007B3F50 /* PageViewControllers */,
 			);
-			path = Experience;
+			path = Category;
 			sourceTree = "<group>";
 		};
 		035A9F112B44823C007B3F50 /* PageViewControllers */ = {
@@ -723,7 +731,7 @@
 			isa = PBXGroup;
 			children = (
 				03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */,
-				034580712B28A3A6002DDEBA /* HomeExperiencePageVC.swift */,
+				034580712B28A3A6002DDEBA /* ExperiencePageVC.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1096,12 +1104,12 @@
 				035A9F192B448274007B3F50 /* OutdoorViewController.swift in Sources */,
 				03C7A66F2B456A45000F1E39 /* RecentSearchModel.swift in Sources */,
 				032213982B1B6DEA00FF5CF1 /* HomePopularCategoryCell.swift in Sources */,
-				03C7A65D2B452131000F1E39 /* HomeExperienceView.swift in Sources */,
+				03C7A65D2B452131000F1E39 /* HomeCategoryView.swift in Sources */,
 				95748DDA2B2D9DC6004157E0 /* AuthCompletionView.swift in Sources */,
 				03C7A6642B45617E000F1E39 /* SearchResultView.swift in Sources */,
 				03C7A6742B45A8E3000F1E39 /* SearchTextFieldView.swift in Sources */,
 				0322132C2B14B9F500FF5CF1 /* ImageLiterals.swift in Sources */,
-				034580722B28A3A6002DDEBA /* HomeExperiencePageVC.swift in Sources */,
+				034580722B28A3A6002DDEBA /* ExperiencePageVC.swift in Sources */,
 				034580782B28AA61002DDEBA /* GradeViewController.swift in Sources */,
 				A42C325A2B26C6C800C4B477 /* GuideDetailView.swift in Sources */,
 				032213AA2B20770F00FF5CF1 /* GalleryModel.swift in Sources */,
@@ -1112,7 +1120,7 @@
 				032213962B1B6D9200FF5CF1 /* HomeRecommendCell.swift in Sources */,
 				032213862B1B2A8D00FF5CF1 /* BaseViewController.swift in Sources */,
 				0322131D2B14B32B00FF5CF1 /* URLConstant.swift in Sources */,
-				035A9F102B448047007B3F50 /* HomeExperienceViewController.swift in Sources */,
+				035A9F102B448047007B3F50 /* HomeCategoryViewController.swift in Sources */,
 				035A9F152B448266007B3F50 /* BakingViewController.swift in Sources */,
 				032213052B14B23000FF5CF1 /* UIViewController+.swift in Sources */,
 				95748DE52B35A95F004157E0 /* Enums.swift in Sources */,
