@@ -22,32 +22,9 @@ final class HomeExperienceListView: BaseView {
     
     // MARK: - Properties
     
-    private let viewModel = HomeExperienceListViewModel()
     private let disposeBag = DisposeBag()
     private let dummyModel = HomeExperienceModel.homeExperienceDummyData()
-    private lazy var activateDropDownAlert = ActivateDropDownAlert()
     private var isDropDownActivated: Bool = false
-    
-    
-    
-    func buttonTap() {
-        headerView.dropDownButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                if isDropDownActivated {
-                    self.isDropDownActivated = false
-                    self.activateDropDownAlert.removeFromSuperview()
-                } else {
-                    self.isDropDownActivated = true
-                    self.viewModel.inputs.dropDownButtonTap(at: headerView.titleType)
-                    self.addSubview(activateDropDownAlert)
-                    self.activateDropDownAlert.snp.makeConstraints {
-                        $0.edges.equalToSuperview()
-                    }
-                }
-                })
-            .disposed(by: disposeBag)
-    }
     
     // MARK: - UI Components Property
     
@@ -122,22 +99,6 @@ extension HomeExperienceListView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableCell(kind: kind, type: ExperienceHeader.self, indexPath: indexPath)
-//        headerView.dropDownButton.rx.tap
-//            .subscribe(onNext: { [weak self] in
-//                guard let self = self else { return }
-//                if isDropDownActivated {
-//                    self.isDropDownActivated = false
-//                    self.activateDropDownAlert.removeFromSuperview()
-//                } else {
-//                    self.isDropDownActivated = true
-//                    self.viewModel.inputs.dropDownButtonTap(at: headerView.titleType)
-//                    self.addSubview(activateDropDownAlert)
-//                    self.activateDropDownAlert.snp.makeConstraints {
-//                        $0.edges.equalToSuperview()
-//                    }
-//                }
-//                })
-//            .disposed(by: dispoeBag)
         return header
     }
 }

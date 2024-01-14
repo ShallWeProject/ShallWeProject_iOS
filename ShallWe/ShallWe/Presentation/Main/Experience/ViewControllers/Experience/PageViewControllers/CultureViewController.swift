@@ -17,18 +17,12 @@ final class CultureViewController: BaseViewController {
     // MARK: - UI Components
     
     let experienceView = HomeExperienceListView()
-    private lazy var activateDropDownAlert = ActivateDropDownAlert()
     
     // MARK: - Properties
     
     private let viewModel = HomeExperienceListViewModel()
     private let disposeBag = DisposeBag()
     private var isDropDownActivated: Bool = false
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        experienceView.buttonTap()
-    }
     
     override func bindViewModel() {
         

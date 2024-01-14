@@ -17,7 +17,6 @@ final class OutdoorViewController: BaseViewController {
     // MARK: - UI Components
     
     let experienceView = HomeExperienceListView()
-    private lazy var activateDropDownAlert = ActivateDropDownAlert()
     
     // MARK: - Properties
     
@@ -25,14 +24,8 @@ final class OutdoorViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     private var isDropDownActivated: Bool = false
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        experienceView.buttonTap()
-    }
-    
     override func bindViewModel() {
         
-//        experienceView.buttonTap()
     }
     
     override func setStyle() {

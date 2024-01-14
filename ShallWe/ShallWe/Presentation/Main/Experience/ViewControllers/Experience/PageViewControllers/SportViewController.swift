@@ -17,7 +17,6 @@ final class SportViewController: BaseViewController {
     // MARK: - UI Components
     
     let experienceView = HomeExperienceListView()
-    private lazy var activateDropDownAlert = ActivateDropDownAlert()
     
     // MARK: - Properties
     
@@ -27,12 +26,10 @@ final class SportViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        experienceView.buttonTap()
     }
     
     override func bindViewModel() {
         
-//        experienceView.buttonTap()
     }
     
     override func setStyle() {
