@@ -89,10 +89,8 @@
 		0345806D2B288104002DDEBA /* HomeExperienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */; };
 		034580722B28A3A6002DDEBA /* ExperiencePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580712B28A3A6002DDEBA /* ExperiencePageVC.swift */; };
 		0345807C2B28ACF6002DDEBA /* HomeExperienceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345807B2B28ACF6002DDEBA /* HomeExperienceListView.swift */; };
-		0345807E2B28B0FE002DDEBA /* HomeExperienceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345807D2B28B0FE002DDEBA /* HomeExperienceListViewModel.swift */; };
 		034580952B2F356C002DDEBA /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 034580942B2F356C002DDEBA /* DropDown */; };
 		034580992B37EEA1002DDEBA /* ExperienceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580982B37EEA1002DDEBA /* ExperienceHeader.swift */; };
-		0345809D2B3858DF002DDEBA /* CustomDropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345809C2B3858DF002DDEBA /* CustomDropDownButton.swift */; };
 		035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */; };
 		035A9F102B448047007B3F50 /* HomeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F0F2B448047007B3F50 /* HomeCategoryViewController.swift */; };
 		03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */; };
@@ -206,9 +204,7 @@
 		0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceViewModel.swift; sourceTree = "<group>"; };
 		034580712B28A3A6002DDEBA /* ExperiencePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencePageVC.swift; sourceTree = "<group>"; };
 		0345807B2B28ACF6002DDEBA /* HomeExperienceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceListView.swift; sourceTree = "<group>"; };
-		0345807D2B28B0FE002DDEBA /* HomeExperienceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceListViewModel.swift; sourceTree = "<group>"; };
 		034580982B37EEA1002DDEBA /* ExperienceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceHeader.swift; sourceTree = "<group>"; };
-		0345809C2B3858DF002DDEBA /* CustomDropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownButton.swift; sourceTree = "<group>"; };
 		035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		035A9F0F2B448047007B3F50 /* HomeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryViewController.swift; sourceTree = "<group>"; };
 		03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceType.swift; sourceTree = "<group>"; };
@@ -315,7 +311,6 @@
 				03C7A65C2B452131000F1E39 /* HomeCategoryView.swift */,
 				0345807B2B28ACF6002DDEBA /* HomeExperienceListView.swift */,
 				034580982B37EEA1002DDEBA /* ExperienceHeader.swift */,
-				0345809C2B3858DF002DDEBA /* CustomDropDownButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -655,7 +650,6 @@
 			isa = PBXGroup;
 			children = (
 				0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */,
-				0345807D2B28B0FE002DDEBA /* HomeExperienceListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1002,7 +996,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0345807E2B28B0FE002DDEBA /* HomeExperienceListViewModel.swift in Sources */,
 				95748DD62B2D9CED004157E0 /* LoginCompletionViewController.swift in Sources */,
 				032212FD2B14B1E000FF5CF1 /* UIView+.swift in Sources */,
 				A42C32562B26C6AE00C4B477 /* ExperienceDetailViewController.swift in Sources */,
@@ -1045,7 +1038,6 @@
 				032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */,
 				95748DD02B25FABF004157E0 /* PhoneNumberVerificationViewController.swift in Sources */,
 				032212A82B14AAFD00FF5CF1 /* SceneDelegate.swift in Sources */,
-				0345809D2B3858DF002DDEBA /* CustomDropDownButton.swift in Sources */,
 				A42C32682B30410900C4B477 /* ExperienceLetterViewController.swift in Sources */,
 				032213072B14B24500FF5CF1 /* UITextField+.swift in Sources */,
 				0332A3A62B53F14200720CD3 /* ExperienceViewController.swift in Sources */,

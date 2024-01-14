@@ -21,10 +21,8 @@ final class HomeExperienceListView: BaseView {
     let headerView = ExperienceHeader()
     
     // MARK: - Properties
-    
-    private let disposeBag = DisposeBag()
+     
     private let dummyModel = HomeExperienceModel.homeExperienceDummyData()
-    private var isDropDownActivated: Bool = false
     
     // MARK: - UI Components Property
     

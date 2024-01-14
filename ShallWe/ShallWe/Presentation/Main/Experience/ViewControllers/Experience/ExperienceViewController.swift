@@ -13,20 +13,25 @@ import RxSwift
 import RxCocoa
 
 class ExperienceViewController: BaseViewController {
-
+    
     // MARK: - UI Components
     
-    let experienceView = HomeExperienceListView()
+    private let experienceView = HomeExperienceListView()
     
     // MARK: - Properties
     
-    private let viewModel = HomeExperienceListViewModel()
     private let disposeBag = DisposeBag()
     private var isDropDownActivated: Bool = false
     
     override func bindViewModel() {
         
-//        experienceView.buttonTap()
+        experienceView.headerView.sortButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard self != nil else { return }
+                print("버튼 탭")
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     override func setStyle() {
@@ -42,5 +47,5 @@ class ExperienceViewController: BaseViewController {
             $0.edges.equalToSuperview()
         }
     }
-
+    
 }
