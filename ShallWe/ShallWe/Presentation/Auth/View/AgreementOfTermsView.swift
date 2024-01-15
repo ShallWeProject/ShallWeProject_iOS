@@ -115,7 +115,7 @@ final class AgreementOfTermsView: UIView {
         return stackView
     }()
     
-    private let viewTermsOfServiceButton: UIButton = {
+    let viewTermsOfServiceButton: UIButton = {
         let button = UIButton()
         button.setTitle(I18N.Auth.viewDetailsText, for: .normal)
         button.setTitleColor(.gray4, for: .normal)
@@ -123,7 +123,7 @@ final class AgreementOfTermsView: UIView {
         return button
     }()
     
-    private let viewCollectionAndUsePersonalInfoButton: UIButton = {
+    let viewCollectionAndUsePersonalInfoButton: UIButton = {
         let button = UIButton()
         button.setTitle(I18N.Auth.viewDetailsText, for: .normal)
         button.setTitleColor(.gray4, for: .normal)
@@ -254,11 +254,6 @@ private extension AgreementOfTermsView {
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(agreeWithOneSVDidTap(_:)))
             stackViews[i].addGestureRecognizer(tapGestureRecognizer)
         }
-        
-        let buttons = [viewTermsOfServiceButton, viewCollectionAndUsePersonalInfoButton]
-        for button in buttons {
-            button.addTarget(self, action: #selector(viewDetailsButtonDidTap), for: .touchUpInside)
-        }
     }
     
     // MARK: - Actions
@@ -278,9 +273,6 @@ private extension AgreementOfTermsView {
         let index = (sender.view as! UIStackView).tag
         statusOfAgreement[index] = !statusOfAgreement[index]
         changeOneIconState(index: index)
-    }
-    
-    @objc func viewDetailsButtonDidTap(_ sender: UIButton) {
     }
     
     func changeAllIconState() {

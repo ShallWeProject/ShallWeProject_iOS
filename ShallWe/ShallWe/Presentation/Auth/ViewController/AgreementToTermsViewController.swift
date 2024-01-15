@@ -46,6 +46,8 @@ extension AgreementToTermsViewController {
     
     func setAddTarget() {
         agreementOfTermsView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
+        agreementOfTermsView.viewTermsOfServiceButton.addTarget(self, action: #selector(viewDetailsButtonDidTap), for: .touchUpInside)
+        agreementOfTermsView.viewCollectionAndUsePersonalInfoButton.addTarget(self, action: #selector(viewDetailsButtonDidTap), for: .touchUpInside)
     }
     
     // MARK: Actions
@@ -57,5 +59,10 @@ extension AgreementToTermsViewController {
     @objc func nextButtonDidTap() {
         let profileEntryViewController = ProfileEntryViewController()
         self.navigationController?.pushViewController(profileEntryViewController, animated: true)
+    }
+    
+    @objc func viewDetailsButtonDidTap() {
+        let termsDetailsPopUpViewController = TermsDetailsPopUpViewController()
+        present(termsDetailsPopUpViewController, animated: false, completion: nil)
     }
 }
