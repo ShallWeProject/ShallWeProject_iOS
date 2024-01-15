@@ -75,7 +75,7 @@ private extension TermsDetailsPopUpView {
         }
         
         contentView.snp.makeConstraints {
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight*(568/768))
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight*(568/812))
             $0.top.equalToSuperview().offset(22)
             $0.horizontalEdges.equalToSuperview().inset(20)
         }

@@ -19,25 +19,13 @@ final class AgreementOfTermsView: UIView {
     // MARK: - UI Components
     
     private let agreeToAllButton: UIButton = {
-        let button = UIButton()
-        button.setImage(ImageLiterals.Icon.check_round_default, for: .normal)
-        button.isUserInteractionEnabled = false
-        return button
-    }()
-    
-    private let agreeToAllLabel: UILabel = {
-        let label = UILabel()
-        label.text = I18N.Auth.totallyAgreeText
-        label.textColor = .black0
-        label.font = .fontGuide(.SB00_16)
-        return label
-    }()
-    
-    private let agreeToAllStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 7
-        return stackView
+        var configuration = UIButton.Configuration.plain()
+        configuration.attributedTitle = AttributedString(I18N.Auth.totallyAgreeText, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.fontGuide(.SB00_16)]))
+        configuration.baseForegroundColor = .black0
+        configuration.image = ImageLiterals.Icon.check_round_default
+        configuration.imagePadding = 7
+        configuration.contentInsets = NSDirectionalEdgeInsets.zero
+        return UIButton(configuration: configuration)
     }()
     
     private let divider: UIView = {
@@ -46,73 +34,56 @@ final class AgreementOfTermsView: UIView {
         return view
     }()
     
-    private let age14OrOlderLabel: UILabel = {
-        let label = UILabel()
-        label.text = I18N.Auth.age14OrOlderText
-        label.textColor = .black0
-        label.font = .fontGuide(.M00_14)
-        let attributedStr = NSMutableAttributedString(string: label.text!)
-        attributedStr.addAttribute(.foregroundColor, value: UIColor.point, range: (label.text! as NSString).range(of: I18N.Auth.requiredText))
-        label.attributedText = attributedStr
-        return label
+    private let age14OrOlderButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.baseForegroundColor = .black0
+        var attributedString = AttributedString(I18N.Auth.age14OrOlderText)
+        let range = attributedString.range(of: I18N.Auth.requiredText)!
+        attributedString[range].foregroundColor = .point
+        attributedString.mergeAttributes(AttributeContainer([NSAttributedString.Key.font : UIFont.fontGuide(.M00_14)]))
+        configuration.attributedTitle = attributedString
+        configuration.image = ImageLiterals.Icon.check_default
+        configuration.imagePadding = 5
+        configuration.contentInsets = NSDirectionalEdgeInsets.zero
+        return UIButton(configuration: configuration)
     }()
     
-    private let agreeToTermsOfServiceLabel: UILabel = {
-        let label = UILabel()
-        label.text = I18N.Auth.agreeToTermsOfServiceText
-        label.textColor = .black0
-        label.font = .fontGuide(.M00_14)
-        let attributedStr = NSMutableAttributedString(string: label.text!)
-        attributedStr.addAttribute(.foregroundColor, value: UIColor.point, range: (label.text! as NSString).range(of: I18N.Auth.requiredText))
-        label.attributedText = attributedStr
-        return label
+    private let agreeToTermsOfServiceButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.baseForegroundColor = .black0
+        var attributedString = AttributedString(I18N.Auth.agreeToTermsOfServiceText)
+        let range = attributedString.range(of: I18N.Auth.requiredText)!
+        attributedString[range].foregroundColor = .point
+        attributedString.mergeAttributes(AttributeContainer([NSAttributedString.Key.font : UIFont.fontGuide(.M00_14)]))
+        configuration.attributedTitle = attributedString
+        configuration.image = ImageLiterals.Icon.check_default
+        configuration.imagePadding = 5
+        configuration.contentInsets = NSDirectionalEdgeInsets.zero
+        return UIButton(configuration: configuration)
     }()
     
-    private let agreeToCollectionAndUsePersonalInfoLabel: UILabel = {
-        let label = UILabel()
-        label.text = I18N.Auth.agreeToCollectionAndUsePersonalInfoText
-        label.textColor = .black0
-        label.font = .fontGuide(.M00_14)
-        let attributedStr = NSMutableAttributedString(string: label.text!)
-        attributedStr.addAttribute(.foregroundColor, value: UIColor.point, range: (label.text! as NSString).range(of: I18N.Auth.requiredText))
-        label.attributedText = attributedStr
-        return label
+    private let agreeToCollectionAndUsePersonalInfoButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.baseForegroundColor = .black0
+        var attributedString = AttributedString(I18N.Auth.agreeToCollectionAndUsePersonalInfoText)
+        let range = attributedString.range(of: I18N.Auth.requiredText)!
+        attributedString[range].foregroundColor = .point
+        attributedString.mergeAttributes(AttributeContainer([NSAttributedString.Key.font : UIFont.fontGuide(.M00_14)]))
+        configuration.attributedTitle = attributedString
+        configuration.image = ImageLiterals.Icon.check_default
+        configuration.imagePadding = 5
+        configuration.contentInsets = NSDirectionalEdgeInsets.zero
+        return UIButton(configuration: configuration)
     }()
     
-    private let agreeToReceiveMarketingInfoLabel: UILabel = {
-        let label = UILabel()
-        label.text = I18N.Auth.agreeToReceiveMarketingInfoText
-        label.textColor = .black0
-        label.font = .fontGuide(.M00_14)
-        return label
-    }()
-    
-    private let age14OrOlderStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 5
-        return stackView
-    }()
-    
-    private let agreeToTermsOfServiceStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 5
-        return stackView
-    }()
-    
-    private let agreeToCollectionAndUsePersonalInfoStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 5
-        return stackView
-    }()
-    
-    private let agreeToReceiveMarketingInfoStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 5
-        return stackView
+    private let agreeToReceiveMarketingInfoButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.attributedTitle = AttributedString(I18N.Auth.agreeToReceiveMarketingInfoText, attributes: AttributeContainer([NSAttributedString.Key.font : UIFont.fontGuide(.M00_14)]))
+        configuration.baseForegroundColor = .black0
+        configuration.image = ImageLiterals.Icon.check_default
+        configuration.imagePadding = 5
+        configuration.contentInsets = NSDirectionalEdgeInsets.zero
+        return UIButton(configuration: configuration)
     }()
     
     let viewTermsOfServiceButton: UIButton = {
@@ -142,10 +113,6 @@ final class AgreementOfTermsView: UIView {
     }()
     
     private let authHeaderView = AuthHeaderView(frame: .zero, text: I18N.Auth.agreementToTermsText)
-    private let age14OrOlderButton = CustomCheckbutton()
-    private let agreeToTermsOfServiceButton = CustomCheckbutton()
-    private let agreeToCollectionAndUsePersonalInfoButton = CustomCheckbutton()
-    private let agreeToReceiveMarketingInfoButton = CustomCheckbutton()
     
     // MARK: - View Life Cycle
     
@@ -175,12 +142,7 @@ private extension AgreementOfTermsView {
     }
     
     func setHierarchy() {
-        self.addSubviews(authHeaderView, agreeToAllStackView, divider, age14OrOlderStackView, agreeToTermsOfServiceStackView, agreeToCollectionAndUsePersonalInfoStackView, agreeToReceiveMarketingInfoStackView, viewTermsOfServiceButton, viewCollectionAndUsePersonalInfoButton, nextButton)
-        agreeToAllStackView.addArrangedSubviews(agreeToAllButton, agreeToAllLabel)
-        age14OrOlderStackView.addArrangedSubviews(age14OrOlderButton, age14OrOlderLabel)
-        agreeToTermsOfServiceStackView.addArrangedSubviews(agreeToTermsOfServiceButton, agreeToTermsOfServiceLabel)
-        agreeToCollectionAndUsePersonalInfoStackView.addArrangedSubviews(agreeToCollectionAndUsePersonalInfoButton, agreeToCollectionAndUsePersonalInfoLabel)
-        agreeToReceiveMarketingInfoStackView.addArrangedSubviews(agreeToReceiveMarketingInfoButton, agreeToReceiveMarketingInfoLabel)
+        self.addSubviews(authHeaderView, agreeToAllButton, divider, age14OrOlderButton, agreeToTermsOfServiceButton, agreeToCollectionAndUsePersonalInfoButton, agreeToReceiveMarketingInfoButton, viewTermsOfServiceButton, viewCollectionAndUsePersonalInfoButton, nextButton)
     }
     
     func setLayout() {
@@ -189,46 +151,46 @@ private extension AgreementOfTermsView {
             $0.leading.equalToSuperview().inset(24)
         }
         
-        agreeToAllStackView.snp.makeConstraints {
+        agreeToAllButton.snp.makeConstraints {
             $0.top.equalTo(authHeaderView.snp.bottom).offset(SizeLiterals.Screen.screenHeight*(43/768))
             $0.leading.equalToSuperview().inset(21)
         }
         
         divider.snp.makeConstraints {
             $0.height.equalTo(1)
-            $0.top.equalTo(agreeToAllStackView.snp.bottom).offset(8)
+            $0.top.equalTo(agreeToAllButton.snp.bottom).offset(8)
             $0.leading.equalToSuperview().inset(21)
             $0.trailing.equalToSuperview().inset(27)
         }
         
-        age14OrOlderStackView.snp.makeConstraints {
+        age14OrOlderButton.snp.makeConstraints {
             $0.top.equalTo(divider.snp.bottom).offset(18)
             $0.leading.equalToSuperview().inset(20)
         }
         
-        agreeToTermsOfServiceStackView.snp.makeConstraints {
-            $0.top.equalTo(age14OrOlderStackView.snp.bottom).offset(7)
+        agreeToTermsOfServiceButton.snp.makeConstraints {
+            $0.top.equalTo(age14OrOlderButton.snp.bottom).offset(7)
             $0.leading.equalToSuperview().inset(20)
         }
         
-        agreeToCollectionAndUsePersonalInfoStackView.snp.makeConstraints {
-            $0.top.equalTo(agreeToTermsOfServiceStackView.snp.bottom).offset(7)
+        agreeToCollectionAndUsePersonalInfoButton.snp.makeConstraints {
+            $0.top.equalTo(agreeToTermsOfServiceButton.snp.bottom).offset(7)
             $0.leading.equalToSuperview().inset(20)
         }
         
-        agreeToReceiveMarketingInfoStackView.snp.makeConstraints {
-            $0.top.equalTo(agreeToCollectionAndUsePersonalInfoStackView.snp.bottom).offset(7)
+        agreeToReceiveMarketingInfoButton.snp.makeConstraints {
+            $0.top.equalTo(agreeToCollectionAndUsePersonalInfoButton.snp.bottom).offset(7)
             $0.leading.equalToSuperview().inset(20)
         }
         
         viewTermsOfServiceButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(21)
-            $0.centerY.equalTo(agreeToTermsOfServiceStackView.snp.centerY)
+            $0.centerY.equalTo(agreeToTermsOfServiceButton.snp.centerY)
         }
         
         viewCollectionAndUsePersonalInfoButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(21)
-            $0.centerY.equalTo(agreeToCollectionAndUsePersonalInfoStackView.snp.centerY)
+            $0.centerY.equalTo(agreeToCollectionAndUsePersonalInfoButton.snp.centerY)
         }
         
         nextButton.snp.makeConstraints {
@@ -239,26 +201,24 @@ private extension AgreementOfTermsView {
     }
     
     func setTag() {
-        age14OrOlderStackView.tag = 0
-        agreeToTermsOfServiceStackView.tag = 1
-        agreeToCollectionAndUsePersonalInfoStackView.tag = 2
-        agreeToReceiveMarketingInfoStackView.tag = 3
+        age14OrOlderButton.tag = 0
+        agreeToTermsOfServiceButton.tag = 1
+        agreeToCollectionAndUsePersonalInfoButton.tag = 2
+        agreeToReceiveMarketingInfoButton.tag = 3
     }
     
     func setAddTarget() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(agreeToAllSVDidTap))
-        agreeToAllStackView.addGestureRecognizer(tapGestureRecognizer)
+        agreeToAllButton.addTarget(self, action: #selector(agreeToAllButtonDidTap), for: .touchUpInside)
         
-        let stackViews = [age14OrOlderStackView, agreeToTermsOfServiceStackView, agreeToCollectionAndUsePersonalInfoStackView, agreeToReceiveMarketingInfoStackView]
-        for i in stackViews.indices {
-            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(agreeWithOneSVDidTap(_:)))
-            stackViews[i].addGestureRecognizer(tapGestureRecognizer)
+        let buttons = [age14OrOlderButton, agreeToTermsOfServiceButton, agreeToCollectionAndUsePersonalInfoButton, agreeToReceiveMarketingInfoButton]
+        for i in buttons.indices {
+            buttons[i].addTarget(self, action: #selector(agreeWithOneButtonDidTap(_:)), for: .touchUpInside)
         }
     }
     
     // MARK: - Actions
     
-    @objc func agreeToAllSVDidTap() {
+    @objc func agreeToAllButtonDidTap() {
         if statusOfAgreement.allSatisfy({$0}) {
             statusOfAgreement = Array.init(repeating: false, count: 4)
             agreeToAllButton.setImage(ImageLiterals.Icon.check_round_default, for: .normal)
@@ -269,8 +229,8 @@ private extension AgreementOfTermsView {
         changeAllIconState()
     }
     
-    @objc func agreeWithOneSVDidTap(_ sender: UITapGestureRecognizer) {
-        let index = (sender.view as! UIStackView).tag
+    @objc func agreeWithOneButtonDidTap(_ sender: UIButton) {
+        let index = sender.tag
         statusOfAgreement[index] = !statusOfAgreement[index]
         changeOneIconState(index: index)
     }
@@ -278,18 +238,18 @@ private extension AgreementOfTermsView {
     func changeAllIconState() {
         for i in 0..<4 {
             if statusOfAgreement[i] {
-                (agreeButtons[i] as CustomCheckbutton).changeIconToPink()
+                agreeButtons[i].setImage(ImageLiterals.Icon.check_activated, for: .normal)
             } else {
-                (agreeButtons[i] as CustomCheckbutton).changeIconToGray()
+                agreeButtons[i].setImage(ImageLiterals.Icon.check_default, for: .normal)
             }
         }
     }
     
     func changeOneIconState(index: Int) {
         if statusOfAgreement[index] {
-            agreeButtons[index].changeIconToPink()
+            agreeButtons[index].setImage(ImageLiterals.Icon.check_activated, for: .normal)
         } else {
-            agreeButtons[index].changeIconToGray()
+            agreeButtons[index].setImage(ImageLiterals.Icon.check_default, for: .normal)
         }
         
         if statusOfAgreement.allSatisfy({$0}) {
