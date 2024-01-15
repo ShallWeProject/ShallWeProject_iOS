@@ -85,6 +85,7 @@
 		032213B32B20839100FF5CF1 /* GalleryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213B22B20839100FF5CF1 /* GalleryFooterView.swift */; };
 		032213B52B241B3100FF5CF1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213B42B241B3100FF5CF1 /* HomeView.swift */; };
 		0332A3A62B53F14200720CD3 /* ExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0332A3A52B53F14200720CD3 /* ExperienceViewController.swift */; };
+		0340258A2B555648001F5510 /* SortHalfModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034025892B555648001F5510 /* SortHalfModal.swift */; };
 		0345806A2B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580692B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift */; };
 		0345806D2B288104002DDEBA /* HomeExperienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */; };
 		034580722B28A3A6002DDEBA /* ExperiencePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580712B28A3A6002DDEBA /* ExperiencePageVC.swift */; };
@@ -200,6 +201,7 @@
 		032213B22B20839100FF5CF1 /* GalleryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryFooterView.swift; sourceTree = "<group>"; };
 		032213B42B241B3100FF5CF1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0332A3A52B53F14200720CD3 /* ExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewController.swift; sourceTree = "<group>"; };
+		034025892B555648001F5510 /* SortHalfModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortHalfModal.swift; sourceTree = "<group>"; };
 		034580692B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceViewModel.swift; sourceTree = "<group>"; };
 		034580712B28A3A6002DDEBA /* ExperiencePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencePageVC.swift; sourceTree = "<group>"; };
@@ -674,6 +676,7 @@
 			isa = PBXGroup;
 			children = (
 				035A9F0F2B448047007B3F50 /* HomeCategoryViewController.swift */,
+				034025892B555648001F5510 /* SortHalfModal.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1014,6 +1017,7 @@
 				032213172B14B2F800FF5CF1 /* NetworkLoggerPlugin.swift in Sources */,
 				95748DD42B26096A004157E0 /* PhoneNumberVerificationView.swift in Sources */,
 				0322130D2B14B26400FF5CF1 /* UILabel+.swift in Sources */,
+				0340258A2B555648001F5510 /* SortHalfModal.swift in Sources */,
 				954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */,
 				A431BE5E2B1AFAF90049C126 /* UICollectionViewRegisterable.swift in Sources */,
 				032213112B14B28600FF5CF1 /* UITabBar+.swift in Sources */,
