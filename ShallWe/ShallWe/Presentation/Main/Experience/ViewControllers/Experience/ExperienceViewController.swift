@@ -12,7 +12,7 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class ExperienceViewController: BaseViewController {
+final class ExperienceViewController: BaseViewController {
     
     // MARK: - UI Components
     
@@ -20,8 +20,16 @@ class ExperienceViewController: BaseViewController {
     
     // MARK: - Properties
     
+    private let viewModel: HomeExperienceViewModel
     private let disposeBag = DisposeBag()
     private var isDropDownActivated: Bool = false
+    
+    // MARK: - Initializer
+
+    init(viewModel: HomeExperienceViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
     
     override func bindViewModel() {
         
@@ -48,4 +56,7 @@ class ExperienceViewController: BaseViewController {
         }
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

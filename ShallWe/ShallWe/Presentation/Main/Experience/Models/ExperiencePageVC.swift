@@ -13,23 +13,23 @@ struct ExperiencePageVC {
 
 extension ExperiencePageVC {
     
-    static func recommendPageVC() -> [UIViewController] {
+    static func recommendPageVC(_ viewModel: HomeExperienceViewModel) -> [UIViewController] {
         var menuVCs: [UIViewController] = []
-        menuVCs += [ExperienceViewController()]
-        menuVCs += [ExperienceViewController()]
-        menuVCs += [ExperienceViewController()]
-        menuVCs += [ExperienceViewController()]
-        menuVCs += [ExperienceViewController()]
+        menuVCs += [ExperienceViewController(viewModel: viewModel)]
+        menuVCs += [ExperienceViewController(viewModel: viewModel)]
+        menuVCs += [ExperienceViewController(viewModel: viewModel)]
+        menuVCs += [ExperienceViewController(viewModel: viewModel)]
+        menuVCs += [ExperienceViewController(viewModel: viewModel)]
         return menuVCs
     }
     
-    static func categoryPageVC() -> [UIViewController] {
+    static func categoryPageVC(_ viewModel: HomeExperienceViewModel) -> [UIViewController] {
         var menuVCs: [UIViewController] = []
-        menuVCs += [ExperienceViewController()]
-        menuVCs += [ExperienceViewController()]
-        menuVCs += [ExperienceViewController()]
-        menuVCs += [ExperienceViewController()]
-        menuVCs += [ExperienceViewController()]
+        menuVCs += [ExperienceViewController(viewModel: viewModel)]
+        menuVCs += [ExperienceViewController(viewModel: viewModel)]
+        menuVCs += [ExperienceViewController(viewModel: viewModel)]
+        menuVCs += [ExperienceViewController(viewModel: viewModel)]
+        menuVCs += [ExperienceViewController(viewModel: viewModel)]
         return menuVCs
     }
 }

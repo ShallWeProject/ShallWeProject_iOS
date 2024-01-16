@@ -23,14 +23,6 @@ final class HomeExperienceListView: BaseView {
     // MARK: - Properties
      
     private let dummyModel = HomeExperienceModel.homeExperienceDummyData()
-    private let viewModel: HomeExperienceViewModel
-    
-    // MARK: - Initializer
-
-    init(viewModel: HomeExperienceViewModel) {
-        self.viewModel = viewModel
-        super.init(frame: .zero)
-    }
     
     // MARK: - UI Components Property
     
@@ -70,10 +62,6 @@ final class HomeExperienceListView: BaseView {
         homelistCollectionView.dataSource = self
         homelistCollectionView.registerCell(HomeExperienceCell.self)
         homelistCollectionView.registerHeader(ExperienceHeader.self)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 

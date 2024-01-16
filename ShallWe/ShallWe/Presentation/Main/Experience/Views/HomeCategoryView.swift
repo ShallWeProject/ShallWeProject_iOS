@@ -15,7 +15,7 @@ final class HomeCategoryView: BaseView {
     lazy var pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                                navigationOrientation: .horizontal)
     private let menuCollectionFlowLayout = UICollectionViewFlowLayout()
-    var menuVCs: [UIViewController] = ExperiencePageVC.categoryPageVC()
+    var menuVCs: [UIViewController] = ExperiencePageVC.categoryPageVC(HomeExperienceViewModel())
     
     // MARK: - UI Components Property
     

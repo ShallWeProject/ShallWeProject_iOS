@@ -28,7 +28,7 @@ final class HomeCategoryViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        let vc = ExperiencePageVC.categoryPageVC()
+        let vc = ExperiencePageVC.categoryPageVC(viewModel)
         print(index)
             experiencePageView.pageViewController.setViewControllers([vc[index]], direction: .forward, animated: true, completion: nil)
         experiencePageView.menuCollectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
