@@ -20,6 +20,7 @@ enum AbhayaLibreType: String {
 }
 
 enum FontLevel {
+    case R00_10
     case R00_12
     case R00_14
     
@@ -48,7 +49,7 @@ extension FontLevel {
     
     var fontWeight: String {
         switch self {
-        case .R00_12, .R00_14:
+        case .R00_10, .R00_12, .R00_14:
             return AppleSDGothicNeoType.R.rawValue
         case .M00_12, .M00_12_20, .M00_12_underlined, .M00_14:
             return AppleSDGothicNeoType.M.rawValue
@@ -65,6 +66,8 @@ extension FontLevel {
     
     var fontSize: CGFloat {
         switch self {
+        case .R00_10:
+            return 10
         case .R00_12, .M00_12, .M00_12_20, .M00_12_underlined, .SB00_12, .B00_12:
             return 12
         case .R00_14, .M00_14, .SB00_14, .B00_14, .EB00_14:

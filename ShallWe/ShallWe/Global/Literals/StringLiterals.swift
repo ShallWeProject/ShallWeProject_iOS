@@ -67,10 +67,56 @@ enum I18N {
         static let headerTitle2Color = "인기"
     }
     
+    enum HomeExperience {
+        static let birth = "생일"
+        static let lover = "연인"
+        static let parents = "부모님"
+        static let graduate = "입학/졸업"
+        static let marriage = "결혼/집들이"
+        static let all = "전체"
+        static let craft = "공예"
+        static let baking = "베이킹"
+        static let culture = "문화예술"
+        static let outdoor = "아웃도어"
+        static let sport = "스포츠"
+        static let consulting = "컨설팅"
+        static let other = "기타"
+    }
+    
+    enum Search {
+        static let notRecentSearch = "최근 검색어 내역이 없습니다."
+        static let notSearchResult = "에 대한 검색결과가 없습니다."
+        static let cancel = "취소"
+        static let recentSearch = "최근 검색어"
+        static let deleteAll = "전체 삭제"
+    }
+    
+    enum Category {
+        static let experienceCategory = "경험 카테고리"
+        static let myPage = "마이페이지"
+        static let customerService = "고객 센터"
+    }
+    
     enum AuthAlert {
         static let codeSentText = "인증번호가 전송되었습니다."
         static let verifiedText = "인증되었습니다."
         static let incorrectCodeText = "인증번호가 일치하지 않습니다. 다시 시도해주세요."
         static let timeoutText = "인증 시간이 초과되었습니다. 다시 시도해주세요."
+    }
+    
+    enum ExperienceGift {
+        static let experienceGiftTitle = "경험 선택"
+        static let personTitle = "인원 수"
+        static let reservationTitle = "예약 일시"
+        static let navigationTitle = "경험 선물 페이지"
+    }
+    
+    enum ExperienceLetter {
+        static let senderTitle = "보내는 분"
+        static let recipientTitle = "받는 분"
+        static let inviteTitle = "초대장"
+        static let namePlaceholder = "이름을 입력해주세요."
+        static let phoneFirstTitle = "010"
+        static let infoTitle = "받는 분의 정보를 정확하게 기입 부탁드립니다.\n타인에게 전송될 시, 셸위에게는 책임 소지가 없음을 알려드립니다."
     }
 }
