@@ -15,7 +15,7 @@ class CustomNavigationBar: BaseView {
     // MARK: - UI Components
 
     private lazy var logoView = UIImageView()
-    private lazy var backButton = UIButton()
+    lazy var backButton = UIButton()
     private lazy var closeButton = UIButton()
     
     // MARK: - Properties

@@ -87,6 +87,10 @@
 		9515EF662B51600800C4E1AA /* AgreementOfTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF652B51600800C4E1AA /* AgreementOfTermsView.swift */; };
 		9515EF682B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF672B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift */; };
 		9515EF6A2B54264B00C4E1AA /* TermsDetailsPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF692B54264B00C4E1AA /* TermsDetailsPopUpView.swift */; };
+		9515EF6E2B58640700C4E1AA /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF6D2B58640700C4E1AA /* FAQViewController.swift */; };
+		9515EF722B58643F00C4E1AA /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF712B58643F00C4E1AA /* FAQView.swift */; };
+		9515EF752B58755100C4E1AA /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF742B58755100C4E1AA /* FAQTableViewCell.swift */; };
+		9515EF772B58783000C4E1AA /* AbhayaLibre-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9515EF762B58783000C4E1AA /* AbhayaLibre-ExtraBold.ttf */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
@@ -179,6 +183,10 @@
 		9515EF652B51600800C4E1AA /* AgreementOfTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementOfTermsView.swift; sourceTree = "<group>"; };
 		9515EF672B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsDetailsPopUpViewController.swift; sourceTree = "<group>"; };
 		9515EF692B54264B00C4E1AA /* TermsDetailsPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsDetailsPopUpView.swift; sourceTree = "<group>"; };
+		9515EF6D2B58640700C4E1AA /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
+		9515EF712B58643F00C4E1AA /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
+		9515EF742B58755100C4E1AA /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
+		9515EF762B58783000C4E1AA /* AbhayaLibre-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbhayaLibre-ExtraBold.ttf"; sourceTree = "<group>"; };
 		954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		95748DCD2B25FAB4004157E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -314,6 +322,7 @@
 		032212E82B14B0B200FF5CF1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9515EF6C2B5863F300C4E1AA /* FAQ */,
 				954E45B42B1E5C2800D12242 /* Auth */,
 				032213832B1B2A7900FF5CF1 /* Common */,
 				A431BE522B1A24780049C126 /* ExperienceDetail */,
@@ -400,6 +409,7 @@
 		032212EF2B14B11700FF5CF1 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				9515EF762B58783000C4E1AA /* AbhayaLibre-ExtraBold.ttf */,
 				0322133B2B15E3E000FF5CF1 /* AppleSDGothicNeoEB.ttf */,
 				032213392B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf */,
 				032213372B15E3CC00FF5CF1 /* AppleSDGothicNeoSB.ttf */,
@@ -541,6 +551,40 @@
 				032213A72B1C5E5000FF5CF1 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9515EF6C2B5863F300C4E1AA /* FAQ */ = {
+			isa = PBXGroup;
+			children = (
+				9515EF732B58752E00C4E1AA /* Cell */,
+				9515EF702B58642B00C4E1AA /* View */,
+				9515EF6F2B58641A00C4E1AA /* ViewController */,
+			);
+			path = FAQ;
+			sourceTree = "<group>";
+		};
+		9515EF6F2B58641A00C4E1AA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9515EF6D2B58640700C4E1AA /* FAQViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9515EF702B58642B00C4E1AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9515EF712B58643F00C4E1AA /* FAQView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9515EF732B58752E00C4E1AA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9515EF742B58755100C4E1AA /* FAQTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		954E45B42B1E5C2800D12242 /* Auth */ = {
@@ -713,6 +757,7 @@
 			files = (
 				032213382B15E3CC00FF5CF1 /* AppleSDGothicNeoSB.ttf in Resources */,
 				032212B22B14AAFF00FF5CF1 /* LaunchScreen.storyboard in Resources */,
+				9515EF772B58783000C4E1AA /* AbhayaLibre-ExtraBold.ttf in Resources */,
 				0322133A2B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf in Resources */,
 				032212AF2B14AAFF00FF5CF1 /* Assets.xcassets in Resources */,
 				032213342B15E3B800FF5CF1 /* AppleSDGothicNeoR.ttf in Resources */,
@@ -751,6 +796,7 @@
 				032213A12B1B92A000FF5CF1 /* RecommendModel.swift in Sources */,
 				0322130F2B14B27B00FF5CF1 /* UITableView+.swift in Sources */,
 				032213A32B1B935800FF5CF1 /* PopularCategoryModel.swift in Sources */,
+				9515EF722B58643F00C4E1AA /* FAQView.swift in Sources */,
 				032213912B1B2EBB00FF5CF1 /* SearchView.swift in Sources */,
 				95748DE02B359802004157E0 /* CustomButton.swift in Sources */,
 				A431BE552B1A24F90049C126 /* ExperienceDetailViewController.swift in Sources */,
@@ -796,12 +842,14 @@
 				954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */,
 				032213192B14B30A00FF5CF1 /* Config.swift in Sources */,
 				0322131B2B14B31E00FF5CF1 /* APIConstant.swift in Sources */,
+				9515EF752B58755100C4E1AA /* FAQTableViewCell.swift in Sources */,
 				032213282B14B89700FF5CF1 /* ColorLiterals.swift in Sources */,
 				032213092B14B24F00FF5CF1 /* UITextView+.swift in Sources */,
 				032212E72B14B07C00FF5CF1 /* GeneralResponse.swift in Sources */,
 				032213032B14B22500FF5CF1 /* UIImage+.swift in Sources */,
 				032212FF2B14B20D00FF5CF1 /* UIResponder+.swift in Sources */,
 				032213AC2B20777600FF5CF1 /* HomeExperienceModel.swift in Sources */,
+				9515EF6E2B58640700C4E1AA /* FAQViewController.swift in Sources */,
 				0322139A2B1B6ED300FF5CF1 /* ExperienceCell.swift in Sources */,
 				0322136F2B15F8CF00FF5CF1 /* TabBarItem.swift in Sources */,
 				032213152B14B2EA00FF5CF1 /* API.swift in Sources */,

@@ -15,6 +15,10 @@ enum AppleSDGothicNeoType: String {
     case R = "AppleSDGothicNeoR00"
 }
 
+enum AbhayaLibreType: String {
+    case FAQ = "AbhayaLibre-ExtraBold"
+}
+
 enum FontLevel {
     case R00_12
     case R00_14
@@ -36,6 +40,8 @@ enum FontLevel {
     case B00_20
     
     case EB00_14
+    
+    case faq_20
 }
 
 extension FontLevel {
@@ -52,6 +58,8 @@ extension FontLevel {
             return AppleSDGothicNeoType.B.rawValue
         case .EB00_14:
             return AppleSDGothicNeoType.EB.rawValue
+        case .faq_20:
+            return AbhayaLibreType.FAQ.rawValue
         }
     }
     
@@ -65,7 +73,7 @@ extension FontLevel {
             return 16
         case .SB00_18:
             return 18
-        case .B00_20:
+        case .B00_20, .faq_20:
             return 20
         }
     }
@@ -80,6 +88,8 @@ extension FontLevel {
             return 18
         case .B00_16:
             return 23
+        case .faq_20:
+            return 28
         default:
             return nil
         }
