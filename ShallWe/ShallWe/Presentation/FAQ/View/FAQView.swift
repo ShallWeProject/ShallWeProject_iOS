@@ -15,6 +15,7 @@ final class FAQView: UIView {
     
     let navigationBar: CustomNavigationBar = {
         let navigationBar = CustomNavigationBar()
+        navigationBar.isFAQViewIncluded = true
         navigationBar.isBackButtonIncluded = true
         return navigationBar
     }()
@@ -47,7 +48,7 @@ private extension FAQView {
     // MARK: - Methods
     
     func setUI() {
-        backgroundColor = .bg2
+        backgroundColor = .white
     }
     
     func setHierarchy() {

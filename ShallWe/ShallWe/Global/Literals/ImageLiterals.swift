@@ -75,4 +75,8 @@ enum ImageLiterals {
     enum ExperienceLetter {
         static var img_letter: UIImage { .load(name: "letter") }
     }
+    
+    enum FAQ {
+        static var img_faq: UIImage { .load(name: "faq") }
+    }
 }
