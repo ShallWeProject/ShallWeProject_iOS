@@ -15,3 +15,12 @@ struct SizeLiterals {
         static let deviceRatio: CGFloat = screenWidth / screenHeight
     }
 }
+
+extension UIViewController {
+    var tabBarHeight: CGFloat {
+        if let tabBarHeight = self.tabBarController?.tabBar.frame.size.height {
+            return tabBarHeight
+        }
+        return 49
+    }
+}
