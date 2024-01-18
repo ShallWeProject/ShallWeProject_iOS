@@ -121,5 +121,7 @@ enum I18N {
     }
     
     enum FAQ {
+        static let Q = "Q."
+        static let A = "A."
     }
 }

@@ -13,6 +13,31 @@ final class FAQTableViewCell: UITableViewCell {
     
     // MARK: - UI Components
     
+    private let QLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    private let questionLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    private let ALabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    private let answerLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
+    
     // MARK: - Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -41,7 +66,8 @@ extension FAQTableViewCell {
     // MARK: - Methods
     
     func configure(index: Int, type: FlowType? = nil) {
-        // StringLiterals에서 인덱스대로 텍스트 가져오고
         // FlowType으로 예약변경/계정설정 부분만 버튼(밑줄) 처리해서 탭하면 VC 이동
+        questionLabel.text = FAQ_Description.init(rawValue: index)?.question
+        answerLabel.text = FAQ_Description.init(rawValue: index)?.answer
     }
 }
