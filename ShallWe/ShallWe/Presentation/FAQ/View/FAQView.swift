@@ -22,6 +22,9 @@ final class FAQView: UIView {
     
     private let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.register(FAQTableViewCell.self, forCellReuseIdentifier: "FAQTableViewCell")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -70,21 +73,23 @@ private extension FAQView {
     }
     
     func setDelegate() {
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 }
 
-//extension FAQView: UITableViewDelegate {
-//    
-//}
-//
-//extension FAQView: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
-//    }
-//}
+extension FAQView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return FAQ_Description.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FAQTableViewCell", for: indexPath) as? FAQTableViewCell else { return .init() }
+        cell.configure(index: indexPath.row)
+        return cell
+    }
+}
+
+extension FAQView: UITableViewDelegate {
+    
+}

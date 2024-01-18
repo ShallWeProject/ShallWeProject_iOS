@@ -17,7 +17,7 @@ protocol FAQ {
     var answer: String { get }
 }
 
-enum FAQ_Description: Int, FAQ {
+enum FAQ_Description: Int, FAQ, CaseIterable {
     case SHALLWE_SERVICE
     case WHY_GIFT_SENDER_SPECIFY_DATE
     case RESERVATION_AVAILABLE_TIMES
