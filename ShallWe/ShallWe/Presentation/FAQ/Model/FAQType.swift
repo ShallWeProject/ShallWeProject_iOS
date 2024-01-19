@@ -15,6 +15,7 @@ enum FlowType: String, CaseIterable {
 protocol FAQ {
     var question: String { get }
     var answer: String { get }
+    var flowType: FlowType? { get }
 }
 
 enum FAQ_Description: Int, FAQ, CaseIterable {
@@ -76,6 +77,17 @@ enum FAQ_Description: Int, FAQ, CaseIterable {
             return "셸위를 떠나신다니 아쉽군요. 계정 로그아웃과 탈퇴는 계정 설정에서 진행할 수 있습니다. 다시 만날 수 있길 바라요."
         case .OTHER_QUESTIONS:
             return "기타 문의사항은 connect.shallwe@gmail.com으로 전달 부탁드립니다."
+        }
+    }
+    
+    var flowType: FlowType? {
+        switch self {
+        case .CHANGE_RESERVATION:
+            return FlowType.changeReservation
+        case .ACCOUNT:
+            return FlowType.accountSettings
+        default:
+            return nil
         }
     }
 }

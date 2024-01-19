@@ -44,14 +44,18 @@ final class FAQTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let answerLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black0
-        label.font = .fontGuide(.R00_12)
-        label.sizeToFit()
-        label.lineBreakMode = .byCharWrapping
-        label.numberOfLines = 0
-        return label
+    private var answerTextView: UITextView = {
+        let textView = UITextView()
+        textView.textColor = .black0
+        textView.font = .fontGuide(.R00_12)
+        textView.isUserInteractionEnabled = true
+        textView.isSelectable = true
+        textView.isScrollEnabled = false
+        textView.isEditable = false
+        textView.textContainer.lineBreakMode = .byCharWrapping
+        textView.textContainerInset = .zero
+        textView.textContainer.lineFragmentPadding = .zero
+        return textView
     }()
     
     private let divider: UIView = {
@@ -67,6 +71,7 @@ final class FAQTableViewCell: UITableViewCell {
         
         setUI()
         setLayout()
+        setDelegate()
     }
     
     required init?(coder: NSCoder) {
@@ -82,8 +87,8 @@ extension FAQTableViewCell {
     // MARK: - Layout Helper
     
     private func setLayout() {
-        self.addSubviews(container, divider)
-        container.addSubviews(qLabel, questionLabel, aLabel, answerLabel)
+        self.contentView.addSubviews(container, divider)
+        container.addSubviews(qLabel, questionLabel, aLabel, answerTextView)
         
         container.snp.makeConstraints {
             $0.top.horizontalEdges.equalToSuperview()
@@ -107,7 +112,7 @@ extension FAQTableViewCell {
             $0.leading.equalToSuperview().inset(26)
         }
         
-        answerLabel.snp.makeConstraints {
+        answerTextView.snp.makeConstraints {
             $0.top.equalTo(aLabel.snp.top).offset(5)
             $0.leading.equalTo(aLabel.snp.trailing).offset(6)
             $0.trailing.equalToSuperview().inset(20)
@@ -121,12 +126,43 @@ extension FAQTableViewCell {
         }
     }
     
+    private func setDelegate() {
+        answerTextView.delegate = self
+    }
+    
     // MARK: - Methods
     
-    func configure(index: Int, type: FlowType? = nil) {
+    func configure(index: Int) {
         // FlowType으로 예약변경/계정설정 부분만 버튼(밑줄) 처리해서 탭하면 VC 이동
-        questionLabel.text = FAQ_Description.init(rawValue: index)?.question
-        answerLabel.text = FAQ_Description.init(rawValue: index)?.answer
+        let description = FAQ_Description.init(rawValue: index)
+        questionLabel.text = description!.question
+        
+        guard let flowType = description?.flowType else {
+            answerTextView.text = description!.answer
+            layoutIfNeeded()
+            return
+        }
+        setTappableAttributedString(text: description!.answer, flowType: flowType)
         layoutIfNeeded()
+    }
+    
+    private func setTappableAttributedString(text: String, flowType: FlowType) {
+        let attributedString = NSMutableAttributedString(string: text, attributes: [.font : UIFont.fontGuide(.R00_12)])
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black0, range: NSString(string: text).range(of: text))
+        attributedString.addAttribute(.link, value: "", range: NSString(string: text).range(of: flowType.rawValue))
+        answerTextView.attributedText = attributedString
+        
+        let linkAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.main,
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]
+        answerTextView.linkTextAttributes = linkAttributes
+    }
+}
+
+extension FAQTableViewCell: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        print("🩵")
+        return false
     }
 }

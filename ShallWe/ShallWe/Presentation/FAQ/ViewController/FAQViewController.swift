@@ -44,7 +44,7 @@ extension FAQViewController {
         // 계정설정 버튼 눌렀을 때
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     
     @objc func backButtonDidTap() {
         self.navigationController?.popViewController(animated: true)
