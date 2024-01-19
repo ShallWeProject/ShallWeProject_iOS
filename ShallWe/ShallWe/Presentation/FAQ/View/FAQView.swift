@@ -20,6 +20,12 @@ final class FAQView: UIView {
         return navigationBar
     }()
     
+    private let divider: UIView = {
+        let view = UIView()
+        view.backgroundColor = .bg2
+        return view
+    }()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(FAQTableViewCell.self, forCellReuseIdentifier: "FAQTableViewCell")
@@ -55,7 +61,7 @@ private extension FAQView {
     }
     
     func setHierarchy() {
-        self.addSubviews(navigationBar, tableView)
+        self.addSubviews(navigationBar, divider, tableView)
     }
     
     func setLayout() {
@@ -65,8 +71,14 @@ private extension FAQView {
             $0.horizontalEdges.equalToSuperview()
         }
         
+        divider.snp.makeConstraints {
+            $0.height.equalTo(2)
+            $0.top.equalTo(navigationBar.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+        }
+        
         tableView.snp.makeConstraints {
-            $0.top.equalTo(navigationBar.snp.bottom).offset(2)
+            $0.top.equalTo(divider.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview().inset(2)
         }
@@ -90,6 +102,4 @@ extension FAQView: UITableViewDataSource {
     }
 }
 
-extension FAQView: UITableViewDelegate {
-    
-}
+extension FAQView: UITableViewDelegate {}

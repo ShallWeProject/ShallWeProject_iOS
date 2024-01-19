@@ -13,6 +13,12 @@ final class FAQTableViewCell: UITableViewCell {
     
     // MARK: - UI Components
     
+    private let container: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
     private let qLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.FAQ.Q
@@ -48,6 +54,12 @@ final class FAQTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let divider: UIView = {
+        let view = UIView()
+        view.backgroundColor = .bg2
+        return view
+    }()
+    
     // MARK: - Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -70,7 +82,12 @@ extension FAQTableViewCell {
     // MARK: - Layout Helper
     
     private func setLayout() {
-        self.addSubviews(qLabel, questionLabel, aLabel, answerLabel)
+        self.addSubviews(container, divider)
+        container.addSubviews(qLabel, questionLabel, aLabel, answerLabel)
+        
+        container.snp.makeConstraints {
+            $0.top.horizontalEdges.equalToSuperview()
+        }
         
         qLabel.snp.makeConstraints {
             $0.height.equalTo(28)
@@ -95,6 +112,12 @@ extension FAQTableViewCell {
             $0.leading.equalTo(aLabel.snp.trailing).offset(6)
             $0.trailing.equalToSuperview().inset(20)
             $0.bottom.equalToSuperview().inset(15)
+        }
+        
+        divider.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.top.equalTo(container.snp.bottom)
+            $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
     
