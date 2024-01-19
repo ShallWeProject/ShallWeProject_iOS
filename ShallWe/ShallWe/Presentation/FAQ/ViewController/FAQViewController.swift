@@ -18,6 +18,7 @@ final class FAQViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
+        faqView.configureVC(vc: self)
         view = faqView
     }
     
@@ -41,7 +42,6 @@ extension FAQViewController {
     
     func setAddTarget() {
         faqView.navigationBar.backButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
-        // 계정설정 버튼 눌렀을 때
     }
     
     // MARK: - Actions

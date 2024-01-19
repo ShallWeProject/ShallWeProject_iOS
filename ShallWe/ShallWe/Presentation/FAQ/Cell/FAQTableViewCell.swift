@@ -11,6 +11,11 @@ import SnapKit
 
 final class FAQTableViewCell: UITableViewCell {
     
+    // MARK: - Properties
+    
+    private var faqVC: UIViewController? = nil
+    private var flowType: FlowType? = nil
+    
     // MARK: - UI Components
     
     private let container: UIView = {
@@ -132,16 +137,16 @@ extension FAQTableViewCell {
     
     // MARK: - Methods
     
-    func configure(index: Int) {
-        // FlowType으로 예약변경/계정설정 부분만 버튼(밑줄) 처리해서 탭하면 VC 이동
+    func configure(index: Int, faqVC: UIViewController) {
         let description = FAQ_Description.init(rawValue: index)
         questionLabel.text = description!.question
-        
         guard let flowType = description?.flowType else {
             answerTextView.text = description!.answer
             layoutIfNeeded()
             return
         }
+        self.faqVC = faqVC
+        self.flowType = flowType
         setTappableAttributedString(text: description!.answer, flowType: flowType)
         layoutIfNeeded()
     }
@@ -163,6 +168,18 @@ extension FAQTableViewCell {
 extension FAQTableViewCell: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         print("🩵")
+        switch flowType {
+        case .accountSettings:
+            // TODO: 계정설정 VC로 이동
+//            let accountSettingsViewController = AccountSettingsViewController()
+//            faqVC?.navigationController?.pushViewController(accountSettingsViewController, animated: true)
+            break
+        case .changeReservation:
+            // TODO: 예약변경 VC로 이동
+            break
+        case .none:
+            break
+        }
         return false
     }
 }

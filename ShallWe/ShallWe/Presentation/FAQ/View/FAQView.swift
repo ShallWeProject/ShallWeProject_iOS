@@ -11,6 +11,10 @@ import SnapKit
 
 final class FAQView: UIView {
     
+    // MARK: - Properties
+    
+    private var faqVC: UIViewController? = nil
+    
     // MARK: - UI Components
     
     let navigationBar: CustomNavigationBar = {
@@ -47,6 +51,10 @@ final class FAQView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureVC(vc: UIViewController) {
+        faqVC = vc
     }
 }
 
@@ -97,7 +105,7 @@ extension FAQView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FAQTableViewCell", for: indexPath) as? FAQTableViewCell else { return .init() }
-        cell.configure(index: indexPath.row)
+        cell.configure(index: indexPath.row, faqVC: faqVC!)
         return cell
     }
 }
