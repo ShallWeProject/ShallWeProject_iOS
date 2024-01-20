@@ -23,11 +23,14 @@ final class SortHalfModal: BaseViewController {
     
     private let viewModel: HomeExperienceViewModel
     private let disposeBag = DisposeBag()
+    private let sortModel: [SortModel] = SortModel.sortData()
+    private var selectedCellIndex: IndexPath
     
     // MARK: - Initializer
 
-    init(viewModel: HomeExperienceViewModel) {
+    init(viewModel: HomeExperienceViewModel, index: IndexPath) {
         self.viewModel = viewModel
+        self.selectedCellIndex = index
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -53,8 +56,8 @@ final class SortHalfModal: BaseViewController {
         self.view.addSubviews(sortListTableView)
         
         sortListTableView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(74-42)
-            $0.horizontalEdges.equalToSuperview()
+            $0.top.equalToSuperview()
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(24)
         }
     }
@@ -63,6 +66,7 @@ final class SortHalfModal: BaseViewController {
     
     override func setDelegate() {
         sortListTableView.delegate = self
+        sortListTableView.dataSource = self
     }
     
     override func setRegister() {
@@ -83,4 +87,30 @@ extension SortHalfModal {
     }
 }
 
-extension SortHalfModal: UITableViewDelegate {}
+extension SortHalfModal: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return SizeLiterals.Screen.screenHeight * 42 / 812
+    }
+}
+
+extension SortHalfModal: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sortModel.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: SortHalfModalCell.className, for: indexPath) as! SortHalfModalCell
+        if indexPath == selectedCellIndex {
+            cell.isSelected = true
+        }
+        cell.configureCell(sortModel[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.inputs.sortType(indexPath: indexPath)
+        self.dismiss(animated: true)
+    }
+}
