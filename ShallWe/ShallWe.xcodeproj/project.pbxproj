@@ -124,6 +124,8 @@
 		9515EF772B58783000C4E1AA /* AbhayaLibre-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9515EF762B58783000C4E1AA /* AbhayaLibre-ExtraBold.ttf */; };
 		9515EF7C2B5894B300C4E1AA /* FAQType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF7B2B5894B300C4E1AA /* FAQType.swift */; };
 		9515EF7E2B59A14900C4E1AA /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF7D2B59A14900C4E1AA /* FAQTableViewCell.swift */; };
+		9515EF802B5C63C100C4E1AA /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF7F2B5C63C100C4E1AA /* AccountSettingsViewController.swift */; };
+		9515EF822B5C648500C4E1AA /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF812B5C648500C4E1AA /* AccountSettingsView.swift */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
@@ -258,6 +260,8 @@
 		9515EF762B58783000C4E1AA /* AbhayaLibre-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbhayaLibre-ExtraBold.ttf"; sourceTree = "<group>"; };
 		9515EF7B2B5894B300C4E1AA /* FAQType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQType.swift; sourceTree = "<group>"; };
 		9515EF7D2B59A14900C4E1AA /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
+		9515EF7F2B5C63C100C4E1AA /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
+		9515EF812B5C648500C4E1AA /* AccountSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
 		954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		95748DCD2B25FAB4004157E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -820,6 +824,7 @@
 			isa = PBXGroup;
 			children = (
 				9515EF6D2B58640700C4E1AA /* FAQViewController.swift */,
+				9515EF7F2B5C63C100C4E1AA /* AccountSettingsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -828,6 +833,7 @@
 			isa = PBXGroup;
 			children = (
 				9515EF712B58643F00C4E1AA /* FAQView.swift */,
+				9515EF812B5C648500C4E1AA /* AccountSettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1136,6 +1142,7 @@
 				954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */,
 				A431BE5E2B1AFAF90049C126 /* UICollectionViewRegisterable.swift in Sources */,
 				032213112B14B28600FF5CF1 /* UITabBar+.swift in Sources */,
+				9515EF822B5C648500C4E1AA /* AccountSettingsView.swift in Sources */,
 				032213A12B1B92A000FF5CF1 /* RecommendModel.swift in Sources */,
 				0322130F2B14B27B00FF5CF1 /* UITableView+.swift in Sources */,
 				032213A32B1B935800FF5CF1 /* PopularCategoryModel.swift in Sources */,
@@ -1221,6 +1228,7 @@
 				032213152B14B2EA00FF5CF1 /* API.swift in Sources */,
 				0322139C2B1B8B3100FF5CF1 /* HomeHeaderView.swift in Sources */,
 				95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */,
+				9515EF802B5C63C100C4E1AA /* AccountSettingsViewController.swift in Sources */,
 				035A9F132B44825E007B3F50 /* CraftViewController.swift in Sources */,
 				9515EF7E2B59A14900C4E1AA /* FAQTableViewCell.swift in Sources */,
 				03C7A6672B456230000F1E39 /* SearchViewModel.swift in Sources */,

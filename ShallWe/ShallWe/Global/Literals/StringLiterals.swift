@@ -123,5 +123,8 @@ enum I18N {
     enum FAQ {
         static let Q = "Q."
         static let A = "A."
+        static let accountManagementText = "계정 관리"
+        static let logoutText = "로그아웃"
+        static let withdrawalText = "회원 탈퇴"
     }
 }

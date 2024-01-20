@@ -167,12 +167,10 @@ extension FAQTableViewCell {
 
 extension FAQTableViewCell: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        print("🩵")
         switch flowType {
         case .accountSettings:
-            // TODO: 계정설정 VC로 이동
-//            let accountSettingsViewController = AccountSettingsViewController()
-//            faqVC?.navigationController?.pushViewController(accountSettingsViewController, animated: true)
+            let accountSettingsViewController = AccountSettingsViewController()
+            faqVC?.navigationController?.pushViewController(accountSettingsViewController, animated: true)
             break
         case .changeReservation:
             // TODO: 예약변경 VC로 이동
