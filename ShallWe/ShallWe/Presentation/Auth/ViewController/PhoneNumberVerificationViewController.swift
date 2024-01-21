@@ -55,7 +55,7 @@ extension PhoneNumberVerificationViewController {
     }
     
     @objc func nextButtonDidTap() {
-        let profileEntryViewController = ProfileEntryViewController()
-        self.navigationController?.pushViewController(profileEntryViewController, animated: true)
+        let agreementToTermsViewController = AgreementToTermsViewController()
+        self.navigationController?.pushViewController(agreementToTermsViewController, animated: true)
     }
 }

@@ -144,36 +144,25 @@ private extension ProfileEntryView {
     }
     
     func setAddTarget() {
-        maleButton.addTarget(self, action: #selector(maleButtonDidTap), for: .touchUpInside)
-        femaleButton.addTarget(self, action: #selector(femaleButtonDidTap), for: .touchUpInside)
-        noneButton.addTarget(self, action: #selector(noneButtonDidTap), for: .touchUpInside)
-    }
-    
-    func selectGender(tappedButton: CustomButton) {
-        if selectedGenderButton == nil {
-            selectedGenderButton = tappedButton
-            tappedButton.changeToPink()
-        } else if tappedButton == selectedGenderButton {
-            selectedGenderButton = nil
-            tappedButton.changeToGray()
-        } else {
-            selectedGenderButton!.changeToGray()
-            selectedGenderButton = tappedButton
-            tappedButton.changeToPink()
+        let buttons = [maleButton, femaleButton, noneButton]
+        for button in buttons {
+            button.addTarget(self, action: #selector(genderButtonDidTap), for: .touchUpInside)
         }
     }
     
     // MARK: - Actions
     
-    @objc func maleButtonDidTap() {
-        selectGender(tappedButton: maleButton)
-    }
-    
-    @objc func femaleButtonDidTap() {
-        selectGender(tappedButton: femaleButton)
-    }
-    
-    @objc func noneButtonDidTap() {
-        selectGender(tappedButton: noneButton)
+    @objc func genderButtonDidTap(_ sender: CustomButton) {
+        if selectedGenderButton == nil {
+            selectedGenderButton = sender
+            sender.changeToPink()
+        } else if sender == selectedGenderButton {
+            selectedGenderButton = nil
+            sender.changeToGray()
+        } else {
+            selectedGenderButton!.changeToGray()
+            selectedGenderButton = sender
+            sender.changeToPink()
+        }
     }
 }
