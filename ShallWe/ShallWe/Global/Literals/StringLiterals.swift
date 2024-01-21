@@ -127,5 +127,14 @@ enum I18N {
         static let logoutText = "로그아웃"
         static let withdrawalText = "회원 탈퇴"
         static let logoutAlertText = "현재 계정에서\n로그아웃 하시겠습니까?"
+        static let cautionText = "주의해 주세요!"
+        static let checkWhatInfoisDeletedText = "탈퇴 시 삭제/유지되는 정보를 확인해 주세요.\n한 번 삭제된 정보는 복구가 불가능합니다."
+        static let deleteAccountext = "계정 및 프로필 정보 삭제"
+        static let deleteMyReservationInfoText = "내 예약 정보 삭제"
+        static let deleteCashText = "캐시 삭제"
+        static let deleteMemoryPhotoAlbumText = "추억사진첩 사진 삭제"
+        static let whatMadeYouUncomfortableText = "무엇이 불편하셨나요?"
+        static let withdrawText = "회원 탈퇴하기"
+        static let thanksText = "그동안 셸위와\n함께해 주셔서 감사합니다."
     }
 }

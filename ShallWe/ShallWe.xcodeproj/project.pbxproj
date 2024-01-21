@@ -126,6 +126,8 @@
 		9515EF7E2B59A14900C4E1AA /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF7D2B59A14900C4E1AA /* FAQTableViewCell.swift */; };
 		9515EF802B5C63C100C4E1AA /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF7F2B5C63C100C4E1AA /* AccountSettingsViewController.swift */; };
 		9515EF822B5C648500C4E1AA /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF812B5C648500C4E1AA /* AccountSettingsView.swift */; };
+		9515EF842B5D2BF500C4E1AA /* WithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF832B5D2BF500C4E1AA /* WithdrawalViewController.swift */; };
+		9515EF862B5D2C2600C4E1AA /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF852B5D2C2600C4E1AA /* WithdrawalView.swift */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
@@ -262,6 +264,8 @@
 		9515EF7D2B59A14900C4E1AA /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
 		9515EF7F2B5C63C100C4E1AA /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		9515EF812B5C648500C4E1AA /* AccountSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
+		9515EF832B5D2BF500C4E1AA /* WithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalViewController.swift; sourceTree = "<group>"; };
+		9515EF852B5D2C2600C4E1AA /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
 		954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		95748DCD2B25FAB4004157E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -825,6 +829,7 @@
 			children = (
 				9515EF6D2B58640700C4E1AA /* FAQViewController.swift */,
 				9515EF7F2B5C63C100C4E1AA /* AccountSettingsViewController.swift */,
+				9515EF832B5D2BF500C4E1AA /* WithdrawalViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -834,6 +839,7 @@
 			children = (
 				9515EF712B58643F00C4E1AA /* FAQView.swift */,
 				9515EF812B5C648500C4E1AA /* AccountSettingsView.swift */,
+				9515EF852B5D2C2600C4E1AA /* WithdrawalView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1129,6 +1135,7 @@
 				034580762B28AA59002DDEBA /* ParentsViewController.swift in Sources */,
 				0345809B2B380299002DDEBA /* ActivateDropDownAlert.swift in Sources */,
 				034580742B28AA47002DDEBA /* LoverViewController.swift in Sources */,
+				9515EF842B5D2BF500C4E1AA /* WithdrawalViewController.swift in Sources */,
 				03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */,
 				0322138B2B1B2B5100FF5CF1 /* CustomNavigationBar.swift in Sources */,
 				032213202B14B75100FF5CF1 /* APIService.swift in Sources */,
@@ -1198,6 +1205,7 @@
 				032213862B1B2A8D00FF5CF1 /* BaseViewController.swift in Sources */,
 				0322131D2B14B32B00FF5CF1 /* URLConstant.swift in Sources */,
 				035A9F102B448047007B3F50 /* HomeExperienceViewController.swift in Sources */,
+				9515EF862B5D2C2600C4E1AA /* WithdrawalView.swift in Sources */,
 				035A9F152B448266007B3F50 /* BakingViewController.swift in Sources */,
 				032213052B14B23000FF5CF1 /* UIViewController+.swift in Sources */,
 				95748DE52B35A95F004157E0 /* GenderType.swift in Sources */,

@@ -60,7 +60,8 @@ extension AccountSettingsViewController {
     
     @objc
     func withdrawalButtonDidTap() {
-        // TODO: 회원 탈퇴 화면으로 이동
+        let withdrawalViewController = WithdrawalViewController()
+        self.navigationController?.pushViewController(withdrawalViewController, animated: true)
     }
 }
 

@@ -91,3 +91,13 @@ enum FAQ_Description: Int, FAQ, CaseIterable {
         }
     }
 }
+
+enum ReasonForWithdrawal: String, CaseIterable {
+    case NOT_USED_OFTEN = "자주 사용하지 않아요."
+    case DUPLICATE_ACCOUNT = "중복 계정이 있어요."
+    case APP_ERROR = "앱 오류가 있어요."
+    case EXPENSIVE = "타사 대비 가격이 비싸요."
+    case FEW_PRODUCT_TYPES = "상품(경험) 종류가 적어요."
+    case INCONVENIENT_TO_USE = "사용성/화면 디자인이 불편해요."
+    case OTHER_REASONS = "기타 사유가 있어요."
+}
