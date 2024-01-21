@@ -76,17 +76,18 @@ extension ExperienceHeader {
     
     // MARK: - Methods
     
-    func setButtonTitle(_ type: DropDownTitleType) {
-        self.titleType = type
-        switch titleType {
-        case .popular:
+    func setButtonTitle(_ type: IndexPath) {
+        switch type.row {
+        case 0:
             sortButton.setTitle("인기순", for: .normal)
-        case .recommend:
+        case 1:
             sortButton.setTitle("추천순", for: .normal)
-        case .priceMax:
+        case 2:
             sortButton.setTitle("가격높은순", for: .normal)
-        case .priceMin:
+        case 3:
             sortButton.setTitle("가격낮은순", for: .normal)
+        default:
+            return
         }
     }
     
