@@ -126,5 +126,6 @@ enum I18N {
         static let accountManagementText = "계정 관리"
         static let logoutText = "로그아웃"
         static let withdrawalText = "회원 탈퇴"
+        static let logoutAlertText = "현재 계정에서\n로그아웃 하시겠습니까?"
     }
 }

@@ -45,7 +45,7 @@ extension AccountSettingsViewController {
         accountSettingsView.withdrawalButton.addTarget(self, action: #selector(withdrawalButtonDidTap), for: .touchUpInside)
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     
     @objc 
     func backButtonDidTap() {
@@ -54,7 +54,8 @@ extension AccountSettingsViewController {
     
     @objc 
     func logoutButtonDidTap() {
-        // TODO: 로그아웃 alert 띄우기
+        // TODO: okAction 구현 -> 로그아웃
+        makeAlert(title: I18N.FAQ.logoutAlertText, message: "", okTitle: I18N.FAQ.logoutText, okAction: nil)
     }
     
     @objc

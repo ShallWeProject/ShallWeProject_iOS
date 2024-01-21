@@ -34,5 +34,20 @@ extension UIViewController {
         alertViewController.addAction(okAction)
         self.present(alertViewController, animated: true, completion: completion)
     }
+    
+    func makeAlert(title: String,
+                   message: String,
+                   okTitle: String,
+                   okAction: ((UIAlertAction) -> Void)? = nil,
+                   completion: (() -> Void)? = nil) {
+        makeVibrate()
+        let alertViewController = UIAlertController(title: title, message: message,
+                                                    preferredStyle: .alert)
+        let okAction = UIAlertAction(title: okTitle, style: .default, handler: okAction)
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alertViewController.addAction(okAction)
+        alertViewController.addAction(cancelAction)
+        self.present(alertViewController, animated: true, completion: completion)
+    }
 }
 
