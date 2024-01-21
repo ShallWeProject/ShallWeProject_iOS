@@ -12,6 +12,8 @@ import RxCocoa
 
 protocol HomeExperienceViewModelInputs {
     func menuCellTap(at indexPath: IndexPath)
+    func sortButtonTap()
+    func sortType(indexPath: IndexPath)
 }
 
 protocol HomeExperienceViewModelOutputs {
@@ -19,6 +21,8 @@ protocol HomeExperienceViewModelOutputs {
     var categoryMenu: BehaviorRelay<[HomeExperienceType]> { get }
     var setMenuCell: BehaviorRelay<IndexPath> { get }
     var isSelectedMenuCell: PublishSubject<IndexPath> { get }
+    var presentSortModal: PublishSubject<Void> { get }
+    var sortTypeChange: BehaviorRelay<IndexPath> { get }
 }
 
 protocol HomeExperienceViewModelType {
@@ -32,17 +36,27 @@ final class HomeExperienceViewModel: HomeExperienceViewModelInputs, HomeExperien
     var categoryMenu: BehaviorRelay<[HomeExperienceType]> = BehaviorRelay(value: [])
     var isSelectedMenuCell: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     var setMenuCell: BehaviorRelay<IndexPath> = BehaviorRelay<IndexPath>(value: IndexPath(item: 0, section: 0))
+    var presentSortModal: PublishSubject<Void> = PublishSubject<Void>()
+    var sortTypeChange: BehaviorRelay<IndexPath> = BehaviorRelay<IndexPath>(value: IndexPath(row: 0, section: 0))
     
     var inputs: HomeExperienceViewModelInputs { return self }
     var outputs: HomeExperienceViewModelOutputs { return self }
     
     init(){
         self.recommendMenu.accept(HomeExperienceType.recommendMenu())
-        self.categoryMenu.accept(HomeExperienceType.experienceMenu())
+        self.categoryMenu.accept(HomeExperienceType.categoryMenu())
         self.setMenuCell.accept(IndexPath(item: 0, section: 0))
     }
     
     func menuCellTap(at indexPath: IndexPath) {
         self.isSelectedMenuCell.onNext(indexPath)
+    }
+    
+    func sortButtonTap() {
+        self.presentSortModal.onNext(())
+    }
+    
+    func sortType(indexPath: IndexPath) {
+        self.sortTypeChange.accept(indexPath)
     }
 }

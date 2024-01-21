@@ -24,7 +24,7 @@ extension HomeExperienceType {
         ]
     }
     
-    static func experienceMenu() -> [HomeExperienceType] {
+    static func categoryMenu() -> [HomeExperienceType] {
         return [
             HomeExperienceType(type: I18N.HomeExperience.craft),
             HomeExperienceType(type: I18N.HomeExperience.baking),

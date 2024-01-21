@@ -12,6 +12,10 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
+protocol SortButtonTapProtocol: AnyObject {
+    func presentToSortModal()
+}
+
 final class HomeExperienceListView: BaseView {
     
     // MARK: - UI Components
@@ -21,32 +25,13 @@ final class HomeExperienceListView: BaseView {
     let headerView = ExperienceHeader()
     
     // MARK: - Properties
-    
-    private let viewModel = HomeExperienceListViewModel()
-    private let disposeBag = DisposeBag()
+     
     private let dummyModel = HomeExperienceModel.homeExperienceDummyData()
-    private lazy var activateDropDownAlert = ActivateDropDownAlert()
-    private var isDropDownActivated: Bool = false
-    
-    
-    
-    func buttonTap() {
-        headerView.dropDownButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                if isDropDownActivated {
-                    self.isDropDownActivated = false
-                    self.activateDropDownAlert.removeFromSuperview()
-                } else {
-                    self.isDropDownActivated = true
-                    self.viewModel.inputs.dropDownButtonTap(at: headerView.titleType)
-                    self.addSubview(activateDropDownAlert)
-                    self.activateDropDownAlert.snp.makeConstraints {
-                        $0.edges.equalToSuperview()
-                    }
-                }
-                })
-            .disposed(by: disposeBag)
+    weak var sortButtonDelegate: SortButtonTapProtocol?
+    var indexPath: IndexPath? {
+        didSet {
+            homelistCollectionView.reloadSections(IndexSet(integer: indexPath?.section ?? 0))
+        }
     }
     
     // MARK: - UI Components Property
@@ -122,22 +107,14 @@ extension HomeExperienceListView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableCell(kind: kind, type: ExperienceHeader.self, indexPath: indexPath)
-//        headerView.dropDownButton.rx.tap
-//            .subscribe(onNext: { [weak self] in
-//                guard let self = self else { return }
-//                if isDropDownActivated {
-//                    self.isDropDownActivated = false
-//                    self.activateDropDownAlert.removeFromSuperview()
-//                } else {
-//                    self.isDropDownActivated = true
-//                    self.viewModel.inputs.dropDownButtonTap(at: headerView.titleType)
-//                    self.addSubview(activateDropDownAlert)
-//                    self.activateDropDownAlert.snp.makeConstraints {
-//                        $0.edges.equalToSuperview()
-//                    }
-//                }
-//                })
-//            .disposed(by: dispoeBag)
+        // 헤더 뷰 버튼 탭
+        header.sortButtonTapHandler = {
+            self.sortButtonDelegate?.presentToSortModal()
+        }
+        // 헤더 뷰 타이틀 변경
+        if let indexPath = self.indexPath {
+            header.setButtonTitle(indexPath)
+        }
         return header
     }
 }
