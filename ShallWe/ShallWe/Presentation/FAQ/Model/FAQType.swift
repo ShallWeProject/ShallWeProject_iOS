@@ -101,3 +101,10 @@ enum ReasonForWithdrawal: String, CaseIterable {
     case INCONVENIENT_TO_USE = "사용성/화면 디자인이 불편해요."
     case OTHER_REASONS = "기타 사유가 있어요."
 }
+
+enum InfoDeleted: String, CaseIterable {
+    case ACCOUNT = "계정 및 프로필 정보 삭제"
+    case MY_RESERVATION_INFO = "내 예약 정보 삭제"
+    case CASH = "캐시 삭제"
+    case MEMORY_PHOTO_ALBUM = "추억사진첩 사진 삭제"
+}
