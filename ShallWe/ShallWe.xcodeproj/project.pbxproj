@@ -88,6 +88,10 @@
 		034011412B5CD87C00D1F371 /* SortModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034011402B5CD87C00D1F371 /* SortModel.swift */; };
 		0340258A2B555648001F5510 /* SortHalfModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034025892B555648001F5510 /* SortHalfModal.swift */; };
 		0340258C2B555B82001F5510 /* SortHalfModalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340258B2B555B82001F5510 /* SortHalfModalCell.swift */; };
+		9515EF642B515FE300C4E1AA /* AgreementToTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF632B515FE300C4E1AA /* AgreementToTermsViewController.swift */; };
+		9515EF662B51600800C4E1AA /* AgreementOfTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF652B51600800C4E1AA /* AgreementOfTermsView.swift */; };
+		9515EF682B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF672B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift */; };
+		9515EF6A2B54264B00C4E1AA /* TermsDetailsPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF692B54264B00C4E1AA /* TermsDetailsPopUpView.swift */; };
 		0345806A2B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580692B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift */; };
 		0345806D2B288104002DDEBA /* HomeExperienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */; };
 		034580722B28A3A6002DDEBA /* ExperiencePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580712B28A3A6002DDEBA /* ExperiencePageVC.swift */; };
@@ -206,6 +210,10 @@
 		034011402B5CD87C00D1F371 /* SortModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortModel.swift; sourceTree = "<group>"; };
 		034025892B555648001F5510 /* SortHalfModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortHalfModal.swift; sourceTree = "<group>"; };
 		0340258B2B555B82001F5510 /* SortHalfModalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortHalfModalCell.swift; sourceTree = "<group>"; };
+		9515EF632B515FE300C4E1AA /* AgreementToTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementToTermsViewController.swift; sourceTree = "<group>"; };
+		9515EF652B51600800C4E1AA /* AgreementOfTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementOfTermsView.swift; sourceTree = "<group>"; };
+		9515EF672B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsDetailsPopUpViewController.swift; sourceTree = "<group>"; };
+		9515EF692B54264B00C4E1AA /* TermsDetailsPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsDetailsPopUpView.swift; sourceTree = "<group>"; };
 		034580692B2879F2002DDEBA /* HomeMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceViewModel.swift; sourceTree = "<group>"; };
 		034580712B28A3A6002DDEBA /* ExperiencePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencePageVC.swift; sourceTree = "<group>"; };
@@ -768,6 +776,8 @@
 				95748DD32B26096A004157E0 /* PhoneNumberVerificationView.swift */,
 				95748DD92B2D9DC6004157E0 /* AuthCompletionView.swift */,
 				95748DDD2B358190004157E0 /* ProfileEntryView.swift */,
+				9515EF652B51600800C4E1AA /* AgreementOfTermsView.swift */,
+				9515EF692B54264B00C4E1AA /* TermsDetailsPopUpView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -780,6 +790,8 @@
 				95748DD52B2D9CED004157E0 /* LoginCompletionViewController.swift */,
 				95748DD72B2D9D86004157E0 /* SignUpCompletionViewController.swift */,
 				95748DDB2B35810C004157E0 /* ProfileEntryViewController.swift */,
+				9515EF632B515FE300C4E1AA /* AgreementToTermsViewController.swift */,
+				9515EF672B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1040,6 +1052,8 @@
 				A431BE552B1A24F90049C126 /* (null) in Sources */,
 				03115F912B271BD5009D1517 /* HomeRecommendViewController.swift in Sources */,
 				95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */,
+				9515EF682B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift in Sources */,
+				9515EF662B51600800C4E1AA /* AgreementOfTermsView.swift in Sources */,
 				032212F12B14B17600FF5CF1 /* MakeVibrate.swift in Sources */,
 				0322130B2B14B25900FF5CF1 /* UIStackView+.swift in Sources */,
 				A431BE772B1EEF4A0049C126 /* ExperienceGiftViewController.swift in Sources */,
@@ -1050,6 +1064,9 @@
 				032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */,
 				95748DD02B25FABF004157E0 /* PhoneNumberVerificationViewController.swift in Sources */,
 				032212A82B14AAFD00FF5CF1 /* SceneDelegate.swift in Sources */,
+				A431BE6E2B1CDD150049C126 /* ExplainDetailView.swift in Sources */,
+				9515EF6A2B54264B00C4E1AA /* TermsDetailsPopUpView.swift in Sources */,
+				0345809D2B3858DF002DDEBA /* CustomDropDownButton.swift in Sources */,
 				A42C32682B30410900C4B477 /* ExperienceLetterViewController.swift in Sources */,
 				032213072B14B24500FF5CF1 /* UITextField+.swift in Sources */,
 				0332A3A62B53F14200720CD3 /* ExperienceViewController.swift in Sources */,
@@ -1072,6 +1089,7 @@
 				032212FB2B14B1D600FF5CF1 /* NSObject+.swift in Sources */,
 				A42C32662B3040FA00C4B477 /* ExperienceLetterView.swift in Sources */,
 				032212F32B14B18500FF5CF1 /* MakeAlert.swift in Sources */,
+				9515EF642B515FE300C4E1AA /* AgreementToTermsViewController.swift in Sources */,
 				03C7A6612B453FD3000F1E39 /* SearchViewController.swift in Sources */,
 				032213962B1B6D9200FF5CF1 /* HomeRecommendCell.swift in Sources */,
 				032213862B1B2A8D00FF5CF1 /* BaseViewController.swift in Sources */,
