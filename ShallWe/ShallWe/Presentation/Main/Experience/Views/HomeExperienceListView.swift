@@ -107,9 +107,11 @@ extension HomeExperienceListView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableCell(kind: kind, type: ExperienceHeader.self, indexPath: indexPath)
-        header.sortButtonTapHandler = { 
+        // 헤더 뷰 버튼 탭
+        header.sortButtonTapHandler = {
             self.sortButtonDelegate?.presentToSortModal()
         }
+        // 헤더 뷰 타이틀 변경
         if let indexPath = self.indexPath {
             header.setButtonTitle(indexPath)
         }
