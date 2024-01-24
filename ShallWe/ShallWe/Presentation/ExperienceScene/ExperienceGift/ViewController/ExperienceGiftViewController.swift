@@ -135,7 +135,11 @@ extension ExperienceGiftViewController: CalendarDelegate {
     
     func giftButtonTapped() {
         if fromMypage {
-            self.makeTwoButtonAlert(title: "", message: "\(self.selectedDate) \(self.selectedTime)로\n예약을 변경하시겠습니까?", leftTitle: "취소", rightTitle: "변경하기")
+            self.makeTwoButtonAlert(title: "", message: "\(self.selectedDate) \(self.selectedTime)로\n예약을 변경하시겠습니까?", leftTitle: "취소", rightTitle: "변경하기", rightAction: {
+                let nav = CompleteViewController()
+                nav.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(nav, animated: true)
+            })
         } else {
             let nav = ExperienceLetterViewController()
             self.navigationController?.pushViewController(nav, animated: true)

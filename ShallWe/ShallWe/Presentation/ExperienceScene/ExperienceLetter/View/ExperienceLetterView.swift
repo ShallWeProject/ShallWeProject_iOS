@@ -177,7 +177,7 @@ final class ExperienceLetterView: UIView {
         return textview
     }()
     
-    private lazy var giftButton: UIButton = {
+    lazy var giftButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.Icon.gift, for: .normal)
         button.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 15)
