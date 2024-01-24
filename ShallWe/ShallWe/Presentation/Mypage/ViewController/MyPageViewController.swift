@@ -31,6 +31,7 @@ final class MyPageViewController: UIViewController {
         
         setUI()
         setDelegate()
+        setGesture()
     }
 }
 
@@ -47,6 +48,16 @@ extension MyPageViewController {
         receiverCollectionview.dataSource = self
         senderCollectionview.delegate = self
         senderCollectionview.dataSource = self
+    }
+    
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(albumTapped))
+        myPageView.albumView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc
+    func albumTapped() {
+        print("albumTapped")
     }
 }
 

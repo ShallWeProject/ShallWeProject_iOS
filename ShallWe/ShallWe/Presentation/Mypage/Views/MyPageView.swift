@@ -66,6 +66,24 @@ final class MyPageView: UIView {
         return view
     }()
     
+    private let albumIcon = UIImageView(image: .icBook)
+    
+    private let albumLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Mypage.albumTitle
+        label.font = .fontGuide(.M00_14)
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
+    }()
+    
+    let albumView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .point
+        view.makeCornerRound(radius: 22)
+        return view
+    }()
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -75,7 +93,6 @@ final class MyPageView: UIView {
         setHierarchy()
         setLayout()
         setAddTarget()
-        setRegisterCell()
     }
     
     @available(*, unavailable)
@@ -93,7 +110,8 @@ extension MyPageView {
     }
     
     func setHierarchy() {
-        self.addSubviews(navigationBar, segmentControl, underLineView, seperatorView, mypageSenderView, mypageReceiverView)
+        albumView.addSubviews(albumIcon, albumLabel)
+        self.addSubviews(navigationBar, segmentControl, underLineView, seperatorView, mypageSenderView, mypageReceiverView, albumView)
     }
     
     func setLayout() {
@@ -130,6 +148,24 @@ extension MyPageView {
         mypageReceiverView.snp.makeConstraints {
             $0.top.equalTo(seperatorView.snp.bottom).offset(2)
             $0.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        albumIcon.snp.makeConstraints {
+            $0.size.equalTo(20)
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(17)
+        }
+        
+        albumLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(17)
+        }
+        
+        albumView.snp.makeConstraints {
+            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-41)
+            $0.trailing.equalToSuperview().inset(24)
+            $0.width.equalTo(124)
+            $0.height.equalTo(46)
         }
     }
     
@@ -172,13 +208,5 @@ extension MyPageView {
             }
             self.layoutIfNeeded()
         })
-    }
-    
-    func setRegisterCell() {
-        
-    }
-    
-    func setDataBind() {
-        
     }
 }
