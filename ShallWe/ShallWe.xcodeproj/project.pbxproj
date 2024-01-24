@@ -128,6 +128,7 @@
 		A423E86C2B5FB2FB00B8C125 /* MyPageSenderEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E86B2B5FB2FB00B8C125 /* MyPageSenderEntity.swift */; };
 		A423E8702B5FF32100B8C125 /* MyPageSenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E86F2B5FF32100B8C125 /* MyPageSenderView.swift */; };
 		A423E8742B5FF33700B8C125 /* MyPageReceiverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8732B5FF33700B8C125 /* MyPageReceiverView.swift */; };
+		A423E8772B5FF90C00B8C125 /* MyPageReceiverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8762B5FF90C00B8C125 /* MyPageReceiverCollectionViewCell.swift */; };
 		A42C32562B26C6AE00C4B477 /* ExperienceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C32552B26C6AE00C4B477 /* ExperienceDetailViewController.swift */; };
 		A42C325A2B26C6C800C4B477 /* GuideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C32572B26C6C800C4B477 /* GuideDetailView.swift */; };
 		A42C325B2B26C6C800C4B477 /* ExplainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C32582B26C6C800C4B477 /* ExplainDetailView.swift */; };
@@ -253,6 +254,7 @@
 		A423E86B2B5FB2FB00B8C125 /* MyPageSenderEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSenderEntity.swift; sourceTree = "<group>"; };
 		A423E86F2B5FF32100B8C125 /* MyPageSenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSenderView.swift; sourceTree = "<group>"; };
 		A423E8732B5FF33700B8C125 /* MyPageReceiverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReceiverView.swift; sourceTree = "<group>"; };
+		A423E8762B5FF90C00B8C125 /* MyPageReceiverCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReceiverCollectionViewCell.swift; sourceTree = "<group>"; };
 		A42C32552B26C6AE00C4B477 /* ExperienceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewController.swift; sourceTree = "<group>"; };
 		A42C32572B26C6C800C4B477 /* GuideDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideDetailView.swift; sourceTree = "<group>"; };
 		A42C32582B26C6C800C4B477 /* ExplainDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplainDetailView.swift; sourceTree = "<group>"; };
@@ -573,6 +575,7 @@
 			isa = PBXGroup;
 			children = (
 				A423E8682B5FB28B00B8C125 /* Entity */,
+				A423E8752B5FF8FA00B8C125 /* Cells */,
 				A423E8632B5FAFD000B8C125 /* Views */,
 				A423E8622B5FAFC900B8C125 /* ViewController */,
 			);
@@ -828,8 +831,8 @@
 			isa = PBXGroup;
 			children = (
 				A423E8642B5FB01F00B8C125 /* MyPageView.swift */,
-				A423E86F2B5FF32100B8C125 /* MyPageSenderView.swift */,
 				A423E8732B5FF33700B8C125 /* MyPageReceiverView.swift */,
+				A423E86F2B5FF32100B8C125 /* MyPageSenderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -841,6 +844,14 @@
 				A423E86B2B5FB2FB00B8C125 /* MyPageSenderEntity.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		A423E8752B5FF8FA00B8C125 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A423E8762B5FF90C00B8C125 /* MyPageReceiverCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		A42C32512B26C67600C4B477 /* ExperienceDetail */ = {
@@ -1104,6 +1115,7 @@
 				95748DD02B25FABF004157E0 /* PhoneNumberVerificationViewController.swift in Sources */,
 				032212A82B14AAFD00FF5CF1 /* SceneDelegate.swift in Sources */,
 				9515EF6A2B54264B00C4E1AA /* TermsDetailsPopUpView.swift in Sources */,
+				A423E8772B5FF90C00B8C125 /* MyPageReceiverCollectionViewCell.swift in Sources */,
 				A42C32682B30410900C4B477 /* ExperienceLetterViewController.swift in Sources */,
 				032213072B14B24500FF5CF1 /* UITextField+.swift in Sources */,
 				0332A3A62B53F14200720CD3 /* ExperienceViewController.swift in Sources */,

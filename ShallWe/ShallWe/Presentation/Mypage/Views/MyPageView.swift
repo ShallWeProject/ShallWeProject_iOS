@@ -16,8 +16,8 @@ final class MyPageView: UIView {
     
     // MARK: - UI Components
     
-    private var mypageReceiverView = MyPageReceiverView()
-    private var mypageSenderView = MyPageSenderView()
+    var mypageReceiverView = MyPageReceiverView()
+    var mypageSenderView = MyPageSenderView()
     
     private let navigationBar: CustomNavigationBar = {
         let navigation = CustomNavigationBar()
@@ -123,12 +123,12 @@ extension MyPageView {
         }
         
         mypageSenderView.snp.makeConstraints {
-            $0.top.equalTo(seperatorView.snp.bottom).offset(20)
+            $0.top.equalTo(seperatorView.snp.bottom).offset(2)
             $0.leading.trailing.bottom.equalToSuperview()
         }
         
         mypageReceiverView.snp.makeConstraints {
-            $0.top.equalTo(seperatorView.snp.bottom).offset(20)
+            $0.top.equalTo(seperatorView.snp.bottom).offset(2)
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }

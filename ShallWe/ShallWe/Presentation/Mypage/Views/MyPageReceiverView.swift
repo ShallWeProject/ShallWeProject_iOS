@@ -16,6 +16,21 @@ final class MyPageReceiverView: UIView {
     
     // MARK: - UI Components
     
+    lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumInteritemSpacing = 20
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.clipsToBounds = true
+        collectionView.contentInsetAdjustmentBehavior = .never
+        collectionView.isUserInteractionEnabled = true
+        collectionView.allowsSelection = true
+        collectionView.isScrollEnabled = true
+        collectionView.allowsMultipleSelection = true
+        collectionView.backgroundColor = .white
+        return collectionView
+    }()
     
     // MARK: - Life Cycles
     
@@ -40,15 +55,18 @@ final class MyPageReceiverView: UIView {
 extension MyPageReceiverView {
 
     func setUI() {
-        backgroundColor = .black
+        backgroundColor = .white
     }
     
     func setHierarchy() {
-
+        self.addSubview(collectionView)
     }
     
     func setLayout() {
-
+        collectionView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(24)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
     }
     
     func setAddTarget() {
@@ -61,7 +79,7 @@ extension MyPageReceiverView {
     }
     
     func setRegisterCell() {
-        
+        MyPageReceiverCollectionViewCell.register(collectionView: collectionView)
     }
     
     func setDataBind() {
