@@ -70,7 +70,9 @@ extension MyPageViewController: MypageDelegate {
     }
     
     func cancelButtonTapped() {
-        print("cancel")
+        self.makeTwoButtonAlert(title: I18N.Mypage.cancelTitle, message: I18N.Mypage.cancelMessage, leftTitle: I18N.Mypage.alertLeftTitle, rightTitle: I18N.Mypage.alertRightTitle, rightAction: {
+            self.makeAlert(title: "", message: I18N.Mypage.alertCancelTitle)
+        })
     }
 }
 
