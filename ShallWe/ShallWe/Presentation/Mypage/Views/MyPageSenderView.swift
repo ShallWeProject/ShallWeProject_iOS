@@ -10,12 +10,24 @@ import UIKit
 import SnapKit
 
 final class MyPageSenderView: UIView {
-
-    // MARK: - Properties
-    
     
     // MARK: - UI Components
     
+    lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumInteritemSpacing = 20
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.clipsToBounds = true
+        collectionView.contentInsetAdjustmentBehavior = .never
+        collectionView.isUserInteractionEnabled = true
+        collectionView.allowsSelection = true
+        collectionView.isScrollEnabled = true
+        collectionView.allowsMultipleSelection = true
+        collectionView.backgroundColor = .white
+        return collectionView
+    }()
     
     // MARK: - Life Cycles
     
@@ -25,7 +37,6 @@ final class MyPageSenderView: UIView {
         setUI()
         setHierarchy()
         setLayout()
-        setAddTarget()
         setRegisterCell()
     }
     
@@ -40,31 +51,21 @@ final class MyPageSenderView: UIView {
 extension MyPageSenderView {
 
     func setUI() {
-        backgroundColor = .red
+        backgroundColor = .white
     }
     
     func setHierarchy() {
-
+        self.addSubview(collectionView)
     }
     
     func setLayout() {
-
-    }
-    
-    func setAddTarget() {
-
-    }
-    
-    @objc
-    func buttonTapped() {
-        
+        collectionView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(24)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
     }
     
     func setRegisterCell() {
-        
-    }
-    
-    func setDataBind() {
-        
+        MyPageSenderCollectionViewCell.register(collectionView: collectionView)
     }
 }

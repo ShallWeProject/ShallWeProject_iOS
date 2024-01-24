@@ -12,11 +12,13 @@ final class MyPageViewController: UIViewController {
     // MARK: - Properties
     
     private let receiverDummy = MyPageReceiverEntity.receiveDummy()
+    private let senderDummy = MyPageSenderEntity.senderDummy()
     
     // MARK: - UI Components
     
     private let myPageView = MyPageView()
-    private lazy var collectionview = myPageView.mypageReceiverView.collectionView
+    private lazy var receiverCollectionview = myPageView.mypageReceiverView.collectionView
+    private lazy var senderCollectionview = myPageView.mypageSenderView.collectionView
     
     // MARK: - Life Cycles
     
@@ -27,10 +29,7 @@ final class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getAPI()
         setUI()
-        setHierarchy()
-        setLayout()
         setDelegate()
     }
 }
@@ -43,17 +42,23 @@ extension MyPageViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    func setHierarchy() {
-        
-    }
-    
-    func setLayout() {
-        
-    }
-    
     func setDelegate() {
-        collectionview.delegate = self
-        collectionview.dataSource = self
+        receiverCollectionview.delegate = self
+        receiverCollectionview.dataSource = self
+        senderCollectionview.delegate = self
+        senderCollectionview.dataSource = self
+    }
+}
+
+extension MyPageViewController: MypageDelegate {
+    
+    func editButtonTapped() {
+        let nav = ExperienceGiftViewController()
+        self.navigationController?.pushViewController(nav, animated: true)
+    }
+    
+    func cancelButtonTapped() {
+        print("cancel")
     }
 }
 
@@ -62,31 +67,50 @@ extension MyPageViewController: UICollectionViewDelegate {
 
 extension MyPageViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item == 0 {
-            return CGSize(width: SizeLiterals.Screen.screenWidth * 329 / 375, height: 108)
-        } else {
-            return CGSize(width: SizeLiterals.Screen.screenWidth * 329 / 375, height: 340)
+        switch collectionView {
+        case receiverCollectionview:
+            if indexPath.item == 0 {
+                return CGSize(width: SizeLiterals.Screen.screenWidth * 329 / 375, height: 108)
+            } else {
+                return CGSize(width: SizeLiterals.Screen.screenWidth * 329 / 375, height: 340)
+            }
+        case senderCollectionview:
+            if indexPath.item == 0 {
+                return CGSize(width: SizeLiterals.Screen.screenWidth * 329 / 375, height: 108)
+            } else {
+                return CGSize(width: SizeLiterals.Screen.screenWidth * 329 / 375, height: 378)
+            }
+        default:
+            return CGSize()
         }
     }
 }
 
 extension MyPageViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch collectionView {
+        case receiverCollectionview:
+            let cell = MyPageReceiverCollectionViewCell.dequeueReusableCell(collectionView: receiverCollectionview, indexPath: indexPath)
+            cell.setDataBind(model: receiverDummy[indexPath.item])
+            return cell
+        case senderCollectionview:
+            let cell = MyPageSenderCollectionViewCell.dequeueReusableCell(collectionView: senderCollectionview, indexPath: indexPath)
+            cell.setDataBind(model: senderDummy[indexPath.item])
+            cell.delegate = self
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = MyPageReceiverCollectionViewCell.dequeueReusableCell(collectionView: collectionview, indexPath: indexPath)
-        cell.setDataBind(model: receiverDummy[indexPath.item])
-        return cell
-    }
-}
-
-// MARK: - Network
-
-extension MyPageViewController {
-
-    func getAPI() {
-        
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch collectionView {
+        case receiverCollectionview:
+            return receiverDummy.count
+        case senderCollectionview:
+            return senderDummy.count
+        default:
+            return 0
+        }
     }
 }
