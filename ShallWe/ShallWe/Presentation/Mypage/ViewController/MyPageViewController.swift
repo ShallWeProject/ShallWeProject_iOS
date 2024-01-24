@@ -65,6 +65,7 @@ extension MyPageViewController: MypageDelegate {
     
     func editButtonTapped() {
         let nav = ExperienceGiftViewController()
+        nav.fromMypage = true
         self.navigationController?.pushViewController(nav, animated: true)
     }
     

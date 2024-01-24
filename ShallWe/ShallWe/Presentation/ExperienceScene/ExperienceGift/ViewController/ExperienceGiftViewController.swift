@@ -7,14 +7,15 @@
 
 import UIKit
 
+import SnapKit
 import FSCalendar
 
 final class ExperienceGiftViewController: UIViewController {
     
     // MARK: - Properties
     
+    var fromMypage: Bool = false
     private var currentPage: Date?
-    
     private lazy var today: Date = {
         return Date()
     }()
@@ -50,6 +51,20 @@ final class ExperienceGiftViewController: UIViewController {
 extension ExperienceGiftViewController {
     func setUI() {
         navigationController?.navigationBar.isHidden = true
+        
+        if fromMypage {
+            experienceGiftView.navigationBar.titleText = I18N.ExperienceGift.fromMypageNavigationTitle
+            experienceGiftView.giftButton.setTitle(I18N.ExperienceGift.fromMypageButtonTitle, for: .normal)
+            experienceGiftView.giftButton.setImage(nil, for: .normal)
+            experienceGiftView.giftPriceLabel.isHidden = true
+            experienceGiftView.personTitle.isHidden = true
+            experienceGiftView.personButtonStackView.isHidden = true
+            experienceGiftView.seperatorView2.isHidden = true
+            experienceGiftView.reservationTitle.snp.remakeConstraints {
+                $0.top.equalTo(experienceGiftView.seperatorView.snp.bottom).offset(12)
+                $0.leading.equalToSuperview().inset(16)
+            }
+        }
     }
     
     func setDelegate() {

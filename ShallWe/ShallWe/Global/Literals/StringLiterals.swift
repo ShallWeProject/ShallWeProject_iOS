@@ -109,6 +109,8 @@ enum I18N {
         static let personTitle = "인원 수"
         static let reservationTitle = "예약 일시"
         static let navigationTitle = "경험 선물 페이지"
+        static let fromMypageNavigationTitle = "예약 변경 페이지"
+        static let fromMypageButtonTitle = "변경하기"
     }
     
     enum ExperienceLetter {

@@ -30,7 +30,7 @@ final class ExperienceGiftView: UIView {
     
     // MARK: - UI Components
     
-    private let navigationBar: CustomNavigationBar = {
+    let navigationBar: CustomNavigationBar = {
         let navigationBar = CustomNavigationBar()
         navigationBar.isBackButtonIncluded = true
         navigationBar.isTitleLabelIncluded = true
@@ -96,7 +96,7 @@ final class ExperienceGiftView: UIView {
         return label
     }()
     
-    private let giftPriceLabel: UILabel = {
+    let giftPriceLabel: UILabel = {
         let label = UILabel()
         label.text = "75,000원"
         label.textColor = .main
@@ -104,13 +104,13 @@ final class ExperienceGiftView: UIView {
         return label
     }()
     
-    private let seperatorView: UIView = {
+    let seperatorView: UIView = {
         let view = UIView()
         view.backgroundColor = .bg2
         return view
     }()
     
-    private let personTitle: UILabel = {
+    let personTitle: UILabel = {
         let label = UILabel()
         label.text = I18N.ExperienceGift.personTitle
         label.font = .fontGuide(.B00_14)
@@ -118,7 +118,7 @@ final class ExperienceGiftView: UIView {
         return label
     }()
     
-    private lazy var personButtonStackView: UIStackView = {
+    lazy var personButtonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 14
@@ -149,13 +149,13 @@ final class ExperienceGiftView: UIView {
         return label
     }()
     
-    private let seperatorView2: UIView = {
+    let seperatorView2: UIView = {
         let view = UIView()
         view.backgroundColor = .bg2
         return view
     }()
     
-    private let reservationTitle: UILabel = {
+    let reservationTitle: UILabel = {
         let label = UILabel()
         label.text = I18N.ExperienceGift.reservationTitle
         label.font = .fontGuide(.B00_14)
@@ -216,7 +216,7 @@ final class ExperienceGiftView: UIView {
         return collectionView
     }()
     
-    private lazy var giftButton: UIButton = {
+    lazy var giftButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.Icon.gift, for: .normal)
         button.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 15)
