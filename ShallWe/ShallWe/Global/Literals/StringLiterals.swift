@@ -130,6 +130,7 @@ enum I18N {
         static let cautionText = "주의해 주세요!"
         static let checkWhatInfoisDeletedText = "탈퇴 시 삭제/유지되는 정보를 확인해 주세요.\n한 번 삭제된 정보는 복구가 불가능합니다."
         static let whatMadeYouUncomfortableText = "무엇이 불편하셨나요?"
+        static let selectReasonText = "탈퇴하시는 이유를 선택해주세요."
         static let withdrawText = "회원 탈퇴하기"
         static let thanksText = "그동안 셸위와\n함께해 주셔서 감사합니다."
     }

@@ -72,6 +72,28 @@ final class WithdrawalView: UIView {
         return label
     }()
     
+    private let selectReasonView: UIView = {
+        let view = UIView()
+        view.makeBorder(width: 1.7, color: .gray0)
+        view.layer.cornerRadius = 10
+        return view
+    }()
+    
+    private let selectReasonLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.FAQ.selectReasonText
+        label.textColor = .black0
+        label.font = .fontGuide(.M00_14)
+        return label
+    }()
+    
+    private let arrowDownIcon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = ImageLiterals.Icon.arrow_down
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     let withdrawButton: UIButton = {
         let button = UIButton()
         button.setTitle(I18N.FAQ.withdrawText, for: .normal)
@@ -110,7 +132,8 @@ private extension WithdrawalView {
     func setHierarchy() {
         self.addSubviews(navigationBar, scrollView)
         scrollView.addSubviews(contentView, withdrawButton)
-        contentView.addSubviews(cautionLabel, subIntroLabel, infoDeletedLabel, questionLabel)
+        contentView.addSubviews(cautionLabel, subIntroLabel, infoDeletedLabel, questionLabel, selectReasonView)
+        selectReasonView.addSubviews(selectReasonLabel, arrowDownIcon)
     }
     
     func setLayout() {
@@ -149,6 +172,22 @@ private extension WithdrawalView {
         questionLabel.snp.makeConstraints {
             $0.top.equalTo(infoDeletedLabel.snp.bottom).offset(45)
             $0.leading.equalToSuperview().inset(20)
+        }
+        
+        selectReasonView.snp.makeConstraints {
+            $0.height.equalTo(45)
+            $0.top.equalTo(questionLabel.snp.bottom).offset(13)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+        }
+        
+        selectReasonLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(16)
+        }
+        
+        arrowDownIcon.snp.makeConstraints {
+            $0.centerY.equalToSuperview().inset(1.5)
+            $0.trailing.equalToSuperview().inset(13)
         }
         
         withdrawButton.snp.makeConstraints {
