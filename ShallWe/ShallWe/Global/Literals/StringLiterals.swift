@@ -122,6 +122,13 @@ enum I18N {
         static let infoTitle = "받는 분의 정보를 정확하게 기입 부탁드립니다.\n타인에게 전송될 시, 셸위에게는 책임 소지가 없음을 알려드립니다."
     }
     
+    enum Complete {
+        static let titleLabel = "예약 변경 성공"
+        static let subTitleLabel = "예약 변경이\n정상적으로 완료되었습니다!"
+        static let fromExperienceTitleLabel = "보내드린 문자를 확인하여\n결제를 완료해주세요!"
+        static let fromExperienceSubTitleLabel = "결제가 확인되면\n따뜻한 마음을 담아 초대장을 발송해드려요."
+    }
+    
     enum Mypage {
         static let albumTitle = "추억사진첩"
     }
