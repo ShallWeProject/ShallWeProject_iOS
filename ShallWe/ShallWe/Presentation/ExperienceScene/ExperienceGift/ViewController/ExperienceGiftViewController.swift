@@ -19,6 +19,8 @@ final class ExperienceGiftViewController: UIViewController {
     private lazy var today: Date = {
         return Date()
     }()
+    private var selectedDate: String = ""
+    private var selectedTime: String = ""
     
     // MARK: - UI Components
     
@@ -91,6 +93,9 @@ extension ExperienceGiftViewController: UICollectionViewDelegate {
         if let cell = collectionView.cellForItem(at: indexPath) as? TimeCollectionViewCell {
             cell.timeLabel.backgroundColor = .point
             cell.timeLabel.textColor = .white
+            if let timeText = cell.timeLabel.text {
+                self.selectedTime = timeText
+            }
         }
         
         for otherIndexPath in collectionView.indexPathsForVisibleItems where otherIndexPath != indexPath {
@@ -129,12 +134,23 @@ extension ExperienceGiftViewController: CalendarDelegate {
     }
     
     func giftButtonTapped() {
-        let nav = ExperienceDetailViewController()
-        self.navigationController?.pushViewController(nav, animated: true)
+        if fromMypage {
+            self.makeTwoButtonAlert(title: "", message: "\(self.selectedDate) \(self.selectedTime)로\n예약을 변경하시겠습니까?", leftTitle: "취소", rightTitle: "변경하기")
+        } else {
+            let nav = ExperienceLetterViewController()
+            self.navigationController?.pushViewController(nav, animated: true)
+        }
     }
 }
 
 extension ExperienceGiftViewController: FSCalendarDelegate {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
+        if let selectedMonth = components.month, let selectedDay = components.day {
+            self.selectedDate = "\(selectedMonth)월 \(selectedDay)일"
+        }
+    }
+    
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         experienceGiftView.monthLabel.text = self.dateFormatter.string(from: calendar.currentPage)
     }
