@@ -11,9 +11,6 @@ import SnapKit
 
 final class MyPageReceiverView: UIView {
 
-    // MARK: - Properties
-    
-    
     // MARK: - UI Components
     
     lazy var collectionView: UICollectionView = {
@@ -40,7 +37,6 @@ final class MyPageReceiverView: UIView {
         setUI()
         setHierarchy()
         setLayout()
-        setAddTarget()
         setRegisterCell()
     }
     
@@ -69,20 +65,7 @@ extension MyPageReceiverView {
         }
     }
     
-    func setAddTarget() {
-
-    }
-    
-    @objc
-    func buttonTapped() {
-        
-    }
-    
     func setRegisterCell() {
         MyPageReceiverCollectionViewCell.register(collectionView: collectionView)
-    }
-    
-    func setDataBind() {
-        
     }
 }
