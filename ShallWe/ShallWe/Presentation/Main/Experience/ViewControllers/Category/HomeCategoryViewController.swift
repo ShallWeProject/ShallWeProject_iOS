@@ -1,5 +1,5 @@
 //
-//  HomeExperienceViewController.swift
+//  HomeCategoryViewController.swift
 //  ShallWe
 //
 //  Created by KJ on 1/3/24.
@@ -12,23 +12,24 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class HomeExperienceViewController: BaseViewController {
+final class HomeCategoryViewController: BaseViewController {
     
     // MARK: - UI Components
     
     private let navigationBar = CustomNavigationBar()
-    private let experiencePageView = HomeExperienceView()
+    private let experiencePageView = HomeCategoryView()
     
     // MARK: - Properties
     
     private let viewModel = HomeExperienceViewModel()
     private let disposebag = DisposeBag()
     var index: Int = 0
+    private var sortType: IndexPath = IndexPath(row: 0, section: 0)
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        let vc = HomeExperiencePageVC.experiencePageVC()
+        let vc = ExperiencePageVC.categoryPageVC(viewModel)
         print(index)
             experiencePageView.pageViewController.setViewControllers([vc[index]], direction: .forward, animated: true, completion: nil)
         experiencePageView.menuCollectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
@@ -76,6 +77,18 @@ final class HomeExperienceViewController: BaseViewController {
                 
             })
             .disposed(by: disposebag)
+        
+        viewModel.outputs.presentSortModal
+            .subscribe(onNext: { [weak self] in
+                self?.presentToHalfModal()
+            })
+            .disposed(by: disposebag)
+        
+        viewModel.outputs.sortTypeChange
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.sortType = indexPath
+            })
+            .disposed(by: disposebag)
     }
     
     // MARK: - UI Components Property
@@ -111,12 +124,34 @@ final class HomeExperienceViewController: BaseViewController {
     
     // MARK: - Methods
     
-    override func setDelegate() {
-        
-    }
-    
     override func setRegister() {
         experiencePageView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
     }
 }
+
+extension HomeCategoryViewController {
+    
+    // MARK: - Methods
+    
+    func presentToHalfModal() {
+        let sortVC = SortHalfModal(viewModel: viewModel, index: sortType)
+        sortVC.modalPresentationStyle = .pageSheet
+        let customDetentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
+        let customDetent = UISheetPresentationController.Detent.custom(identifier: customDetentIdentifier) { (_) in
+            return SizeLiterals.Screen.screenHeight * 258 / 812
+        }
+        
+        if let sheet = sortVC.sheetPresentationController {
+            sheet.detents = [customDetent]
+            sheet.preferredCornerRadius = 10
+            sheet.prefersGrabberVisible = true
+            sheet.delegate = self
+            sheet.delegate = sortVC as? any UISheetPresentationControllerDelegate
+        }
+        
+        present(sortVC, animated: true)
+    }
+}
+
+extension HomeCategoryViewController: UISheetPresentationControllerDelegate {}
 

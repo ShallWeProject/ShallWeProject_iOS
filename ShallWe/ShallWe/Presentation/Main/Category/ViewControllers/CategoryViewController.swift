@@ -34,7 +34,7 @@ final class CategoryViewController: BaseViewController {
     private let customerServiceLabel = UILabel()
     private let faqButton = UIButton()
     private let mailButton = UIButton()
-    private let experienceVC = HomeExperienceViewController()
+    private let experienceVC = HomeCategoryViewController()
     
     // MARK: - Properties
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeExperienceView: BaseView {
+final class HomeCategoryView: BaseView {
 
     // MARK: - UI Components
     
@@ -15,11 +15,11 @@ final class HomeExperienceView: BaseView {
     lazy var pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                                navigationOrientation: .horizontal)
     private let menuCollectionFlowLayout = UICollectionViewFlowLayout()
-    var menuVCs: [UIViewController] = HomeExperiencePageVC.experiencePageVC()
+    var menuVCs: [UIViewController] = ExperiencePageVC.categoryPageVC(HomeExperienceViewModel())
     
     // MARK: - UI Components Property
     
-    private let menuTitleModel: [HomeExperienceType] = HomeExperienceType.experienceMenu()
+    private let menuTitleModel: [HomeExperienceType] = HomeExperienceType.categoryMenu()
     var nowIndex: Int = 0 {
         didSet {
             pageBind(oldValue: oldValue, newValue: nowIndex)
@@ -72,7 +72,7 @@ final class HomeExperienceView: BaseView {
     }
 }
 
-extension HomeExperienceView {
+extension HomeCategoryView {
     
     func labelWidthSize(index: Int) -> Int {
         let size = menuTitleModel[index].type.size(
@@ -102,7 +102,7 @@ extension HomeExperienceView {
     }
 }
 
-extension HomeExperienceView: UICollectionViewDelegateFlowLayout {
+extension HomeCategoryView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = SizeLiterals.Screen.screenWidth * CGFloat(labelWidthSize(index: indexPath.row) + 23) / 375
@@ -124,7 +124,7 @@ extension HomeExperienceView: UICollectionViewDelegateFlowLayout {
 }
 
 
-extension HomeExperienceView: UIPageViewControllerDelegate {
+extension HomeCategoryView: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard let currentVC = pageViewController.viewControllers?.first,
               let currentIndex = menuVCs.firstIndex(of: currentVC) else { return }
@@ -133,7 +133,7 @@ extension HomeExperienceView: UIPageViewControllerDelegate {
     }
 }
 
-extension HomeExperienceView: UIPageViewControllerDataSource {
+extension HomeCategoryView: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let index = menuVCs.firstIndex(of: viewController) else { return nil }
         let previousIndex = index - 1
