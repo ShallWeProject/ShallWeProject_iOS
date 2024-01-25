@@ -48,7 +48,7 @@ extension TabBarController {
         
         let categoryVC = UINavigationController(rootViewController: HomeViewController())
         let homeVC = UINavigationController(rootViewController: HomeViewController())
-        let mypageVC = UINavigationController(rootViewController: MypageViewController())
+        let mypageVC = UINavigationController(rootViewController: MyPageViewController())
         
         tabs = [
             categoryVC,

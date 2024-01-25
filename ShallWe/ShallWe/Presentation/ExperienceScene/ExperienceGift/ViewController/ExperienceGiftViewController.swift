@@ -7,17 +7,20 @@
 
 import UIKit
 
+import SnapKit
 import FSCalendar
 
 final class ExperienceGiftViewController: UIViewController {
     
     // MARK: - Properties
     
+    var fromMypage: Bool = false
     private var currentPage: Date?
-    
     private lazy var today: Date = {
         return Date()
     }()
+    private var selectedDate: String = ""
+    private var selectedTime: String = ""
     
     // MARK: - UI Components
     
@@ -50,6 +53,20 @@ final class ExperienceGiftViewController: UIViewController {
 extension ExperienceGiftViewController {
     func setUI() {
         navigationController?.navigationBar.isHidden = true
+        
+        if fromMypage {
+            experienceGiftView.navigationBar.titleText = I18N.ExperienceGift.fromMypageNavigationTitle
+            experienceGiftView.giftButton.setTitle(I18N.ExperienceGift.fromMypageButtonTitle, for: .normal)
+            experienceGiftView.giftButton.setImage(nil, for: .normal)
+            experienceGiftView.giftPriceLabel.isHidden = true
+            experienceGiftView.personTitle.isHidden = true
+            experienceGiftView.personButtonStackView.isHidden = true
+            experienceGiftView.seperatorView2.isHidden = true
+            experienceGiftView.reservationTitle.snp.remakeConstraints {
+                $0.top.equalTo(experienceGiftView.seperatorView.snp.bottom).offset(12)
+                $0.leading.equalToSuperview().inset(16)
+            }
+        }
     }
     
     func setDelegate() {
@@ -76,6 +93,9 @@ extension ExperienceGiftViewController: UICollectionViewDelegate {
         if let cell = collectionView.cellForItem(at: indexPath) as? TimeCollectionViewCell {
             cell.timeLabel.backgroundColor = .point
             cell.timeLabel.textColor = .white
+            if let timeText = cell.timeLabel.text {
+                self.selectedTime = timeText
+            }
         }
         
         for otherIndexPath in collectionView.indexPathsForVisibleItems where otherIndexPath != indexPath {
@@ -114,12 +134,27 @@ extension ExperienceGiftViewController: CalendarDelegate {
     }
     
     func giftButtonTapped() {
-        let nav = ExperienceDetailViewController()
-        self.navigationController?.pushViewController(nav, animated: true)
+        if fromMypage {
+            self.makeTwoButtonAlert(title: "", message: "\(self.selectedDate) \(self.selectedTime)로\n예약을 변경하시겠습니까?", leftTitle: I18N.ExperienceGift.alertLeftTitle, rightTitle: I18N.ExperienceGift.alertRightTitle, rightAction: {
+                let nav = CompleteViewController()
+                nav.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(nav, animated: true)
+            })
+        } else {
+            let nav = ExperienceLetterViewController()
+            self.navigationController?.pushViewController(nav, animated: true)
+        }
     }
 }
 
 extension ExperienceGiftViewController: FSCalendarDelegate {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
+        if let selectedMonth = components.month, let selectedDay = components.day {
+            self.selectedDate = "\(selectedMonth)월 \(selectedDay)일"
+        }
+    }
+    
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         experienceGiftView.monthLabel.text = self.dateFormatter.string(from: calendar.currentPage)
     }

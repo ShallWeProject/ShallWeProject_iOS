@@ -177,10 +177,10 @@ final class ExperienceLetterView: UIView {
         return textview
     }()
     
-    private lazy var giftButton: UIButton = {
+    lazy var giftButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.Icon.gift, for: .normal)
-        button.imageEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 15)
+        button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15)
         button.setTitle(I18N.ExperienceDetail.giftButton, for: .normal)
         button.setTitleColor(.bg0, for: .normal)
         button.titleLabel?.font = .fontGuide(.B00_14)

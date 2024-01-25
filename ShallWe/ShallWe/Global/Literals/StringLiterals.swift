@@ -109,6 +109,10 @@ enum I18N {
         static let personTitle = "인원 수"
         static let reservationTitle = "예약 일시"
         static let navigationTitle = "경험 선물 페이지"
+        static let fromMypageNavigationTitle = "예약 변경 페이지"
+        static let fromMypageButtonTitle = "변경하기"
+        static let alertLeftTitle = "취소"
+        static let alertRightTitle = "변경하기"
     }
     
     enum ExperienceLetter {
@@ -118,5 +122,21 @@ enum I18N {
         static let namePlaceholder = "이름을 입력해주세요."
         static let phoneFirstTitle = "010"
         static let infoTitle = "받는 분의 정보를 정확하게 기입 부탁드립니다.\n타인에게 전송될 시, 셸위에게는 책임 소지가 없음을 알려드립니다."
+    }
+    
+    enum Complete {
+        static let titleLabel = "예약 변경 성공"
+        static let subTitleLabel = "예약 변경이\n정상적으로 완료되었습니다!"
+        static let fromExperienceTitleLabel = "보내드린 문자를 확인하여\n결제를 완료해주세요!"
+        static let fromExperienceSubTitleLabel = "결제가 확인되면\n따뜻한 마음을 담아 초대장을 발송해드려요."
+    }
+    
+    enum Mypage {
+        static let albumTitle = "추억사진첩"
+        static let cancelTitle = "예약을 취소하시겠습니까?"
+        static let cancelMessage = "24시간 내로 작가님께서 환불 절차 관련 문자를 발송하여 주실 예정입니다. 문자로 안내드리는 절차에 따라 환불 절차 진행 부탁드립니다."
+        static let alertLeftTitle = "아니오"
+        static let alertRightTitle = "예약 취소"
+        static let alertCancelTitle = "예약이 취소되었습니다."
     }
 }
