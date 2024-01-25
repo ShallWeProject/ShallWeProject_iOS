@@ -103,23 +103,6 @@ extension UIFont {
     
     static func fontGuide(_ fontLevel: FontLevel) -> UIFont {
         let baseFont = UIFont(name: fontLevel.fontWeight, size: fontLevel.fontSize)!
-        if let lineHeight = fontLevel.lineHeihgt {
-            return baseFont.withLineHeight(lineHeight)
-        } else {
-            return baseFont
-        }
-    }
-    
-    func withLineHeight(_ lineHeight: CGFloat) -> UIFont {
-        let fontDescriptor = self.fontDescriptor.addingAttributes([.featureSettings: [[UIFontDescriptor.FeatureKey.featureIdentifier: kNumberSpacingType,
-                                                                                        UIFontDescriptor.FeatureKey.typeIdentifier: kMonospacedNumbersSelector]]])
-
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.minimumLineHeight = lineHeight
-        paragraphStyle.maximumLineHeight = lineHeight
-
-        let attributes = [NSAttributedString.Key.font: UIFont(descriptor: fontDescriptor, size: pointSize),
-                          NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        return UIFont(descriptor: fontDescriptor, size: pointSize)
+        return baseFont
     }
 }
