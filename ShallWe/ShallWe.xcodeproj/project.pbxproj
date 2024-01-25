@@ -110,10 +110,6 @@
 		03C7A66F2B456A45000F1E39 /* RecentSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A66E2B456A45000F1E39 /* RecentSearchModel.swift */; };
 		03C7A6722B459EEB000F1E39 /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 03C7A6712B459EEB000F1E39 /* RxGesture */; };
 		03C7A6742B45A8E3000F1E39 /* SearchTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A6732B45A8E2000F1E39 /* SearchTextFieldView.swift */; };
-		9515EF642B515FE300C4E1AA /* AgreementToTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF632B515FE300C4E1AA /* AgreementToTermsViewController.swift */; };
-		9515EF662B51600800C4E1AA /* AgreementOfTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF652B51600800C4E1AA /* AgreementOfTermsView.swift */; };
-		9515EF682B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF672B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift */; };
-		9515EF6A2B54264B00C4E1AA /* TermsDetailsPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF692B54264B00C4E1AA /* TermsDetailsPopUpView.swift */; };
 		9515EF6E2B58640700C4E1AA /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF6D2B58640700C4E1AA /* FAQViewController.swift */; };
 		9515EF722B58643F00C4E1AA /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF712B58643F00C4E1AA /* FAQView.swift */; };
 		9515EF772B58783000C4E1AA /* AbhayaLibre-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9515EF762B58783000C4E1AA /* AbhayaLibre-ExtraBold.ttf */; };
@@ -243,10 +239,6 @@
 		03C7A66B2B4567AC000F1E39 /* RecentSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		03C7A66E2B456A45000F1E39 /* RecentSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchModel.swift; sourceTree = "<group>"; };
 		03C7A6732B45A8E2000F1E39 /* SearchTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldView.swift; sourceTree = "<group>"; };
-		9515EF632B515FE300C4E1AA /* AgreementToTermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementToTermsViewController.swift; sourceTree = "<group>"; };
-		9515EF652B51600800C4E1AA /* AgreementOfTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementOfTermsView.swift; sourceTree = "<group>"; };
-		9515EF672B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsDetailsPopUpViewController.swift; sourceTree = "<group>"; };
-		9515EF692B54264B00C4E1AA /* TermsDetailsPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsDetailsPopUpView.swift; sourceTree = "<group>"; };
 		9515EF6D2B58640700C4E1AA /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		9515EF712B58643F00C4E1AA /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		9515EF762B58783000C4E1AA /* AbhayaLibre-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AbhayaLibre-ExtraBold.ttf"; sourceTree = "<group>"; };
