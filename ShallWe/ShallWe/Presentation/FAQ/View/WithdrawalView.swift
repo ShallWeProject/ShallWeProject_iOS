@@ -101,8 +101,14 @@ final class WithdrawalView: UIView {
         button.titleLabel?.font = .fontGuide(.SB00_14)
         button.backgroundColor = .gray2
         button.layer.cornerRadius = 10
+//        button.isEnabled = false
         return button
     }()
+    
+    private var thanksView = UIView()
+    private var shallWeLogo = UIImageView()
+    private var thanksLabel = UILabel()
+    var dialogBarrierView = UIView()
     
     // MARK: - Initializer
     
@@ -121,22 +127,22 @@ final class WithdrawalView: UIView {
 
 // MARK: - Extensions
 
-private extension WithdrawalView {
+extension WithdrawalView {
     
     // MARK: - Methods
     
-    func setUI() {
+    private func setUI() {
         backgroundColor = .white
     }
     
-    func setHierarchy() {
+    private func setHierarchy() {
         self.addSubviews(navigationBar, scrollView)
         scrollView.addSubviews(contentView, withdrawButton)
         contentView.addSubviews(cautionLabel, subIntroLabel, infoDeletedLabel, questionLabel, selectReasonView)
         selectReasonView.addSubviews(selectReasonLabel, arrowDownIcon)
     }
     
-    func setLayout() {
+    private func setLayout() {
         navigationBar.snp.makeConstraints {
             $0.height.equalTo(50)
             $0.top.equalTo(safeAreaLayoutGuide)
@@ -194,6 +200,64 @@ private extension WithdrawalView {
             $0.height.equalTo(43)
             $0.horizontalEdges.equalTo(scrollView.frameLayoutGuide).inset(20)
             $0.bottom.equalTo(scrollView.frameLayoutGuide).inset(36)
+        }
+    }
+    
+    func createDialogView() {
+        thanksView = {
+            let view = UIView()
+            view.backgroundColor = .white
+            view.layer.cornerRadius = 10
+            view.makeShadow(radius: 8, offset: CGSize(width: 0, height: 3), opacity: 0.2)
+            return view
+        }()
+        
+        shallWeLogo = {
+            let imageView = UIImageView()
+            imageView.image = ImageLiterals.FAQ.logo_shallWe_small
+            imageView.contentMode = .scaleAspectFit
+            return imageView
+        }()
+        
+        thanksLabel = {
+            let label = UILabel()
+            label.text = I18N.FAQ.thanksText
+            label.textColor = .black
+            label.font = .fontGuide(.R00_14)
+            label.textAlignment = .center
+            label.numberOfLines = 0
+            return label
+        }()
+        
+        dialogBarrierView = {
+            let view = UIView()
+            view.backgroundColor = .black.withAlphaComponent(0.3)
+            return view
+        }()
+    }
+    
+    func setDialogLayout() {
+        self.addSubview(dialogBarrierView)
+        dialogBarrierView.addSubviews(thanksView)
+        thanksView.addSubviews(shallWeLogo, thanksLabel)
+        
+        dialogBarrierView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        thanksView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
+        shallWeLogo.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(21)
+            $0.centerX.equalToSuperview()
+        }
+        
+        thanksLabel.snp.makeConstraints {
+            $0.top.equalTo(shallWeLogo.snp.bottom).offset(13)
+            $0.horizontalEdges.equalToSuperview().inset(40)
+            $0.bottom.equalToSuperview().inset(25)
         }
     }
 }

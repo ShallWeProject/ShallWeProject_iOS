@@ -78,5 +78,6 @@ enum ImageLiterals {
     
     enum FAQ {
         static var img_faq: UIImage { .load(name: "faq") }
+        static var logo_shallWe_small: UIImage { .load(name: "shallWeLogo_small") }
     }
 }

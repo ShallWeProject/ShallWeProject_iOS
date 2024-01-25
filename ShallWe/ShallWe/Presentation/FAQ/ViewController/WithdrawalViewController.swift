@@ -39,6 +39,23 @@ extension WithdrawalViewController {
     
     func setAddTarget() {
         withdrawalView.navigationBar.backButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
+        withdrawalView.withdrawButton.addTarget(self, action: #selector(withdrawButtonDidTap), for: .touchUpInside)
+    }
+    
+    func showThanksDialog() {
+        withdrawalView.createDialogView()
+        withdrawalView.setDialogLayout()
+        
+        UIView.animate(withDuration: 0.5, delay: 2, options: .curveEaseOut, animations: { self.withdrawalView.dialogBarrierView.alpha = 0.0
+        }, completion: {(isCompleted) in
+            self.withdrawalView.dialogBarrierView.removeFromSuperview()
+            self.goToLoginVC()
+        })
+    }
+    
+    func goToLoginVC() {
+        let loginViewController = LoginViewController()
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVC(loginViewController, animated: false)
     }
     
     // MARK: - Actions
@@ -46,5 +63,10 @@ extension WithdrawalViewController {
     @objc
     func backButtonDidTap() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func withdrawButtonDidTap() {
+        showThanksDialog()
     }
 }
