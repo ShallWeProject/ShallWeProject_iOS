@@ -99,6 +99,7 @@ final class WithdrawalView: UIView {
         tableView.isScrollEnabled = true
         tableView.showsVerticalScrollIndicator = true
         tableView.isHidden = true
+        tableView.alpha = 0
         return tableView
     }()
     
@@ -302,11 +303,16 @@ extension WithdrawalView {
     @objc
     private func selectReasonViewDidTap() {
         reasonTableView.isHidden = !reasonTableView.isHidden
-        if reasonTableView.isHidden {
-            arrowIcon.image = ImageLiterals.Icon.arrow_down
-        } else {
-            arrowIcon.image = ImageLiterals.Icon.arrow_up
-        }
+        
+        UIView.animate(withDuration: 0.3, animations: { [self] in
+            if reasonTableView.isHidden {
+                self.reasonTableView.alpha = 0
+                arrowIcon.image = ImageLiterals.Icon.arrow_down
+            } else {
+                self.reasonTableView.alpha = 1
+                arrowIcon.image = ImageLiterals.Icon.arrow_up
+            }
+        })
     }
 }
 
@@ -330,6 +336,7 @@ extension WithdrawalView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectReasonLabel.text = ReasonForWithdrawal.init(rawValue: indexPath.row)?.getDescription()
         reasonTableView.isHidden = true
+        reasonTableView.alpha = 0
         arrowIcon.image = ImageLiterals.Icon.arrow_down
     }
 }
