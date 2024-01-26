@@ -11,6 +11,10 @@ import SnapKit
 
 final class WithdrawalView: UIView {
 
+    // MARK: - Properties
+    
+    private let STANDARD_DISTANCE = (39 * Double((ReasonForWithdrawal.allCases.count))) + (1.7 * 2)
+    
     // MARK: - UI Components
     
     let navigationBar: CustomNavigationBar = {
@@ -21,17 +25,9 @@ final class WithdrawalView: UIView {
         return navigationBar
     }()
     
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.bounces = false
-        return scrollView
-    }()
-    
     private let contentView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
         return view
     }()
     
@@ -87,11 +83,23 @@ final class WithdrawalView: UIView {
         return label
     }()
     
-    private let arrowDownIcon: UIImageView = {
+    private let arrowIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiterals.Icon.arrow_down
         imageView.contentMode = .scaleAspectFit
         return imageView
+    }()
+    
+    private let reasonTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(ReasonForWithdrawalTableViewCell.self, forCellReuseIdentifier: "ReasonForWithdrawalTableViewCell")
+        tableView.separatorStyle = .none
+        tableView.layer.cornerRadius = 10
+        tableView.makeBorder(width: 1.7, color: .gray0)
+        tableView.isScrollEnabled = true
+        tableView.showsVerticalScrollIndicator = true
+        tableView.isHidden = true
+        return tableView
     }()
     
     let withdrawButton: UIButton = {
@@ -110,7 +118,7 @@ final class WithdrawalView: UIView {
     private var thanksLabel = UILabel()
     var dialogBarrierView = UIView()
     
-    // MARK: - Initializer
+    // MARK: - Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -118,10 +126,17 @@ final class WithdrawalView: UIView {
         setUI()
         setHierarchy()
         setLayout()
+        setDelegate()
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func draw(_ rect: CGRect) {
+        setTableViewHeightConstraint()
+        super.draw(rect)
     }
 }
 
@@ -136,10 +151,9 @@ extension WithdrawalView {
     }
     
     private func setHierarchy() {
-        self.addSubviews(navigationBar, scrollView)
-        scrollView.addSubviews(contentView, withdrawButton)
-        contentView.addSubviews(cautionLabel, subIntroLabel, infoDeletedLabel, questionLabel, selectReasonView)
-        selectReasonView.addSubviews(selectReasonLabel, arrowDownIcon)
+        self.addSubviews(navigationBar, contentView)
+        contentView.addSubviews(cautionLabel, subIntroLabel, infoDeletedLabel, questionLabel, selectReasonView, withdrawButton, reasonTableView)
+        selectReasonView.addSubviews(selectReasonLabel, arrowIcon)
     }
     
     private func setLayout() {
@@ -149,15 +163,10 @@ extension WithdrawalView {
             $0.horizontalEdges.equalToSuperview()
         }
         
-        scrollView.snp.makeConstraints {
-            $0.top.equalTo(navigationBar.snp.bottom)
-            $0.horizontalEdges.equalTo(safeAreaLayoutGuide)
-            $0.bottom.equalToSuperview()
-        }
-        
         contentView.snp.makeConstraints {
-            $0.edges.equalTo(scrollView.contentLayoutGuide)
-            $0.width.equalTo(scrollView.snp.width)
+            $0.top.equalTo(navigationBar.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         
         cautionLabel.snp.makeConstraints {
@@ -191,16 +200,31 @@ extension WithdrawalView {
             $0.leading.equalToSuperview().inset(16)
         }
         
-        arrowDownIcon.snp.makeConstraints {
+        arrowIcon.snp.makeConstraints {
             $0.centerY.equalToSuperview().inset(1.5)
             $0.trailing.equalToSuperview().inset(13)
         }
         
+        reasonTableView.snp.makeConstraints {
+            $0.top.equalTo(selectReasonView.snp.bottom).offset(16)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+        }
+        
         withdrawButton.snp.makeConstraints {
             $0.height.equalTo(43)
-            $0.horizontalEdges.equalTo(scrollView.frameLayoutGuide).inset(20)
-            $0.bottom.equalTo(scrollView.frameLayoutGuide).inset(36)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-36)
         }
+    }
+    
+    private func setDelegate() {
+        reasonTableView.dataSource = self
+        reasonTableView.delegate = self
+    }
+    
+    private func setAddTarget() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectReasonViewDidTap))
+        selectReasonView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     func createDialogView() {
@@ -259,5 +283,53 @@ extension WithdrawalView {
             $0.horizontalEdges.equalToSuperview().inset(40)
             $0.bottom.equalToSuperview().inset(25)
         }
+    }
+    
+    private func setTableViewHeightConstraint() {
+        let distance = withdrawButton.frame.minY - selectReasonView.frame.maxY
+        reasonTableView.snp.makeConstraints {
+            if distance > STANDARD_DISTANCE {
+                $0.height.equalTo(STANDARD_DISTANCE).priority(.required)
+                reasonTableView.bounces = false
+            } else {
+                $0.bottom.equalTo(withdrawButton.snp.top).offset(9)
+            }
+        }
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    private func selectReasonViewDidTap() {
+        reasonTableView.isHidden = !reasonTableView.isHidden
+        if reasonTableView.isHidden {
+            arrowIcon.image = ImageLiterals.Icon.arrow_down
+        } else {
+            arrowIcon.image = ImageLiterals.Icon.arrow_up
+        }
+    }
+}
+
+extension WithdrawalView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ReasonForWithdrawal.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReasonForWithdrawalTableViewCell", for: indexPath) as? ReasonForWithdrawalTableViewCell else { return .init() }
+        cell.configure(index: indexPath.row)
+        return cell
+    }
+}
+
+extension WithdrawalView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 39
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectReasonLabel.text = ReasonForWithdrawal.init(rawValue: indexPath.row)?.getDescription()
+        reasonTableView.isHidden = true
+        arrowIcon.image = ImageLiterals.Icon.arrow_down
     }
 }

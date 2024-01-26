@@ -46,7 +46,7 @@ extension WithdrawalViewController {
         withdrawalView.createDialogView()
         withdrawalView.setDialogLayout()
         
-        UIView.animate(withDuration: 0.5, delay: 2, options: .curveEaseOut, animations: { self.withdrawalView.dialogBarrierView.alpha = 0.0
+        UIView.animate(withDuration: 0.5, delay: 2, options: .curveEaseInOut, animations: { self.withdrawalView.dialogBarrierView.alpha = 0.0
         }, completion: {(isCompleted) in
             self.withdrawalView.dialogBarrierView.removeFromSuperview()
             self.goToLoginVC()

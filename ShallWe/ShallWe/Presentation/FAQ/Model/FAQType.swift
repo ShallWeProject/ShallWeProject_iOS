@@ -92,14 +92,33 @@ enum FAQ_Description: Int, FAQ, CaseIterable {
     }
 }
 
-enum ReasonForWithdrawal: String, CaseIterable {
-    case NOT_USED_OFTEN = "자주 사용하지 않아요."
-    case DUPLICATE_ACCOUNT = "중복 계정이 있어요."
-    case APP_ERROR = "앱 오류가 있어요."
-    case EXPENSIVE = "타사 대비 가격이 비싸요."
-    case FEW_PRODUCT_TYPES = "상품(경험) 종류가 적어요."
-    case INCONVENIENT_TO_USE = "사용성/화면 디자인이 불편해요."
-    case OTHER_REASONS = "기타 사유가 있어요."
+enum ReasonForWithdrawal: Int, CaseIterable {
+    case NOT_USED_OFTEN
+    case DUPLICATE_ACCOUNT
+    case APP_ERROR
+    case EXPENSIVE
+    case FEW_PRODUCT_TYPES
+    case INCONVENIENT_TO_USE
+    case OTHER_REASONS
+    
+    func getDescription() -> String {
+        switch self {
+        case .NOT_USED_OFTEN:
+            return "자주 사용하지 않아요."
+        case .DUPLICATE_ACCOUNT:
+            return "중복 계정이 있어요."
+        case .APP_ERROR:
+            return "앱 오류가 있어요."
+        case .EXPENSIVE:
+            return "타사 대비 가격이 비싸요."
+        case .FEW_PRODUCT_TYPES:
+            return "상품(경험) 종류가 적어요."
+        case .INCONVENIENT_TO_USE:
+            return "사용성/화면 디자인이 불편해요."
+        case .OTHER_REASONS:
+            return "기타 사유가 있어요."
+        }
+    }
 }
 
 enum InfoDeleted: String, CaseIterable {
