@@ -154,4 +154,11 @@ enum I18N {
         static let alertRightTitle = "예약 취소"
         static let alertCancelTitle = "예약이 취소되었습니다."
     }
+    
+    enum MemoryPhotoAlbum {
+        static let memoryText = " 의 추억"
+        static let deleteText = "사진 삭제"
+        static let closeText = "닫기"
+        static let noMemoryText = "셸위와 함께한 추억이 아직 없네요 ..."
+    }
 }

@@ -119,6 +119,8 @@
 		9515EF842B5D2BF500C4E1AA /* WithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF832B5D2BF500C4E1AA /* WithdrawalViewController.swift */; };
 		9515EF862B5D2C2600C4E1AA /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF852B5D2C2600C4E1AA /* WithdrawalView.swift */; };
 		9515EF882B62F39C00C4E1AA /* ReasonForWithdrawalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF872B62F39C00C4E1AA /* ReasonForWithdrawalTableViewCell.swift */; };
+		9515EF8A2B65285D00C4E1AA /* MemoryPhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF892B65285D00C4E1AA /* MemoryPhotoAlbumViewController.swift */; };
+		9515EF8C2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF8B2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
@@ -258,6 +260,8 @@
 		9515EF832B5D2BF500C4E1AA /* WithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalViewController.swift; sourceTree = "<group>"; };
 		9515EF852B5D2C2600C4E1AA /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
 		9515EF872B62F39C00C4E1AA /* ReasonForWithdrawalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForWithdrawalTableViewCell.swift; sourceTree = "<group>"; };
+		9515EF892B65285D00C4E1AA /* MemoryPhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryPhotoAlbumViewController.swift; sourceTree = "<group>"; };
+		9515EF8B2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryPhotoAlbumView.swift; sourceTree = "<group>"; };
 		954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		95748DCD2B25FAB4004157E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -899,6 +903,7 @@
 			isa = PBXGroup;
 			children = (
 				A423E8662B5FB02A00B8C125 /* MyPageViewController.swift */,
+				9515EF892B65285D00C4E1AA /* MemoryPhotoAlbumViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -909,6 +914,7 @@
 				A423E8642B5FB01F00B8C125 /* MyPageView.swift */,
 				A423E8732B5FF33700B8C125 /* MyPageReceiverView.swift */,
 				A423E86F2B5FF32100B8C125 /* MyPageSenderView.swift */,
+				9515EF8B2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1253,6 +1259,7 @@
 				9515EF642B515FE300C4E1AA /* AgreementToTermsViewController.swift in Sources */,
 				03C7A6612B453FD3000F1E39 /* SearchViewController.swift in Sources */,
 				A423E8802B616B7F00B8C125 /* CompleteViewController.swift in Sources */,
+				9515EF8A2B65285D00C4E1AA /* MemoryPhotoAlbumViewController.swift in Sources */,
 				A423E8792B611A0F00B8C125 /* MyPageSenderCollectionViewCell.swift in Sources */,
 				032213962B1B6D9200FF5CF1 /* HomeRecommendCell.swift in Sources */,
 				032213862B1B2A8D00FF5CF1 /* BaseViewController.swift in Sources */,
@@ -1272,6 +1279,7 @@
 				032212E12B14B01F00FF5CF1 /* DTO.swift in Sources */,
 				954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */,
 				032213192B14B30A00FF5CF1 /* Config.swift in Sources */,
+				9515EF8C2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift in Sources */,
 				0322131B2B14B31E00FF5CF1 /* APIConstant.swift in Sources */,
 				032213282B14B89700FF5CF1 /* ColorLiterals.swift in Sources */,
 				034580992B37EEA1002DDEBA /* ExperienceHeader.swift in Sources */,

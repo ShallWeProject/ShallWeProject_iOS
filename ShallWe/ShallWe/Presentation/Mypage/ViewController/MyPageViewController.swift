@@ -57,7 +57,9 @@ extension MyPageViewController {
     
     @objc
     func albumTapped() {
-        print("albumTapped")
+        let memoryPhotoAlbumViewController = MemoryPhotoAlbumViewController()
+        memoryPhotoAlbumViewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(memoryPhotoAlbumViewController, animated: true)
     }
 }
 
