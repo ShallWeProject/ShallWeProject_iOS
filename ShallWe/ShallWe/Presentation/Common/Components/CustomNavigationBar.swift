@@ -15,15 +15,21 @@ class CustomNavigationBar: BaseView {
     // MARK: - UI Components
 
     private lazy var logoView = UIImageView()
+    private lazy var faqView = UIImageView()
     lazy var backButton = UIButton()
     lazy var closeButton = UIButton()
     private lazy var titleLabel = UILabel()
-    
+
     // MARK: - Properties
     
     var isLogoViewIncluded: Bool {
         get { !logoView.isHidden }
         set { logoView.isHidden = !newValue }
+    }
+    
+    var isFAQViewIncluded: Bool {
+        get { !faqView.isHidden }
+        set { faqView.isHidden = !newValue }
     }
     
     var isBackButtonIncluded: Bool {
@@ -52,6 +58,11 @@ class CustomNavigationBar: BaseView {
             $0.isHidden = true
         }
         
+        faqView.do {
+            $0.image = ImageLiterals.FAQ.img_faq
+            $0.isHidden = true
+        }
+        
         backButton.do {
             $0.setImage(ImageLiterals.Icon.arrow_left, for: .normal)
             $0.isHidden = true
@@ -67,9 +78,13 @@ class CustomNavigationBar: BaseView {
     // MARK: - Layout Helper
     
     override func setLayout() {
-        self.addSubviews(logoView, backButton, titleLabel)
+        self.addSubviews(logoView, faqView, backButton, titleLabel)
         
         logoView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
+        faqView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
         
