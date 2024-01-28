@@ -122,6 +122,8 @@
 		9515EF8A2B65285D00C4E1AA /* MemoryPhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF892B65285D00C4E1AA /* MemoryPhotoAlbumViewController.swift */; };
 		9515EF8C2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF8B2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift */; };
 		9515EF8E2B65BEF500C4E1AA /* MemoryPhotoAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF8D2B65BEF500C4E1AA /* MemoryPhotoAlbumCollectionViewCell.swift */; };
+		9515EF922B6677F300C4E1AA /* PhotoDetailPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF912B6677F300C4E1AA /* PhotoDetailPopUpViewController.swift */; };
+		9515EF942B66780D00C4E1AA /* PhotoDetailPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF932B66780D00C4E1AA /* PhotoDetailPopUpView.swift */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
@@ -264,6 +266,8 @@
 		9515EF892B65285D00C4E1AA /* MemoryPhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryPhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		9515EF8B2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryPhotoAlbumView.swift; sourceTree = "<group>"; };
 		9515EF8D2B65BEF500C4E1AA /* MemoryPhotoAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryPhotoAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		9515EF912B6677F300C4E1AA /* PhotoDetailPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailPopUpViewController.swift; sourceTree = "<group>"; };
+		9515EF932B66780D00C4E1AA /* PhotoDetailPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailPopUpView.swift; sourceTree = "<group>"; };
 		954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		95748DCD2B25FAB4004157E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -906,6 +910,7 @@
 			children = (
 				A423E8662B5FB02A00B8C125 /* MyPageViewController.swift */,
 				9515EF892B65285D00C4E1AA /* MemoryPhotoAlbumViewController.swift */,
+				9515EF912B6677F300C4E1AA /* PhotoDetailPopUpViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -917,6 +922,7 @@
 				A423E8732B5FF33700B8C125 /* MyPageReceiverView.swift */,
 				A423E86F2B5FF32100B8C125 /* MyPageSenderView.swift */,
 				9515EF8B2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift */,
+				9515EF932B66780D00C4E1AA /* PhotoDetailPopUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1251,6 +1257,7 @@
 				95748DDA2B2D9DC6004157E0 /* AuthCompletionView.swift in Sources */,
 				03C7A6642B45617E000F1E39 /* SearchResultView.swift in Sources */,
 				03C7A6742B45A8E3000F1E39 /* SearchTextFieldView.swift in Sources */,
+				9515EF942B66780D00C4E1AA /* PhotoDetailPopUpView.swift in Sources */,
 				A423E8702B5FF32100B8C125 /* MyPageSenderView.swift in Sources */,
 				0322132C2B14B9F500FF5CF1 /* ImageLiterals.swift in Sources */,
 				034580722B28A3A6002DDEBA /* ExperiencePageVC.swift in Sources */,
@@ -1284,6 +1291,7 @@
 				032213192B14B30A00FF5CF1 /* Config.swift in Sources */,
 				9515EF8C2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift in Sources */,
 				0322131B2B14B31E00FF5CF1 /* APIConstant.swift in Sources */,
+				9515EF922B6677F300C4E1AA /* PhotoDetailPopUpViewController.swift in Sources */,
 				032213282B14B89700FF5CF1 /* ColorLiterals.swift in Sources */,
 				034580992B37EEA1002DDEBA /* ExperienceHeader.swift in Sources */,
 				032213092B14B24F00FF5CF1 /* UITextView+.swift in Sources */,

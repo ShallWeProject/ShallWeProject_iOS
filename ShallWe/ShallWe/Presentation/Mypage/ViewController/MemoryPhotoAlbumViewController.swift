@@ -72,6 +72,8 @@ extension MemoryPhotoAlbumViewController: UICollectionViewDelegate {
             // TODO: 앨범으로 이동
         } else {
             // TODO: 사진 상세보기 (data[index-1])
+            let photoDetailPopUpViewController = PhotoDetailPopUpViewController(image: UIImage(named: "memory_ex")!)
+            present(photoDetailPopUpViewController, animated: false, completion: nil)
         }
     }
 }
