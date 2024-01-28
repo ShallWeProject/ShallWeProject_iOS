@@ -102,12 +102,12 @@ final class MemoryPhotoAlbumView: UIView {
         return label
     }()
     
-    lazy var collectionView: UICollectionView = {
+    lazy var collectionView: DynamicHeightCollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumLineSpacing = 18
         flowLayout.minimumInteritemSpacing = 18
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        let collectionView = DynamicHeightCollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .white
         collectionView.isScrollEnabled = false
         return collectionView
@@ -209,7 +209,6 @@ private extension MemoryPhotoAlbumView {
         }
         
         collectionView.snp.makeConstraints {
-            $0.height.equalTo(1000)
             $0.top.equalTo(experienceNameView.snp.bottom).offset(12)
             $0.horizontalEdges.equalToSuperview().inset(24)
             $0.bottom.equalToSuperview().inset(15)
@@ -218,5 +217,16 @@ private extension MemoryPhotoAlbumView {
     
     func registerCell() {
         MemoryPhotoAlbumCollectionViewCell.register(collectionView: collectionView)
+    }
+}
+
+final class DynamicHeightCollectionView: UICollectionView {
+    override func layoutSubviews() {
+        self.invalidateIntrinsicContentSize()
+        super.layoutSubviews()
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return contentSize
     }
 }

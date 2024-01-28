@@ -66,6 +66,9 @@ extension MemoryPhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension MemoryPhotoAlbumViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("\(indexPath.item)")
+    }
 }
 
 extension MemoryPhotoAlbumViewController: UICollectionViewDataSource {
