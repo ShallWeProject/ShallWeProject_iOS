@@ -121,6 +121,7 @@
 		9515EF882B62F39C00C4E1AA /* ReasonForWithdrawalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF872B62F39C00C4E1AA /* ReasonForWithdrawalTableViewCell.swift */; };
 		9515EF8A2B65285D00C4E1AA /* MemoryPhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF892B65285D00C4E1AA /* MemoryPhotoAlbumViewController.swift */; };
 		9515EF8C2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF8B2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift */; };
+		9515EF8E2B65BEF500C4E1AA /* MemoryPhotoAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF8D2B65BEF500C4E1AA /* MemoryPhotoAlbumCollectionViewCell.swift */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
@@ -262,6 +263,7 @@
 		9515EF872B62F39C00C4E1AA /* ReasonForWithdrawalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonForWithdrawalTableViewCell.swift; sourceTree = "<group>"; };
 		9515EF892B65285D00C4E1AA /* MemoryPhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryPhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		9515EF8B2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryPhotoAlbumView.swift; sourceTree = "<group>"; };
+		9515EF8D2B65BEF500C4E1AA /* MemoryPhotoAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryPhotoAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		95748DCD2B25FAB4004157E0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -933,6 +935,7 @@
 			children = (
 				A423E8762B5FF90C00B8C125 /* MyPageReceiverCollectionViewCell.swift */,
 				A423E8782B611A0F00B8C125 /* MyPageSenderCollectionViewCell.swift */,
+				9515EF8D2B65BEF500C4E1AA /* MemoryPhotoAlbumCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1285,6 +1288,7 @@
 				034580992B37EEA1002DDEBA /* ExperienceHeader.swift in Sources */,
 				032213092B14B24F00FF5CF1 /* UITextView+.swift in Sources */,
 				032212E72B14B07C00FF5CF1 /* GeneralResponse.swift in Sources */,
+				9515EF8E2B65BEF500C4E1AA /* MemoryPhotoAlbumCollectionViewCell.swift in Sources */,
 				032213032B14B22500FF5CF1 /* UIImage+.swift in Sources */,
 				032212FF2B14B20D00FF5CF1 /* UIResponder+.swift in Sources */,
 				0345807C2B28ACF6002DDEBA /* HomeExperienceListView.swift in Sources */,

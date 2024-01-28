@@ -64,6 +64,12 @@ final class MemoryPhotoAlbumView: UIView {
         return view
     }()
     
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
+    
     private let contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -96,14 +102,14 @@ final class MemoryPhotoAlbumView: UIView {
         return label
     }()
     
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        return scrollView
-    }()
-    
-    private let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumLineSpacing = 18
+        flowLayout.minimumInteritemSpacing = 18
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = .white
+        collectionView.isScrollEnabled = false
         return collectionView
     }()
     
@@ -115,6 +121,7 @@ final class MemoryPhotoAlbumView: UIView {
         setUI()
         setHierarchy()
         setLayout()
+        registerCell()
     }
     
     required init?(coder: NSCoder) {
@@ -124,22 +131,23 @@ final class MemoryPhotoAlbumView: UIView {
 
 // MARK: - Extensions
 
-extension MemoryPhotoAlbumView {
+private extension MemoryPhotoAlbumView {
     
     // MARK: - Methods
     
-    private func setUI() {
+    func setUI() {
         backgroundColor = .white
     }
     
-    private func setHierarchy() {
-        self.addSubviews(navigationBar, dateHeader, divider, contentView)
+    func setHierarchy() {
+        self.addSubviews(navigationBar, dateHeader, divider, scrollView)
         dateHeader.addSubviews(dateLabel, leftButton, rightButton)
+        scrollView.addSubviews(contentView)
         contentView.addSubviews(experienceNameView, collectionView)
         experienceNameView.addSubviews(experienceCategory, experienceTitle)
     }
     
-    private func setLayout() {
+    func setLayout() {
         navigationBar.snp.makeConstraints {
             $0.height.equalTo(50)
             $0.top.equalTo(safeAreaLayoutGuide)
@@ -157,15 +165,13 @@ extension MemoryPhotoAlbumView {
         }
         
         leftButton.snp.makeConstraints {
-            $0.width.equalTo(30)
-            $0.height.equalTo(30)
+            $0.size.equalTo(30)
             $0.leading.equalToSuperview().inset(64)
             $0.centerY.equalToSuperview()
         }
         
         rightButton.snp.makeConstraints {
-            $0.width.equalTo(30)
-            $0.height.equalTo(30)
+            $0.size.equalTo(30)
             $0.trailing.equalToSuperview().inset(64)
             $0.centerY.equalToSuperview()
         }
@@ -176,10 +182,14 @@ extension MemoryPhotoAlbumView {
             $0.horizontalEdges.equalToSuperview().inset(8)
         }
         
-        contentView.snp.makeConstraints {
+        scrollView.snp.makeConstraints {
             $0.top.equalTo(divider.snp.bottom)
-            $0.horizontalEdges.equalToSuperview()
-            $0.bottom.equalToSuperview()
+            $0.horizontalEdges.bottom.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints {
+            $0.width.equalTo(scrollView.frameLayoutGuide)
+            $0.edges.equalTo(scrollView.contentLayoutGuide)
         }
         
         experienceNameView.snp.makeConstraints {
@@ -197,5 +207,16 @@ extension MemoryPhotoAlbumView {
             $0.horizontalEdges.equalToSuperview().inset(30)
             $0.bottom.equalToSuperview().inset(12)
         }
+        
+        collectionView.snp.makeConstraints {
+            $0.height.equalTo(1000)
+            $0.top.equalTo(experienceNameView.snp.bottom).offset(12)
+            $0.horizontalEdges.equalToSuperview().inset(24)
+            $0.bottom.equalToSuperview().inset(15)
+        }
+    }
+    
+    func registerCell() {
+        MemoryPhotoAlbumCollectionViewCell.register(collectionView: collectionView)
     }
 }
