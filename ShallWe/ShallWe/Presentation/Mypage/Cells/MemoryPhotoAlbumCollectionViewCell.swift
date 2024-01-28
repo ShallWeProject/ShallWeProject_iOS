@@ -16,8 +16,14 @@ final class MemoryPhotoAlbumCollectionViewCell: UICollectionViewCell, UICollecti
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .gray0
         return imageView
+    }()
+    
+    private let addButton: UIButton = {
+        let button = UIButton()
+        button.setImage(ImageLiterals.Icon.plus_circle, for: .normal)
+        button.backgroundColor = .gray0
+        return button
     }()
     
     // MARK: - Life Cycles
@@ -26,8 +32,6 @@ final class MemoryPhotoAlbumCollectionViewCell: UICollectionViewCell, UICollecti
         super.init(frame: frame)
     
         setUI()
-        setHierarchy()
-        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -40,21 +44,31 @@ final class MemoryPhotoAlbumCollectionViewCell: UICollectionViewCell, UICollecti
 extension MemoryPhotoAlbumCollectionViewCell {
     
     func setUI() {
+        self.backgroundColor = .gray0
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
     }
     
-    func setHierarchy() {
+    func setImageViewLayout() {
         self.addSubviews(imageView)
-    }
-    
-    func setLayout() {
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
     
+    func setAddButtonLayout() {
+        self.addSubviews(addButton)
+        addButton.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+    
     func configure(index: Int) {
-        imageView.image = UIImage(named: "memory_ex")
+        if index == 0 {
+            setAddButtonLayout()
+        } else {
+            setImageViewLayout()
+            imageView.image = UIImage(named: "memory_ex")
+        }
     }
 }

@@ -68,12 +68,18 @@ extension MemoryPhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
 extension MemoryPhotoAlbumViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.item)")
+        if indexPath.item == 0 {
+            // TODO: 앨범으로 이동
+        } else {
+            // TODO: 사진 상세보기 (data[index-1])
+        }
     }
 }
 
 extension MemoryPhotoAlbumViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        /// data.count + 1
+        return 7
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
