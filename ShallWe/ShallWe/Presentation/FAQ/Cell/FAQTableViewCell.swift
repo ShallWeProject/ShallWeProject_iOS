@@ -9,11 +9,16 @@ import UIKit
 
 import SnapKit
 
+protocol FAQDelegate: AnyObject {
+    func changeReservationTextDidTap()
+    func accountSettingsTextDidTap()
+}
+
 final class FAQTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
-    private var faqVC: UIViewController? = nil
+    weak var delegate: FAQDelegate?
     private var flowType: FlowType? = nil
     
     // MARK: - UI Components
@@ -137,7 +142,7 @@ extension FAQTableViewCell {
     
     // MARK: - Methods
     
-    func configure(index: Int, faqVC: UIViewController) {
+    func configure(index: Int) {
         let description = FAQ_Description.init(rawValue: index)
         questionLabel.text = description!.question
         guard let flowType = description?.flowType else {
@@ -145,7 +150,6 @@ extension FAQTableViewCell {
             layoutIfNeeded()
             return
         }
-        self.faqVC = faqVC
         self.flowType = flowType
         setTappableAttributedString(text: description!.answer, flowType: flowType)
         layoutIfNeeded()
@@ -169,11 +173,10 @@ extension FAQTableViewCell: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         switch flowType {
         case .accountSettings:
-            let accountSettingsViewController = AccountSettingsViewController()
-            faqVC?.navigationController?.pushViewController(accountSettingsViewController, animated: true)
+            delegate?.accountSettingsTextDidTap()
             break
         case .changeReservation:
-            // TODO: 예약변경 VC로 이동
+            delegate?.changeReservationTextDidTap()
             break
         case .none:
             break
