@@ -11,7 +11,8 @@ final class MemoryPhotoAlbumViewController: UIViewController {
 
     // MARK: - UI Components
     
-    private let memoryPhotoAlbumView = MemoryPhotoAlbumView()
+    private lazy var memoryPhotoAlbumView = MemoryPhotoAlbumView()
+    private lazy var emptyView = MemoryPhotoAlbumEmptyView()
     private lazy var collectionView = memoryPhotoAlbumView.collectionView
     
     // MARK: - Life Cycles
