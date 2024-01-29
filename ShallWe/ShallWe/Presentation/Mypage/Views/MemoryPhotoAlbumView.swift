@@ -88,7 +88,7 @@ final class MemoryPhotoAlbumView: UIView {
         let label = UILabel()
         label.text = "[인천] 인기 이색체험"
         label.textColor = .black0
-        label.font = .fontGuide(.SB00_14)
+        label.font = .fontGuide(.SB00_12)
         label.numberOfLines = 0
         return label
     }()
@@ -97,7 +97,7 @@ final class MemoryPhotoAlbumView: UIView {
         let label = UILabel()
         label.text = "Y2K 감성 제대로 느끼고 싶을 땐, 추억의 캔모아"
         label.textColor = .black
-        label.font = .fontGuide(.M00_14)
+        label.font = .fontGuide(.SB00_14)
         label.numberOfLines = 0
         return label
     }()

@@ -14,7 +14,9 @@ final class PhotoDetailPopUpView: UIView {
     // MARK: - Properties
     
     private var image: UIImage
-    private let IMAGE_WIDTH = SizeLiterals.Screen.screenWidth - (28*2 + 8*2)
+    private static let IMAGE_WIDTH = SizeLiterals.Screen.screenWidth - (28*2 + 8*2)
+    private static let IMAGE_MAX_HEIGHT = SizeLiterals.Screen.screenHeight * (474/768)
+    private let IMAGE_MAX_RATIO = IMAGE_MAX_HEIGHT / IMAGE_WIDTH
     
     // MARK: - UI Components
     
@@ -68,8 +70,7 @@ final class PhotoDetailPopUpView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        // TODO: container 높이 제약 필요. 이미지 원본 비율이 너무 수직으로 길면 container height 최댓값에 맞춰서 width 조정(좌우여백 발생)
-        imageView.image = image.resize(newWidth: IMAGE_WIDTH)
+        resizeImage()
         
         super.draw(rect)
     }
@@ -97,7 +98,7 @@ private extension PhotoDetailPopUpView {
         }
         
         imageView.snp.makeConstraints {
-            $0.width.equalTo(IMAGE_WIDTH)
+            $0.width.equalTo(PhotoDetailPopUpView.IMAGE_WIDTH)
             $0.top.horizontalEdges.equalToSuperview().inset(8)
         }
         
@@ -110,6 +111,15 @@ private extension PhotoDetailPopUpView {
         deleteButton.snp.makeConstraints {
             $0.centerY.equalTo(closeButton)
             $0.trailing.equalTo(closeButton.snp.leading).offset(-8)
+        }
+    }
+    
+    func resizeImage() {
+        let originalRatio = image.size.height / image.size.width
+        if originalRatio > IMAGE_MAX_RATIO {
+            imageView.image = image.resize(newHeight: PhotoDetailPopUpView.IMAGE_MAX_HEIGHT)
+        } else {
+            imageView.image = image.resize(newWidth: PhotoDetailPopUpView.IMAGE_WIDTH)
         }
     }
 }
