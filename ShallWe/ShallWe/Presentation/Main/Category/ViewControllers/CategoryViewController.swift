@@ -34,7 +34,6 @@ final class CategoryViewController: BaseViewController {
     private let customerServiceLabel = UILabel()
     private let faqButton = UIButton()
     private let mailButton = UIButton()
-    private let experienceVC = CategoryListViewController(index: IndexPath(item: 0, section: 0))
     
     // MARK: - Properties
     
@@ -271,6 +270,8 @@ extension CategoryViewController {
     }
     
     private func pushToCategoryListVC(index: IndexPath) {
+        let experienceVC = CategoryListViewController(index: index)
+        experienceVC.categoryView.experienceType = .category
         experienceVC.categoryIndex = index
         self.navigationController?.pushViewController(experienceVC, animated: true)
     }

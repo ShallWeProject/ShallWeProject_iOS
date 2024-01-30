@@ -16,7 +16,7 @@ final class CategoryListViewController: BaseViewController {
     
     // MARK: - UI Components
     
-    private let examView = HomeExperienceView()
+    let categoryView = HomeExperienceView()
     private let homeExperienceListView = HomeExperienceListView()
     
     // MARK: - Properties
@@ -38,26 +38,27 @@ final class CategoryListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-        examView.menuCollectionView.selectItem(at: IndexPath(item: categoryIndex.item, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+        print(categoryIndex)
+        categoryView.menuCollectionView.selectItem(at: IndexPath(item: categoryIndex.item, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     override func bindViewModel() {
     
-        examView.navigationBar.backButton.rx.tap
+        categoryView.navigationBar.backButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
         
         viewModel.outputs.categoryMenu
-            .bind(to: examView.menuCollectionView.rx
+            .bind(to: categoryView.menuCollectionView.rx
                 .items(cellIdentifier: HomeMenuCollectionViewCell.className,
                        cellType: HomeMenuCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model)
             }
                        .disposed(by: disposeBag)
         
-        examView.menuCollectionView.rx.itemSelected
+        categoryView.menuCollectionView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 viewModel.inputs.menuCellTap(at: indexPath)
@@ -69,9 +70,9 @@ final class CategoryListViewController: BaseViewController {
         viewModel.outputs.isSelectedMenuCell
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                if let cell = examView.menuCollectionView.cellForItem(at: indexPath) as? HomeMenuCollectionViewCell {
+                if let cell = categoryView.menuCollectionView.cellForItem(at: indexPath) as? HomeMenuCollectionViewCell {
                     cell.isSelected = true
-                    cell.setUnderLineWidth(size: examView.labelWidthSize(index: indexPath.row))
+                    cell.setUnderLineWidth(size: categoryView.labelWidthSize(index: indexPath.row))
                 }
             })
             .disposed(by: disposeBag)
@@ -109,16 +110,16 @@ final class CategoryListViewController: BaseViewController {
     
     override func setLayout() {
         
-        self.view.addSubviews(examView, homeExperienceListView)
+        self.view.addSubviews(categoryView, homeExperienceListView)
         
-        examView.snp.makeConstraints {
+        categoryView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(100)
         }
         
         homeExperienceListView.snp.makeConstraints {
-            $0.top.equalTo(examView.snp.bottom)
+            $0.top.equalTo(categoryView.snp.bottom)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
@@ -126,7 +127,7 @@ final class CategoryListViewController: BaseViewController {
     // MARK: - Methods
     
     override func setRegister() {
-        examView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
+        categoryView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
         self.homeExperienceListView.sortButtonDelegate = self
     }
     

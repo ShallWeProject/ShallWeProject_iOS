@@ -91,7 +91,7 @@
 		034580992B37EEA1002DDEBA /* ExperienceHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580982B37EEA1002DDEBA /* ExperienceHeader.swift */; };
 		035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */; };
 		037EAB2D2B6651D500024F22 /* RecommendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */; };
-		037EAB2F2B6651E300024F22 /* ExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2E2B6651E300024F22 /* ExamView.swift */; };
+		037EAB2F2B6651E300024F22 /* HomeExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2E2B6651E300024F22 /* HomeExperienceView.swift */; };
 		03A6A5E02B7507A6007B24E4 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A6A5DF2B7507A6007B24E4 /* CategoryListViewController.swift */; };
 		03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */; };
 		03C7A6612B453FD3000F1E39 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A6602B453FD3000F1E39 /* SearchViewController.swift */; };
@@ -218,7 +218,7 @@
 		034580982B37EEA1002DDEBA /* ExperienceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceHeader.swift; sourceTree = "<group>"; };
 		035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListViewController.swift; sourceTree = "<group>"; };
-		037EAB2E2B6651E300024F22 /* ExamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamView.swift; sourceTree = "<group>"; };
+		037EAB2E2B6651E300024F22 /* HomeExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceView.swift; sourceTree = "<group>"; };
 		03A6A5DF2B7507A6007B24E4 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceType.swift; sourceTree = "<group>"; };
 		03C7A6602B453FD3000F1E39 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -333,7 +333,7 @@
 		03115F922B271CF4009D1517 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				037EAB2E2B6651E300024F22 /* ExamView.swift */,
+				037EAB2E2B6651E300024F22 /* HomeExperienceView.swift */,
 				0345807B2B28ACF6002DDEBA /* HomeExperienceListView.swift */,
 				034580982B37EEA1002DDEBA /* ExperienceHeader.swift */,
 			);
@@ -1105,7 +1105,7 @@
 				95748DDC2B35810C004157E0 /* ProfileEntryViewController.swift in Sources */,
 				A42C325F2B26C6D400C4B477 /* ExplainTableViewCell.swift in Sources */,
 				A423E87E2B616B7600B8C125 /* CompleteView.swift in Sources */,
-				037EAB2F2B6651E300024F22 /* ExamView.swift in Sources */,
+				037EAB2F2B6651E300024F22 /* HomeExperienceView.swift in Sources */,
 				032213B32B20839100FF5CF1 /* GalleryFooterView.swift in Sources */,
 				032213172B14B2F800FF5CF1 /* NetworkLoggerPlugin.swift in Sources */,
 				A423E8652B5FB01F00B8C125 /* MyPageView.swift in Sources */,

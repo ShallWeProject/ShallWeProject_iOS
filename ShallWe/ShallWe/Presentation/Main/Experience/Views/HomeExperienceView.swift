@@ -10,6 +10,11 @@ import UIKit
 import Then
 import SnapKit
 
+enum ExperienceType {
+    case recommend
+    case category
+}
+
 final class HomeExperienceView: BaseView {
     
     // MARK: - UI Components
@@ -21,7 +26,10 @@ final class HomeExperienceView: BaseView {
     
     // MARK: - UI Components Property
     
+    private let recommendTitleModel: [HomeExperienceType] = HomeExperienceType.recommendMenu()
+    private let categoryTitleModel: [HomeExperienceType] = HomeExperienceType.categoryMenu()
     private let menuTitleModel: [HomeExperienceType] = HomeExperienceType.recommendMenu()
+    var experienceType: ExperienceType?
     
     // MARK: - UI Components Property
     
@@ -86,8 +94,16 @@ final class HomeExperienceView: BaseView {
 extension HomeExperienceView {
     
     func labelWidthSize(index: Int) -> Int {
-        let size = menuTitleModel[index].type.size(
-            withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .regular)]).width
+        guard let type = experienceType else { return 0 }
+        var size = 0
+        switch type {
+        case .recommend:
+            size = Int(recommendTitleModel[index].type.size(
+                withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .regular)]).width)
+        case .category:
+            size = Int(categoryTitleModel[index].type.size(
+                withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .regular)]).width)
+        }
         return Int(size)
     }
     

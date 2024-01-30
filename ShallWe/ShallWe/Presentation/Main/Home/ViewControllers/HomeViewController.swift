@@ -52,6 +52,7 @@ final class HomeViewController: BaseViewController {
                 guard let self = self else { return }
                 // 상황별 추천 경험
                 recommendVC.recommendIndex = indexPath
+                recommendVC.recommendView.experienceType = .recommend
                 self.hidesBottomBarWhenPushed = false
                 self.navigationController?.pushViewController(recommendVC, animated: true)
             })
