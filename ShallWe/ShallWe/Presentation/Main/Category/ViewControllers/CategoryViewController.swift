@@ -60,28 +60,28 @@ final class CategoryViewController: BaseViewController {
         bakingButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.pushToCategoryListVC(index: IndexPath(item: 0, section: 1))
+                self.pushToCategoryListVC(index: IndexPath(item: 1, section: 0))
             })
             .disposed(by: disposeBag)
         
         cultureButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.pushToCategoryListVC(index: IndexPath(item: 0, section: 2))
+                self.pushToCategoryListVC(index: IndexPath(item: 2, section: 0))
             })
             .disposed(by: disposeBag)
         
         outdoorButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.pushToCategoryListVC(index: IndexPath(item: 0, section: 3))
+                self.pushToCategoryListVC(index: IndexPath(item: 3, section: 0))
             })
             .disposed(by: disposeBag)
         
         sportButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.pushToCategoryListVC(index: IndexPath(item: 0, section: 4))
+                self.pushToCategoryListVC(index: IndexPath(item: 4, section: 0))
             })
             .disposed(by: disposeBag)
     }

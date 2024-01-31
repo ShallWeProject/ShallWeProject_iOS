@@ -38,8 +38,8 @@ final class CategoryListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-        print(categoryIndex)
-        categoryView.menuCollectionView.selectItem(at: IndexPath(item: categoryIndex.item, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+        print(categoryIndex.item)
+        categoryView.menuCollectionView.selectItem(at: IndexPath(item: categoryIndex.row, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     override func bindViewModel() {
