@@ -14,8 +14,10 @@ final class ExamView: BaseView {
     
     // MARK: - UI Components
     
-    lazy var menuCollectionVieww = UICollectionView(frame: .zero, collectionViewLayout: menuCollectionFlowLayout)
+    let navigationBar = CustomNavigationBar()
+    lazy var menuCollectionView = UICollectionView(frame: .zero, collectionViewLayout: menuCollectionFlowLayout)
     private let menuCollectionFlowLayout = UICollectionViewFlowLayout()
+    private let underLine = UIView()
     
     // MARK: - UI Components Property
     
@@ -27,7 +29,12 @@ final class ExamView: BaseView {
         
         self.backgroundColor = .clear
         
-        menuCollectionVieww.do {
+        navigationBar.do {
+            $0.isBackButtonIncluded = true
+            $0.isLogoViewIncluded = true
+        }
+        
+        menuCollectionView.do {
             $0.isScrollEnabled = false
             $0.showsHorizontalScrollIndicator = false
             $0.backgroundColor = .clear
@@ -38,25 +45,41 @@ final class ExamView: BaseView {
             $0.minimumLineSpacing = 0
             $0.minimumInteritemSpacing = 0
         }
+        
+        underLine.do {
+            $0.backgroundColor = .gray0
+        }
     }
     
     // MARK: - Layout Helper
     
     override func setLayout() {
 
-        self.addSubviews(menuCollectionVieww)
+        self.addSubviews(navigationBar, menuCollectionView, underLine)
         
-        menuCollectionVieww.snp.makeConstraints {
-            $0.top.equalToSuperview()
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(safeAreaLayoutGuide)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(50)
+        }
+        
+        menuCollectionView.snp.makeConstraints {
+            $0.top.equalTo(navigationBar.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 42 / 812)
+        }
+        
+        underLine.snp.makeConstraints {
+            $0.top.equalTo(menuCollectionView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(1)
         }
     }
     
     // MARK: - Methods
     
     override func setDelegate() {
-        
+        menuCollectionView.delegate = self
     }
 }
 
@@ -74,12 +97,11 @@ extension ExamView {
     }
 }
 
-extension ExamView {
+extension ExamView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = SizeLiterals.Screen.screenWidth * CGFloat(labelWidthSize(index: indexPath.row) + 23) / 375
         let height = SizeLiterals.Screen.screenHeight <= 800 ? CGFloat(34) : CGFloat(42)
-        print("-=--")
         return CGSize(width: width, height: height)
     }
     

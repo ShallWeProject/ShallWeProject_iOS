@@ -30,7 +30,7 @@ final class ExamViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-        examView.menuCollectionVieww.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+        examView.menuCollectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     override func bindViewModel() {
@@ -42,14 +42,14 @@ final class ExamViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         viewModel.outputs.recommendMenu
-            .bind(to: examView.menuCollectionVieww.rx
+            .bind(to: examView.menuCollectionView.rx
                 .items(cellIdentifier: HomeMenuCollectionViewCell.className,
                        cellType: HomeMenuCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model)
             }
                        .disposed(by: disposeBag)
         
-        examView.menuCollectionVieww.rx.itemSelected
+        examView.menuCollectionView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 viewModel.inputs.menuCellTap(at: indexPath)
@@ -59,7 +59,7 @@ final class ExamViewController: BaseViewController {
         viewModel.outputs.isSelectedMenuCell
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                if let cell = examView.menuCollectionVieww.cellForItem(at: indexPath) as? HomeMenuCollectionViewCell {
+                if let cell = examView.menuCollectionView.cellForItem(at: indexPath) as? HomeMenuCollectionViewCell {
                     cell.isSelected = true
                     cell.setUnderLineWidth(size: examView.labelWidthSize(index: indexPath.row))
                 }
@@ -109,7 +109,7 @@ final class ExamViewController: BaseViewController {
     // MARK: - Methods
     
     override func setRegister() {
-        examView.menuCollectionVieww.registerCell(HomeMenuCollectionViewCell.self)
+        examView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
 //        examView.sortButtonDelegate = self
     }
     
