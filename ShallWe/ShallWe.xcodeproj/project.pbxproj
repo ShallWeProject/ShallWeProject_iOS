@@ -816,62 +816,62 @@
 		9515EF6C2B5863F300C4E1AA /* FAQ */ = {
 			isa = PBXGroup;
 			children = (
-				9515EF782B58935F00C4E1AA /* Model */,
-				9515EF732B58752E00C4E1AA /* Cell */,
-				9515EF702B58642B00C4E1AA /* View */,
-				9515EF6F2B58641A00C4E1AA /* ViewController */,
+				9515EF782B58935F00C4E1AA /* Models */,
+				9515EF732B58752E00C4E1AA /* Cells */,
+				9515EF702B58642B00C4E1AA /* Views */,
+				9515EF6F2B58641A00C4E1AA /* ViewControllers */,
 			);
 			path = FAQ;
 			sourceTree = "<group>";
 		};
-		9515EF6F2B58641A00C4E1AA /* ViewController */ = {
+		9515EF6F2B58641A00C4E1AA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				9515EF6D2B58640700C4E1AA /* FAQViewController.swift */,
 				9515EF7F2B5C63C100C4E1AA /* AccountSettingsViewController.swift */,
 				9515EF832B5D2BF500C4E1AA /* WithdrawalViewController.swift */,
 			);
-			path = ViewController;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		9515EF702B58642B00C4E1AA /* View */ = {
+		9515EF702B58642B00C4E1AA /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				9515EF712B58643F00C4E1AA /* FAQView.swift */,
 				9515EF812B5C648500C4E1AA /* AccountSettingsView.swift */,
 				9515EF852B5D2C2600C4E1AA /* WithdrawalView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		9515EF732B58752E00C4E1AA /* Cell */ = {
+		9515EF732B58752E00C4E1AA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				9515EF7D2B59A14900C4E1AA /* FAQTableViewCell.swift */,
 				9515EF872B62F39C00C4E1AA /* ReasonForWithdrawalTableViewCell.swift */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
-		9515EF782B58935F00C4E1AA /* Model */ = {
+		9515EF782B58935F00C4E1AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				9515EF7B2B5894B300C4E1AA /* FAQType.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		954E45B42B1E5C2800D12242 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				95748DE32B35A952004157E0 /* Model */,
-				95748DCC2B25FA88004157E0 /* ViewController */,
-				954E45B92B20AE6800D12242 /* View */,
+				95748DE32B35A952004157E0 /* Models */,
+				95748DCC2B25FA88004157E0 /* ViewControllers */,
+				954E45B92B20AE6800D12242 /* Views */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		954E45B92B20AE6800D12242 /* View */ = {
+		954E45B92B20AE6800D12242 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */,
@@ -882,10 +882,10 @@
 				9515EF652B51600800C4E1AA /* AgreementOfTermsView.swift */,
 				9515EF692B54264B00C4E1AA /* TermsDetailsPopUpView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		95748DCC2B25FA88004157E0 /* ViewController */ = {
+		95748DCC2B25FA88004157E0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				95748DCF2B25FABF004157E0 /* PhoneNumberVerificationViewController.swift */,
@@ -896,15 +896,15 @@
 				9515EF632B515FE300C4E1AA /* AgreementToTermsViewController.swift */,
 				9515EF672B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift */,
 			);
-			path = ViewController;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		95748DE32B35A952004157E0 /* Model */ = {
+		95748DE32B35A952004157E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				95748DE42B35A95F004157E0 /* GenderType.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A423E8622B5FAFC900B8C125 /* ViewController */ = {
