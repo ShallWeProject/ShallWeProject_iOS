@@ -16,8 +16,8 @@ final class ExamViewController: BaseViewController {
     
     // MARK: - UI Components
     
-    private let navigationBar = CustomNavigationBar()
     private let examView = ExamView()
+    private let homeExperienceListView = HomeExperienceListView()
     
     // MARK: - Properties
     
@@ -25,6 +25,8 @@ final class ExamViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     var index: Int = 0
     private var sortType: IndexPath = IndexPath(row: 0, section: 0)
+    private var isDropDownActivated: Bool = false
+    var presentSortModal: (() -> Void)?
     
     // MARK: - Initializer
     
@@ -34,8 +36,8 @@ final class ExamViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-        
-        navigationBar.backButton.rx.tap
+    
+        examView.navigationBar.backButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             })
@@ -53,6 +55,7 @@ final class ExamViewController: BaseViewController {
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 viewModel.inputs.menuCellTap(at: indexPath)
+                homeExperienceListView.indexPath = IndexPath(item: 0, section: 0)
             })
             .disposed(by: disposeBag)
         
@@ -71,7 +74,6 @@ final class ExamViewController: BaseViewController {
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 print("??")
-                
             })
             .disposed(by: disposeBag)
         
@@ -84,6 +86,7 @@ final class ExamViewController: BaseViewController {
         viewModel.outputs.sortTypeChange
             .subscribe(onNext: { [weak self] indexPath in
                 self?.sortType = indexPath
+                self?.homeExperienceListView.indexPath = indexPath
             })
             .disposed(by: disposeBag)
     }
@@ -99,10 +102,17 @@ final class ExamViewController: BaseViewController {
     
     override func setLayout() {
         
-        self.view.addSubviews(examView)
+        self.view.addSubviews(examView, homeExperienceListView)
         
         examView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(100)
+        }
+        
+        homeExperienceListView.snp.makeConstraints {
+            $0.top.equalTo(examView.snp.bottom)
+            $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
     
@@ -110,32 +120,34 @@ final class ExamViewController: BaseViewController {
     
     override func setRegister() {
         examView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
-//        examView.sortButtonDelegate = self
+        self.homeExperienceListView.sortButtonDelegate = self
     }
     
     func presentToHalfModal() {
         let sortVC = SortHalfModal(viewModel: viewModel, index: sortType)
         sortVC.modalPresentationStyle = .pageSheet
-//        let customDetentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
-//        let customDetent = UISheetPresentationController.Detent.custom(identifier: customDetentIdentifier) { (_) in
-//            return SizeLiterals.Screen.screenHeight * 258 / 812
-//        }
-//        
-//        if let sheet = sortVC.sheetPresentationController {
-//            sheet.detents = [customDetent]
-//            sheet.preferredCornerRadius = 10
-//            sheet.prefersGrabberVisible = true
-//            sheet.delegate = self
-//            sheet.delegate = sortVC as? any UISheetPresentationControllerDelegate
-//        }
+        let customDetentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
+        let customDetent = UISheetPresentationController.Detent.custom(identifier: customDetentIdentifier) { (_) in
+            return SizeLiterals.Screen.screenHeight * 258 / 812
+        }
+        
+        if let sheet = sortVC.sheetPresentationController {
+            sheet.detents = [customDetent]
+            sheet.preferredCornerRadius = 10
+            sheet.prefersGrabberVisible = true
+            sheet.delegate = self
+            sheet.delegate = sortVC as? any UISheetPresentationControllerDelegate
+        }
         
         present(sortVC, animated: true)
     }
 }
 
-//extension ExamViewController: SortButtonTapProtocol {
+extension ExamViewController: SortButtonTapProtocol {
     
-//    func presentToSortModal() {
-//        viewModel.inputs.sortButtonTap()
-//    }
-//}
+    func presentToSortModal() {
+        viewModel.inputs.sortButtonTap()
+    }
+}
+
+extension ExamViewController: UISheetPresentationControllerDelegate {}
