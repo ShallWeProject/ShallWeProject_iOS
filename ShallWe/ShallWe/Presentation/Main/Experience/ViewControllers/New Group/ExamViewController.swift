@@ -55,7 +55,8 @@ final class ExamViewController: BaseViewController {
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 viewModel.inputs.menuCellTap(at: indexPath)
-                homeExperienceListView.indexPath = IndexPath(item: 0, section: 0)
+                homeExperienceListView.indexPath = IndexPath(item: 0, section: 0) // 정렬 버튼 초기화
+                // 셀 탭했을 시
             })
             .disposed(by: disposeBag)
         
