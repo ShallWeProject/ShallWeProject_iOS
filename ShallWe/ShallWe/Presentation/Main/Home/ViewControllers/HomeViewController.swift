@@ -27,7 +27,7 @@ final class HomeViewController: BaseViewController {
     private let popularCategoryModel: [PopularCategoryModel] = PopularCategoryModel.popularCategoryTitleData()
     private var galleryModel: [GalleryModel] = GalleryModel.galleryDummydata()
     private var experienceModel: [HomeExperienceModel] = HomeExperienceModel.homeExperienceDummyData()
-    private let recommendVC = HomeRecommendViewController()
+    private let recommendVC = ExamViewController(index: IndexPath(item: 0, section: 0))
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
@@ -50,9 +50,9 @@ final class HomeViewController: BaseViewController {
         viewModel.outputs.selectedRecommendCellIndex
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                print("aaaaa", indexPath)
-                let index = indexPath.row
-                recommendVC.index = index
+                // 상황별 추천 경험
+                recommendVC.recommendIndex = indexPath
+                self.hidesBottomBarWhenPushed = false
                 self.navigationController?.pushViewController(recommendVC, animated: true)
             })
             .disposed(by: disposeBag)

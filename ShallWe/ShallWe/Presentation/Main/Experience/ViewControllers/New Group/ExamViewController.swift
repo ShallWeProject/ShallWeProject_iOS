@@ -23,16 +23,22 @@ final class ExamViewController: BaseViewController {
     
     private let viewModel = HomeExperienceViewModel()
     private let disposeBag = DisposeBag()
-    var index: Int = 0
+    var recommendIndex: IndexPath
     private var sortType: IndexPath = IndexPath(row: 0, section: 0)
     private var isDropDownActivated: Bool = false
     var presentSortModal: (() -> Void)?
     
     // MARK: - Initializer
     
+    init(index: IndexPath) {
+        self.recommendIndex = index
+        self.viewModel.inputs.menuCellTap(at: recommendIndex)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-        examView.menuCollectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+        examView.menuCollectionView.selectItem(at: IndexPath(item: recommendIndex.item, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     override func bindViewModel() {
@@ -141,6 +147,10 @@ final class ExamViewController: BaseViewController {
         }
         
         present(sortVC, animated: true)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
