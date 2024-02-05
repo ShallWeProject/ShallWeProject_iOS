@@ -27,7 +27,7 @@ final class HomeViewController: BaseViewController {
     private let popularCategoryModel: [PopularCategoryModel] = PopularCategoryModel.popularCategoryTitleData()
     private var galleryModel: [GalleryModel] = GalleryModel.galleryDummydata()
     private var experienceModel: [HomeExperienceModel] = HomeExperienceModel.homeExperienceDummyData()
-    private let recommendVC = ExamViewController(index: IndexPath(item: 0, section: 0))
+    private let recommendVC = RecommendListViewController(index: IndexPath(item: 0, section: 0))
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true

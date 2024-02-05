@@ -12,11 +12,11 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class ExamViewController: BaseViewController {
+final class RecommendListViewController: BaseViewController {
     
     // MARK: - UI Components
     
-    private let examView = ExamView()
+    private let examView = HomeExperienceView()
     private let homeExperienceListView = HomeExperienceListView()
     
     // MARK: - Properties
@@ -154,11 +154,11 @@ final class ExamViewController: BaseViewController {
     }
 }
 
-extension ExamViewController: SortButtonTapProtocol {
+extension RecommendListViewController: SortButtonTapProtocol {
     
     func presentToSortModal() {
         viewModel.inputs.sortButtonTap()
     }
 }
 
-extension ExamViewController: UISheetPresentationControllerDelegate {}
+extension RecommendListViewController: UISheetPresentationControllerDelegate {}

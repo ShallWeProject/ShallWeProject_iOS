@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-final class ExamView: BaseView {
+final class HomeExperienceView: BaseView {
     
     // MARK: - UI Components
     
@@ -83,7 +83,7 @@ final class ExamView: BaseView {
     }
 }
 
-extension ExamView {
+extension HomeExperienceView {
     
     func labelWidthSize(index: Int) -> Int {
         let size = menuTitleModel[index].type.size(
@@ -97,7 +97,7 @@ extension ExamView {
     }
 }
 
-extension ExamView: UICollectionViewDelegateFlowLayout {
+extension HomeExperienceView: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = SizeLiterals.Screen.screenWidth * CGFloat(labelWidthSize(index: indexPath.row) + 23) / 375
