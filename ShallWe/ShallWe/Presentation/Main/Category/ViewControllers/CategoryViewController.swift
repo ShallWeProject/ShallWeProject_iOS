@@ -34,7 +34,7 @@ final class CategoryViewController: BaseViewController {
     private let customerServiceLabel = UILabel()
     private let faqButton = UIButton()
     private let mailButton = UIButton()
-    private let experienceVC = HomeCategoryViewController()
+//    private let experienceVC = HomeCategoryViewController()
     
     // MARK: - Properties
     
@@ -49,51 +49,51 @@ final class CategoryViewController: BaseViewController {
         setTapScreen()
     }
     
-    override func bindViewModel() {
-        
-        craftButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                experienceVC.index = 0
-                guard let vc = self.presentingViewController else { return }
-//                self.dismiss(animated: false) {
-                    vc.navigationController?.pushViewController(self.experienceVC, animated: true)
-//                    }
-            })
-            .disposed(by: disposeBag)
-        
-        bakingButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                experienceVC.index = 1
-                self.navigationController?.pushViewController(experienceVC, animated: true)
-            })
-            .disposed(by: disposeBag)
-        
-        cultureButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                experienceVC.index = 2
-                self.navigationController?.pushViewController(experienceVC, animated: true)
-            })
-            .disposed(by: disposeBag)
-        
-        outdoorButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                experienceVC.index = 3
-                self.navigationController?.pushViewController(experienceVC, animated: true)
-            })
-            .disposed(by: disposeBag)
-        
-        sportButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                experienceVC.index = 4
-                self.navigationController?.pushViewController(experienceVC, animated: true)
-            })
-            .disposed(by: disposeBag)
-    }
+//    override func bindViewModel() {
+//        
+//        craftButton.rx.tap
+//            .subscribe(onNext: { [weak self] in
+//                guard let self = self else { return }
+//                experienceVC.index = 0
+//                guard let vc = self.presentingViewController else { return }
+////                self.dismiss(animated: false) {
+//                    vc.navigationController?.pushViewController(self.experienceVC, animated: true)
+////                    }
+//            })
+//            .disposed(by: disposeBag)
+//        
+//        bakingButton.rx.tap
+//            .subscribe(onNext: { [weak self] in
+//                guard let self = self else { return }
+//                experienceVC.index = 1
+//                self.navigationController?.pushViewController(experienceVC, animated: true)
+//            })
+//            .disposed(by: disposeBag)
+//        
+//        cultureButton.rx.tap
+//            .subscribe(onNext: { [weak self] in
+//                guard let self = self else { return }
+//                experienceVC.index = 2
+//                self.navigationController?.pushViewController(experienceVC, animated: true)
+//            })
+//            .disposed(by: disposeBag)
+//        
+//        outdoorButton.rx.tap
+//            .subscribe(onNext: { [weak self] in
+//                guard let self = self else { return }
+//                experienceVC.index = 3
+//                self.navigationController?.pushViewController(experienceVC, animated: true)
+//            })
+//            .disposed(by: disposeBag)
+//        
+//        sportButton.rx.tap
+//            .subscribe(onNext: { [weak self] in
+//                guard let self = self else { return }
+//                experienceVC.index = 4
+//                self.navigationController?.pushViewController(experienceVC, animated: true)
+//            })
+//            .disposed(by: disposeBag)
+//    }
     
     // MARK: - UI Components Property
     
