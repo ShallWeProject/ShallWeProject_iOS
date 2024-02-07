@@ -92,6 +92,7 @@
 		035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */; };
 		037EAB2D2B6651D500024F22 /* RecommendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */; };
 		037EAB2F2B6651E300024F22 /* ExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2E2B6651E300024F22 /* ExamView.swift */; };
+		03A6A5E02B7507A6007B24E4 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A6A5DF2B7507A6007B24E4 /* CategoryListViewController.swift */; };
 		03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */; };
 		03C7A6612B453FD3000F1E39 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A6602B453FD3000F1E39 /* SearchViewController.swift */; };
 		03C7A6642B45617E000F1E39 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C7A6632B45617E000F1E39 /* SearchResultView.swift */; };
@@ -218,6 +219,7 @@
 		035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListViewController.swift; sourceTree = "<group>"; };
 		037EAB2E2B6651E300024F22 /* ExamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamView.swift; sourceTree = "<group>"; };
+		03A6A5DF2B7507A6007B24E4 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		03AD68AE2B286EEB00ED54E1 /* HomeExperienceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceType.swift; sourceTree = "<group>"; };
 		03C7A6602B453FD3000F1E39 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		03C7A6632B45617E000F1E39 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
@@ -700,6 +702,7 @@
 		035A9F0E2B448023007B3F50 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				03A6A5DF2B7507A6007B24E4 /* CategoryListViewController.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1162,6 +1165,7 @@
 				037EAB2D2B6651D500024F22 /* RecommendListViewController.swift in Sources */,
 				9515EF642B515FE300C4E1AA /* AgreementToTermsViewController.swift in Sources */,
 				03C7A6612B453FD3000F1E39 /* SearchViewController.swift in Sources */,
+				03A6A5E02B7507A6007B24E4 /* CategoryListViewController.swift in Sources */,
 				A423E8802B616B7F00B8C125 /* CompleteViewController.swift in Sources */,
 				A423E8792B611A0F00B8C125 /* MyPageSenderCollectionViewCell.swift in Sources */,
 				032213962B1B6D9200FF5CF1 /* HomeRecommendCell.swift in Sources */,
