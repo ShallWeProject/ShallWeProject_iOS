@@ -1,8 +1,8 @@
 //
-//  HomeCategoryViewController.swift
+//  CategoryListViewController.swift
 //  ShallWe
 //
-//  Created by KJ on 1/3/24.
+//  Created by KJ on 2/8/24.
 //
 
 import UIKit
@@ -12,83 +12,91 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class HomeCategoryViewController: BaseViewController {
+final class CategoryListViewController: BaseViewController {
     
     // MARK: - UI Components
     
-    private let navigationBar = CustomNavigationBar()
-    private let experiencePageView = HomeCategoryView()
+    let categoryView = HomeExperienceView()
+    private let homeExperienceListView = HomeExperienceListView()
     
     // MARK: - Properties
     
     private let viewModel = HomeExperienceViewModel()
-    private let disposebag = DisposeBag()
-    var index: Int = 0
+    private let disposeBag = DisposeBag()
+    var categoryIndex: IndexPath
     private var sortType: IndexPath = IndexPath(row: 0, section: 0)
+    private var isDropDownActivated: Bool = false
+    var presentSortModal: (() -> Void)?
+    
+    // MARK: - Initializer
+    
+    init(index: IndexPath) {
+        self.categoryIndex = index
+        self.viewModel.inputs.menuCellTap(at: categoryIndex)
+        super.init(nibName: nil, bundle: nil)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        let vc = ExperiencePageVC.categoryPageVC(viewModel)
-        print(index)
-            experiencePageView.pageViewController.setViewControllers([vc[index]], direction: .forward, animated: true, completion: nil)
-        experiencePageView.menuCollectionView.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
+        print(categoryIndex.item)
+        categoryView.menuCollectionView.selectItem(at: IndexPath(item: categoryIndex.row, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     override func bindViewModel() {
-        
-        navigationBar.backButton.rx.tap
+    
+        categoryView.navigationBar.backButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             })
-            .disposed(by: disposebag)
+            .disposed(by: disposeBag)
         
         viewModel.outputs.categoryMenu
-            .bind(to: experiencePageView.menuCollectionView.rx
+            .bind(to: categoryView.menuCollectionView.rx
                 .items(cellIdentifier: HomeMenuCollectionViewCell.className,
                        cellType: HomeMenuCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model)
             }
-                       .disposed(by: disposebag)
+                       .disposed(by: disposeBag)
         
-        experiencePageView.menuCollectionView.rx.itemSelected
+        categoryView.menuCollectionView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 viewModel.inputs.menuCellTap(at: indexPath)
+                homeExperienceListView.indexPath = IndexPath(item: 0, section: 0) // 정렬 버튼 초기화
+                // 셀 탭했을 시
             })
-            .disposed(by: disposebag)
+            .disposed(by: disposeBag)
         
         viewModel.outputs.isSelectedMenuCell
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                if let cell = experiencePageView.menuCollectionView.cellForItem(at: indexPath) as? HomeMenuCollectionViewCell {
+                if let cell = categoryView.menuCollectionView.cellForItem(at: indexPath) as? HomeMenuCollectionViewCell {
                     cell.isSelected = true
-                    cell.setUnderLineWidth(size: experiencePageView.labelWidthSize(index: indexPath.row))
+                    cell.setUnderLineWidth(size: categoryView.labelWidthSize(index: indexPath.row))
                 }
-                experiencePageView.didTapCell(at: indexPath)
             })
-            .disposed(by: disposebag)
+            .disposed(by: disposeBag)
         
         viewModel.outputs.setMenuCell
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                experiencePageView.menuCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
-                
+                print("??")
             })
-            .disposed(by: disposebag)
+            .disposed(by: disposeBag)
         
         viewModel.outputs.presentSortModal
             .subscribe(onNext: { [weak self] in
                 self?.presentToHalfModal()
             })
-            .disposed(by: disposebag)
+            .disposed(by: disposeBag)
         
         viewModel.outputs.sortTypeChange
             .subscribe(onNext: { [weak self] indexPath in
                 self?.sortType = indexPath
+                self?.homeExperienceListView.indexPath = indexPath
             })
-            .disposed(by: disposebag)
+            .disposed(by: disposeBag)
     }
     
     // MARK: - UI Components Property
@@ -96,42 +104,32 @@ final class HomeCategoryViewController: BaseViewController {
     override func setStyle() {
         
         self.view.backgroundColor = .white
-        
-        navigationBar.do {
-            $0.isBackButtonIncluded = true
-            $0.isLogoViewIncluded = true
-        }
     }
     
     // MARK: - Layout Helper
     
     override func setLayout() {
         
-        self.view.addSubviews(navigationBar, experiencePageView)
+        self.view.addSubviews(categoryView, homeExperienceListView)
         
-        navigationBar.snp.makeConstraints {
+        categoryView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+            $0.height.equalTo(100)
         }
         
-        experiencePageView.snp.makeConstraints {
-            $0.top.equalTo(navigationBar.snp.bottom)
-            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.bottom.equalToSuperview()
+        homeExperienceListView.snp.makeConstraints {
+            $0.top.equalTo(categoryView.snp.bottom)
+            $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
     
     // MARK: - Methods
     
     override func setRegister() {
-        experiencePageView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
+        categoryView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
+        self.homeExperienceListView.sortButtonDelegate = self
     }
-}
-
-extension HomeCategoryViewController {
-    
-    // MARK: - Methods
     
     func presentToHalfModal() {
         let sortVC = SortHalfModal(viewModel: viewModel, index: sortType)
@@ -151,7 +149,17 @@ extension HomeCategoryViewController {
         
         present(sortVC, animated: true)
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
-extension HomeCategoryViewController: UISheetPresentationControllerDelegate {}
+extension CategoryListViewController: SortButtonTapProtocol {
+    
+    func presentToSortModal() {
+        viewModel.inputs.sortButtonTap()
+    }
+}
 
+extension CategoryListViewController: UISheetPresentationControllerDelegate {}

@@ -18,17 +18,17 @@ final class SortHalfModalCell: UITableViewCell {
     
     // MARK: - Properties
     
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                titleLabel.font = .fontGuide(.B00_14)
-                titleLabel.textColor = .black0
-            } else {
-                titleLabel.font = .fontGuide(.M00_14)
-                titleLabel.textColor = .gray3
-            }
-        }
-    }
+//    override var isSelected: Bool {
+//        didSet {
+//            if isSelected {
+//                titleLabel.font = .fontGuide(.B00_14)
+//                titleLabel.textColor = .black0
+//            } else {
+//                titleLabel.font = .fontGuide(.M00_14)
+//                titleLabel.textColor = .gray3
+//            }
+//        }
+//    }
     
     // MARK: - Initializer
 
@@ -53,8 +53,7 @@ extension SortHalfModalCell {
         contentView.backgroundColor = .clear
         
         titleLabel.do {
-            $0.text = "흠흠흠"
-            $0.textColor = .gray3
+            $0.textColor = .black0
             $0.font = .fontGuide(.M00_14)
         }
     }
