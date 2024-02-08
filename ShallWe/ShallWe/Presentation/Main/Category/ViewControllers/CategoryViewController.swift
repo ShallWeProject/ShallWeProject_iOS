@@ -46,6 +46,7 @@ final class CategoryViewController: BaseViewController {
         setLayout()
         bindViewModel()
         setTapScreen()
+        setAddTarget()
     }
     
     override func bindViewModel() {
@@ -269,6 +270,13 @@ extension CategoryViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
+    private func setAddTarget() {
+        let buttons = [faqButton]
+        for button in buttons {
+            button.addTarget(self, action: #selector(categoryButtonDidTap), for: .touchUpInside)
+        }
+    }
+    
     private func pushToCategoryListVC(index: IndexPath) {
         let experienceVC = CategoryListViewController(index: index)
         experienceVC.categoryView.experienceType = .category
@@ -289,6 +297,17 @@ extension CategoryViewController {
                 tabBarController.selectedIndex = 1
             }
             dismissToCategory()
+        }
+    }
+    
+    @objc
+    private func categoryButtonDidTap(_ sender: UIButton) {
+        switch sender {
+        case faqButton:
+            let faqVC = FAQViewController()
+            self.navigationController?.pushViewController(faqVC, animated: true)
+        default:
+            return
         }
     }
 }

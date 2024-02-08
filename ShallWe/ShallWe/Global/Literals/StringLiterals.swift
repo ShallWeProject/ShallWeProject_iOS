@@ -124,6 +124,21 @@ enum I18N {
         static let infoTitle = "받는 분의 정보를 정확하게 기입 부탁드립니다.\n타인에게 전송될 시, 셸위에게는 책임 소지가 없음을 알려드립니다."
     }
     
+    enum FAQ {
+        static let Q = "Q."
+        static let A = "A."
+        static let accountManagementText = "계정 관리"
+        static let logoutText = "로그아웃"
+        static let withdrawalText = "회원 탈퇴"
+        static let logoutAlertText = "현재 계정에서\n로그아웃 하시겠습니까?"
+        static let cautionText = "주의해 주세요!"
+        static let checkWhatInfoisDeletedText = "탈퇴 시 삭제/유지되는 정보를 확인해 주세요.\n한 번 삭제된 정보는 복구가 불가능합니다."
+        static let whatMadeYouUncomfortableText = "무엇이 불편하셨나요?"
+        static let selectReasonText = "탈퇴하시는 이유를 선택해주세요."
+        static let withdrawText = "회원 탈퇴하기"
+        static let thanksText = "그동안 셸위와\n함께해 주셔서 감사합니다."
+    }
+  
     enum Complete {
         static let titleLabel = "예약 변경 성공"
         static let subTitleLabel = "예약 변경이\n정상적으로 완료되었습니다!"
@@ -138,5 +153,12 @@ enum I18N {
         static let alertLeftTitle = "아니오"
         static let alertRightTitle = "예약 취소"
         static let alertCancelTitle = "예약이 취소되었습니다."
+    }
+    
+    enum MemoryPhotoAlbum {
+        static let memoryText = " 의 추억"
+        static let deleteText = "사진 삭제"
+        static let closeText = "닫기"
+        static let noMemoryText = "셸위와 함께한 추억이 아직 없네요 ..."
     }
 }

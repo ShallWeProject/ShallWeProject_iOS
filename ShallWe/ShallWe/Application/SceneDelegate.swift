@@ -25,7 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func changeRootVC(_ vc: UIViewController, animated: Bool) {
         guard let window = self.window else { return }
-        window.rootViewController = vc
+        let rootVC = UINavigationController(rootViewController: vc)
+        window.rootViewController = rootVC
         UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil, completion: nil)
       }
 
