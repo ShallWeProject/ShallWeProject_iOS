@@ -11,10 +11,6 @@ import SnapKit
 
 final class FAQView: UIView {
     
-    // MARK: - Properties
-    
-    private var faqVC: UIViewController? = nil
-    
     // MARK: - UI Components
     
     let navigationBar: CustomNavigationBar = {
@@ -30,10 +26,9 @@ final class FAQView: UIView {
         return view
     }()
     
-    private let tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(FAQTableViewCell.self, forCellReuseIdentifier: "FAQTableViewCell")
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -46,15 +41,10 @@ final class FAQView: UIView {
         setUI()
         setHierarchy()
         setLayout()
-        setDelegate()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configureVC(vc: UIViewController) {
-        faqVC = vc
     }
 }
 
@@ -91,23 +81,4 @@ private extension FAQView {
             $0.bottom.equalToSuperview().inset(2)
         }
     }
-    
-    func setDelegate() {
-        tableView.dataSource = self
-        tableView.delegate = self
-    }
 }
-
-extension FAQView: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FAQ_Description.allCases.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FAQTableViewCell", for: indexPath) as? FAQTableViewCell else { return .init() }
-        cell.configure(index: indexPath.row, faqVC: faqVC!)
-        return cell
-    }
-}
-
-extension FAQView: UITableViewDelegate {}

@@ -13,7 +13,7 @@ final class WithdrawalView: UIView {
 
     // MARK: - Properties
     
-    private let STANDARD_DISTANCE = (39 * Double((ReasonForWithdrawal.allCases.count))) + (1.7 * 2)
+    private let TABLEVIEW_INTRINSIC_HEIGHT = (39 * Double((ReasonForWithdrawal.allCases.count))) + (1.7 * 2)
     
     // MARK: - UI Components
     
@@ -289,8 +289,8 @@ extension WithdrawalView {
     private func setTableViewHeightConstraint() {
         let distance = withdrawButton.frame.minY - selectReasonView.frame.maxY
         reasonTableView.snp.makeConstraints {
-            if distance > STANDARD_DISTANCE {
-                $0.height.equalTo(STANDARD_DISTANCE).priority(.required)
+            if (distance + 9) >= TABLEVIEW_INTRINSIC_HEIGHT {
+                $0.height.equalTo(TABLEVIEW_INTRINSIC_HEIGHT).priority(.required)
                 reasonTableView.bounces = false
             } else {
                 $0.bottom.equalTo(withdrawButton.snp.top).offset(9)
