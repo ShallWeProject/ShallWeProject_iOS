@@ -1136,10 +1136,10 @@
 			};
 			buildConfigurationList = 0322129D2B14AAFD00FF5CF1 /* Build configuration list for PBXProject "ShallWe" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				ko,
 				Base,
 			);
 			mainGroup = 032212992B14AAFD00FF5CF1;
