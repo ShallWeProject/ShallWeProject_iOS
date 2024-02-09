@@ -34,7 +34,6 @@ final class CategoryViewController: BaseViewController {
     private let customerServiceLabel = UILabel()
     private let faqButton = UIButton()
     private let mailButton = UIButton()
-    private let experienceVC = HomeCategoryViewController()
     
     // MARK: - Properties
     
@@ -55,43 +54,35 @@ final class CategoryViewController: BaseViewController {
         craftButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                experienceVC.index = 0
-                guard let vc = self.presentingViewController else { return }
-//                self.dismiss(animated: false) {
-                    vc.navigationController?.pushViewController(self.experienceVC, animated: true)
-//                    }
+                self.pushToCategoryListVC(index: IndexPath(item: 0, section: 0))
             })
             .disposed(by: disposeBag)
         
         bakingButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                experienceVC.index = 1
-                self.navigationController?.pushViewController(experienceVC, animated: true)
+                self.pushToCategoryListVC(index: IndexPath(item: 1, section: 0))
             })
             .disposed(by: disposeBag)
         
         cultureButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                experienceVC.index = 2
-                self.navigationController?.pushViewController(experienceVC, animated: true)
+                self.pushToCategoryListVC(index: IndexPath(item: 2, section: 0))
             })
             .disposed(by: disposeBag)
         
         outdoorButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                experienceVC.index = 3
-                self.navigationController?.pushViewController(experienceVC, animated: true)
+                self.pushToCategoryListVC(index: IndexPath(item: 3, section: 0))
             })
             .disposed(by: disposeBag)
         
         sportButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                experienceVC.index = 4
-                self.navigationController?.pushViewController(experienceVC, animated: true)
+                self.pushToCategoryListVC(index: IndexPath(item: 4, section: 0))
             })
             .disposed(by: disposeBag)
     }
@@ -284,6 +275,13 @@ extension CategoryViewController {
         for button in buttons {
             button.addTarget(self, action: #selector(categoryButtonDidTap), for: .touchUpInside)
         }
+    }
+    
+    private func pushToCategoryListVC(index: IndexPath) {
+        let experienceVC = CategoryListViewController(index: index)
+        experienceVC.categoryView.experienceType = .category
+        experienceVC.categoryIndex = index
+        self.navigationController?.pushViewController(experienceVC, animated: true)
     }
     
     // MARK: - @objc Methods

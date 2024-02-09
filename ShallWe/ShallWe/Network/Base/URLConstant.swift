@@ -51,4 +51,5 @@ enum URLConstant {
     static let userGiftSend = "/api/v1/users/gift/send"
     static let userGiftReceive = "/api/v1/users/gift/receive"
     static let userInactive = "/api/v1/users/inactive"
+    static let bearer = "Bearer "
 }
