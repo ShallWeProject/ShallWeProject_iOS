@@ -136,6 +136,8 @@
 		95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDD2B358190004157E0 /* ProfileEntryView.swift */; };
 		95748DE02B359802004157E0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDF2B359802004157E0 /* CustomButton.swift */; };
 		95748DE52B35A95F004157E0 /* GenderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DE42B35A95F004157E0 /* GenderType.swift */; };
+		9592E0DC2B760FAD00048D2C /* ConfigDev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9592E0DB2B760FAD00048D2C /* ConfigDev.xcconfig */; };
+		9592E0DE2B760FC600048D2C /* ConfigRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9592E0DD2B760FC600048D2C /* ConfigRelease.xcconfig */; };
 		A423E8652B5FB01F00B8C125 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8642B5FB01F00B8C125 /* MyPageView.swift */; };
 		A423E8672B5FB02A00B8C125 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8662B5FB02A00B8C125 /* MyPageViewController.swift */; };
 		A423E86A2B5FB2A700B8C125 /* MyPageReceiverEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8692B5FB2A700B8C125 /* MyPageReceiverEntity.swift */; };
@@ -279,6 +281,8 @@
 		95748DDD2B358190004157E0 /* ProfileEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEntryView.swift; sourceTree = "<group>"; };
 		95748DDF2B359802004157E0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		95748DE42B35A95F004157E0 /* GenderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderType.swift; sourceTree = "<group>"; };
+		9592E0DB2B760FAD00048D2C /* ConfigDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDev.xcconfig; sourceTree = "<group>"; };
+		9592E0DD2B760FC600048D2C /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
 		A423E8642B5FB01F00B8C125 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		A423E8662B5FB02A00B8C125 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		A423E8692B5FB2A700B8C125 /* MyPageReceiverEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReceiverEntity.swift; sourceTree = "<group>"; };
@@ -302,8 +306,6 @@
 		A431BE5D2B1AFAF90049C126 /* UICollectionViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewRegisterable.swift; sourceTree = "<group>"; };
 		A431BE5F2B1AFB160049C126 /* UITableViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewRegisterable.swift; sourceTree = "<group>"; };
 		A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftViewController.swift; sourceTree = "<group>"; };
-		A4998BC32B760B2400883017 /* ConfigDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDev.xcconfig; sourceTree = "<group>"; };
-		A4998BC42B760B9800883017 /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,8 +403,8 @@
 				032212E82B14B0B200FF5CF1 /* Presentation */,
 				032212E92B14B0BD00FF5CF1 /* Global */,
 				032212B32B14AAFF00FF5CF1 /* Info.plist */,
-				A4998BC32B760B2400883017 /* ConfigDev.xcconfig */,
-				A4998BC42B760B9800883017 /* ConfigRelease.xcconfig */,
+				9592E0DB2B760FAD00048D2C /* ConfigDev.xcconfig */,
+				9592E0DD2B760FC600048D2C /* ConfigRelease.xcconfig */,
 			);
 			path = ShallWe;
 			sourceTree = "<group>";
@@ -1176,11 +1178,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9592E0DC2B760FAD00048D2C /* ConfigDev.xcconfig in Resources */,
 				032213382B15E3CC00FF5CF1 /* AppleSDGothicNeoSB.ttf in Resources */,
 				032212B22B14AAFF00FF5CF1 /* LaunchScreen.storyboard in Resources */,
 				9515EF772B58783000C4E1AA /* AbhayaLibre-ExtraBold.ttf in Resources */,
 				0322133A2B15E3D700FF5CF1 /* AppleSDGothicNeoB.ttf in Resources */,
 				032212AF2B14AAFF00FF5CF1 /* Assets.xcassets in Resources */,
+				9592E0DE2B760FC600048D2C /* ConfigRelease.xcconfig in Resources */,
 				032213342B15E3B800FF5CF1 /* AppleSDGothicNeoR.ttf in Resources */,
 				0322136A2B15F60800FF5CF1 /* Image.xcassets in Resources */,
 				032213362B15E3C200FF5CF1 /* AppleSDGothicNeoM.ttf in Resources */,
@@ -1463,7 +1467,6 @@
 		};
 		032212B72B14AAFF00FF5CF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4998BC32B760B2400883017 /* ConfigDev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1498,7 +1501,6 @@
 		};
 		032212B82B14AAFF00FF5CF1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4998BC42B760B9800883017 /* ConfigRelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

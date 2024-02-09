@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol PhotoDetailPopUpDelegate: AnyObject {
+    func whenPhotoIsDeleted()
+}
+
 final class PhotoDetailPopUpViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    weak var delegate: PhotoDetailPopUpDelegate?
     
     // MARK: - UI Components
     
@@ -56,6 +64,7 @@ private extension PhotoDetailPopUpViewController {
     
     @objc
     func deleteButtonDidTap() {
-        
+        self.dismiss(animated: false)
+        delegate?.whenPhotoIsDeleted()
     }
 }

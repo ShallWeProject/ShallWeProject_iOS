@@ -58,6 +58,13 @@ extension MemoryPhotoAlbumViewController {
     }
 }
 
+extension MemoryPhotoAlbumViewController: PhotoDetailPopUpDelegate {
+    func whenPhotoIsDeleted() {
+        print("새로고침")
+        // TODO: 새로고침(서버에서 데이터 다시 받아오기)
+    }
+}
+
 extension MemoryPhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (SizeLiterals.Screen.screenWidth - (24 * 2 + 18)) / 2
@@ -74,6 +81,7 @@ extension MemoryPhotoAlbumViewController: UICollectionViewDelegate {
         } else {
             // TODO: 사진 상세보기 (data[index-1])
             let photoDetailPopUpViewController = PhotoDetailPopUpViewController(image: UIImage(named: "memory_ex")!)
+            photoDetailPopUpViewController.delegate = self
             present(photoDetailPopUpViewController, animated: false, completion: nil)
         }
     }
