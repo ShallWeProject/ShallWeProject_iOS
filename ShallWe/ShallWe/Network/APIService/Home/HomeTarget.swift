@@ -13,14 +13,7 @@ enum HomeTarget {
     case getExperienceGift
 }
 
-extension HomeTarget: TargetType {
-    
-    var baseURL: URL {
-        switch self {
-        case .getExperienceGift:
-            return URL(string: URLConstant.baseURL)!
-        }
-    }
+extension HomeTarget: BaseTargetType {
     
     var path: String {
         switch self {
