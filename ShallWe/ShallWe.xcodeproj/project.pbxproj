@@ -302,6 +302,8 @@
 		A431BE5D2B1AFAF90049C126 /* UICollectionViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewRegisterable.swift; sourceTree = "<group>"; };
 		A431BE5F2B1AFB160049C126 /* UITableViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewRegisterable.swift; sourceTree = "<group>"; };
 		A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftViewController.swift; sourceTree = "<group>"; };
+		A4998BC32B760B2400883017 /* ConfigDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDev.xcconfig; sourceTree = "<group>"; };
+		A4998BC42B760B9800883017 /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +401,8 @@
 				032212E82B14B0B200FF5CF1 /* Presentation */,
 				032212E92B14B0BD00FF5CF1 /* Global */,
 				032212B32B14AAFF00FF5CF1 /* Info.plist */,
+				A4998BC32B760B2400883017 /* ConfigDev.xcconfig */,
+				A4998BC42B760B9800883017 /* ConfigRelease.xcconfig */,
 			);
 			path = ShallWe;
 			sourceTree = "<group>";
@@ -1138,10 +1142,10 @@
 			};
 			buildConfigurationList = 0322129D2B14AAFD00FF5CF1 /* Build configuration list for PBXProject "ShallWe" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				ko,
 				Base,
 			);
 			mainGroup = 032212992B14AAFD00FF5CF1;
@@ -1459,6 +1463,7 @@
 		};
 		032212B72B14AAFF00FF5CF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4998BC32B760B2400883017 /* ConfigDev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1470,6 +1475,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = XGXWL95BMU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShallWe/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Shall We";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1492,6 +1498,7 @@
 		};
 		032212B82B14AAFF00FF5CF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4998BC42B760B9800883017 /* ConfigRelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1503,6 +1510,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = XGXWL95BMU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShallWe/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Shall We";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
