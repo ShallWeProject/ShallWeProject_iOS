@@ -233,6 +233,8 @@
 		0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceViewModel.swift; sourceTree = "<group>"; };
 		0345807B2B28ACF6002DDEBA /* HomeExperienceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceListView.swift; sourceTree = "<group>"; };
 		034580982B37EEA1002DDEBA /* ExperienceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceHeader.swift; sourceTree = "<group>"; };
+		0350E2662B760EAA00F3EA69 /* ConfigDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDev.xcconfig; sourceTree = "<group>"; };
+		0350E2672B760ECF00F3EA69 /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
 		035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListViewController.swift; sourceTree = "<group>"; };
 		037EAB2E2B6651E300024F22 /* HomeExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceView.swift; sourceTree = "<group>"; };
@@ -302,8 +304,6 @@
 		A431BE5D2B1AFAF90049C126 /* UICollectionViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewRegisterable.swift; sourceTree = "<group>"; };
 		A431BE5F2B1AFB160049C126 /* UITableViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewRegisterable.swift; sourceTree = "<group>"; };
 		A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftViewController.swift; sourceTree = "<group>"; };
-		A4998BC32B760B2400883017 /* ConfigDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDev.xcconfig; sourceTree = "<group>"; };
-		A4998BC42B760B9800883017 /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,8 +401,8 @@
 				032212E82B14B0B200FF5CF1 /* Presentation */,
 				032212E92B14B0BD00FF5CF1 /* Global */,
 				032212B32B14AAFF00FF5CF1 /* Info.plist */,
-				A4998BC32B760B2400883017 /* ConfigDev.xcconfig */,
-				A4998BC42B760B9800883017 /* ConfigRelease.xcconfig */,
+				0350E2662B760EAA00F3EA69 /* ConfigDev.xcconfig */,
+				0350E2672B760ECF00F3EA69 /* ConfigRelease.xcconfig */,
 			);
 			path = ShallWe;
 			sourceTree = "<group>";
@@ -1463,7 +1463,6 @@
 		};
 		032212B72B14AAFF00FF5CF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4998BC32B760B2400883017 /* ConfigDev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1498,7 +1497,6 @@
 		};
 		032212B82B14AAFF00FF5CF1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4998BC42B760B9800883017 /* ConfigRelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
