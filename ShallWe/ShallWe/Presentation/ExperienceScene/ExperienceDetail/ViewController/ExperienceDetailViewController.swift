@@ -44,7 +44,11 @@ extension ExperienceDetailViewController {
 
     func bindViewModel() {
         viewModel.observeExperienceDetail { [weak self] experienceDetail in
+            guard let experienceDetail = experienceDetail else { return }
+            self?.experienceDetailView.configureExperienceView(model: experienceDetail)
+            self?.experienceDetailView.explainDetailView.configureExplainView(model: experienceDetail)
             self?.explainTableView.reloadData()
+            self?.experienceDetailView.imageCollectionView.reloadData()
         }
     }
     
@@ -71,11 +75,15 @@ extension ExperienceDetailViewController: UICollectionViewDelegate {
 
 extension ExperienceDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return viewModel.experienceDetail?.giftImgURL.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = ExperienceImageCollectionViewCell.dequeueReusableCell(collectionView: imageCollectionView, indexPath: indexPath)
+        guard let data = viewModel.experienceDetail else {
+            return cell
+        }
+        cell.configureCell(img: data.giftImgURL[indexPath.row])
         return cell
     }
 }
