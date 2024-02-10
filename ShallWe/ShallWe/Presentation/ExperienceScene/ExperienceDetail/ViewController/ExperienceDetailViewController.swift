@@ -29,13 +29,18 @@ final class ExperienceDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationBar()
+        setUI()
         setDelegate()
         bindViewModel()
+        setAddTarget()
     }
 }
 
 extension ExperienceDetailViewController {
+    
+    func setUI() {
+        self.navigationController?.navigationBar.isHidden = true
+    }
 
     func bindViewModel() {
         viewModel.observeExperienceDetail { [weak self] experienceDetail in
@@ -43,24 +48,12 @@ extension ExperienceDetailViewController {
         }
     }
     
-    func setNavigationBar() {
-        let backButton = UIBarButtonItem(image: ImageLiterals.Icon.arrow_left,
-                                         style: .plain,
-                                         target: self,
-                                         action: #selector(backButtonTapped))
-        navigationItem.leftBarButtonItem?.width = 30.0
-        navigationItem.leftBarButtonItem = backButton
-        navigationItem.leftBarButtonItem?.tintColor = .black
-        
-        let label = UILabel()
-        label.text = I18N.Common.appTitle
-        label.font = .boldSystemFont(ofSize: 20)
-        navigationItem.titleView = label
+    func setAddTarget() {
+        experienceDetailView.navigationBar.backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
     }
     
     @objc
     func backButtonTapped() {
-        print("✅")
         self.navigationController?.popViewController(animated: true)
     }
     

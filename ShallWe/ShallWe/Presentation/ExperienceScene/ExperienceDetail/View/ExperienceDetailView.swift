@@ -16,6 +16,13 @@ final class ExperienceDetailView: UIView {
     let explainDetailView = ExplainDetailView()
     private let guideDetailView = GuideDetailView()
     
+    let navigationBar: CustomNavigationBar = {
+        let nav = CustomNavigationBar()
+        nav.isLogoViewIncluded = true
+        nav.isBackButtonIncluded = true
+        return nav
+    }()
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -145,12 +152,18 @@ extension ExperienceDetailView {
     }
     
     func setHierarchy() {
-        self.addSubviews(gifButton, scrollView)
+        self.addSubviews(navigationBar, gifButton, scrollView)
         scrollView.addSubviews(contentView)
         contentView.addSubviews(imageCollectionView, experienceTitle, experienceSubTitle, priceLabel, seperatorView, segmentControl, underLineView, guideDetailView, explainDetailView)
     }
     
     func setLayout() {
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(safeAreaLayoutGuide)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(50)
+        }
+        
         gifButton.snp.makeConstraints {
             $0.bottom.equalTo(safeAreaLayoutGuide).offset(-36)
             $0.leading.equalToSuperview().inset(15)
@@ -159,7 +172,7 @@ extension ExperienceDetailView {
         }
         
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide)
+            $0.top.equalTo(navigationBar.snp.bottom).offset(13)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(gifButton.snp.top)
         }
