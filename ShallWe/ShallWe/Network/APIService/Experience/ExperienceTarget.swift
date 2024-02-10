@@ -13,11 +13,8 @@ enum ExperienceTarget {
     case getExperienceDetail(experienceGiftId: Int)
 }
 
-extension ExperienceTarget: TargetType {
-    var baseURL: URL {
-        return URL(string: URLConstant.baseURL)!
-    }
-    
+extension ExperienceTarget: BaseTargetType {
+
     var path: String {
         switch self {
         case .getExperienceDetail(experienceGiftId: let experienceGiftId):
