@@ -27,6 +27,9 @@ final class HomeAPI {
             switch result {
             case .success(let response):
                 if response.statusCode == 401 {
+                    
+                    /// access 토큰이 만료되었을 때 여기서 refresh 토큰 발급받는 서버통신 진행
+                    
 //                    TokenManager.shared.refreshNewToken { success in
 //                        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
 //                            if success {
