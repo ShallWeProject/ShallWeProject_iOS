@@ -53,12 +53,21 @@ extension ExperienceDetailViewController {
     }
     
     func setAddTarget() {
-        experienceDetailView.navigationBar.backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        experienceDetailView.navigationBar.backButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        experienceDetailView.gifButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     @objc
-    func backButtonTapped() {
-        self.navigationController?.popViewController(animated: true)
+    func buttonTapped(_ sender: UIButton) {
+        switch sender {
+        case experienceDetailView.navigationBar.backButton:
+            self.navigationController?.popViewController(animated: true)
+        case experienceDetailView.gifButton:
+            let nav = ExperienceGiftViewController()
+            self.navigationController?.pushViewController(nav, animated: true)
+        default:
+            break
+        }
     }
     
     func setDelegate() {

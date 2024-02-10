@@ -111,7 +111,7 @@ final class ExperienceDetailView: UIView {
         return view
     }()
     
-    private lazy var gifButton: UIButton = {
+    lazy var gifButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.Icon.gift, for: .normal)
         button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15)
