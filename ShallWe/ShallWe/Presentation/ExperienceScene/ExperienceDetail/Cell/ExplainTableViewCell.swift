@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
 final class ExplainTableViewCell: UITableViewCell, UITableViewRegisterable {
     
@@ -66,9 +67,10 @@ final class ExplainTableViewCell: UITableViewCell, UITableViewRegisterable {
     }
 }
 
-extension ExplainTableViewCell {
+private extension ExplainTableViewCell {
+    
     func setUI() {
-        backgroundColor = .bg0
+        backgroundColor = .white
     }
     
     func setHierarchy() {
@@ -109,3 +111,22 @@ extension ExplainTableViewCell {
     }
 }
 
+
+extension ExplainTableViewCell {
+    
+    func configureCell(model: Explanation) {
+        explainTitle.text = model.stage
+        explainImage.kf.setImage(with: URL(string: model.explanationURL))
+        explainSubTitle.text = model.description
+        explainImage.isHidden = false
+        explainSubTitle.isHidden = false
+        lineView.isHidden = false
+    }
+    
+    func configureLastCell() {
+        explainTitle.text = "완성"
+        explainImage.isHidden = true
+        explainSubTitle.isHidden = true
+        lineView.isHidden = true
+    }
+}
