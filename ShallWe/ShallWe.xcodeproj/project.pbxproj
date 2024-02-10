@@ -161,6 +161,10 @@
 		A431BE5E2B1AFAF90049C126 /* UICollectionViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5D2B1AFAF90049C126 /* UICollectionViewRegisterable.swift */; };
 		A431BE602B1AFB160049C126 /* UITableViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE5F2B1AFB160049C126 /* UITableViewRegisterable.swift */; };
 		A431BE772B1EEF4A0049C126 /* ExperienceGiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */; };
+		A4998BC72B761CB200883017 /* ExperienceDetailResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998BC62B761CB200883017 /* ExperienceDetailResponseDto.swift */; };
+		A4998BCA2B778C6B00883017 /* ExperienceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998BC92B778C6B00883017 /* ExperienceDetailViewModel.swift */; };
+		A4998BCD2B77967B00883017 /* ExperienceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998BCC2B77967B00883017 /* ExperienceTarget.swift */; };
+		A4998BD02B77981600883017 /* ExperienceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998BCF2B77981600883017 /* ExperienceAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -304,6 +308,10 @@
 		A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftViewController.swift; sourceTree = "<group>"; };
 		A4998BC32B760B2400883017 /* ConfigDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDev.xcconfig; sourceTree = "<group>"; };
 		A4998BC42B760B9800883017 /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
+		A4998BC62B761CB200883017 /* ExperienceDetailResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailResponseDto.swift; sourceTree = "<group>"; };
+		A4998BC92B778C6B00883017 /* ExperienceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewModel.swift; sourceTree = "<group>"; };
+		A4998BCC2B77967B00883017 /* ExperienceTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceTarget.swift; sourceTree = "<group>"; };
+		A4998BCF2B77981600883017 /* ExperienceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,6 +427,7 @@
 		032212DF2B14B00B00FF5CF1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				A4998BC52B761BA700883017 /* Experience */,
 				03A6A5E12B7600AD007B24E4 /* Home */,
 				032212E02B14B01F00FF5CF1 /* DTO.swift */,
 			);
@@ -439,6 +448,7 @@
 		032212E32B14B04600FF5CF1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A4998BCE2B77980800883017 /* Experience */,
 				032213142B14B2EA00FF5CF1 /* API.swift */,
 			);
 			path = API;
@@ -565,6 +575,7 @@
 		0322131E2B14B73500FF5CF1 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				A4998BCB2B77965D00883017 /* Experience */,
 				0322131F2B14B75100FF5CF1 /* APIService.swift */,
 			);
 			path = APIService;
@@ -985,6 +996,7 @@
 			children = (
 				A42C32542B26C68700C4B477 /* Cell */,
 				A42C32532B26C68300C4B477 /* View */,
+				A4998BC82B778BE500883017 /* ViewModel */,
 				A42C32522B26C67E00C4B477 /* ViewController */,
 			);
 			path = ExperienceDetail;
@@ -1085,6 +1097,38 @@
 				A42C33682B416B3E00C4B477 /* TimeCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		A4998BC52B761BA700883017 /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+				A4998BC62B761CB200883017 /* ExperienceDetailResponseDto.swift */,
+			);
+			path = Experience;
+			sourceTree = "<group>";
+		};
+		A4998BC82B778BE500883017 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A4998BC92B778C6B00883017 /* ExperienceDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A4998BCB2B77965D00883017 /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+				A4998BCC2B77967B00883017 /* ExperienceTarget.swift */,
+			);
+			path = Experience;
+			sourceTree = "<group>";
+		};
+		A4998BCE2B77980800883017 /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+				A4998BCF2B77981600883017 /* ExperienceAPI.swift */,
+			);
+			path = Experience;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1231,14 +1275,17 @@
 				034011412B5CD87C00D1F371 /* SortModel.swift in Sources */,
 				95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */,
 				95748DE02B359802004157E0 /* CustomButton.swift in Sources */,
+				A4998BD02B77981600883017 /* ExperienceAPI.swift in Sources */,
 				A42C33672B416AE300C4B477 /* ExperienceGiftView.swift in Sources */,
 				A431BE552B1A24F90049C126 /* (null) in Sources */,
 				95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */,
 				9515EF682B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift in Sources */,
 				9515EF662B51600800C4E1AA /* AgreementOfTermsView.swift in Sources */,
 				032212F12B14B17600FF5CF1 /* MakeVibrate.swift in Sources */,
+				A4998BC72B761CB200883017 /* ExperienceDetailResponseDto.swift in Sources */,
 				0322130B2B14B25900FF5CF1 /* UIStackView+.swift in Sources */,
 				A431BE772B1EEF4A0049C126 /* ExperienceGiftViewController.swift in Sources */,
+				A4998BCA2B778C6B00883017 /* ExperienceDetailViewModel.swift in Sources */,
 				A42C33692B416B3E00C4B477 /* TimeCollectionViewCell.swift in Sources */,
 				A431BE582B1A25180049C126 /* (null) in Sources */,
 				0345806D2B288104002DDEBA /* HomeExperienceViewModel.swift in Sources */,
@@ -1294,6 +1341,7 @@
 				95748DD82B2D9D86004157E0 /* SignUpCompletionViewController.swift in Sources */,
 				032213B52B241B3100FF5CF1 /* HomeView.swift in Sources */,
 				032212E12B14B01F00FF5CF1 /* DTO.swift in Sources */,
+				A4998BCD2B77967B00883017 /* ExperienceTarget.swift in Sources */,
 				954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */,
 				032213192B14B30A00FF5CF1 /* Config.swift in Sources */,
 				9515EF8C2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift in Sources */,

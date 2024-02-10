@@ -32,7 +32,7 @@ final class ExplainDetailView: UIView {
     
     lazy var explainTableView: UITableView = {
         lazy var tableView = UITableView(frame: .zero, style: .plain)
-        tableView.backgroundColor = .bg0
+        tableView.backgroundColor = .white
         tableView.sectionFooterHeight = 0
         tableView.sectionHeaderTopPadding = 0
         tableView.isScrollEnabled = false
@@ -77,7 +77,7 @@ final class ExplainDetailView: UIView {
 
 extension ExplainDetailView {
     func setUI() {
-        backgroundColor = .bg0
+        backgroundColor = .white
     }
     
     func setHierarchy() {
@@ -99,7 +99,7 @@ extension ExplainDetailView {
         explainTableView.snp.makeConstraints {
             $0.top.equalTo(tableViewTitle.snp.bottom).offset(18)
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(450)
+            $0.height.equalTo(417)
         }
         
         addressTitle.snp.makeConstraints {

@@ -141,7 +141,7 @@ final class ExperienceDetailView: UIView {
 // MARK: - Extensions
 extension ExperienceDetailView {
     func setUI() {
-        backgroundColor = .bg0
+        backgroundColor = .white
     }
     
     func setHierarchy() {
