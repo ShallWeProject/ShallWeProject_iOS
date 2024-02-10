@@ -9,12 +9,19 @@ import UIKit
 
 final class ExperienceDetailViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    private let viewModel = ExperienceDetailViewModel()
+    
+    // MARK: - UI Components
+    
     private let experienceDetailView = ExperienceDetailView()
     private lazy var imageCollectionView = experienceDetailView.imageCollectionView
     private lazy var explainTableView = experienceDetailView.explainDetailView.explainTableView
     
+    // MARK: - Life Cycles
+    
     override func loadView() {
-        super.loadView()
         
         view = experienceDetailView
     }
@@ -24,10 +31,18 @@ final class ExperienceDetailViewController: UIViewController {
         
         setNavigationBar()
         setDelegate()
+        bindViewModel()
     }
 }
 
 extension ExperienceDetailViewController {
+
+    func bindViewModel() {
+        viewModel.observeExperienceDetail { [weak self] experienceDetail in
+            self?.explainTableView.reloadData()
+        }
+    }
+    
     func setNavigationBar() {
         let backButton = UIBarButtonItem(image: ImageLiterals.Icon.arrow_left,
                                          style: .plain,
@@ -80,7 +95,12 @@ extension ExperienceDetailViewController: UICollectionViewDelegateFlowLayout {
 
 extension ExperienceDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        switch indexPath.row {
+        case 3:
+            return 20
+        default:
+            return 110
+        }
     }
 }
 
@@ -91,6 +111,15 @@ extension ExperienceDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ExplainTableViewCell.dequeueReusableCell(tableView: explainTableView)
+        switch indexPath.row {
+        case 3:
+            cell.configureLastCell()
+        default:
+            guard let explanation = viewModel.experienceDetail?.explanation[indexPath.row] else {
+                return cell
+            }
+            cell.configureCell(model: explanation)
+        }
         return cell
     }
 }
