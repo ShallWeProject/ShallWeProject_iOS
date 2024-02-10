@@ -59,9 +59,11 @@ extension HomeViewModel {
     
     func getExperienceGift() {
         HomeAPI.shared.getExperienceGift() { [weak self] response in
-            guard let status = response?.status else { return }
-            guard self != nil else { return }
+//            guard self != nil else { return }
+            print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
             guard let data = response?.data else { return }
+            dump(data)
+            
         }
     }
 }

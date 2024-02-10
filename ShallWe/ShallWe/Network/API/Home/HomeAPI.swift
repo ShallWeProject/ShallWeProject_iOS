@@ -39,7 +39,7 @@ final class HomeAPI {
                     print("토큰 만료")
                 } else {
                     do {
-                        self.experienceGiftData = try response.map(GeneralResponse<ExperienceGiftResponseDto>?.self)
+                        self.experienceGiftData = try response.map(GeneralResponse<ExperienceGiftResponseDto>.self)
                         guard let experienceGiftData = self.experienceGiftData else { return }
                         completion(experienceGiftData)
                     } catch let err {

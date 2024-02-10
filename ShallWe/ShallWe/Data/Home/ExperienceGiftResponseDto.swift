@@ -14,14 +14,14 @@ struct ExperienceGiftResponseDto: Codable {
 
 // MARK: - ExpCategory
 struct ExpCategory: Codable {
-    let expCategoryID: Int
+    let expCategoryId: Int
     let expCategory: String
-    let imageURL: String
+    let imageUrl: String
 }
 
 // MARK: - SttCategoryRe
 struct SttCategoryRe: Codable {
-    let sttCategoryID: Int
+    let sttCategoryId: Int
     let sttCategory: String
-    let imageURL: String
+    let imageUrl: String
 }
