@@ -38,7 +38,9 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     var inputs: HomeViewModelInputs { return self }
     var outputs: HomeViewModelOutputs { return self }
     
-    init(){}
+    init(){
+        self.getExperienceGift()
+    }
     
     func popularCategoryCellTap(at indexPath: IndexPath) {
         selectedPopularCellIndex.accept(indexPath)
@@ -50,5 +52,18 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     
     func recommendCellTap(at indexPath: IndexPath) {
         selectedRecommendCellIndex.onNext(indexPath)
+    }
+}
+
+extension HomeViewModel {
+    
+    func getExperienceGift() {
+        HomeAPI.shared.getExperienceGift() { [weak self] response in
+//            guard self != nil else { return }
+            print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
+            guard let data = response?.data else { return }
+            dump(data)
+            
+        }
     }
 }
