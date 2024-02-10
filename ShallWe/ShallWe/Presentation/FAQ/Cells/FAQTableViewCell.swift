@@ -171,6 +171,21 @@ extension FAQTableViewCell {
 
 extension FAQTableViewCell: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        if #unavailable(iOS 17.0) {
+            linkTextDidTap()
+        }
+        return false
+    }
+    
+    @available(iOS 17.0, *)
+    func textView(_ textView: UITextView, primaryActionFor textItem: UITextItem, defaultAction: UIAction) -> UIAction? {
+        if case .link(_) = textItem.content {
+            linkTextDidTap()
+        }
+        return nil
+    }
+    
+    private func linkTextDidTap() {
         switch flowType {
         case .accountSettings:
             delegate?.accountSettingsTextDidTap()
@@ -181,6 +196,5 @@ extension FAQTableViewCell: UITextViewDelegate {
         case .none:
             break
         }
-        return false
     }
 }
