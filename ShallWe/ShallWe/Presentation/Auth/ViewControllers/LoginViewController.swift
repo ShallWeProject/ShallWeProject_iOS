@@ -25,7 +25,7 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setAddTarget()
+        setTapRecognizer()
     }
 }
 
@@ -35,15 +35,27 @@ extension LoginViewController {
     
     // MARK: - Methods
     
-    func setAddTarget() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenDidTap))
-        view.addGestureRecognizer(tapGestureRecognizer)
+    func setTapRecognizer() {
+        var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(kakaoLoginDidTap))
+        loginView.kakaoLoginView.addGestureRecognizer(tapGestureRecognizer)
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(appleLoginDidTap))
+        loginView.appleLoginView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    private func goTophoneNumberVerificationVC() {
+        let phoneNumberVerificationViewController = PhoneNumberVerificationViewController()
+        self.navigationController?.pushViewController(phoneNumberVerificationViewController, animated: true)
     }
     
     // MARK: Actions
     
-    @objc func screenDidTap() {
-        let phoneNumberVerificationViewController = PhoneNumberVerificationViewController()
-        self.navigationController?.pushViewController(phoneNumberVerificationViewController, animated: true)
+    @objc
+    func kakaoLoginDidTap() {
+        print("💛")
+    }
+    
+    @objc
+    func appleLoginDidTap() {
+        print("🖤")
     }
 }

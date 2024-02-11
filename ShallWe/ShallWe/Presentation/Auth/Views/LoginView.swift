@@ -38,7 +38,7 @@ final class LoginView: UIView {
         return label
     }()
     
-    private let kakaoLoginView: UIView = {
+    let kakaoLoginView: UIView = {
         let view = UIView()
         view.backgroundColor = .kakaoYellow
         view.layer.cornerRadius = 6
@@ -61,7 +61,7 @@ final class LoginView: UIView {
         return label
     }()
     
-    private let appleLoginView: UIView = {
+    let appleLoginView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
         view.layer.cornerRadius = 6

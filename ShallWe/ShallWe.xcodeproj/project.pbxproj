@@ -283,6 +283,7 @@
 		95748DE42B35A95F004157E0 /* GenderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderType.swift; sourceTree = "<group>"; };
 		9592E0DB2B760FAD00048D2C /* ConfigDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDev.xcconfig; sourceTree = "<group>"; };
 		9592E0DD2B760FC600048D2C /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
+		9592E0E42B79507E00048D2C /* ShallWe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShallWe.entitlements; sourceTree = "<group>"; };
 		A423E8642B5FB01F00B8C125 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		A423E8662B5FB02A00B8C125 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		A423E8692B5FB2A700B8C125 /* MyPageReceiverEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReceiverEntity.swift; sourceTree = "<group>"; };
@@ -397,6 +398,7 @@
 		032212A42B14AAFD00FF5CF1 /* ShallWe */ = {
 			isa = PBXGroup;
 			children = (
+				9592E0E42B79507E00048D2C /* ShallWe.entitlements */,
 				032212DE2B14AFFD00FF5CF1 /* Application */,
 				032212DF2B14B00B00FF5CF1 /* Data */,
 				032212E22B14B02300FF5CF1 /* Network */,
@@ -1470,6 +1472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShallWe/ShallWe.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -1504,6 +1507,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ShallWe/ShallWe.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
