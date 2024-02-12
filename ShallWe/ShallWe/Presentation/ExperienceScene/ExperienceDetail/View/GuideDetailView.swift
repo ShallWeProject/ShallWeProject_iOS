@@ -82,7 +82,7 @@ final class GuideDetailView: UIView {
 
 extension GuideDetailView {
     func setUI() {
-        backgroundColor = .bg0
+        backgroundColor = .white
     }
     
     func setHierarchy() {

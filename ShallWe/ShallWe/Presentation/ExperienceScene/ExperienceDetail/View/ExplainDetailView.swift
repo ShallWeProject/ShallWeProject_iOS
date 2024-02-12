@@ -15,7 +15,6 @@ final class ExplainDetailView: UIView {
     
     private let explainDetailLabel: UILabel = {
         let label = UILabel()
-        label.text = "기념일에 없으면 섭섭한 레터링 케이크\n\n그냥 주고받을때도 물론 기쁘지만,\n직접 만들 떄는 두 배로 즐거워요!"
         label.textColor = .black
         label.font = .fontGuide(.R00_14)
         label.numberOfLines = 0
@@ -32,7 +31,7 @@ final class ExplainDetailView: UIView {
     
     lazy var explainTableView: UITableView = {
         lazy var tableView = UITableView(frame: .zero, style: .plain)
-        tableView.backgroundColor = .bg0
+        tableView.backgroundColor = .white
         tableView.sectionFooterHeight = 0
         tableView.sectionHeaderTopPadding = 0
         tableView.isScrollEnabled = false
@@ -52,7 +51,6 @@ final class ExplainDetailView: UIView {
     
     private let addressLabel: UILabel = {
         let label = UILabel()
-        label.text = "서울특별시 성동구 00로 12-34 2층"
         label.textColor = .black
         label.font = .fontGuide(.R00_14)
         return label
@@ -75,9 +73,10 @@ final class ExplainDetailView: UIView {
     }
 }
 
-extension ExplainDetailView {
+private extension ExplainDetailView {
+    
     func setUI() {
-        backgroundColor = .bg0
+        backgroundColor = .white
     }
     
     func setHierarchy() {
@@ -99,7 +98,7 @@ extension ExplainDetailView {
         explainTableView.snp.makeConstraints {
             $0.top.equalTo(tableViewTitle.snp.bottom).offset(18)
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(450)
+            $0.height.equalTo(417)
         }
         
         addressTitle.snp.makeConstraints {
@@ -116,5 +115,13 @@ extension ExplainDetailView {
     
     func setRegisterCell() {
         ExplainTableViewCell.register(tableView: explainTableView)
+    }
+}
+
+extension ExplainDetailView {
+    
+    func configureExplainView(model: ExperienceDetailResponseDto) {
+        explainDetailLabel.text = model.description
+        addressLabel.text = model.location
     }
 }

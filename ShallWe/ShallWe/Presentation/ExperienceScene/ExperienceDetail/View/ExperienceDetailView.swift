@@ -16,6 +16,13 @@ final class ExperienceDetailView: UIView {
     let explainDetailView = ExplainDetailView()
     private let guideDetailView = GuideDetailView()
     
+    let navigationBar: CustomNavigationBar = {
+        let nav = CustomNavigationBar()
+        nav.isLogoViewIncluded = true
+        nav.isBackButtonIncluded = true
+        return nav
+    }()
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -43,7 +50,6 @@ final class ExperienceDetailView: UIView {
     
     private let experienceTitle: UILabel = {
         let label = UILabel()
-        label.text = "[성수] 인기베이킹 클래스"
         label.textColor = .black0
         label.font = .fontGuide(.SB00_14)
         return label
@@ -51,7 +57,6 @@ final class ExperienceDetailView: UIView {
     
     private let experienceSubTitle: UILabel = {
         let label = UILabel()
-        label.text = "기념일 레터링 케이크\n사지 말고 함께 만들어요"
         label.textColor = .black
         label.font = .fontGuide(.SB00_16_23)
         label.setLineSpacing(lineSpacing: 2.3)
@@ -61,10 +66,8 @@ final class ExperienceDetailView: UIView {
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.text = "75,000원"
         label.textColor = .main
         label.font = .fontGuide(.B00_20)
-        label.partFontChange(targetString: "원", font: .fontGuide(.B00_14))
         return label
     }()
     
@@ -108,7 +111,7 @@ final class ExperienceDetailView: UIView {
         return view
     }()
     
-    private lazy var gifButton: UIButton = {
+    lazy var gifButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.Icon.gift, for: .normal)
         button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15)
@@ -139,18 +142,25 @@ final class ExperienceDetailView: UIView {
 }
 
 // MARK: - Extensions
-extension ExperienceDetailView {
+private extension ExperienceDetailView {
+    
     func setUI() {
-        backgroundColor = .bg0
+        backgroundColor = .white
     }
     
     func setHierarchy() {
-        self.addSubviews(gifButton, scrollView)
+        self.addSubviews(navigationBar, gifButton, scrollView)
         scrollView.addSubviews(contentView)
         contentView.addSubviews(imageCollectionView, experienceTitle, experienceSubTitle, priceLabel, seperatorView, segmentControl, underLineView, guideDetailView, explainDetailView)
     }
     
     func setLayout() {
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(safeAreaLayoutGuide)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(50)
+        }
+        
         gifButton.snp.makeConstraints {
             $0.bottom.equalTo(safeAreaLayoutGuide).offset(-36)
             $0.leading.equalToSuperview().inset(15)
@@ -159,7 +169,7 @@ extension ExperienceDetailView {
         }
         
         scrollView.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide)
+            $0.top.equalTo(navigationBar.snp.bottom).offset(13)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(gifButton.snp.top)
         }
@@ -193,7 +203,7 @@ extension ExperienceDetailView {
         }
         
         seperatorView.snp.makeConstraints {
-            $0.top.equalTo(experienceSubTitle.snp.bottom).offset(16)
+            $0.top.equalTo(priceLabel.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(7)
             $0.height.equalTo(1)
         }
@@ -254,5 +264,21 @@ extension ExperienceDetailView {
             self.underLineView.snp.updateConstraints { $0.leading.equalTo(self.segmentControl.snp.leading).offset(leadingDistance) }
             self.layoutIfNeeded()
         })
+    }
+    
+    func formatNumber(_ number: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: NSNumber(value: number)) ?? "\(number)"
+    }
+}
+
+extension ExperienceDetailView {
+    
+    func configureExperienceView(model: ExperienceDetailResponseDto) {
+        experienceTitle.text = model.subtitle
+        experienceSubTitle.text = model.title
+        priceLabel.text = "\(formatNumber(model.price))원"
+        priceLabel.partFontChange(targetString: "원", font: .fontGuide(.B00_14))
     }
 }

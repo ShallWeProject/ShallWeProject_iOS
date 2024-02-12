@@ -8,13 +8,13 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
 final class ExperienceImageCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
     
     private let imageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.image = UIImage(named: "example")
         return image
     }()
     
@@ -32,7 +32,8 @@ final class ExperienceImageCollectionViewCell: UICollectionViewCell, UICollectio
     }
 }
 
-extension ExperienceImageCollectionViewCell {
+private extension ExperienceImageCollectionViewCell {
+    
     func setHierarchy() {
         addSubview(imageView)
     }
@@ -41,5 +42,12 @@ extension ExperienceImageCollectionViewCell {
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+}
+
+extension ExperienceImageCollectionViewCell{
+    
+    func configureCell(img: String) {
+        imageView.kf.setImage(with: URL(string: img))
     }
 }
