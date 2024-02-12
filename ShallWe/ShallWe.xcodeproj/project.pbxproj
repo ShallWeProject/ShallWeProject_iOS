@@ -90,6 +90,7 @@
 		0350E26D2B76104200F3EA69 /* HomeTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E26C2B76104200F3EA69 /* HomeTarget.swift */; };
 		0350E26F2B76187F00F3EA69 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E26E2B76187F00F3EA69 /* TokenManager.swift */; };
 		0350E2712B761B9D00F3EA69 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E2702B761B9D00F3EA69 /* BaseTargetType.swift */; };
+		0350E2752B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E2742B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift */; };
 		035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */; };
 		037EAB2D2B6651D500024F22 /* RecommendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */; };
 		037EAB2F2B6651E300024F22 /* HomeExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2E2B6651E300024F22 /* HomeExperienceView.swift */; };
@@ -237,6 +238,7 @@
 		0350E26C2B76104200F3EA69 /* HomeTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTarget.swift; sourceTree = "<group>"; };
 		0350E26E2B76187F00F3EA69 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		0350E2702B761B9D00F3EA69 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		0350E2742B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceCategoryDto.swift; sourceTree = "<group>"; };
 		035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListViewController.swift; sourceTree = "<group>"; };
 		037EAB2E2B6651E300024F22 /* HomeExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceView.swift; sourceTree = "<group>"; };
@@ -422,7 +424,7 @@
 		032212DF2B14B00B00FF5CF1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				03A6A5E12B7600AD007B24E4 /* Home */,
+				0350E2722B7A5A5800F3EA69 /* Main */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -741,6 +743,23 @@
 				0350E26C2B76104200F3EA69 /* HomeTarget.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		0350E2722B7A5A5800F3EA69 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				03A6A5E12B7600AD007B24E4 /* Home */,
+				0350E2732B7A5A6100F3EA69 /* Experience */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0350E2732B7A5A6100F3EA69 /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+				0350E2742B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift */,
+			);
+			path = Experience;
 			sourceTree = "<group>";
 		};
 		035A9F062B42AB3F007B3F50 /* ViewControllers */ = {
@@ -1331,6 +1350,7 @@
 				032213AC2B20777600FF5CF1 /* HomeExperienceModel.swift in Sources */,
 				9515EF6E2B58640700C4E1AA /* FAQViewController.swift in Sources */,
 				0322139A2B1B6ED300FF5CF1 /* HomeExperienceCell.swift in Sources */,
+				0350E2752B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift in Sources */,
 				0322136F2B15F8CF00FF5CF1 /* TabBarItem.swift in Sources */,
 				0322139C2B1B8B3100FF5CF1 /* HomeHeaderView.swift in Sources */,
 				95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */,
