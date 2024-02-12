@@ -10,6 +10,10 @@ import AuthenticationServices
 
 final class LoginViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    private let authViewModel = AuthViewModel()
+    
     // MARK: - UI Components
     
     private let loginView = LoginView()
@@ -42,7 +46,7 @@ extension LoginViewController {
         loginView.appleLoginView.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    private func goTophoneNumberVerificationVC() {
+    private func goToPhoneNumberVerificationVC() {
         let phoneNumberVerificationViewController = PhoneNumberVerificationViewController()
         self.navigationController?.pushViewController(phoneNumberVerificationViewController, animated: true)
     }
@@ -52,10 +56,23 @@ extension LoginViewController {
     @objc
     func kakaoLoginDidTap() {
         print("💛")
+        authViewModel.loginWithKakao()
     }
     
     @objc
     func appleLoginDidTap() {
-        print("🖤")
+        print("🍎")
+        authViewModel.loginWithApple { request in
+            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+            authorizationController.delegate = self.authViewModel as any ASAuthorizationControllerDelegate
+            authorizationController.presentationContextProvider = self
+            authorizationController.performRequests()
+        }
+    }
+}
+
+extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
     }
 }

@@ -137,6 +137,7 @@
 		95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDD2B358190004157E0 /* ProfileEntryView.swift */; };
 		95748DE02B359802004157E0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDF2B359802004157E0 /* CustomButton.swift */; };
 		95748DE52B35A95F004157E0 /* GenderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DE42B35A95F004157E0 /* GenderType.swift */; };
+		9592E0E92B79EC4500048D2C /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592E0E82B79EC4500048D2C /* AuthViewModel.swift */; };
 		A423E8652B5FB01F00B8C125 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8642B5FB01F00B8C125 /* MyPageView.swift */; };
 		A423E8672B5FB02A00B8C125 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8662B5FB02A00B8C125 /* MyPageViewController.swift */; };
 		A423E86A2B5FB2A700B8C125 /* MyPageReceiverEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8692B5FB2A700B8C125 /* MyPageReceiverEntity.swift */; };
@@ -231,6 +232,8 @@
 		0345806C2B288104002DDEBA /* HomeExperienceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceViewModel.swift; sourceTree = "<group>"; };
 		0345807B2B28ACF6002DDEBA /* HomeExperienceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceListView.swift; sourceTree = "<group>"; };
 		034580982B37EEA1002DDEBA /* ExperienceHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceHeader.swift; sourceTree = "<group>"; };
+		0350E2662B760EAA00F3EA69 /* ConfigDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDev.xcconfig; sourceTree = "<group>"; };
+		0350E2672B760ECF00F3EA69 /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
 		0350E2692B760FEA00F3EA69 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
 		0350E26C2B76104200F3EA69 /* HomeTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTarget.swift; sourceTree = "<group>"; };
 		0350E26E2B76187F00F3EA69 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
@@ -281,9 +284,8 @@
 		95748DDD2B358190004157E0 /* ProfileEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEntryView.swift; sourceTree = "<group>"; };
 		95748DDF2B359802004157E0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		95748DE42B35A95F004157E0 /* GenderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderType.swift; sourceTree = "<group>"; };
-		0350E2662B760EAA00F3EA69 /* ConfigDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDev.xcconfig; sourceTree = "<group>"; };
-		0350E2672B760ECF00F3EA69 /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
 		9592E0E42B79507E00048D2C /* ShallWe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShallWe.entitlements; sourceTree = "<group>"; };
+		9592E0E82B79EC4500048D2C /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A423E8642B5FB01F00B8C125 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		A423E8662B5FB02A00B8C125 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		A423E8692B5FB2A700B8C125 /* MyPageReceiverEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReceiverEntity.swift; sourceTree = "<group>"; };
@@ -891,6 +893,7 @@
 		954E45B42B1E5C2800D12242 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				9592E0E72B79EC3900048D2C /* ViewModels */,
 				95748DE32B35A952004157E0 /* Models */,
 				95748DCC2B25FA88004157E0 /* ViewControllers */,
 				954E45B92B20AE6800D12242 /* Views */,
@@ -932,6 +935,14 @@
 				95748DE42B35A95F004157E0 /* GenderType.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9592E0E72B79EC3900048D2C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9592E0E82B79EC4500048D2C /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A423E8622B5FAFC900B8C125 /* ViewController */ = {
@@ -1344,6 +1355,7 @@
 				03C7A6692B456654000F1E39 /* RecentSearchView.swift in Sources */,
 				03C7A66C2B4567AC000F1E39 /* RecentSearchCollectionViewCell.swift in Sources */,
 				9515EF882B62F39C00C4E1AA /* ReasonForWithdrawalTableViewCell.swift in Sources */,
+				9592E0E92B79EC4500048D2C /* AuthViewModel.swift in Sources */,
 				0350E26A2B760FEA00F3EA69 /* HomeAPI.swift in Sources */,
 				A42C325B2B26C6C800C4B477 /* ExplainDetailView.swift in Sources */,
 				A42C32602B26C6D400C4B477 /* ExperienceImageCollectionViewCell.swift in Sources */,
@@ -1485,6 +1497,7 @@
 		};
 		032212B72B14AAFF00FF5CF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0350E2662B760EAA00F3EA69 /* ConfigDev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1520,6 +1533,7 @@
 		};
 		032212B82B14AAFF00FF5CF1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0350E2672B760ECF00F3EA69 /* ConfigRelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1553,76 +1567,6 @@
 			};
 			name = Release;
 		};
-		032212B72B14AAFF00FF5CF1 /* Debug */ = {
-        			isa = XCBuildConfiguration;
-        			baseConfigurationReference = 0350E2662B760EAA00F3EA69 /* ConfigDev.xcconfig */;
-        			buildSettings = {
-        				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-        				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-        				CODE_SIGN_IDENTITY = "Apple Development";
-        				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-        				CODE_SIGN_STYLE = Manual;
-        				CURRENT_PROJECT_VERSION = 1;
-        				DEVELOPMENT_TEAM = "";
-        				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = XGXWL95BMU;
-        				GENERATE_INFOPLIST_FILE = YES;
-        				INFOPLIST_FILE = ShallWe/Info.plist;
-        				INFOPLIST_KEY_CFBundleDisplayName = "Shall We";
-        				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-        				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-        				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-        				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-        				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-        				LD_RUNPATH_SEARCH_PATHS = (
-        					"$(inherited)",
-        					"@executable_path/Frameworks",
-        				);
-        				MARKETING_VERSION = 1.0;
-        				PRODUCT_BUNDLE_IDENTIFIER = "org.shallwe.ShallWe-iOS";
-        				PRODUCT_NAME = "$(TARGET_NAME)";
-        				PROVISIONING_PROFILE_SPECIFIER = "";
-        				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = ShallWeDebug;
-        				SWIFT_EMIT_LOC_STRINGS = YES;
-        				SWIFT_VERSION = 5.0;
-        				TARGETED_DEVICE_FAMILY = "1,2";
-        			};
-        			name = Debug;
-        		};
-        		032212B82B14AAFF00FF5CF1 /* Release */ = {
-        			isa = XCBuildConfiguration;
-        			baseConfigurationReference = 0350E2672B760ECF00F3EA69 /* ConfigRelease.xcconfig */;
-        			buildSettings = {
-        				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-        				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-        				CODE_SIGN_IDENTITY = "Apple Development";
-        				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-        				CODE_SIGN_STYLE = Manual;
-        				CURRENT_PROJECT_VERSION = 1;
-        				DEVELOPMENT_TEAM = "";
-        				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = XGXWL95BMU;
-        				GENERATE_INFOPLIST_FILE = YES;
-        				INFOPLIST_FILE = ShallWe/Info.plist;
-        				INFOPLIST_KEY_CFBundleDisplayName = "Shall We";
-        				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-        				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-        				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-        				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-        				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-        				LD_RUNPATH_SEARCH_PATHS = (
-        					"$(inherited)",
-        					"@executable_path/Frameworks",
-        				);
-        				MARKETING_VERSION = 1.0;
-        				PRODUCT_BUNDLE_IDENTIFIER = "org.shallwe.ShallWe-iOS";
-        				PRODUCT_NAME = "$(TARGET_NAME)";
-        				PROVISIONING_PROFILE_SPECIFIER = "";
-        				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = ShallWeDebug;
-        				SWIFT_EMIT_LOC_STRINGS = YES;
-        				SWIFT_VERSION = 5.0;
-        				TARGETED_DEVICE_FAMILY = "1,2";
-        			};
-        			name = Release;
-        		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
