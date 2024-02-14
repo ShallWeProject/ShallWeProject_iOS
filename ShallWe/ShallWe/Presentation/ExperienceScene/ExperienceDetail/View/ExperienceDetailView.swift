@@ -14,7 +14,7 @@ final class ExperienceDetailView: UIView {
     // MARK: - UI Components
     
     let explainDetailView = ExplainDetailView()
-    private let guideDetailView = GuideDetailView()
+    let guideDetailView = GuideDetailView()
     
     let navigationBar: CustomNavigationBar = {
         let nav = CustomNavigationBar()

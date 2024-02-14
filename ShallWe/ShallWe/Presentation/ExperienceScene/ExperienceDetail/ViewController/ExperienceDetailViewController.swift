@@ -47,6 +47,7 @@ extension ExperienceDetailViewController {
             guard let experienceDetail = experienceDetail else { return }
             self?.experienceDetailView.configureExperienceView(model: experienceDetail)
             self?.experienceDetailView.explainDetailView.configureExplainView(model: experienceDetail)
+            self?.experienceDetailView.guideDetailView.configureGuideView(model: experienceDetail)
             self?.explainTableView.reloadData()
             self?.experienceDetailView.imageCollectionView.reloadData()
         }
