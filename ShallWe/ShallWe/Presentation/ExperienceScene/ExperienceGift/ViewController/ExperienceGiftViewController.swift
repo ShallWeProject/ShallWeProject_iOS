@@ -22,6 +22,8 @@ final class ExperienceGiftViewController: UIViewController {
     private var selectedDate: String = ""
     private var selectedTime: String = ""
     
+    private let viewModel = ExperienceDetailViewModel()
+    
     // MARK: - UI Components
     
     private let experienceGiftView = ExperienceGiftView()
@@ -37,7 +39,6 @@ final class ExperienceGiftViewController: UIViewController {
     // MARK: - Life Cycles
     
     override func loadView() {
-        super.loadView()
         
         view = experienceGiftView
     }
@@ -47,10 +48,12 @@ final class ExperienceGiftViewController: UIViewController {
         
         setUI()
         setDelegate()
+        bindViewModel()
     }
 }
 
 extension ExperienceGiftViewController {
+    
     func setUI() {
         navigationController?.navigationBar.isHidden = true
         
@@ -74,6 +77,13 @@ extension ExperienceGiftViewController {
         collectionView.delegate = self
         experienceGiftView.calendarDelegate = self
         experienceGiftView.calendarView.delegate = self
+    }
+    
+    func bindViewModel() {
+        viewModel.observeExperienceDetail { [weak self] experienceDetail in
+            guard let experienceDetail = experienceDetail else { return }
+            self?.experienceGiftView.configureGiftView(model: experienceDetail)
+        }
     }
     
     func scrollCurrentPage(isPrev: Bool) {
