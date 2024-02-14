@@ -64,7 +64,6 @@ final class ExperienceGiftView: UIView {
     private let giftImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.image = UIImage(named: "example")
         image.clipsToBounds = true
         image.layer.cornerRadius = 10
         return image
@@ -80,7 +79,6 @@ final class ExperienceGiftView: UIView {
     
     private let giftTitle: UILabel = {
         let label = UILabel()
-        label.text = "[성수] 인기베이킹 클래스"
         label.textColor = .black0
         label.font = .fontGuide(.B00_12)
         return label
@@ -88,7 +86,6 @@ final class ExperienceGiftView: UIView {
     
     private let giftSubTitle: UILabel = {
         let label = UILabel()
-        label.text = "기념일 레터링 케이크\n사지 말고 함께 만들어요"
         label.textColor = .black
         label.font = .fontGuide(.M00_14)
         label.setLineSpacing(lineSpacing: 2.3)
@@ -99,7 +96,6 @@ final class ExperienceGiftView: UIView {
     
     let giftPriceLabel: UILabel = {
         let label = UILabel()
-        label.text = "75,000원"
         label.textColor = .main
         label.font = .fontGuide(.B00_14)
         return label
@@ -131,6 +127,7 @@ final class ExperienceGiftView: UIView {
         button.setImage(ImageLiterals.Icon.minus, for: .normal)
         button.backgroundColor = .bg4
         button.layer.cornerRadius = 10
+        button.isEnabled = false
         return button
     }()
     
