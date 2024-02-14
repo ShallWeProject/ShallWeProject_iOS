@@ -166,6 +166,7 @@
 		A4998BCA2B778C6B00883017 /* ExperienceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998BC92B778C6B00883017 /* ExperienceDetailViewModel.swift */; };
 		A4998BCD2B77967B00883017 /* ExperienceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998BCC2B77967B00883017 /* ExperienceTarget.swift */; };
 		A4998BD02B77981600883017 /* ExperienceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998BCF2B77981600883017 /* ExperienceAPI.swift */; };
+		A4998BEF2B7D322500883017 /* ReservationDateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998BEE2B7D322500883017 /* ReservationDateDto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -310,12 +311,11 @@
 		A431BE5D2B1AFAF90049C126 /* UICollectionViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewRegisterable.swift; sourceTree = "<group>"; };
 		A431BE5F2B1AFB160049C126 /* UITableViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewRegisterable.swift; sourceTree = "<group>"; };
 		A431BE762B1EEF4A0049C126 /* ExperienceGiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftViewController.swift; sourceTree = "<group>"; };
-		A4998BC32B760B2400883017 /* ConfigDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDev.xcconfig; sourceTree = "<group>"; };
-		A4998BC42B760B9800883017 /* ConfigRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigRelease.xcconfig; sourceTree = "<group>"; };
 		A4998BC62B761CB200883017 /* ExperienceDetailResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailResponseDto.swift; sourceTree = "<group>"; };
 		A4998BC92B778C6B00883017 /* ExperienceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailViewModel.swift; sourceTree = "<group>"; };
 		A4998BCC2B77967B00883017 /* ExperienceTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceTarget.swift; sourceTree = "<group>"; };
 		A4998BCF2B77981600883017 /* ExperienceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceAPI.swift; sourceTree = "<group>"; };
+		A4998BEE2B7D322500883017 /* ReservationDateDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDateDto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1124,6 +1124,7 @@
 			isa = PBXGroup;
 			children = (
 				A4998BC62B761CB200883017 /* ExperienceDetailResponseDto.swift */,
+				A4998BEE2B7D322500883017 /* ReservationDateDto.swift */,
 			);
 			path = Experience;
 			sourceTree = "<group>";
@@ -1382,6 +1383,7 @@
 				9515EF6E2B58640700C4E1AA /* FAQViewController.swift in Sources */,
 				0322139A2B1B6ED300FF5CF1 /* HomeExperienceCell.swift in Sources */,
 				0322136F2B15F8CF00FF5CF1 /* TabBarItem.swift in Sources */,
+				A4998BEF2B7D322500883017 /* ReservationDateDto.swift in Sources */,
 				0322139C2B1B8B3100FF5CF1 /* HomeHeaderView.swift in Sources */,
 				95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */,
 				9515EF802B5C63C100C4E1AA /* AccountSettingsViewController.swift in Sources */,
