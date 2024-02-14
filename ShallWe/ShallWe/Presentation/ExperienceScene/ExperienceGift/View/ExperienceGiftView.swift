@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 import FSCalendar
+import Kingfisher
 
 protocol CalendarDelegate: AnyObject {
     func leftButtonTapped()
@@ -254,7 +255,8 @@ final class ExperienceGiftView: UIView {
     }
 }
 
-extension ExperienceGiftView {
+private extension ExperienceGiftView {
+    
     func setUI() {
         backgroundColor = .white
     }
@@ -426,5 +428,20 @@ extension ExperienceGiftView {
             break
         }
     }
+    
+    func formatNumber(_ number: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: NSNumber(value: number)) ?? "\(number)"
+    }
 }
 
+extension ExperienceGiftView {
+    
+    func configureGiftView(model: ExperienceDetailResponseDto) {
+        giftImage.kf.setImage(with: URL(string: model.giftImgURL[0]))
+        giftTitle.text = model.subtitle
+        giftSubTitle.text = model.title
+        giftPriceLabel.text = "\(formatNumber(model.price))원"
+    }
+}
