@@ -21,6 +21,7 @@ enum URLConstant {
     static let reservationUser = "/api/v1/reservations/user"
     static let reservationValidTime = "/api/v1/reservations/validTimes"
     static let reservationGiftID = "/api/v1/reservations/giftId"
+    static let reservationDate = "/api/v1/reservations/date"
     
     // MemoryPhotos
     
