@@ -167,6 +167,7 @@
 		A4998BCD2B77967B00883017 /* ExperienceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998BCC2B77967B00883017 /* ExperienceTarget.swift */; };
 		A4998BD02B77981600883017 /* ExperienceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998BCF2B77981600883017 /* ExperienceAPI.swift */; };
 		A4998BEF2B7D322500883017 /* ReservationDateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998BEE2B7D322500883017 /* ReservationDateDto.swift */; };
+		A4998BF42B7DCC5C00883017 /* ExperienceGiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4998BF32B7DCC5B00883017 /* ExperienceGiftViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -316,6 +317,7 @@
 		A4998BCC2B77967B00883017 /* ExperienceTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceTarget.swift; sourceTree = "<group>"; };
 		A4998BCF2B77981600883017 /* ExperienceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceAPI.swift; sourceTree = "<group>"; };
 		A4998BEE2B7D322500883017 /* ReservationDateDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDateDto.swift; sourceTree = "<group>"; };
+		A4998BF32B7DCC5B00883017 /* ExperienceGiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1080,6 +1082,7 @@
 			children = (
 				A431BE7E2B24B0B10049C126 /* Cell */,
 				A431BE752B1EEDD10049C126 /* View */,
+				A4998BF22B7DCC4000883017 /* ViewModel */,
 				A431BE742B1EEDC50049C126 /* ViewController */,
 			);
 			path = ExperienceGift;
@@ -1151,6 +1154,14 @@
 				A4998BCF2B77981600883017 /* ExperienceAPI.swift */,
 			);
 			path = Experience;
+			sourceTree = "<group>";
+		};
+		A4998BF22B7DCC4000883017 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A4998BF32B7DCC5B00883017 /* ExperienceGiftViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1301,6 +1312,7 @@
 				A4998BD02B77981600883017 /* ExperienceAPI.swift in Sources */,
 				A42C33672B416AE300C4B477 /* ExperienceGiftView.swift in Sources */,
 				A431BE552B1A24F90049C126 /* (null) in Sources */,
+				A4998BF42B7DCC5C00883017 /* ExperienceGiftViewModel.swift in Sources */,
 				95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */,
 				9515EF682B5421AE00C4E1AA /* TermsDetailsPopUpViewController.swift in Sources */,
 				9515EF662B51600800C4E1AA /* AgreementOfTermsView.swift in Sources */,
