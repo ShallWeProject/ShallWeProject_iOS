@@ -11,6 +11,7 @@ import Moya
 
 enum ExperienceTarget {
     case getExperienceDetail(experienceGiftId: Int)
+    case getReservationDate(giftId: Int, date: String)
 }
 
 extension ExperienceTarget: BaseTargetType {
@@ -21,12 +22,16 @@ extension ExperienceTarget: BaseTargetType {
             let path = URLConstant.experienceDetails
                 .replacingOccurrences(of: "{ExperienceGiftId}", with: String(experienceGiftId))
             return path
+        case .getReservationDate(giftId: let giftId, date: let date):
+            return URLConstant.reservationDate
         }
     }
     
     var method: Moya.Method {
         switch self {
         case .getExperienceDetail:
+            return .get
+        case .getReservationDate:
             return .get
         }
     }
@@ -35,6 +40,9 @@ extension ExperienceTarget: BaseTargetType {
         switch self {
         case .getExperienceDetail:
             return .requestPlain
+        case .getReservationDate(giftId: let giftId, date: let date):
+            return .requestParameters(parameters: ["giftId": giftId, "date": date],
+                                                  encoding: URLEncoding.default)
         }
     }
     

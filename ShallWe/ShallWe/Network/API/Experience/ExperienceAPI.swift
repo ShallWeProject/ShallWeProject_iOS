@@ -18,6 +18,7 @@ final class ExperienceAPI {
     private init() {}
     
     public private(set) var experienceDetailData: GeneralResponse<ExperienceDetailResponseDto>?
+    public private(set) var reservationDateData: GeneralResponse<[ReservationDateDto]>?
     
     func getExperienceDetail(giftId: Int,
                              completion: @escaping(GeneralResponse<ExperienceDetailResponseDto>?) -> Void) {
@@ -38,4 +39,25 @@ final class ExperienceAPI {
             }
         }
     }
+    
+    func getReservationDate(giftId: Int,
+                            date: String,
+                            completion: @escaping(GeneralResponse<[ReservationDateDto]>?) -> Void) {
+       experienceProvider.request(.getReservationDate(giftId: giftId, date: date)) { [weak self] result in
+           guard let self else { return }
+           switch result {
+           case .success(let response):
+               do {
+                   self.reservationDateData = try response.map(GeneralResponse<[ReservationDateDto]>?.self)
+                   guard let reservationDateData = self.reservationDateData else { return }
+                   completion(reservationDateData)
+               } catch let err {
+                   print(err.localizedDescription)
+               }
+           case .failure(let err):
+               print(err.localizedDescription)
+               completion(nil)
+           }
+       }
+   }
 }
