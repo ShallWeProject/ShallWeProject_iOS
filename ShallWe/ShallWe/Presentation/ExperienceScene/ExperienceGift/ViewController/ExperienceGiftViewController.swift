@@ -22,12 +22,13 @@ final class ExperienceGiftViewController: UIViewController {
     private var selectedDate: String = ""
     private var selectedTime: String = ""
     
-    private let viewModel = ExperienceDetailViewModel()
+    private let detailViewModel = ExperienceDetailViewModel()
+    private let giftViewModel = ExperienceGiftViewModel()
     
     // MARK: - UI Components
     
     private let experienceGiftView = ExperienceGiftView()
-    private lazy var collectionView = experienceGiftView.timeCollectionView
+    private lazy var timeCollectionView = experienceGiftView.timeCollectionView
     
     private lazy var dateFormatter: DateFormatter = {
         let df = DateFormatter()
@@ -73,16 +74,21 @@ extension ExperienceGiftViewController {
     }
     
     func setDelegate() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        timeCollectionView.dataSource = self
+        timeCollectionView.delegate = self
         experienceGiftView.calendarDelegate = self
         experienceGiftView.calendarView.delegate = self
     }
     
     func bindViewModel() {
-        viewModel.observeExperienceDetail { [weak self] experienceDetail in
+        detailViewModel.observeExperienceDetail { [weak self] experienceDetail in
             guard let experienceDetail = experienceDetail else { return }
             self?.experienceGiftView.configureGiftView(model: experienceDetail)
+        }
+        
+        giftViewModel.observeExperienceGift { [weak self] experienceGift in
+            guard let experienceGift = experienceGift else { return }
+            self?.experienceGiftView.timeCollectionView.reloadData()
         }
     }
     
@@ -119,11 +125,13 @@ extension ExperienceGiftViewController: UICollectionViewDelegate {
 
 extension ExperienceGiftViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return giftViewModel.reservationDate?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = TimeCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+        let cell = TimeCollectionViewCell.dequeueReusableCell(collectionView: timeCollectionView, indexPath: indexPath)
+        guard let data = giftViewModel.reservationDate else { return cell }
+        cell.configureCell(model: data[indexPath.item])
         return cell
     }
 }
