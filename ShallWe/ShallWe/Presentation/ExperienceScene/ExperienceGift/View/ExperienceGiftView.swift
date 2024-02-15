@@ -79,7 +79,7 @@ final class ExperienceGiftView: UIView {
     
     private let giftTitle: UILabel = {
         let label = UILabel()
-        label.textColor = .black0
+        label.textColor = .black
         label.font = .fontGuide(.B00_12)
         return label
     }()
