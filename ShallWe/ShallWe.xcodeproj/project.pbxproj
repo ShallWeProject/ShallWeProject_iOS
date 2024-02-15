@@ -138,6 +138,10 @@
 		95748DE02B359802004157E0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DDF2B359802004157E0 /* CustomButton.swift */; };
 		95748DE52B35A95F004157E0 /* GenderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DE42B35A95F004157E0 /* GenderType.swift */; };
 		9592E0E92B79EC4500048D2C /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592E0E82B79EC4500048D2C /* AuthViewModel.swift */; };
+		9592E0EC2B7DFCCA00048D2C /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592E0EB2B7DFCCA00048D2C /* AuthAPI.swift */; };
+		9592E0EF2B7DFDA900048D2C /* AuthTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592E0EE2B7DFDA900048D2C /* AuthTarget.swift */; };
+		9592E0F22B7E031600048D2C /* AuthResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592E0F12B7E031600048D2C /* AuthResponseDto.swift */; };
+		9592E0F42B7E0EBF00048D2C /* AuthRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9592E0F32B7E0EBF00048D2C /* AuthRequestDto.swift */; };
 		A423E8652B5FB01F00B8C125 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8642B5FB01F00B8C125 /* MyPageView.swift */; };
 		A423E8672B5FB02A00B8C125 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8662B5FB02A00B8C125 /* MyPageViewController.swift */; };
 		A423E86A2B5FB2A700B8C125 /* MyPageReceiverEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8692B5FB2A700B8C125 /* MyPageReceiverEntity.swift */; };
@@ -286,6 +290,10 @@
 		95748DE42B35A95F004157E0 /* GenderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderType.swift; sourceTree = "<group>"; };
 		9592E0E42B79507E00048D2C /* ShallWe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShallWe.entitlements; sourceTree = "<group>"; };
 		9592E0E82B79EC4500048D2C /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		9592E0EB2B7DFCCA00048D2C /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		9592E0EE2B7DFDA900048D2C /* AuthTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTarget.swift; sourceTree = "<group>"; };
+		9592E0F12B7E031600048D2C /* AuthResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponseDto.swift; sourceTree = "<group>"; };
+		9592E0F32B7E0EBF00048D2C /* AuthRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestDto.swift; sourceTree = "<group>"; };
 		A423E8642B5FB01F00B8C125 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		A423E8662B5FB02A00B8C125 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		A423E8692B5FB2A700B8C125 /* MyPageReceiverEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReceiverEntity.swift; sourceTree = "<group>"; };
@@ -426,6 +434,7 @@
 		032212DF2B14B00B00FF5CF1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9592E0F02B7E02FE00048D2C /* Auth */,
 				03A6A5E12B7600AD007B24E4 /* Home */,
 			);
 			path = Data;
@@ -445,6 +454,7 @@
 		032212E32B14B04600FF5CF1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				9592E0EA2B7DFCBA00048D2C /* Auth */,
 				0350E2682B760FDB00F3EA69 /* Home */,
 			);
 			path = API;
@@ -572,6 +582,7 @@
 		0322131E2B14B73500FF5CF1 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
+				9592E0ED2B7DFD9D00048D2C /* Auth */,
 				0350E26B2B760FF200F3EA69 /* Home */,
 			);
 			path = APIService;
@@ -945,6 +956,31 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		9592E0EA2B7DFCBA00048D2C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9592E0EB2B7DFCCA00048D2C /* AuthAPI.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		9592E0ED2B7DFD9D00048D2C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9592E0EE2B7DFDA900048D2C /* AuthTarget.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		9592E0F02B7E02FE00048D2C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9592E0F12B7E031600048D2C /* AuthResponseDto.swift */,
+				9592E0F32B7E0EBF00048D2C /* AuthRequestDto.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		A423E8622B5FAFC900B8C125 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1237,6 +1273,7 @@
 				9515EF7C2B5894B300C4E1AA /* FAQType.swift in Sources */,
 				032213762B15FA2D00FF5CF1 /* HomeViewController.swift in Sources */,
 				9515EF842B5D2BF500C4E1AA /* WithdrawalViewController.swift in Sources */,
+				9592E0EF2B7DFDA900048D2C /* AuthTarget.swift in Sources */,
 				03AD68AF2B286EEB00ED54E1 /* HomeExperienceType.swift in Sources */,
 				0322138B2B1B2B5100FF5CF1 /* CustomNavigationBar.swift in Sources */,
 				95748DDC2B35810C004157E0 /* ProfileEntryViewController.swift in Sources */,
@@ -1275,6 +1312,7 @@
 				A42C33692B416B3E00C4B477 /* TimeCollectionViewCell.swift in Sources */,
 				A431BE582B1A25180049C126 /* (null) in Sources */,
 				0345806D2B288104002DDEBA /* HomeExperienceViewModel.swift in Sources */,
+				9592E0F42B7E0EBF00048D2C /* AuthRequestDto.swift in Sources */,
 				0350E26F2B76187F00F3EA69 /* TokenManager.swift in Sources */,
 				032212F92B14B1C800FF5CF1 /* String+.swift in Sources */,
 				032212A62B14AAFD00FF5CF1 /* AppDelegate.swift in Sources */,
@@ -1317,6 +1355,8 @@
 				032213862B1B2A8D00FF5CF1 /* BaseViewController.swift in Sources */,
 				0322131D2B14B32B00FF5CF1 /* URLConstant.swift in Sources */,
 				9515EF862B5D2C2600C4E1AA /* WithdrawalView.swift in Sources */,
+				9592E0EC2B7DFCCA00048D2C /* AuthAPI.swift in Sources */,
+				9592E0F22B7E031600048D2C /* AuthResponseDto.swift in Sources */,
 				032213052B14B23000FF5CF1 /* UIViewController+.swift in Sources */,
 				95748DE52B35A95F004157E0 /* GenderType.swift in Sources */,
 				035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */,
