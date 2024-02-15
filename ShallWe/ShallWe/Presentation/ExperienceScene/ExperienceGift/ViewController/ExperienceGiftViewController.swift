@@ -22,7 +22,7 @@ final class ExperienceGiftViewController: UIViewController {
     private var selectedDate: String = ""
     private var selectedTime: String = ""
     
-    private let detailViewModel = ExperienceDetailViewModel()
+    private let detailViewModel: ExperienceDetailViewModel
     private let giftViewModel = ExperienceGiftViewModel()
     
     // MARK: - UI Components
@@ -37,6 +37,13 @@ final class ExperienceGiftViewController: UIViewController {
         return df
     }()
     
+    // MARK: - Initializer
+
+    init(viewModel: ExperienceDetailViewModel) {
+        self.detailViewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     // MARK: - Life Cycles
     
     override func loadView() {
@@ -50,6 +57,11 @@ final class ExperienceGiftViewController: UIViewController {
         setUI()
         setDelegate()
         bindViewModel()
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -81,10 +93,8 @@ extension ExperienceGiftViewController {
     }
     
     func bindViewModel() {
-        detailViewModel.observeExperienceDetail { [weak self] experienceDetail in
-            guard let experienceDetail = experienceDetail else { return }
-            self?.experienceGiftView.configureGiftView(model: experienceDetail)
-        }
+        guard let experienceDetail = detailViewModel.experienceDetail else { return }
+        self.experienceGiftView.configureGiftView(model: experienceDetail)
         
         giftViewModel.observeExperienceGift { [weak self] experienceGift in
             guard let experienceGift = experienceGift else { return }
@@ -168,8 +178,9 @@ extension ExperienceGiftViewController: CalendarDelegate {
 extension ExperienceGiftViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
-        if let selectedMonth = components.month, let selectedDay = components.day {
-            self.selectedDate = "\(selectedMonth)월 \(selectedDay)일"
+        if let selectedYear = components.year, let selectedMonth = components.month, let selectedDay = components.day {
+            self.selectedDate = "\(selectedYear)-\(String(format: "%02d", selectedMonth))-\(String(format: "%02d", selectedDay))"
+            giftViewModel.reservationDate(giftId: 1, date: self.selectedDate)
         }
     }
     

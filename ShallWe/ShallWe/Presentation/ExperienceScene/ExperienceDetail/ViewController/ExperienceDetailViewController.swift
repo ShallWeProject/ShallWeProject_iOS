@@ -64,7 +64,7 @@ extension ExperienceDetailViewController {
         case experienceDetailView.navigationBar.backButton:
             self.navigationController?.popViewController(animated: true)
         case experienceDetailView.gifButton:
-            let nav = ExperienceGiftViewController()
+            let nav = ExperienceGiftViewController(viewModel: self.viewModel)
             self.navigationController?.pushViewController(nav, animated: true)
         default:
             break

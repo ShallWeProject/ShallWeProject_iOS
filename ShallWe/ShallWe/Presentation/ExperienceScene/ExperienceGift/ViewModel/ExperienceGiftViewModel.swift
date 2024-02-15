@@ -51,7 +51,7 @@ final class ExperienceGiftViewModel: ExperienceGiftViewModelInputs, ExperienceGi
     var outputs: ExperienceGiftViewModelOutputs { return self }
     
     init(){
-        getReservationDate(giftId: 1, date: "2024-02-08")
+        reservationDate(giftId: 1, date: "2024-02-08")
     }
     
     func reservationDate(giftId: Int, date: String) {
