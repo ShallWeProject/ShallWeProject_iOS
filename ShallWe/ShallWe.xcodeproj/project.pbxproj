@@ -21,9 +21,6 @@
 		032212CD2B14AD6800FF5CF1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 032212CC2B14AD6800FF5CF1 /* RxSwift */; };
 		032212D02B14AD8200FF5CF1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 032212CF2B14AD8200FF5CF1 /* Alamofire */; settings = {ATTRIBUTES = (Required, ); }; };
 		032212D32B14AD9000FF5CF1 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 032212D22B14AD9000FF5CF1 /* FSCalendar */; };
-		032212D62B14AE4100FF5CF1 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 032212D52B14AE4100FF5CF1 /* KakaoSDK */; };
-		032212D82B14AE4100FF5CF1 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 032212D72B14AE4100FF5CF1 /* KakaoSDKAuth */; };
-		032212DA2B14AE4100FF5CF1 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 032212D92B14AE4100FF5CF1 /* KakaoSDKUser */; };
 		032212DD2B14AE7600FF5CF1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 032212DC2B14AE7600FF5CF1 /* Lottie */; };
 		032212E72B14B07C00FF5CF1 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212E62B14B07C00FF5CF1 /* GeneralResponse.swift */; };
 		032212F12B14B17600FF5CF1 /* MakeVibrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032212F02B14B17600FF5CF1 /* MakeVibrate.swift */; };
@@ -124,6 +121,8 @@
 		9515EF922B6677F300C4E1AA /* PhotoDetailPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF912B6677F300C4E1AA /* PhotoDetailPopUpViewController.swift */; };
 		9515EF942B66780D00C4E1AA /* PhotoDetailPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF932B66780D00C4E1AA /* PhotoDetailPopUpView.swift */; };
 		9515EF962B68131700C4E1AA /* MemoryPhotoAlbumEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF952B68131700C4E1AA /* MemoryPhotoAlbumEmptyView.swift */; };
+		951D90422B7EA9310039E4A4 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 951D90412B7EA9310039E4A4 /* KakaoSDKAuth */; };
+		951D90562B7EA9310039E4A4 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 951D90552B7EA9310039E4A4 /* KakaoSDKUser */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
@@ -328,18 +327,17 @@
 				034580952B2F356C002DDEBA /* DropDown in Frameworks */,
 				03C7A6722B459EEB000F1E39 /* RxGesture in Frameworks */,
 				032212DD2B14AE7600FF5CF1 /* Lottie in Frameworks */,
-				032212D62B14AE4100FF5CF1 /* KakaoSDK in Frameworks */,
 				032212C92B14AD6800FF5CF1 /* RxCocoa in Frameworks */,
 				032212C62B14AD4900FF5CF1 /* RxMoya in Frameworks */,
 				032212D32B14AD9000FF5CF1 /* FSCalendar in Frameworks */,
 				032212CB2B14AD6800FF5CF1 /* RxRelay in Frameworks */,
 				032212C12B14AD2E00FF5CF1 /* Kingfisher in Frameworks */,
 				032212BB2B14ACF800FF5CF1 /* SnapKit in Frameworks */,
-				032212DA2B14AE4100FF5CF1 /* KakaoSDKUser in Frameworks */,
 				032212C42B14AD4900FF5CF1 /* Moya in Frameworks */,
 				032212CD2B14AD6800FF5CF1 /* RxSwift in Frameworks */,
 				032212BE2B14AD0400FF5CF1 /* Then in Frameworks */,
-				032212D82B14AE4100FF5CF1 /* KakaoSDKAuth in Frameworks */,
+				951D90562B7EA9310039E4A4 /* KakaoSDKUser in Frameworks */,
+				951D90422B7EA9310039E4A4 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1182,12 +1180,11 @@
 				032212CC2B14AD6800FF5CF1 /* RxSwift */,
 				032212CF2B14AD8200FF5CF1 /* Alamofire */,
 				032212D22B14AD9000FF5CF1 /* FSCalendar */,
-				032212D52B14AE4100FF5CF1 /* KakaoSDK */,
-				032212D72B14AE4100FF5CF1 /* KakaoSDKAuth */,
-				032212D92B14AE4100FF5CF1 /* KakaoSDKUser */,
 				032212DC2B14AE7600FF5CF1 /* Lottie */,
 				034580942B2F356C002DDEBA /* DropDown */,
 				03C7A6712B459EEB000F1E39 /* RxGesture */,
+				951D90412B7EA9310039E4A4 /* KakaoSDKAuth */,
+				951D90552B7EA9310039E4A4 /* KakaoSDKUser */,
 			);
 			productName = ShallWe;
 			productReference = 032212A22B14AAFD00FF5CF1 /* ShallWe.app */;
@@ -1225,10 +1222,10 @@
 				032212C72B14AD6800FF5CF1 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				032212CE2B14AD8200FF5CF1 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				032212D12B14AD9000FF5CF1 /* XCRemoteSwiftPackageReference "FSCalendar" */,
-				032212D42B14AE4100FF5CF1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				032212DB2B14AE7600FF5CF1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				034580932B2F2E34002DDEBA /* XCRemoteSwiftPackageReference "DropDown" */,
 				03C7A6702B459EEB000F1E39 /* XCRemoteSwiftPackageReference "RxGesture" */,
+				951D903E2B7EA9310039E4A4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = 032212A32B14AAFD00FF5CF1 /* Products */;
 			projectDirPath = "";
@@ -1687,14 +1684,6 @@
 				minimumVersion = 2.8.4;
 			};
 		};
-		032212D42B14AE4100FF5CF1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.19.0;
-			};
-		};
 		032212DB2B14AE7600FF5CF1 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
@@ -1717,6 +1706,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 4.0.4;
+			};
+		};
+		951D903E2B7EA9310039E4A4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1772,21 +1769,6 @@
 			package = 032212D12B14AD9000FF5CF1 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
 		};
-		032212D52B14AE4100FF5CF1 /* KakaoSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 032212D42B14AE4100FF5CF1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDK;
-		};
-		032212D72B14AE4100FF5CF1 /* KakaoSDKAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 032212D42B14AE4100FF5CF1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDKAuth;
-		};
-		032212D92B14AE4100FF5CF1 /* KakaoSDKUser */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 032212D42B14AE4100FF5CF1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
-			productName = KakaoSDKUser;
-		};
 		032212DC2B14AE7600FF5CF1 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 032212DB2B14AE7600FF5CF1 /* XCRemoteSwiftPackageReference "lottie-ios" */;
@@ -1801,6 +1783,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 03C7A6702B459EEB000F1E39 /* XCRemoteSwiftPackageReference "RxGesture" */;
 			productName = RxGesture;
+		};
+		951D90412B7EA9310039E4A4 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 951D903E2B7EA9310039E4A4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		951D90552B7EA9310039E4A4 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 951D903E2B7EA9310039E4A4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
