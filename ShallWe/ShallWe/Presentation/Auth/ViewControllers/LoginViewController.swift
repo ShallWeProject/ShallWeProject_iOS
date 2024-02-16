@@ -6,7 +6,9 @@
 //
 
 import UIKit
+
 import AuthenticationServices
+import KakaoSDKUser
 
 final class LoginViewController: UIViewController {
     
@@ -56,7 +58,31 @@ extension LoginViewController {
     @objc
     func kakaoLoginDidTap() {
         print("💛")
-        authViewModel.loginWithKakao()
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("✅ 카카오톡으로 로그인 성공")
+                    if let oauthToken = oauthToken {
+                        self.authViewModel.loginWithKakao(oauthToken: oauthToken)
+                    }
+                }
+            }
+        } else {
+            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("✅ 카카오계정으로 로그인 성공")
+                    if let oauthToken = oauthToken {
+                        self.authViewModel.loginWithKakao(oauthToken: oauthToken)
+                    }
+                }
+            }
+        }
     }
     
     @objc

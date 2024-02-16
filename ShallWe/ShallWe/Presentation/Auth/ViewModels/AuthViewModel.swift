@@ -8,6 +8,7 @@
 import Foundation
 
 import AuthenticationServices
+import KakaoSDKAuth
 
 final class AuthViewModel: NSObject {
     
@@ -21,8 +22,8 @@ final class AuthViewModel: NSObject {
 // MARK: - Extensions
 
 extension AuthViewModel {
-    func loginWithKakao() {
-        
+    func loginWithKakao(oauthToken: OAuthToken) {
+        // TODO: 로그인 성공 시 키체인에 토큰 저장 후 홈으로 이동, 실패 시 회원가입 진행
     }
     
     func loginWithApple(completion: @escaping (ASAuthorizationAppleIDRequest) -> Void) {
