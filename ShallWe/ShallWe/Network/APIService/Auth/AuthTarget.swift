@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 enum AuthTarget {
-    case signUpWithApple(signUpRequestDto: SignUpRequestDto)
+    case signUpWithApple(signUpWithAppleRequestDto: SignUpWithAppleRequestDto)
     case signInWithApple
 }
 

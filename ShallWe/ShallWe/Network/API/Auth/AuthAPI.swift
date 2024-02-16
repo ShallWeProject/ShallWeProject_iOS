@@ -28,12 +28,12 @@ final class AuthAPI {
     }
     
     /// 카카오 로그인
-    func signInWithKakao(oauthToken: OAuthToken, completion: @escaping(GeneralResponse<AuthResponseDto>?) -> Void) {
-        
+    func signInWithKakao(completion: @escaping(GeneralResponse<AuthResponseDto>?) -> Void) {
+        completion(nil)
     }
     
     /// 애플 로그인
-    func signInWithApple(user: String, completion: @escaping(GeneralResponse<AuthResponseDto>?) -> Void) {
-        
+    func signInWithApple(completion: @escaping(GeneralResponse<AuthResponseDto>?) -> Void) {
+        completion(nil)
     }
 }

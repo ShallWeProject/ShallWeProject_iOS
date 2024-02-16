@@ -61,8 +61,18 @@ extension LoginViewController {
         else {
             print("✅ 카카오 로그인 성공")
             if let oauthToken = oauthToken {
-                self.authViewModel.signInWithKakao(oauthToken: oauthToken) { response in
-                    
+                UserApi.shared.me() { (user, error) in
+                    if let error = error {
+                        print("❗️유저 정보 가져오기 실패 - \(error)")
+                    } else {
+                        if let user = user {
+                            self.authViewModel.setSignUpDataWithKakao(userID: String(describing: user.id), email: user.kakaoAccount?.email ?? "", accessToken: oauthToken.accessToken)
+                            
+                            self.authViewModel.signInWithKakao { response in
+                                self.goToPhoneNumberVerificationVC()
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -102,12 +112,12 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
         print("✅ 애플 로그인 성공")
-        authViewModel.user = credential.user
-        authViewModel.identityToken = credential.identityToken!
-        authViewModel.authorizationCode = credential.authorizationCode!
+        let authorizationCode = String(data: credential.authorizationCode ?? Data(), encoding: .utf8) ?? ""
+        let identityToken = String(data: credential.identityToken ?? Data(), encoding: .utf8) ?? ""
+        authViewModel.setSignUpDataWithApple(user: credential.user, authorizationCode: authorizationCode, identityToken: identityToken)
         
         authViewModel.signInWithApple { reponse in
-            
+            self.goToPhoneNumberVerificationVC()
         }
     }
     

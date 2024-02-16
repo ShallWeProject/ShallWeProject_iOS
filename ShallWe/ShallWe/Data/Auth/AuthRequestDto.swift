@@ -7,13 +7,23 @@
 
 import Foundation
 
-struct SignUpRequestDto: Codable {
-    let email: String
+struct SignUpWithAppleRequestDto: Codable {
     let authorizationCode: String
     let identityToken: String
     let user: String
 }
 
-struct SignInRequestDto: Codable {
+struct SignUpWithKakaoRequestDto: Codable {
+    let providerID: String
+    let email: String
+    let accessToken: String
+}
+
+struct SignInWithAppleRequestDto: Codable {
     let user: String
+}
+
+struct SignInWithKakaoRequestDto: Codable {
+    let providerID: String
+    let email: String
 }
