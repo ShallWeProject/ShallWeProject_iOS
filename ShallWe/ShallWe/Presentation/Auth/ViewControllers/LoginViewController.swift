@@ -8,6 +8,7 @@
 import UIKit
 
 import AuthenticationServices
+import KakaoSDKAuth
 import KakaoSDKUser
 
 final class LoginViewController: UIViewController {
@@ -53,6 +54,20 @@ extension LoginViewController {
         self.navigationController?.pushViewController(phoneNumberVerificationViewController, animated: true)
     }
     
+    private func signInWithKakao(_ error: Error?, _ oauthToken: OAuthToken?) {
+        if let error = error {
+            print("❗️카카오 로그인 실패 - \(error)")
+        }
+        else {
+            print("✅ 카카오 로그인 성공")
+            if let oauthToken = oauthToken {
+                self.authViewModel.signInWithKakao(oauthToken: oauthToken) { response in
+                    
+                }
+            }
+        }
+    }
+    
     // MARK: Actions
     
     @objc
@@ -60,27 +75,11 @@ extension LoginViewController {
         print("💛")
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-                if let error = error {
-                    print(error)
-                }
-                else {
-                    print("✅ 카카오톡으로 로그인 성공")
-                    if let oauthToken = oauthToken {
-                        self.authViewModel.loginWithKakao(oauthToken: oauthToken)
-                    }
-                }
+                self.signInWithKakao(error, oauthToken)
             }
         } else {
             UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-                if let error = error {
-                    print(error)
-                }
-                else {
-                    print("✅ 카카오계정으로 로그인 성공")
-                    if let oauthToken = oauthToken {
-                        self.authViewModel.loginWithKakao(oauthToken: oauthToken)
-                    }
-                }
+                self.signInWithKakao(error, oauthToken)
             }
         }
     }
@@ -88,12 +87,32 @@ extension LoginViewController {
     @objc
     func appleLoginDidTap() {
         print("🍎")
-        authViewModel.loginWithApple { request in
-            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-            authorizationController.delegate = self.authViewModel as any ASAuthorizationControllerDelegate
-            authorizationController.presentationContextProvider = self
-            authorizationController.performRequests()
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = []
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+}
+
+extension LoginViewController: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
+        print("✅ 애플 로그인 성공")
+        authViewModel.user = credential.user
+        authViewModel.identityToken = credential.identityToken!
+        authViewModel.authorizationCode = credential.authorizationCode!
+        
+        authViewModel.signInWithApple { reponse in
+            
         }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("❗️Apple login failed - \(error.localizedDescription)")
     }
 }
 

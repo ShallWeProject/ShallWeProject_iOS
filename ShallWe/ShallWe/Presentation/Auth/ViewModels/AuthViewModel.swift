@@ -12,41 +12,34 @@ import KakaoSDKAuth
 
 final class AuthViewModel: NSObject {
     
-    private var user: String = ""
-    private var authorizationCode: Data = Data()
-    private var identityToken: Data = Data()
+    var user: String = ""
+    var authorizationCode: Data = Data()
+    var identityToken: Data = Data()
     
     override init() {}
+    
+    func signUpWithKakao() {
+        
+    }
+    
+    func signUpWithApple() {
+        
+    }
 }
 
 // MARK: - Extensions
 
 extension AuthViewModel {
-    func loginWithKakao(oauthToken: OAuthToken) {
-        // TODO: 로그인 성공 시 키체인에 토큰 저장 후 홈으로 이동, 실패 시 회원가입 진행
-    }
-    
-    func loginWithApple(completion: @escaping (ASAuthorizationAppleIDRequest) -> Void) {
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        let request = appleIDProvider.createRequest()
-        request.requestedScopes = []
-        completion(request)
-    }
-}
-
-extension AuthViewModel: ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
-        self.user = credential.user
-        self.identityToken = credential.identityToken!
-        self.authorizationCode = credential.authorizationCode!
-        
-        AuthAPI.shared.signInWithApple(user: user) { response in
-            // TODO: 로그인 성공 시 키체인에 토큰 저장 후 홈으로 이동, 실패 시 회원가입 진행
+    func signInWithKakao(oauthToken: OAuthToken, completion: @escaping (Any) -> Void) {
+        AuthAPI.shared.signInWithKakao(oauthToken: oauthToken) { response in
+            // TODO: 로그인 성공 시 키체인에 토큰 저장 후 로그인VC에서 홈으로 이동, 실패 시 회원가입 진행
         }
     }
     
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print("❗️Apple login failed - \(error.localizedDescription)")
+    func signInWithApple(completion: @escaping (Any) -> Void) {
+        AuthAPI.shared.signInWithApple(user: user) { response in
+            completion(response as Any)
+            // TODO: 로그인 성공 시 키체인에 토큰 저장 후 로그인VC에서 홈으로 이동, 실패 시 회원가입 진행
+        }
     }
 }

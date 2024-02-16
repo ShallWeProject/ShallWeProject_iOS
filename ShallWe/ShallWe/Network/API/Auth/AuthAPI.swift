@@ -8,6 +8,7 @@
 import Foundation
 
 import Moya
+import KakaoSDKAuth
 
 final class AuthAPI {
     static let shared: AuthAPI = AuthAPI()
@@ -27,7 +28,7 @@ final class AuthAPI {
     }
     
     /// 카카오 로그인
-    func signInWithKakao(completion: @escaping(GeneralResponse<AuthResponseDto>?) -> Void) {
+    func signInWithKakao(oauthToken: OAuthToken, completion: @escaping(GeneralResponse<AuthResponseDto>?) -> Void) {
         
     }
     
