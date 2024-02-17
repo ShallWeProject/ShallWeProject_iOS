@@ -14,13 +14,13 @@ final class AuthViewModel: NSObject {
     
     // MARK: - Properties
     /// Apple
-    private var user: String? = nil
-    private var authorizationCode: String? = nil
-    private var identityToken: String? = nil
+    private var user: String?
+    private var authorizationCode: String?
+    private var identityToken: String?
     
     /// Kakao
-    private var userID: String? = nil
-    private var email: String? = nil
+    private var userID: String?
+    private var email: String?
     
     override init() {}
     

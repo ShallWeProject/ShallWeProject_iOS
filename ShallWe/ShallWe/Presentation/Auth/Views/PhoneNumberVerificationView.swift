@@ -11,9 +11,15 @@ import SnapKit
 
 final class PhoneNumberVerificationView: UIView {
     
+    // MARK: - Properties
+    
+    var scrollViewBottomConstraint: Constraint?
+    var editingTextField: CustomTextFieldView?
+    private var isVerificationRequested = false
+
     // MARK: - UI Components
     
-    private let scrollView: UIScrollView = {
+    let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +51,7 @@ final class PhoneNumberVerificationView: UIView {
         return label
     }()
     
-    private let requestButton: UIButton = {
+    let requestButton: UIButton = {
         let button = UIButton()
         button.setTitle(I18N.Auth.verificationRequestText, for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -55,20 +61,21 @@ final class PhoneNumberVerificationView: UIView {
         return button
     }()
     
-    private let checkButton: UIButton = {
+    let checkButton: UIButton = {
         let button = UIButton()
         button.setTitle(I18N.Auth.checkText, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .fontGuide(.M00_14)
         button.backgroundColor = .black0
         button.layer.cornerRadius = 10
+        button.isHidden = true
         return button
     }()
     
     private let authHeaderView = AuthHeaderView(frame: .zero, text: I18N.Auth.phoneNumberVerificationText)
-    private var nameTextField = CustomTextFieldView()
-    private var phoneNumberTextField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.phoneNumberInputText)
-    private var verificationCodeTextField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.verificationCodeInputText)
+    let nameTextField = CustomTextFieldView()
+    let phoneNumberTextField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.phoneNumberInputText)
+    let verificationCodeTextField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.verificationCodeInputText)
     
     // MARK: - View Life Cycle
     
@@ -78,6 +85,8 @@ final class PhoneNumberVerificationView: UIView {
         setUI()
         setHierarchy()
         setLayout()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -93,6 +102,7 @@ private extension PhoneNumberVerificationView {
     
     func setUI() {
         backgroundColor = .white
+        verificationCodeTextField.isHidden = true
     }
     
     func setHierarchy() {
@@ -104,7 +114,7 @@ private extension PhoneNumberVerificationView {
     func setLayout() {
         scrollView.snp.makeConstraints {
             $0.top.horizontalEdges.equalTo(safeAreaLayoutGuide)
-            $0.bottom.equalToSuperview()
+            scrollViewBottomConstraint = $0.bottom.equalToSuperview().constraint
         }
         
         nextButton.snp.makeConstraints {
@@ -156,7 +166,42 @@ private extension PhoneNumberVerificationView {
             $0.height.equalTo(40)
             $0.top.equalTo(verificationCodeTextField.snp.bottom).offset(9)
             $0.horizontalEdges.equalToSuperview().inset(24)
-            $0.bottom.greaterThanOrEqualToSuperview().inset(30)
+            $0.bottom.greaterThanOrEqualToSuperview().inset(50)
         }
+    }
+    
+    /// TextField 포커스될 때 키보드에 가려지지 않도록 위치 조정
+    private func adjustPositionWhenTextFieldFocus() {
+        if isVerificationRequested, let editingTextField {
+            switch editingTextField {
+            case verificationCodeTextField:
+                let distance = checkButton.frame.maxY - scrollView.frame.maxY + 40
+                let offset = CGPoint(x: 0, y: scrollView.frame.origin.y + distance)
+                scrollView.setContentOffset(offset, animated: true)
+            case phoneNumberTextField:
+                let distance = checkButton.frame.maxY - scrollView.frame.maxY + 16
+                let offset = CGPoint(x: 0, y: scrollView.frame.origin.y + distance)
+                scrollView.setContentOffset(offset, animated: true)
+            default:
+                return
+            }
+        }
+    }
+    
+    @objc
+    func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size else {
+            return
+        }
+        nextButton.isHidden = true
+        scrollViewBottomConstraint?.update(offset: -keyboardSize.height)
+        layoutIfNeeded()
+        adjustPositionWhenTextFieldFocus()
+    }
+
+    @objc
+    func keyboardWillHide(_ notification: Notification) {
+        scrollViewBottomConstraint?.update(offset: 0)
+        nextButton.isHidden = false
     }
 }

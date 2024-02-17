@@ -50,7 +50,7 @@ extension LoginViewController {
     }
     
     private func goToPhoneNumberVerificationVC() {
-        let phoneNumberVerificationViewController = PhoneNumberVerificationViewController()
+        let phoneNumberVerificationViewController = PhoneNumberVerificationViewController(viewModel: authViewModel)
         self.navigationController?.pushViewController(phoneNumberVerificationViewController, animated: true)
     }
     
