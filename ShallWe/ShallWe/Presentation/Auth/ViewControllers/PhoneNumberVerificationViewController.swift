@@ -19,7 +19,6 @@ final class PhoneNumberVerificationViewController: UIViewController {
     private lazy var nameTextField = phoneNumberVerificationView.nameTextField
     private lazy var phoneNumberTextField = phoneNumberVerificationView.phoneNumberTextField
     private lazy var verificationCodeTextField = phoneNumberVerificationView.verificationCodeTextField
-    private lazy var checkButton = phoneNumberVerificationView.checkButton
     
     // MARK: - Life Cycles
     
@@ -43,9 +42,7 @@ final class PhoneNumberVerificationViewController: UIViewController {
         
         setNavigationBar()
         setAddTarget()
-        nameTextField.delegate = self
-        phoneNumberTextField.delegate = self
-        verificationCodeTextField.delegate = self
+        setDelegate()
     }
 }
 
@@ -66,6 +63,13 @@ extension PhoneNumberVerificationViewController {
     
     func setAddTarget() {
         phoneNumberVerificationView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
+        phoneNumberVerificationView.requestButton.addTarget(self, action: #selector(requestButtonDidTap), for: .touchUpInside)
+    }
+    
+    func setDelegate() {
+        nameTextField.delegate = self
+        phoneNumberTextField.delegate = self
+        verificationCodeTextField.delegate = self
     }
     
     // MARK: Actions
@@ -79,6 +83,14 @@ extension PhoneNumberVerificationViewController {
     func nextButtonDidTap() {
         let agreementToTermsViewController = AgreementToTermsViewController()
         self.navigationController?.pushViewController(agreementToTermsViewController, animated: true)
+    }
+    
+    @objc
+    func requestButtonDidTap() {
+        phoneNumberVerificationView.isVerificationRequested = true
+        phoneNumberVerificationView.verificationCodeTextField.isHidden = false
+        phoneNumberVerificationView.checkButton.isHidden = false
+        phoneNumberVerificationView.adjustPositionWhenTextFieldFocus()
     }
 }
 

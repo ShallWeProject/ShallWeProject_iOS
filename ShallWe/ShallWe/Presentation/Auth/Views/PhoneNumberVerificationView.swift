@@ -15,7 +15,7 @@ final class PhoneNumberVerificationView: UIView {
     
     var scrollViewBottomConstraint: Constraint?
     var editingTextField: CustomTextFieldView?
-    private var isVerificationRequested = false
+    var isVerificationRequested = false
 
     // MARK: - UI Components
     
@@ -85,8 +85,7 @@ final class PhoneNumberVerificationView: UIView {
         setUI()
         setHierarchy()
         setLayout()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        setKeyboardNotifications()
     }
     
     required init?(coder: NSCoder) {
@@ -96,7 +95,7 @@ final class PhoneNumberVerificationView: UIView {
 
 // MARK: - Extensions
 
-private extension PhoneNumberVerificationView {
+extension PhoneNumberVerificationView {
     
     // MARK: - Methods
     
@@ -170,8 +169,13 @@ private extension PhoneNumberVerificationView {
         }
     }
     
+    private func setKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     /// TextField 포커스될 때 키보드에 가려지지 않도록 위치 조정
-    private func adjustPositionWhenTextFieldFocus() {
+    func adjustPositionWhenTextFieldFocus() {
         if isVerificationRequested, let editingTextField {
             switch editingTextField {
             case verificationCodeTextField:
