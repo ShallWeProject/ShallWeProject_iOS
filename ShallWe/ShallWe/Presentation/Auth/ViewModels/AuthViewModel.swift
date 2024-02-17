@@ -21,7 +21,6 @@ final class AuthViewModel: NSObject {
     /// Kakao
     private var userID: String? = nil
     private var email: String? = nil
-    private var accessToken: String? = nil
     
     override init() {}
     
@@ -41,10 +40,9 @@ final class AuthViewModel: NSObject {
         self.identityToken = identityToken
     }
     
-    func setSignUpDataWithKakao(userID: String, email: String, accessToken: String) {
+    func setSignUpDataWithKakao(userID: String, email: String) {
         self.userID = userID
         self.email = email
-        self.accessToken = accessToken
     }
 }
 

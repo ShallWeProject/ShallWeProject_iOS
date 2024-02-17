@@ -16,7 +16,6 @@ struct SignUpWithAppleRequestDto: Codable {
 struct SignUpWithKakaoRequestDto: Codable {
     let providerID: String
     let email: String
-    let accessToken: String
 }
 
 struct SignInWithAppleRequestDto: Codable {
