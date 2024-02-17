@@ -17,16 +17,6 @@ final class AuthAPI {
     private init() {}
     
     // MARK: - POST
-    /// 카카오 회원가입
-    func signUpWithKakao(completion: @escaping(GeneralResponse<AuthResponseDto>?) -> Void) {
-        
-    }
-    
-    /// 애플 회원가입
-    func signUpWithApple(completion: @escaping(GeneralResponse<AuthResponseDto>?) -> Void) {
-        
-    }
-    
     /// 카카오 로그인
     func signInWithKakao(completion: @escaping(GeneralResponse<AuthResponseDto>?) -> Void) {
         completion(nil)

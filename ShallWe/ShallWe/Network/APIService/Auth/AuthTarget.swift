@@ -10,34 +10,32 @@ import Foundation
 import Moya
 
 enum AuthTarget {
-    case signUpWithApple(signUpWithAppleRequestDto: SignUpWithAppleRequestDto)
-    case signInWithApple
+    case signInWithApple(signInWithAppleRequestDto: SignInWithAppleRequestDto)
+    case signInWithKakao(signInWithKakaoRequestDto: SignInWithKakaoRequestDto)
 }
 
 extension AuthTarget: BaseTargetType {
     var path: String {
         switch self {
-            // TODO: 애플용 auth api 추가되면 수정 필요
-        case .signUpWithApple:
-            return URLConstant.signUp
-        case .signInWithApple:
+            // TODO: auth api 확정되면 수정 필요
+        case .signInWithApple, .signInWithKakao:
             return URLConstant.signIn
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .signUpWithApple, .signInWithApple:
+        case .signInWithApple, .signInWithKakao:
             return .post
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .signUpWithApple(let signUpRequestDto):
-            return .requestJSONEncodable(signUpRequestDto)
-        case .signInWithApple:
-            return .requestPlain
+        case .signInWithApple(let signInRequestDto):
+            return .requestJSONEncodable(signInRequestDto)
+        case .signInWithKakao(let signInRequestDto):
+            return .requestJSONEncodable(signInRequestDto)
         }
     }
     
