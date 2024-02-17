@@ -72,10 +72,30 @@ final class PhoneNumberVerificationView: UIView {
         return button
     }()
     
+    let nameTextField: CustomTextFieldView = {
+        let textField = CustomTextFieldView()
+        textField.returnKeyType = .done
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
+        textField.autocapitalizationType = .none
+        return textField
+    }()
+    
+    let phoneNumberTextField: CustomTextFieldView = {
+        let textField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.phoneNumberInputText)
+        textField.keyboardType = UIKeyboardType.numberPad
+        textField.returnKeyType = .done
+        return textField
+    }()
+    
+    let verificationCodeTextField: CustomTextFieldView = {
+        let textField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.verificationCodeInputText)
+        textField.keyboardType = UIKeyboardType.numberPad
+        textField.returnKeyType = .done
+        return textField
+    }()
+    
     private let authHeaderView = AuthHeaderView(frame: .zero, text: I18N.Auth.phoneNumberVerificationText)
-    let nameTextField = CustomTextFieldView()
-    let phoneNumberTextField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.phoneNumberInputText)
-    let verificationCodeTextField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.verificationCodeInputText)
     
     // MARK: - View Life Cycle
     
@@ -177,15 +197,20 @@ extension PhoneNumberVerificationView {
     /// TextField 포커스될 때 키보드에 가려지지 않도록 위치 조정
     func adjustPositionWhenTextFieldFocus() {
         if isVerificationRequested, let editingTextField {
+            let currentDistance = scrollView.contentOffset.y + scrollView.frame.height - checkButton.frame.maxY
             switch editingTextField {
             case verificationCodeTextField:
-                let distance = checkButton.frame.maxY - scrollView.frame.maxY + 40
-                let offset = CGPoint(x: 0, y: scrollView.frame.origin.y + distance)
-                scrollView.setContentOffset(offset, animated: true)
+                if currentDistance < 40 {
+                    let distance = checkButton.frame.maxY - scrollView.frame.maxY + 40
+                    let offset = CGPoint(x: 0, y: scrollView.frame.origin.y + distance)
+                    scrollView.setContentOffset(offset, animated: true)
+                }
             case phoneNumberTextField:
-                let distance = checkButton.frame.maxY - scrollView.frame.maxY + 16
-                let offset = CGPoint(x: 0, y: scrollView.frame.origin.y + distance)
-                scrollView.setContentOffset(offset, animated: true)
+                if currentDistance < 16 {
+                    let distance = checkButton.frame.maxY - scrollView.frame.maxY + 16
+                    let offset = CGPoint(x: 0, y: scrollView.frame.origin.y + distance)
+                    scrollView.setContentOffset(offset, animated: true)
+                }
             default:
                 return
             }

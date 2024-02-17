@@ -43,6 +43,7 @@ final class PhoneNumberVerificationViewController: UIViewController {
         setNavigationBar()
         setAddTarget()
         setDelegate()
+        hideKeyboardWhenTappedAround()
     }
 }
 
@@ -98,5 +99,10 @@ extension PhoneNumberVerificationViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         phoneNumberVerificationView.editingTextField = textField as? CustomTextFieldView
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
