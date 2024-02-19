@@ -25,3 +25,14 @@ struct SttCategoryRe: Codable {
     let sttCategory: String
     let imageUrl: String
 }
+
+// MARK: - Search
+struct SearchResponseDto: Codable {
+    let subtitle: String
+    let title: String
+    let price: Int
+    let giftImgUrl: [String]
+    let experienceGiftId: Int
+}
+
+
