@@ -53,7 +53,7 @@ private extension TimeCollectionViewCell {
 
 extension TimeCollectionViewCell {
     
-    func configureCell(model: ReservationDateDto) {
+    func configureCell(model: ReservationDateResponseDto) {
         let timeString = model.time
         let components = timeString.components(separatedBy: ":")
         if let hour = components.first {

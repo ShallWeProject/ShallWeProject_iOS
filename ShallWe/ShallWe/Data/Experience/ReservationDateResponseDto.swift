@@ -1,5 +1,5 @@
 //
-//  ReservationDateDto.swift
+//  ReservationDateResponseDto.swift
 //  ShallWe
 //
 //  Created by 고아라 on 2/15/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ReservationDateDto: Codable {
+struct ReservationDateResponseDto: Codable {
     let reservationID: Int
     let status, time: String
 

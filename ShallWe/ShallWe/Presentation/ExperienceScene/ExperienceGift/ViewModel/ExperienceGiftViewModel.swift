@@ -12,7 +12,7 @@ protocol ExperienceGiftViewModelInputs {
 }
 
 protocol ExperienceGiftViewModelOutputs {
-    var reservationDate: [ReservationDateDto]? { get }
+    var reservationDate: [ReservationDateResponseDto]? { get }
 }
 
 protocol ExperienceGiftViewModelType {
@@ -35,15 +35,15 @@ class ExperienceGiftObservable<T> {
 
 final class ExperienceGiftViewModel: ExperienceGiftViewModelInputs, ExperienceGiftViewModelOutputs, ExperienceGiftViewModelType {
     
-    private var experienceGiftObservable = ExperienceGiftObservable<[ReservationDateDto]?>()
+    private var experienceGiftObservable = ExperienceGiftObservable<[ReservationDateResponseDto]?>()
     
-    var reservationDate: [ReservationDateDto]? {
+    var reservationDate: [ReservationDateResponseDto]? {
         didSet {
             experienceGiftObservable.emit(reservationDate)
         }
     }
     
-    func observeExperienceGift(_ observer: @escaping ExperienceGiftObservable<[ReservationDateDto]?>.Observer) {
+    func observeExperienceGift(_ observer: @escaping ExperienceGiftObservable<[ReservationDateResponseDto]?>.Observer) {
         experienceGiftObservable.observe(observer: observer)
     }
     
