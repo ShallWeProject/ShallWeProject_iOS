@@ -25,3 +25,12 @@ struct SttCategoryDto: Codable {
     let giftImgUrl: [String]
     let experienceGiftId: Int
 }
+
+// MARK: - 인기별 경험선물
+struct ExpGiftPopular: Codable {
+    let subtitle: String
+    let title: String
+    let price: Int
+    let giftImgUrl: [String]
+    let experienceGiftId: Int
+}
