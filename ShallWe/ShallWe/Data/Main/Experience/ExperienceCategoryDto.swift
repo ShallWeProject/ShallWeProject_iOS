@@ -34,3 +34,12 @@ struct ExpGiftPopular: Codable {
     let giftImgUrl: [String]
     let experienceGiftId: Int
 }
+
+// MARK: - 검색
+struct SearchResponseDto: Codable {
+    let subtitle: String
+    let title: String
+    let price: Int
+    let giftImgUrl: [String]
+    let experienceGiftId: Int
+}
