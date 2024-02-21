@@ -15,7 +15,6 @@ final class PhoneNumberVerificationView: UIView {
     
     var scrollViewBottomConstraint: Constraint?
     var editingTextField: CustomTextFieldView?
-    var isVerificationRequested = false
 
     // MARK: - UI Components
     
@@ -40,6 +39,7 @@ final class PhoneNumberVerificationView: UIView {
         button.titleLabel?.font = .fontGuide(.SB00_14)
         button.backgroundColor = .gray2
         button.layer.cornerRadius = 10
+        button.isEnabled = false
         return button
     }()
     
@@ -95,6 +95,13 @@ final class PhoneNumberVerificationView: UIView {
         return textField
     }()
     
+    let verificationValidTime: UILabel = {
+        let label = UILabel()
+        label.font = .fontGuide(.M00_12)
+        label.textColor = .main
+        return label
+    }()
+    
     private let authHeaderView = AuthHeaderView(frame: .zero, text: I18N.Auth.phoneNumberVerificationText)
     
     // MARK: - View Life Cycle
@@ -127,7 +134,7 @@ extension PhoneNumberVerificationView {
     func setHierarchy() {
         self.addSubview(scrollView)
         scrollView.addSubviews(contentView, nextButton)
-        contentView.addSubviews(authHeaderView, nameInputLabel, nameTextField, phoneNumberTextField, requestButton,  verificationCodeTextField, checkButton)
+        contentView.addSubviews(authHeaderView, nameInputLabel, nameTextField, phoneNumberTextField, requestButton,  verificationCodeTextField, verificationValidTime, checkButton)
     }
     
     func setLayout() {
@@ -174,6 +181,11 @@ extension PhoneNumberVerificationView {
             $0.horizontalEdges.equalToSuperview().inset(24)
         }
         
+        verificationValidTime.snp.makeConstraints {
+            $0.trailing.equalTo(verificationCodeTextField.snp.trailing).offset(-18)
+            $0.centerY.equalTo(verificationCodeTextField)
+        }
+        
         requestButton.snp.makeConstraints {
             $0.height.equalTo(40)
             $0.leading.equalTo(phoneNumberTextField.snp.trailing).offset(13)
@@ -196,7 +208,7 @@ extension PhoneNumberVerificationView {
     
     /// TextField 포커스될 때 키보드에 가려지지 않도록 위치 조정
     func adjustPositionWhenTextFieldFocus() {
-        if isVerificationRequested, let editingTextField {
+        if !verificationCodeTextField.isHidden, let editingTextField {
             let currentDistance = scrollView.contentOffset.y + scrollView.frame.height - checkButton.frame.maxY
             switch editingTextField {
             case verificationCodeTextField:

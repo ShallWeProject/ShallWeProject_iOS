@@ -22,6 +22,20 @@ extension UIViewController {
         self.present(alertViewController, animated: true, completion: completion)
     }
     
+    func makeAlert(message: String,
+                   okAction: ((UIAlertAction) -> Void)? = nil,
+                   completion: (() -> Void)? = nil) {
+        makeVibrate()
+        let alertViewController = UIAlertController(title: "", message: message,
+                                                    preferredStyle: .alert)
+        let messageAttributes = [NSAttributedString.Key.font: UIFont.fontGuide(.SB00_16)]
+        let messageString = NSAttributedString(string: message, attributes: messageAttributes)
+        alertViewController.setValue(messageString, forKey: "attributedMessage")
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: okAction)
+        alertViewController.addAction(okAction)
+        self.present(alertViewController, animated: true, completion: completion)
+    }
+    
     func makeAlert(title: String,
                    message: String,
                    okTitle: String,
