@@ -75,6 +75,16 @@ extension PhoneNumberVerificationViewController {
         verificationCodeTextField.delegate = self
     }
     
+    func changeNextButtonToPink() {
+        phoneNumberVerificationView.nextButton.isEnabled = true
+        phoneNumberVerificationView.nextButton.backgroundColor = .point
+    }
+    
+    func changeNextButtonToGray() {
+        phoneNumberVerificationView.nextButton.isEnabled = false
+        phoneNumberVerificationView.nextButton.backgroundColor = .gray2
+    }
+    
     func startTimer() {
         if let timer, timer.isValid {
             timer.invalidate()
@@ -125,7 +135,7 @@ extension PhoneNumberVerificationViewController {
     
     @objc
     func checkButtonDidTap() {
-        // TODO: timer.isVaild, 인증시간 유효한지 확인(-1보다 큰지)
+        // TODO: timer.isVaild, 인증시간 유효한지 확인(-1보다 큰지) => 인증성공 시 '인증 완료'로 verificationValidTime.text 변경
     }
 }
 
