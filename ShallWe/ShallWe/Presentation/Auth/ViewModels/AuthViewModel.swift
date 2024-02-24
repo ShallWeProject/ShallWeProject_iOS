@@ -9,8 +9,10 @@ import Foundation
 
 import AuthenticationServices
 import KakaoSDKAuth
+import RxCocoa
+import RxSwift
 
-final class AuthViewModel: NSObject {
+final class AuthViewModel: NSObject, AuthViewModelInputs, AuthViewModelOutputs, AuthViewModelType {
     
     // MARK: - Properties
     /// Apple
@@ -22,9 +24,17 @@ final class AuthViewModel: NSObject {
     private var userID: String?
     private var email: String?
     
+    var inputStatus = PublishRelay<InputStatus?>()
+    var inputs: AuthViewModelInputs { return self }
+    var outputs: AuthViewModelOutputs { return self }
+    
     override init() {}
     
     // MARK: - Methods
+    
+    func inputStateDidChange(state: InputStatus) {
+        inputStatus.accept(state)
+    }
     
     func signUpWithKakao() {
         
@@ -62,4 +72,24 @@ extension AuthViewModel {
             // TODO: 로그인 성공 시 키체인에 토큰 저장 후 로그인VC에서 홈으로 이동, 실패 시 회원가입 진행
         }
     }
+}
+
+protocol AuthViewModelInputs {
+    func inputStateDidChange(state: InputStatus)
+    // beginediting때(키보드 올라올때) 포지션 조정
+    // 인증번호 입력 시 글자수 제한 (6개)
+}
+
+protocol AuthViewModelOutputs {
+    var inputStatus: PublishRelay<InputStatus?> { get }
+}
+
+protocol AuthViewModelType {
+    var inputs: AuthViewModelInputs { get }
+    var outputs: AuthViewModelOutputs { get }
+}
+
+enum InputStatus {
+    case entered
+    case empty
 }

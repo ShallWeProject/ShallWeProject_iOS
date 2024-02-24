@@ -55,4 +55,14 @@ extension CustomTextFieldView {
             $0.height.equalTo(40)
         }
     }
+    
+    func changeToPink() {
+        layer.borderColor = UIColor.line1.cgColor
+        backgroundColor = .bg2
+    }
+    
+    func changeToGray() {
+        layer.borderColor = UIColor.gray2.cgColor
+        backgroundColor = .gray0
+    }
 }

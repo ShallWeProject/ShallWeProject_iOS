@@ -7,12 +7,21 @@
 
 import UIKit
 
-final class PhoneNumberVerificationViewController: UIViewController {
+import RxCocoa
+import RxSwift
+
+protocol SignUpVC {
+    func changeNextButtonToPink()
+    func changeNextButtonToGray()
+}
+
+final class PhoneNumberVerificationViewController: BaseViewController, SignUpVC {
     
     // MARK: - Properties
     
     private let authViewModel: AuthViewModel
     private var timer : Timer?
+    private let disposeBag = DisposeBag()
     
     // MARK: - UI Components
     
@@ -20,6 +29,7 @@ final class PhoneNumberVerificationViewController: UIViewController {
     private lazy var nameTextField = phoneNumberVerificationView.nameTextField
     private lazy var phoneNumberTextField = phoneNumberVerificationView.phoneNumberTextField
     private lazy var verificationCodeTextField = phoneNumberVerificationView.verificationCodeTextField
+    private lazy var nextButton = phoneNumberVerificationView.nextButton
     
     // MARK: - Life Cycles
     
@@ -46,13 +56,84 @@ final class PhoneNumberVerificationViewController: UIViewController {
         setDelegate()
         hideKeyboardWhenTappedAround()
     }
+    
+    // MARK: - Methods
+    
+    override func bindViewModel() {
+        nameTextField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .filter {
+                ($0.isEmpty && self.nameTextField.backgroundColor == .bg2) || (!$0.isEmpty && self.nameTextField.backgroundColor == .gray0)
+            }
+            .subscribe(onNext: { newValue in
+                if newValue.isEmpty {
+                    self.nameTextField.changeToGray()
+                    self.authViewModel.textFieldInputStateDidChange(state: .empty)
+                }
+                else {
+                    self.nameTextField.changeToPink()
+                    self.authViewModel.textFieldInputStateDidChange(state: .entered)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        phoneNumberTextField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .filter {
+                ($0.isEmpty && self.phoneNumberTextField.backgroundColor == .bg2) || (!$0.isEmpty && self.phoneNumberTextField.backgroundColor == .gray0)
+            }
+            .subscribe(onNext: { newValue in
+                if newValue.isEmpty {
+                    self.phoneNumberTextField.changeToGray()
+                    self.authViewModel.textFieldInputStateDidChange(state: .empty)
+                }
+                else {
+                    self.phoneNumberTextField.changeToPink()
+                    self.authViewModel.textFieldInputStateDidChange(state: .entered)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+//        verificationCodeTextField.rx.text
+//            .orEmpty
+//            .distinctUntilChanged()
+//            .filter {
+//                
+//            }
+//            .subscribe(onNext: { newValue in
+//                // 글자수제한
+//            })
+//            .disposed(by: disposeBag)
+        
+        authViewModel.outputs.inputStatus
+            .subscribe(onNext: { [weak self] state in
+                guard let self = self else { return }
+                switch state {
+                case .entered:
+                    if checkIfAllTextFieldsArdEntered() {
+                        self.changeNextButtonToPink()
+                    }
+                case .empty:
+                    self.changeNextButtonToGray()
+                default:
+                    return
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    override func setDelegate() {
+        nameTextField.delegate = self
+        phoneNumberTextField.delegate = self
+        verificationCodeTextField.delegate = self
+    }
 }
 
 // MARK: - Extensions
 
 extension PhoneNumberVerificationViewController {
-    
-    // MARK: - Methods
     
     func setNavigationBar() {
         let backButton = UIBarButtonItem(image: ImageLiterals.Icon.arrow_left,
@@ -64,15 +145,9 @@ extension PhoneNumberVerificationViewController {
     }
     
     func setAddTarget() {
-        phoneNumberVerificationView.nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonDidTap), for: .touchUpInside)
         phoneNumberVerificationView.requestButton.addTarget(self, action: #selector(requestButtonDidTap), for: .touchUpInside)
         phoneNumberVerificationView.checkButton.addTarget(self, action: #selector(checkButtonDidTap), for: .touchUpInside)
-    }
-    
-    func setDelegate() {
-        nameTextField.delegate = self
-        phoneNumberTextField.delegate = self
-        verificationCodeTextField.delegate = self
     }
     
     func changeNextButtonToPink() {
@@ -83,6 +158,14 @@ extension PhoneNumberVerificationViewController {
     func changeNextButtonToGray() {
         phoneNumberVerificationView.nextButton.isEnabled = false
         phoneNumberVerificationView.nextButton.backgroundColor = .gray2
+    }
+    
+    func checkIfAllTextFieldsArdEntered() -> Bool {
+        if !nameTextField.isEmpty, !phoneNumberTextField.isEmpty {
+            return true
+        } else {
+            return false
+        }
     }
     
     func startTimer() {
@@ -135,7 +218,7 @@ extension PhoneNumberVerificationViewController {
     
     @objc
     func checkButtonDidTap() {
-        // TODO: timer.isVaild, 인증시간 유효한지 확인(-1보다 큰지) => 인증성공 시 '인증 완료'로 verificationValidTime.text 변경
+        // TODO: timer.isVaild, 인증시간 유효한지 확인(-1보다 큰지) => 인증성공 시 '인증 완료'로 verificationValidTime.text 변경, changeToPink(), textField 비활성화 상태로 변경
     }
 }
 
