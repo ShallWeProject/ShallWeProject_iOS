@@ -76,8 +76,8 @@ extension AuthViewModel {
 
 protocol AuthViewModelInputs {
     func inputStateDidChange(state: InputStatus)
-    // beginediting때(키보드 올라올때) 포지션 조정
     // 인증번호 입력 시 글자수 제한 (6개)
+    // 키보드 완료버튼 눌렀을때 키보드 내려가고 포커스빠지게 (delegate 다 빼보자)
 }
 
 protocol AuthViewModelOutputs {

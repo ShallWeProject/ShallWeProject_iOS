@@ -14,7 +14,6 @@ final class PhoneNumberVerificationView: UIView {
     // MARK: - Properties
     
     var scrollViewBottomConstraint: Constraint?
-    var editingTextField: CustomTextFieldView?
 
     // MARK: - UI Components
     
@@ -112,7 +111,6 @@ final class PhoneNumberVerificationView: UIView {
         setUI()
         setHierarchy()
         setLayout()
-        setKeyboardNotifications()
     }
     
     required init?(coder: NSCoder) {
@@ -201,16 +199,11 @@ extension PhoneNumberVerificationView {
         }
     }
     
-    private func setKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
     /// TextField 포커스될 때 키보드에 가려지지 않도록 위치 조정
-    func adjustPositionWhenTextFieldFocus() {
-        if !verificationCodeTextField.isHidden, let editingTextField {
+    func adjustPositionWhenTextFieldIsFocused(textField: CustomTextFieldView? = nil) {
+        if !verificationCodeTextField.isHidden, let textField {
             let currentDistance = scrollView.contentOffset.y + scrollView.frame.height - checkButton.frame.maxY
-            switch editingTextField {
+            switch textField {
             case verificationCodeTextField:
                 if currentDistance < 40 {
                     let distance = checkButton.frame.maxY - scrollView.frame.maxY + 40
@@ -219,7 +212,7 @@ extension PhoneNumberVerificationView {
                 }
             case phoneNumberTextField:
                 if currentDistance < 16 {
-                    let distance = checkButton.frame.maxY - scrollView.frame.maxY + 16
+                    let distance = checkButton.frame.maxY - scrollView.frame.maxY + 20
                     let offset = CGPoint(x: 0, y: scrollView.frame.origin.y + distance)
                     scrollView.setContentOffset(offset, animated: true)
                 }
@@ -227,22 +220,5 @@ extension PhoneNumberVerificationView {
                 return
             }
         }
-    }
-    
-    @objc
-    func keyboardWillShow(_ notification: Notification) {
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size else {
-            return
-        }
-        nextButton.isHidden = true
-        scrollViewBottomConstraint?.update(offset: -keyboardSize.height)
-        layoutIfNeeded()
-        adjustPositionWhenTextFieldFocus()
-    }
-
-    @objc
-    func keyboardWillHide(_ notification: Notification) {
-        scrollViewBottomConstraint?.update(offset: 0)
-        nextButton.isHidden = false
     }
 }

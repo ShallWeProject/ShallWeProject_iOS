@@ -123,6 +123,7 @@
 		9515EF962B68131700C4E1AA /* MemoryPhotoAlbumEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9515EF952B68131700C4E1AA /* MemoryPhotoAlbumEmptyView.swift */; };
 		951D90422B7EA9310039E4A4 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 951D90412B7EA9310039E4A4 /* KakaoSDKAuth */; };
 		951D90562B7EA9310039E4A4 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 951D90552B7EA9310039E4A4 /* KakaoSDKUser */; };
+		951D90592B89B5880039E4A4 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 951D90582B89B5880039E4A4 /* RxKeyboard */; };
 		954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BB2B20AEBE00D12242 /* AuthHeaderView.swift */; };
 		954E45BE2B2109D400D12242 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954E45BD2B2109D400D12242 /* CustomTextFieldView.swift */; };
 		95748DCE2B25FAB4004157E0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95748DCD2B25FAB4004157E0 /* LoginViewController.swift */; };
@@ -328,6 +329,7 @@
 				03C7A6722B459EEB000F1E39 /* RxGesture in Frameworks */,
 				032212DD2B14AE7600FF5CF1 /* Lottie in Frameworks */,
 				032212C92B14AD6800FF5CF1 /* RxCocoa in Frameworks */,
+				951D90592B89B5880039E4A4 /* RxKeyboard in Frameworks */,
 				032212C62B14AD4900FF5CF1 /* RxMoya in Frameworks */,
 				032212D32B14AD9000FF5CF1 /* FSCalendar in Frameworks */,
 				032212CB2B14AD6800FF5CF1 /* RxRelay in Frameworks */,
@@ -1185,6 +1187,7 @@
 				03C7A6712B459EEB000F1E39 /* RxGesture */,
 				951D90412B7EA9310039E4A4 /* KakaoSDKAuth */,
 				951D90552B7EA9310039E4A4 /* KakaoSDKUser */,
+				951D90582B89B5880039E4A4 /* RxKeyboard */,
 			);
 			productName = ShallWe;
 			productReference = 032212A22B14AAFD00FF5CF1 /* ShallWe.app */;
@@ -1226,6 +1229,7 @@
 				034580932B2F2E34002DDEBA /* XCRemoteSwiftPackageReference "DropDown" */,
 				03C7A6702B459EEB000F1E39 /* XCRemoteSwiftPackageReference "RxGesture" */,
 				951D903E2B7EA9310039E4A4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				951D90572B89B5880039E4A4 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 			);
 			productRefGroup = 032212A32B14AAFD00FF5CF1 /* Products */;
 			projectDirPath = "";
@@ -1716,6 +1720,14 @@
 				kind = branch;
 			};
 		};
+		951D90572B89B5880039E4A4 /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1793,6 +1805,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 951D903E2B7EA9310039E4A4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
+		};
+		951D90582B89B5880039E4A4 /* RxKeyboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 951D90572B89B5880039E4A4 /* XCRemoteSwiftPackageReference "RxKeyboard" */;
+			productName = RxKeyboard;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

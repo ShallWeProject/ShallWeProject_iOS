@@ -9,6 +9,7 @@ import UIKit
 
 import RxCocoa
 import RxSwift
+import RxKeyboard
 
 protocol SignUpVC {
     func changeNextButtonToPink()
@@ -22,6 +23,7 @@ final class PhoneNumberVerificationViewController: BaseViewController, SignUpVC 
     private let authViewModel: AuthViewModel
     private var timer : Timer?
     private let disposeBag = DisposeBag()
+    private var editingTextField: CustomTextFieldView?
     
     // MARK: - UI Components
     
@@ -69,11 +71,11 @@ final class PhoneNumberVerificationViewController: BaseViewController, SignUpVC 
             .subscribe(onNext: { newValue in
                 if newValue.isEmpty {
                     self.nameTextField.changeToGray()
-                    self.authViewModel.textFieldInputStateDidChange(state: .empty)
+                    self.authViewModel.inputStateDidChange(state: .empty)
                 }
                 else {
                     self.nameTextField.changeToPink()
-                    self.authViewModel.textFieldInputStateDidChange(state: .entered)
+                    self.authViewModel.inputStateDidChange(state: .entered)
                 }
             })
             .disposed(by: disposeBag)
@@ -87,32 +89,21 @@ final class PhoneNumberVerificationViewController: BaseViewController, SignUpVC 
             .subscribe(onNext: { newValue in
                 if newValue.isEmpty {
                     self.phoneNumberTextField.changeToGray()
-                    self.authViewModel.textFieldInputStateDidChange(state: .empty)
+                    self.authViewModel.inputStateDidChange(state: .empty)
                 }
                 else {
                     self.phoneNumberTextField.changeToPink()
-                    self.authViewModel.textFieldInputStateDidChange(state: .entered)
+                    self.authViewModel.inputStateDidChange(state: .entered)
                 }
             })
             .disposed(by: disposeBag)
-        
-//        verificationCodeTextField.rx.text
-//            .orEmpty
-//            .distinctUntilChanged()
-//            .filter {
-//                
-//            }
-//            .subscribe(onNext: { newValue in
-//                // 글자수제한
-//            })
-//            .disposed(by: disposeBag)
         
         authViewModel.outputs.inputStatus
             .subscribe(onNext: { [weak self] state in
                 guard let self = self else { return }
                 switch state {
                 case .entered:
-                    if checkIfAllTextFieldsArdEntered() {
+                    if checkIfAllTextFieldsAreEntered() {
                         self.changeNextButtonToPink()
                     }
                 case .empty:
@@ -122,6 +113,46 @@ final class PhoneNumberVerificationViewController: BaseViewController, SignUpVC 
                 }
             })
             .disposed(by: disposeBag)
+        
+        phoneNumberTextField.rx.controlEvent(.editingDidBegin)
+            .subscribe(onNext: {
+                self.editingTextField = self.phoneNumberTextField
+                self.phoneNumberVerificationView.adjustPositionWhenTextFieldIsFocused(textField: self.editingTextField)
+            })
+            .disposed(by: disposeBag)
+        
+        verificationCodeTextField.rx.controlEvent(.editingDidBegin)
+            .subscribe(onNext: {
+                self.editingTextField = self.verificationCodeTextField
+                self.phoneNumberVerificationView.adjustPositionWhenTextFieldIsFocused(textField: self.editingTextField)
+            })
+            .disposed(by: disposeBag)
+        
+        RxKeyboard.instance.visibleHeight
+            .skip(1)
+            .drive(onNext: { keyboardVisibleHeight in
+                if keyboardVisibleHeight != 0 {
+                    self.nextButton.isHidden = true
+                    self.phoneNumberVerificationView.scrollViewBottomConstraint?.update(offset: -keyboardVisibleHeight)
+                    self.phoneNumberVerificationView.layoutIfNeeded()
+                    self.phoneNumberVerificationView.adjustPositionWhenTextFieldIsFocused(textField: self.editingTextField)
+                } else {
+                    self.phoneNumberVerificationView.scrollViewBottomConstraint?.update(offset: 0)
+                    self.nextButton.isHidden = false
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        //        verificationCodeTextField.rx.text
+        //            .orEmpty
+        //            .distinctUntilChanged()
+        //            .filter {
+        //
+        //            }
+        //            .subscribe(onNext: { newValue in
+        //                // 글자수제한
+        //            })
+        //            .disposed(by: disposeBag)
     }
     
     override func setDelegate() {
@@ -160,7 +191,7 @@ extension PhoneNumberVerificationViewController {
         phoneNumberVerificationView.nextButton.backgroundColor = .gray2
     }
     
-    func checkIfAllTextFieldsArdEntered() -> Bool {
+    func checkIfAllTextFieldsAreEntered() -> Bool {
         if !nameTextField.isEmpty, !phoneNumberTextField.isEmpty {
             return true
         } else {
@@ -191,7 +222,7 @@ extension PhoneNumberVerificationViewController {
         }
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     
     @objc
     func backButtonDidTap() {
@@ -210,7 +241,6 @@ extension PhoneNumberVerificationViewController {
         if phoneNumberVerificationView.verificationCodeTextField.isHidden {
             phoneNumberVerificationView.verificationCodeTextField.isHidden = false
             phoneNumberVerificationView.checkButton.isHidden = false
-            phoneNumberVerificationView.adjustPositionWhenTextFieldFocus()
         }
         startTimer()
         makeAlert(message: I18N.AuthAlert.codeSentText)
@@ -223,10 +253,6 @@ extension PhoneNumberVerificationViewController {
 }
 
 extension PhoneNumberVerificationViewController: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        phoneNumberVerificationView.editingTextField = textField as? CustomTextFieldView
-    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
