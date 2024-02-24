@@ -9,6 +9,8 @@ import UIKit
 
 protocol ExperienceGiftViewModelInputs {
     func reservationDate(giftId: Int, date: String)
+    func giftMemberInfo(member: Int)
+    func giftTimeInfo(time: String)
 }
 
 protocol ExperienceGiftViewModelOutputs {
@@ -37,11 +39,22 @@ final class ExperienceGiftViewModel: ExperienceGiftViewModelInputs, ExperienceGi
     
     private var experienceGiftObservable = ExperienceGiftObservable<[ReservationDateResponseDto]?>()
     
+    // properties
+    
+    private var selectGiftId: Int = 0
+    private var selectMember: Int = 0
+    private var selectDate: String = ""
+    private var selectTime: String = ""
+    
+    // output
+    
     var reservationDate: [ReservationDateResponseDto]? {
         didSet {
             experienceGiftObservable.emit(reservationDate)
         }
     }
+    
+    var reservationUser: ReservationUserResponseDto?
     
     func observeExperienceGift(_ observer: @escaping ExperienceGiftObservable<[ReservationDateResponseDto]?>.Observer) {
         experienceGiftObservable.observe(observer: observer)
@@ -51,11 +64,23 @@ final class ExperienceGiftViewModel: ExperienceGiftViewModelInputs, ExperienceGi
     var outputs: ExperienceGiftViewModelOutputs { return self }
     
     init(){
-        reservationDate(giftId: 1, date: "2024-02-08")
+        self.reservationDate(giftId: 1, date: "2024-02-08")
     }
     
+    // input
+    
     func reservationDate(giftId: Int, date: String) {
+        self.selectGiftId = giftId
+        self.selectDate = date
         self.getReservationDate(giftId: giftId, date: date)
+    }
+    
+    func giftMemberInfo(member: Int) {
+        self.selectMember = member
+    }
+    
+    func giftTimeInfo(time: String) {
+        self.selectTime = time
     }
 }
 
