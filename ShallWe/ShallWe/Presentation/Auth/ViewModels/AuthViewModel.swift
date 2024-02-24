@@ -12,7 +12,20 @@ import KakaoSDKAuth
 import RxCocoa
 import RxSwift
 
-final class AuthViewModel: NSObject, AuthViewModelInputs, AuthViewModelOutputs, AuthViewModelType {
+protocol AuthViewModelType {
+    associatedtype Input
+    associatedtype Output
+    
+    var input: Input { get }
+    var output: Output { get }
+}
+
+enum InputStatus {
+    case entered
+    case empty
+}
+
+final class AuthViewModel: NSObject, AuthViewModelType {
     
     // MARK: - Properties
     /// Apple
@@ -24,17 +37,43 @@ final class AuthViewModel: NSObject, AuthViewModelInputs, AuthViewModelOutputs, 
     private var userID: String?
     private var email: String?
     
-    var inputStatus = PublishRelay<InputStatus?>()
-    var inputs: AuthViewModelInputs { return self }
-    var outputs: AuthViewModelOutputs { return self }
+    struct Input {
+        var nameTextFieldDidChange: PublishRelay<InputStatus>
+        var phoneNumberTextFieldDidChange: PublishRelay<InputStatus>
+        var isVerificationCompleted: PublishRelay<Bool>
+    //    func verificationCodeCharsDidChange(text: String)
+    }
+
+    struct Output {
+        var isAllEntered: Driver<Bool>
+    //    var numberOfverificationCodeChars: PublishRelay<String> { get }
+    }
     
-    override init() {}
+    var input: Input
+    var output: Output
+    
+    override init() {
+        let nameTextFieldDidChange = PublishRelay<InputStatus>()
+        let phoneNumberTextFieldDidChange = PublishRelay<InputStatus>()
+        let isVerificationCompleted = PublishRelay<Bool>()
+        let isAllEntered = Observable
+            .combineLatest(nameTextFieldDidChange, phoneNumberTextFieldDidChange, isVerificationCompleted)
+            .map { values in
+                return values.0 == InputStatus.entered && values.1 == InputStatus.entered && values.2
+            }
+            .asDriver(onErrorJustReturn: false)
+        
+        self.input = Input(
+            nameTextFieldDidChange: nameTextFieldDidChange,
+            phoneNumberTextFieldDidChange: phoneNumberTextFieldDidChange,
+            isVerificationCompleted: isVerificationCompleted
+        )
+        self.output = Output(
+            isAllEntered: isAllEntered
+        )
+    }
     
     // MARK: - Methods
-    
-    func inputStateDidChange(state: InputStatus) {
-        inputStatus.accept(state)
-    }
     
     func signUpWithKakao() {
         
@@ -72,24 +111,4 @@ extension AuthViewModel {
             // TODO: 로그인 성공 시 키체인에 토큰 저장 후 로그인VC에서 홈으로 이동, 실패 시 회원가입 진행
         }
     }
-}
-
-protocol AuthViewModelInputs {
-    func inputStateDidChange(state: InputStatus)
-    // 인증번호 입력 시 글자수 제한 (6개)
-    // 키보드 완료버튼 눌렀을때 키보드 내려가고 포커스빠지게 (delegate 다 빼보자)
-}
-
-protocol AuthViewModelOutputs {
-    var inputStatus: PublishRelay<InputStatus?> { get }
-}
-
-protocol AuthViewModelType {
-    var inputs: AuthViewModelInputs { get }
-    var outputs: AuthViewModelOutputs { get }
-}
-
-enum InputStatus {
-    case entered
-    case empty
 }

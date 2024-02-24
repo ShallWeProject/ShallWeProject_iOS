@@ -89,6 +89,7 @@ final class PhoneNumberVerificationView: UIView {
     
     let verificationCodeTextField: CustomTextFieldView = {
         let textField = CustomTextFieldView(frame: .zero, placeholder: I18N.Auth.verificationCodeInputText)
+        textField.text = ""
         textField.keyboardType = UIKeyboardType.numberPad
         textField.returnKeyType = .done
         return textField
