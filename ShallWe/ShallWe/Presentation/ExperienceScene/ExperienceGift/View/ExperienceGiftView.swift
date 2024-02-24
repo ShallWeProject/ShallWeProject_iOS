@@ -139,7 +139,7 @@ final class ExperienceGiftView: UIView {
         return button
     }()
     
-    private lazy var personCountLabel: UILabel = {
+    lazy var personCountLabel: UILabel = {
         let label = UILabel()
         label.text = String(self.personCount)
         label.textAlignment = .center

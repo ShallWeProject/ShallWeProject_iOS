@@ -119,8 +119,9 @@ extension ExperienceGiftViewController: UICollectionViewDelegate {
         if let cell = collectionView.cellForItem(at: indexPath) as? TimeCollectionViewCell {
             cell.timeLabel.backgroundColor = .point
             cell.timeLabel.textColor = .white
-            if let timeText = cell.timeLabel.text {
-                self.selectedTime = timeText
+            let components = cell.timeLabel.text?.components(separatedBy: CharacterSet.decimalDigits.inverted)
+            if let timeHour = components?.first {
+                giftViewModel.giftTimeInfo(time: timeHour)
             }
         }
         
@@ -169,7 +170,8 @@ extension ExperienceGiftViewController: CalendarDelegate {
                 self.navigationController?.pushViewController(nav, animated: true)
             })
         } else {
-            let nav = ExperienceLetterViewController()
+            giftViewModel.giftMemberInfo(member: Int(experienceGiftView.personCountLabel.text ?? "") ?? 1)
+            let nav = ExperienceLetterViewController(viewModel: self.giftViewModel)
             self.navigationController?.pushViewController(nav, animated: true)
         }
     }
