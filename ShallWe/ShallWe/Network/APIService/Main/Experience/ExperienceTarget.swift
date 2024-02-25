@@ -10,8 +10,8 @@ import Foundation
 import Moya
 
 enum ExperienceTarget {
-    case getSttCategory(categoryId: String, category: String)
-    case getExpCategory(categoryId: String, category: String)
+    case getSttCategory(categoryId: Int, category: String)
+    case getExpCategory(categoryId: Int, category: String)
     case getPopular
 }
 
@@ -20,9 +20,9 @@ extension ExperienceTarget: BaseTargetType {
     var path: String {
         switch self {
         case .getSttCategory(let categoryId, _):
-            return URLConstant.experienceGiftSttCategory.replacingOccurrences(of: "{SttCategoryId}", with: "\(categoryId)")
+            return URLConstant.experienceGiftSttCategory.replacingOccurrences(of: "{SttCategoryId}", with: String(categoryId))
         case .getExpCategory(let categoryId, _):
-            return URLConstant.experienceExpCategory.replacingOccurrences(of: "{ExpCategoryId}", with: "\(categoryId)")
+            return URLConstant.experienceExpCategory.replacingOccurrences(of: "{ExpCategoryId}", with: String(categoryId))
         case .getPopular:
             return URLConstant.experienceGiftPopular
         }
