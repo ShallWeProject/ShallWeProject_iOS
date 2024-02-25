@@ -11,6 +11,7 @@ import Moya
 
 enum HomeTarget {
     case getExperienceGift
+    case getSearch(title: String)
 }
 
 extension HomeTarget: BaseTargetType {
@@ -19,12 +20,14 @@ extension HomeTarget: BaseTargetType {
         switch self {
         case .getExperienceGift:
             return URLConstant.experienceGift
+        case .getSearch:
+            return URLConstant.experienceGiftSearch
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getExperienceGift:
+        default:
             return .get
         }
     }
@@ -33,6 +36,11 @@ extension HomeTarget: BaseTargetType {
         switch self {
         case .getExperienceGift:
             return .requestPlain
+        case .getSearch(let title):
+            let param: [String: Any] = [
+                URLConstant.experienceGiftSearch : title
+            ]
+            return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
         }
     }
     
