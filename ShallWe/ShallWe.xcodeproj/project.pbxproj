@@ -92,6 +92,7 @@
 		0350E2712B761B9D00F3EA69 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E2702B761B9D00F3EA69 /* BaseTargetType.swift */; };
 		0350E2752B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E2742B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift */; };
 		0350E27B2B8AEA3D00F3EA69 /* ExperienceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E27A2B8AEA3D00F3EA69 /* ExperienceTarget.swift */; };
+		0350E27D2B8B02F400F3EA69 /* ExperienceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E27C2B8B02F400F3EA69 /* ExperienceAPI.swift */; };
 		035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */; };
 		037EAB2D2B6651D500024F22 /* RecommendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */; };
 		037EAB2F2B6651E300024F22 /* HomeExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2E2B6651E300024F22 /* HomeExperienceView.swift */; };
@@ -241,6 +242,7 @@
 		0350E2702B761B9D00F3EA69 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		0350E2742B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceCategoryDto.swift; sourceTree = "<group>"; };
 		0350E27A2B8AEA3D00F3EA69 /* ExperienceTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceTarget.swift; sourceTree = "<group>"; };
+		0350E27C2B8B02F400F3EA69 /* ExperienceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceAPI.swift; sourceTree = "<group>"; };
 		035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListViewController.swift; sourceTree = "<group>"; };
 		037EAB2E2B6651E300024F22 /* HomeExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceView.swift; sourceTree = "<group>"; };
@@ -785,6 +787,7 @@
 		0350E2782B8AEA1200F3EA69 /* Experience */ = {
 			isa = PBXGroup;
 			children = (
+				0350E27C2B8B02F400F3EA69 /* ExperienceAPI.swift */,
 			);
 			path = Experience;
 			sourceTree = "<group>";
@@ -1304,6 +1307,7 @@
 				0350E2712B761B9D00F3EA69 /* BaseTargetType.swift in Sources */,
 				034011412B5CD87C00D1F371 /* SortModel.swift in Sources */,
 				95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */,
+				0350E27D2B8B02F400F3EA69 /* ExperienceAPI.swift in Sources */,
 				95748DE02B359802004157E0 /* CustomButton.swift in Sources */,
 				A42C33672B416AE300C4B477 /* ExperienceGiftView.swift in Sources */,
 				A431BE552B1A24F90049C126 /* (null) in Sources */,
