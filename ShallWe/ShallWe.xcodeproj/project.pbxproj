@@ -91,6 +91,7 @@
 		0350E26F2B76187F00F3EA69 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E26E2B76187F00F3EA69 /* TokenManager.swift */; };
 		0350E2712B761B9D00F3EA69 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E2702B761B9D00F3EA69 /* BaseTargetType.swift */; };
 		0350E2752B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E2742B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift */; };
+		0350E27B2B8AEA3D00F3EA69 /* ExperienceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E27A2B8AEA3D00F3EA69 /* ExperienceTarget.swift */; };
 		035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */; };
 		037EAB2D2B6651D500024F22 /* RecommendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */; };
 		037EAB2F2B6651E300024F22 /* HomeExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2E2B6651E300024F22 /* HomeExperienceView.swift */; };
@@ -239,6 +240,7 @@
 		0350E26E2B76187F00F3EA69 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		0350E2702B761B9D00F3EA69 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		0350E2742B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceCategoryDto.swift; sourceTree = "<group>"; };
+		0350E27A2B8AEA3D00F3EA69 /* ExperienceTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceTarget.swift; sourceTree = "<group>"; };
 		035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListViewController.swift; sourceTree = "<group>"; };
 		037EAB2E2B6651E300024F22 /* HomeExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceView.swift; sourceTree = "<group>"; };
@@ -766,6 +768,7 @@
 			isa = PBXGroup;
 			children = (
 				0350E2682B760FDB00F3EA69 /* Home */,
+				0350E2782B8AEA1200F3EA69 /* Experience */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -774,8 +777,24 @@
 			isa = PBXGroup;
 			children = (
 				0350E26B2B760FF200F3EA69 /* Home */,
+				0350E2792B8AEA1E00F3EA69 /* Experience */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		0350E2782B8AEA1200F3EA69 /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Experience;
+			sourceTree = "<group>";
+		};
+		0350E2792B8AEA1E00F3EA69 /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+				0350E27A2B8AEA3D00F3EA69 /* ExperienceTarget.swift */,
+			);
+			path = Experience;
 			sourceTree = "<group>";
 		};
 		035A9F062B42AB3F007B3F50 /* ViewControllers */ = {
@@ -1350,6 +1369,7 @@
 				95748DD82B2D9D86004157E0 /* SignUpCompletionViewController.swift in Sources */,
 				032213B52B241B3100FF5CF1 /* HomeView.swift in Sources */,
 				954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */,
+				0350E27B2B8AEA3D00F3EA69 /* ExperienceTarget.swift in Sources */,
 				032213192B14B30A00FF5CF1 /* Config.swift in Sources */,
 				9515EF8C2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift in Sources */,
 				0322131B2B14B31E00FF5CF1 /* APIConstant.swift in Sources */,
