@@ -9,7 +9,7 @@ import Foundation
 
 struct ExperienceGiftResponseDto: Codable {
     let expCategories: [ExpCategory]
-    let sttCategoryRes: [SttCategoryRe]
+    let sttCategories: [SttCategory]
 }
 
 // MARK: - ExpCategory
@@ -20,7 +20,7 @@ struct ExpCategory: Codable {
 }
 
 // MARK: - SttCategoryRe
-struct SttCategoryRe: Codable {
+struct SttCategory: Codable {
     let sttCategoryId: Int
     let sttCategory: String
     let imageUrl: String
