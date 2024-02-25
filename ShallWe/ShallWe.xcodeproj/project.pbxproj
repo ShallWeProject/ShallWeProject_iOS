@@ -443,7 +443,7 @@
 		032212E32B14B04600FF5CF1 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				0350E2682B760FDB00F3EA69 /* Home */,
+				0350E2762B8AE99500F3EA69 /* Main */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -570,7 +570,7 @@
 		0322131E2B14B73500FF5CF1 /* APIService */ = {
 			isa = PBXGroup;
 			children = (
-				0350E26B2B760FF200F3EA69 /* Home */,
+				0350E2772B8AE99E00F3EA69 /* Main */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -760,6 +760,22 @@
 				0350E2742B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift */,
 			);
 			path = Experience;
+			sourceTree = "<group>";
+		};
+		0350E2762B8AE99500F3EA69 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0350E2682B760FDB00F3EA69 /* Home */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0350E2772B8AE99E00F3EA69 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0350E26B2B760FF200F3EA69 /* Home */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		035A9F062B42AB3F007B3F50 /* ViewControllers */ = {
