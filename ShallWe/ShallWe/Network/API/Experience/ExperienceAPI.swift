@@ -19,6 +19,7 @@ final class ExperienceAPI {
     
     public private(set) var experienceDetailData: GeneralResponse<ExperienceDetailResponseDto>?
     public private(set) var reservationDateData: GeneralResponse<[ReservationDateResponseDto]>?
+    public private(set) var reservationUserData: GeneralResponse<ReservationUserResponseDto>?
     
     func getExperienceDetail(giftId: Int,
                              completion: @escaping(GeneralResponse<ExperienceDetailResponseDto>?) -> Void) {
@@ -43,21 +44,41 @@ final class ExperienceAPI {
     func getReservationDate(giftId: Int,
                             date: String,
                             completion: @escaping(GeneralResponse<[ReservationDateResponseDto]>?) -> Void) {
-       experienceProvider.request(.getReservationDate(giftId: giftId, date: date)) { [weak self] result in
-           guard let self else { return }
-           switch result {
-           case .success(let response):
-               do {
-                   self.reservationDateData = try response.map(GeneralResponse<[ReservationDateResponseDto]>?.self)
-                   guard let reservationDateData = self.reservationDateData else { return }
-                   completion(reservationDateData)
-               } catch let err {
-                   print(err.localizedDescription)
-               }
-           case .failure(let err):
-               print(err.localizedDescription)
-               completion(nil)
-           }
-       }
-   }
+        experienceProvider.request(.getReservationDate(giftId: giftId, date: date)) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let response):
+                do {
+                    self.reservationDateData = try response.map(GeneralResponse<[ReservationDateResponseDto]>?.self)
+                    guard let reservationDateData = self.reservationDateData else { return }
+                    completion(reservationDateData)
+                } catch let err {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+                completion(nil)
+            }
+        }
+    }
+    
+    func postReservationUser(param: ReservationUserRequestDto,
+                             completion: @escaping(GeneralResponse<ReservationUserResponseDto>?) -> Void) {
+        experienceProvider.request(.postReservationUser(param: param)) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let response):
+                do {
+                    self.reservationUserData = try response.map(GeneralResponse<ReservationUserResponseDto>?.self)
+                    guard let reservationUserData = self.reservationUserData else { return }
+                    completion(reservationUserData)
+                } catch let err {
+                    print(err.localizedDescription)
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+                completion(nil)
+            }
+        }
+    }
 }
