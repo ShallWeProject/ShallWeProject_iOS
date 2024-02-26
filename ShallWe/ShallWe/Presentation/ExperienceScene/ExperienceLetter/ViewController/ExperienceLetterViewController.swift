@@ -59,6 +59,7 @@ extension ExperienceLetterViewController {
         experienceLetterView.phoneFirstText.delegate = self
         experienceLetterView.phoneMidText.delegate = self
         experienceLetterView.phoneEndText.delegate = self
+        experienceLetterView.navigationBar.delegate = self
     }
     
     @objc
@@ -142,5 +143,12 @@ extension ExperienceLetterViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.becomeFirstResponder()
+    }
+}
+
+extension ExperienceLetterViewController: NavigationBarProtocol {
+    
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

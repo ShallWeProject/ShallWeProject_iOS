@@ -54,21 +54,13 @@ extension ExperienceDetailViewController {
     }
     
     func setAddTarget() {
-        experienceDetailView.navigationBar.backButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         experienceDetailView.gifButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     @objc
     func buttonTapped(_ sender: UIButton) {
-        switch sender {
-        case experienceDetailView.navigationBar.backButton:
-            self.navigationController?.popViewController(animated: true)
-        case experienceDetailView.gifButton:
-            let nav = ExperienceGiftViewController(viewModel: self.viewModel)
-            self.navigationController?.pushViewController(nav, animated: true)
-        default:
-            break
-        }
+        let nav = ExperienceGiftViewController(viewModel: self.viewModel)
+        self.navigationController?.pushViewController(nav, animated: true)
     }
     
     func setDelegate() {
@@ -76,6 +68,7 @@ extension ExperienceDetailViewController {
         imageCollectionView.dataSource = self
         explainTableView.delegate = self
         explainTableView.dataSource = self
+        experienceDetailView.navigationBar.delegate = self
     }
 }
 
@@ -132,5 +125,12 @@ extension ExperienceDetailViewController: UITableViewDataSource {
             cell.configureCell(model: explanation)
         }
         return cell
+    }
+}
+
+extension ExperienceDetailViewController: NavigationBarProtocol {
+    
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

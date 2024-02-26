@@ -91,6 +91,7 @@ extension ExperienceGiftViewController {
         timeCollectionView.delegate = self
         experienceGiftView.calendarDelegate = self
         experienceGiftView.calendarView.delegate = self
+        experienceGiftView.navigationBar.delegate = self
     }
     
     func bindViewModel() {
@@ -189,5 +190,12 @@ extension ExperienceGiftViewController: FSCalendarDelegate {
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         experienceGiftView.monthLabel.text = self.dateFormatter.string(from: calendar.currentPage)
+    }
+}
+
+extension ExperienceGiftViewController: NavigationBarProtocol {
+    
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

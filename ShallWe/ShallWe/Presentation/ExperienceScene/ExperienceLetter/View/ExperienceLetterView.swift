@@ -17,7 +17,7 @@ final class ExperienceLetterView: UIView {
     
     // MARK: - UI Components
     
-    private let navigationBar: CustomNavigationBar = {
+    let navigationBar: CustomNavigationBar = {
         let navigationBar = CustomNavigationBar()
         navigationBar.isBackButtonIncluded = true
         navigationBar.isTitleLabelIncluded = true
