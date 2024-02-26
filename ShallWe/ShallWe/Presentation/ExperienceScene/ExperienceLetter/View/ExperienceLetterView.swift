@@ -96,7 +96,7 @@ final class ExperienceLetterView: UIView {
         return image
     }()
     
-    private let letterTextView: UITextView = {
+    let letterTextView: UITextView = {
         let textview = UITextView()
         let exampletext = "예시"
         let attributedString = NSAttributedString(string: exampletext, attributes: [

@@ -39,6 +39,7 @@ final class ExperienceLetterViewController: UIViewController {
         setUI()
         setAddTarget()
         setDelegate()
+        setGesture()
     }
 }
 
@@ -62,9 +63,25 @@ extension ExperienceLetterViewController {
     
     @objc
     func buttonTapped() {
+        giftViewModel.giftLetterInfo(letter: experienceLetterView.letterTextView.text ?? "")
+        giftViewModel.postReservationUser()
+        
         let nav = CompleteViewController()
         nav.fromExperience = true
         self.navigationController?.pushViewController(nav, animated: true)
+    }
+    
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        if experienceLetterView.phoneMidText.textFieldStatus == .correct
+            && experienceLetterView.phoneEndText.textFieldStatus == .correct {
+            giftViewModel.giftPhoneInfo(phone: "010\(experienceLetterView.phoneMidText.text ?? "")\(experienceLetterView.phoneEndText.text ?? "")")
+        }
+        view.endEditing(true)
     }
     
     func validateTextField(textField: UITextField, isValid: Bool) {
@@ -115,6 +132,10 @@ extension ExperienceLetterViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if experienceLetterView.phoneMidText.textFieldStatus == .correct 
+            && experienceLetterView.phoneEndText.textFieldStatus == .correct {
+            giftViewModel.giftPhoneInfo(phone: "010\(experienceLetterView.phoneMidText.text ?? "")\(experienceLetterView.phoneEndText.text ?? "")")
+        }
         textField.resignFirstResponder()
         return true
     }
