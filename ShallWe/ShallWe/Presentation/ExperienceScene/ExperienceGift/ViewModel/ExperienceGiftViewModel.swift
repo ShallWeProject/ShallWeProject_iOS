@@ -117,7 +117,7 @@ extension ExperienceGiftViewModel {
     }
     
     func postReservationUser() {
-        let model: ReservationUserRequestDto = ReservationUserRequestDto(experienceGiftID: 17, persons: selectMember, date: "2024-02-21", time: "04:00:00", phoneNumber: phone, imageURL: "", invitationComment: letter)
+        let model: ReservationUserRequestDto = ReservationUserRequestDto(experienceGiftID: selectGiftId, persons: selectMember, date: selectDate, time: selectTime, phoneNumber: phone, imageURL: "", invitationComment: letter)
         ExperienceAPI.shared.postReservationUser(param: model) { [weak self] response in
             guard let statusCode = response?.statusCode else { return }
             guard self != nil else { return }
