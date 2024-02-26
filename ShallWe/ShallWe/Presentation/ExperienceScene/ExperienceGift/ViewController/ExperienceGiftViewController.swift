@@ -69,6 +69,7 @@ extension ExperienceGiftViewController {
     
     func setUI() {
         navigationController?.navigationBar.isHidden = true
+        experienceGiftView.calendarView.select(today)
         
         if fromMypage {
             experienceGiftView.navigationBar.titleText = I18N.ExperienceGift.fromMypageNavigationTitle
@@ -97,7 +98,7 @@ extension ExperienceGiftViewController {
         self.experienceGiftView.configureGiftView(model: experienceDetail)
         
         giftViewModel.observeExperienceGift { [weak self] experienceGift in
-            guard let experienceGift = experienceGift else { return }
+            guard experienceGift != nil else { return }
             self?.experienceGiftView.timeCollectionView.reloadData()
         }
     }

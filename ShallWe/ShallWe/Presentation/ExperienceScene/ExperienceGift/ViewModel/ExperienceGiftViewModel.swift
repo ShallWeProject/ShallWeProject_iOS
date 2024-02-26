@@ -73,7 +73,11 @@ final class ExperienceGiftViewModel: ExperienceGiftViewModelInputs, ExperienceGi
     var outputs: ExperienceGiftViewModelOutputs { return self }
     
     init(){
-        self.reservationDate(giftId: 1, date: "2024-02-08")
+        let today = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: today)
+        self.reservationDate(giftId: 1, date: dateString)
     }
     
     // input
