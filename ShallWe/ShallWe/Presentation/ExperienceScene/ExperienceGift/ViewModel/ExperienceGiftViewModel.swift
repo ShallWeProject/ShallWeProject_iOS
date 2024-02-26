@@ -7,14 +7,21 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 protocol ExperienceGiftViewModelInputs {
     func reservationDate(giftId: Int, date: String)
     func giftMemberInfo(member: Int)
     func giftTimeInfo(time: String)
+    func giftPhoneInfo(phone: String)
+    func giftLetterInfo(letter: String)
+    func reservationUserData()
 }
 
 protocol ExperienceGiftViewModelOutputs {
     var reservationDate: [ReservationDateResponseDto]? { get }
+    var reservationUser: BehaviorRelay<ReservationUserResponseDto> { get }
 }
 
 protocol ExperienceGiftViewModelType {
@@ -45,6 +52,8 @@ final class ExperienceGiftViewModel: ExperienceGiftViewModelInputs, ExperienceGi
     private var selectMember: Int = 0
     private var selectDate: String = ""
     private var selectTime: String = ""
+    private var phone: String = ""
+    private var letter: String = ""
     
     // output
     
@@ -54,7 +63,7 @@ final class ExperienceGiftViewModel: ExperienceGiftViewModelInputs, ExperienceGi
         }
     }
     
-    var reservationUser: ReservationUserResponseDto?
+    var reservationUser: BehaviorRelay<ReservationUserResponseDto> = BehaviorRelay<ReservationUserResponseDto>(value: ReservationUserResponseDto.reservationUserInitValue())
     
     func observeExperienceGift(_ observer: @escaping ExperienceGiftObservable<[ReservationDateResponseDto]?>.Observer) {
         experienceGiftObservable.observe(observer: observer)
@@ -80,7 +89,19 @@ final class ExperienceGiftViewModel: ExperienceGiftViewModelInputs, ExperienceGi
     }
     
     func giftTimeInfo(time: String) {
-        self.selectTime = time
+        self.selectTime = "\(time):00:00"
+    }
+    
+    func giftPhoneInfo(phone: String) {
+        self.phone = phone
+    }
+    
+    func giftLetterInfo(letter: String) {
+        self.letter = letter
+    }
+    
+    func reservationUserData() {
+        self.postReservationUser()
     }
 }
 
@@ -88,10 +109,20 @@ extension ExperienceGiftViewModel {
     
     func getReservationDate(giftId: Int,  date: String) {
         ExperienceAPI.shared.getReservationDate(giftId: giftId, date: date) { [weak self] response in
-            guard (response?.status) != nil else { return }
+            guard (response?.statusCode) != nil else { return }
             guard self != nil else { return }
             guard let data = response?.data else { return }
             self?.reservationDate = data
+        }
+    }
+    
+    func postReservationUser() {
+        let model: ReservationUserRequestDto = ReservationUserRequestDto(experienceGiftID: 17, persons: selectMember, date: "2024-02-21", time: "04:00:00", phoneNumber: phone, imageURL: "", invitationComment: letter)
+        ExperienceAPI.shared.postReservationUser(param: model) { [weak self] response in
+            guard let statusCode = response?.statusCode else { return }
+            guard self != nil else { return }
+            guard let data = response?.data else { return }
+            self?.reservationUser.accept(data)
         }
     }
 }
