@@ -115,7 +115,8 @@ final class ExperienceDetailView: UIView {
     lazy var gifButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.Icon.gift, for: .normal)
-        button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15)
+        button.setImage(ImageLiterals.Icon.gift, for: .highlighted)
+        button.imageEdgeInsets.right = 8
         button.setTitle(I18N.ExperienceDetail.giftButton, for: .normal)
         button.setTitleColor(.bg0, for: .normal)
         button.titleLabel?.font = .fontGuide(.B00_14)
