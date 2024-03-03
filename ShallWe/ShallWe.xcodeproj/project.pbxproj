@@ -93,6 +93,8 @@
 		0350E2752B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E2742B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift */; };
 		0350E27B2B8AEA3D00F3EA69 /* ExperienceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E27A2B8AEA3D00F3EA69 /* ExperienceTarget.swift */; };
 		0350E27D2B8B02F400F3EA69 /* ExperienceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E27C2B8B02F400F3EA69 /* ExperienceAPI.swift */; };
+		0350E2802B94379300F3EA69 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 0350E27F2B94379300F3EA69 /* Differentiator */; };
+		0350E2822B94379300F3EA69 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 0350E2812B94379300F3EA69 /* RxDataSources */; };
 		035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */; };
 		037EAB2D2B6651D500024F22 /* RecommendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */; };
 		037EAB2F2B6651E300024F22 /* HomeExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EAB2E2B6651E300024F22 /* HomeExperienceView.swift */; };
@@ -321,6 +323,7 @@
 			files = (
 				032212D02B14AD8200FF5CF1 /* Alamofire in Frameworks */,
 				034580952B2F356C002DDEBA /* DropDown in Frameworks */,
+				0350E2802B94379300F3EA69 /* Differentiator in Frameworks */,
 				03C7A6722B459EEB000F1E39 /* RxGesture in Frameworks */,
 				032212DD2B14AE7600FF5CF1 /* Lottie in Frameworks */,
 				032212D62B14AE4100FF5CF1 /* KakaoSDK in Frameworks */,
@@ -333,6 +336,7 @@
 				032212DA2B14AE4100FF5CF1 /* KakaoSDKUser in Frameworks */,
 				032212C42B14AD4900FF5CF1 /* Moya in Frameworks */,
 				032212CD2B14AD6800FF5CF1 /* RxSwift in Frameworks */,
+				0350E2822B94379300F3EA69 /* RxDataSources in Frameworks */,
 				032212BE2B14AD0400FF5CF1 /* Then in Frameworks */,
 				032212D82B14AE4100FF5CF1 /* KakaoSDKAuth in Frameworks */,
 			);
@@ -1196,6 +1200,8 @@
 				032212DC2B14AE7600FF5CF1 /* Lottie */,
 				034580942B2F356C002DDEBA /* DropDown */,
 				03C7A6712B459EEB000F1E39 /* RxGesture */,
+				0350E27F2B94379300F3EA69 /* Differentiator */,
+				0350E2812B94379300F3EA69 /* RxDataSources */,
 			);
 			productName = ShallWe;
 			productReference = 032212A22B14AAFD00FF5CF1 /* ShallWe.app */;
@@ -1237,6 +1243,7 @@
 				032212DB2B14AE7600FF5CF1 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				034580932B2F2E34002DDEBA /* XCRemoteSwiftPackageReference "DropDown" */,
 				03C7A6702B459EEB000F1E39 /* XCRemoteSwiftPackageReference "RxGesture" */,
+				0350E27E2B94379300F3EA69 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = 032212A32B14AAFD00FF5CF1 /* Products */;
 			projectDirPath = "";
@@ -1715,6 +1722,14 @@
 				kind = branch;
 			};
 		};
+		0350E27E2B94379300F3EA69 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 		03C7A6702B459EEB000F1E39 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
@@ -1800,6 +1815,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 034580932B2F2E34002DDEBA /* XCRemoteSwiftPackageReference "DropDown" */;
 			productName = DropDown;
+		};
+		0350E27F2B94379300F3EA69 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0350E27E2B94379300F3EA69 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		0350E2812B94379300F3EA69 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0350E27E2B94379300F3EA69 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 		03C7A6712B459EEB000F1E39 /* RxGesture */ = {
 			isa = XCSwiftPackageProductDependency;
