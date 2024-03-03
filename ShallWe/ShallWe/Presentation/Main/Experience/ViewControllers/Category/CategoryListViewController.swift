@@ -43,7 +43,15 @@ final class CategoryListViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-    
+        
+        viewModel.outputs.expCategory
+            .bind(to: homeExperienceListView.homelistCollectionView.rx
+                .items(cellIdentifier: HomeExperienceCell.className,
+                       cellType: HomeExperienceCell.self)) { (index, model, cell) in
+                cell.configureCell(model)
+            }
+                       .disposed(by: disposeBag)
+        
         categoryView.navigationBar.backButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
@@ -128,6 +136,7 @@ final class CategoryListViewController: BaseViewController {
     
     override func setRegister() {
         categoryView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
+        self.homeExperienceListView.homelistCollectionView.registerCell(HomeExperienceCell.self)
         self.homeExperienceListView.sortButtonDelegate = self
     }
     

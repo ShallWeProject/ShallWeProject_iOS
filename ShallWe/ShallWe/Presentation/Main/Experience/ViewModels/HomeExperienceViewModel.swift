@@ -23,6 +23,7 @@ protocol HomeExperienceViewModelOutputs {
     var isSelectedMenuCell: PublishSubject<IndexPath> { get }
     var presentSortModal: PublishSubject<Void> { get }
     var sortTypeChange: BehaviorRelay<IndexPath> { get }
+    var expCategory: BehaviorRelay<[HomeExperienceModel]> { get }
 }
 
 protocol HomeExperienceViewModelType {
@@ -38,6 +39,7 @@ final class HomeExperienceViewModel: HomeExperienceViewModelInputs, HomeExperien
     var setMenuCell: BehaviorRelay<IndexPath> = BehaviorRelay<IndexPath>(value: IndexPath(item: 0, section: 0))
     var presentSortModal: PublishSubject<Void> = PublishSubject<Void>()
     var sortTypeChange: BehaviorRelay<IndexPath> = BehaviorRelay<IndexPath>(value: IndexPath(row: 0, section: 0))
+    var expCategory: BehaviorRelay<[HomeExperienceModel]> = BehaviorRelay<[HomeExperienceModel]>(value: [])
     
     var inputs: HomeExperienceViewModelInputs { return self }
     var outputs: HomeExperienceViewModelOutputs { return self }
@@ -46,6 +48,7 @@ final class HomeExperienceViewModel: HomeExperienceViewModelInputs, HomeExperien
         self.recommendMenu.accept(HomeExperienceType.recommendMenu())
         self.categoryMenu.accept(HomeExperienceType.categoryMenu())
         self.setMenuCell.accept(IndexPath(item: 0, section: 0))
+        self.expCategory.accept(HomeExperienceModel.homeExperienceDummyData())
     }
     
     func menuCellTap(at indexPath: IndexPath) {
