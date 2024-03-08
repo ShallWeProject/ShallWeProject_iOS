@@ -66,7 +66,7 @@ final class HomeExperienceListView: BaseView {
         self.addSubviews(homelistCollectionView)
         
         homelistCollectionView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(13)
+            $0.top.equalToSuperview()
             $0.horizontalEdges.bottom.equalToSuperview()
         }
     }

@@ -185,6 +185,11 @@ final class CategoryListViewController: BaseViewController {
             header.setButtonTitle(IndexPath(row: 0, section: 0))
             
             // 헤더 조정
+            header.sortButton.rx.tap
+                .subscribe(onNext: { _ in
+                    self.presentToHalfModal()
+            })
+            .disposed(by: disposeBag)
             
             return header
         }
