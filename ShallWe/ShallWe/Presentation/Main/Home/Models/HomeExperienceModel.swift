@@ -32,6 +32,14 @@ extension SectionOfHomeExperience: SectionModelType {
         self = original
         self.items = items
     }
+    
+    static func homeExperienceSectionDummy() -> [SectionOfHomeExperience] {
+        return [
+            SectionOfHomeExperience(
+                header: HomeExperienceHeader(title: "/??"),
+                items: HomeExperienceModel.homeExperienceDummyData())
+        ]
+    }
 }
 
 extension HomeExperienceModel {
