@@ -143,7 +143,6 @@ final class CategoryListViewController: BaseViewController {
     override func setRegister() {
         categoryView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
         self.homeExperienceListView.homelistCollectionView.registerCell(HomeExperienceCell.self)
-        self.homeExperienceListView.sortButtonDelegate = self
     }
     
     func presentToHalfModal() {
@@ -190,6 +189,10 @@ final class CategoryListViewController: BaseViewController {
                     self.presentToHalfModal()
             })
             .disposed(by: disposeBag)
+            
+            if let indexPath = self.homeExperienceListView.indexPath {
+                header.setButtonTitle(indexPath)
+            }
             
             return header
         }
