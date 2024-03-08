@@ -22,6 +22,7 @@ class BaseView: UIView {
         setStyle()
         setLayout()
         setDelegate()
+        setAddTarget()
     }
     
     override func removeFromSuperview() {
@@ -37,6 +38,7 @@ class BaseView: UIView {
     func setLayout() {}
     /// View 의 Delegate 을 set 합니다.
     func setDelegate() {}
+    func setAddTarget() {}
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

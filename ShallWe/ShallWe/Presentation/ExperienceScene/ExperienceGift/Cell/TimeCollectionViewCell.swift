@@ -13,7 +13,6 @@ final class TimeCollectionViewCell: UICollectionViewCell, UICollectionViewRegist
     
     let timeLabel: UILabel = {
         let label = UILabel()
-        label.text = "13시"
         label.textColor = .gray4
         label.font = .fontGuide(.M00_14)
         label.textAlignment = .center
@@ -39,7 +38,8 @@ final class TimeCollectionViewCell: UICollectionViewCell, UICollectionViewRegist
     }
 }
 
-extension TimeCollectionViewCell {
+private extension TimeCollectionViewCell {
+    
     func setHierarchy() {
         addSubview(timeLabel)
     }
@@ -47,6 +47,17 @@ extension TimeCollectionViewCell {
     func setLayout() {
         timeLabel.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+    }
+}
+
+extension TimeCollectionViewCell {
+    
+    func configureCell(model: ReservationDateResponseDto) {
+        let timeString = model.time
+        let components = timeString.components(separatedBy: ":")
+        if let hour = components.first {
+            timeLabel.text = "\(hour)시"
         }
     }
 }

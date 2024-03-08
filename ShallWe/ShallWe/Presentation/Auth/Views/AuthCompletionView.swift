@@ -134,14 +134,15 @@ final class AuthCompletionView: BaseView {
             $0.horizontalEdges.equalToSuperview().inset(20)
         }
     }
+    
+    override func setAddTarget() {
+        homeButton.addTarget(self, action: #selector(homeButtonDidTap), for: .touchUpInside)
+    }
 }
 
 // MARK: - Extensions
 
 extension AuthCompletionView {
-    func setAddTarget() {
-        homeButton.addTarget(self, action: #selector(homeButtonDidTap), for: .touchUpInside)
-    }
     
     // MARK: Actions
     

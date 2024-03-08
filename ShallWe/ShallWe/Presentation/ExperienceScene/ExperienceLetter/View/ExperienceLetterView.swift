@@ -17,7 +17,7 @@ final class ExperienceLetterView: UIView {
     
     // MARK: - UI Components
     
-    private let navigationBar: CustomNavigationBar = {
+    let navigationBar: CustomNavigationBar = {
         let navigationBar = CustomNavigationBar()
         navigationBar.isBackButtonIncluded = true
         navigationBar.isTitleLabelIncluded = true
@@ -39,19 +39,7 @@ final class ExperienceLetterView: UIView {
         return label
     }()
     
-    private let senderTextField: UITextField = {
-        let textfield = UITextField()
-        textfield.textColor = .black0
-        textfield.font = .fontGuide(.M00_12)
-        textfield.backgroundColor = .gray0
-        textfield.layer.borderColor = UIColor.gray2.cgColor
-        textfield.layer.borderWidth = 1
-        textfield.layer.cornerRadius = 10
-        textfield.placeholder = I18N.ExperienceLetter.namePlaceholder
-        textfield.setPlaceholderColor(.gray4)
-        textfield.setLeftPadding(amount: 14)
-        return textfield
-    }()
+    let senderTextField = CustomTextField(type: .name, placeHolder: I18N.ExperienceLetter.namePlaceholder)
     
     private let seperatorView2: UIView = {
         let view = UIView()
@@ -82,57 +70,10 @@ final class ExperienceLetterView: UIView {
         return label
     }()
     
-    private let recipientNameTextField: UITextField = {
-        let textfield = UITextField()
-        textfield.textColor = .black0
-        textfield.font = .fontGuide(.M00_12)
-        textfield.backgroundColor = .gray0
-        textfield.layer.borderColor = UIColor.gray2.cgColor
-        textfield.layer.borderWidth = 1
-        textfield.layer.cornerRadius = 10
-        textfield.placeholder = I18N.ExperienceLetter.namePlaceholder
-        textfield.setPlaceholderColor(.gray4)
-        textfield.setLeftPadding(amount: 14)
-        return textfield
-    }()
-    
-    private let phoneFirstText: UITextField = {
-        let textfield = UITextField()
-        textfield.text = I18N.ExperienceLetter.phoneFirstTitle
-        textfield.textColor = .black0
-        textfield.textAlignment = .center
-        textfield.font = .fontGuide(.M00_12)
-        textfield.backgroundColor = .bg1
-        textfield.layer.borderColor = UIColor.bg4.cgColor
-        textfield.layer.borderWidth = 1
-        textfield.layer.cornerRadius = 10
-        textfield.isEnabled = false
-        return textfield
-    }()
-    
-    private let phoneMidText: UITextField = {
-        let textfield = UITextField()
-        textfield.textColor = .black0
-        textfield.textAlignment = .center
-        textfield.font = .fontGuide(.M00_12)
-        textfield.backgroundColor = .gray0
-        textfield.layer.borderColor = UIColor.gray2.cgColor
-        textfield.layer.borderWidth = 1
-        textfield.layer.cornerRadius = 10
-        return textfield
-    }()
-    
-    private let phoneEndText: UITextField = {
-        let textfield = UITextField()
-        textfield.textColor = .black0
-        textfield.textAlignment = .center
-        textfield.font = .fontGuide(.M00_12)
-        textfield.backgroundColor = .gray0
-        textfield.layer.borderColor = UIColor.gray2.cgColor
-        textfield.layer.borderWidth = 1
-        textfield.layer.cornerRadius = 10
-        return textfield
-    }()
+    let recipientNameTextField = CustomTextField(type: .name, placeHolder: I18N.ExperienceLetter.namePlaceholder)
+    let phoneFirstText = CustomTextField(type: .phone, placeHolder: "")
+    let phoneMidText = CustomTextField(type: .phone, placeHolder: "")
+    let phoneEndText = CustomTextField(type: .phone, placeHolder: "")
     
     private let seperatorView3: UIView = {
         let view = UIView()
@@ -155,7 +96,7 @@ final class ExperienceLetterView: UIView {
         return image
     }()
     
-    private let letterTextView: UITextView = {
+    let letterTextView: UITextView = {
         let textview = UITextView()
         let exampletext = "예시"
         let attributedString = NSAttributedString(string: exampletext, attributes: [
@@ -180,7 +121,8 @@ final class ExperienceLetterView: UIView {
     lazy var giftButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.Icon.gift, for: .normal)
-        button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15)
+        button.setImage(ImageLiterals.Icon.gift, for: .highlighted)
+        button.imageEdgeInsets.right = 8
         button.setTitle(I18N.ExperienceDetail.giftButton, for: .normal)
         button.setTitleColor(.bg0, for: .normal)
         button.titleLabel?.font = .fontGuide(.B00_14)
@@ -211,6 +153,8 @@ extension ExperienceLetterView {
         backgroundColor = .white
         infoIcon.isHidden = true
         infoTitle.isHidden = true
+        phoneFirstText.text = I18N.ExperienceLetter.phoneFirstTitle
+        phoneFirstText.textFieldStatus = .correct
     }
     
     func setDelegate() {

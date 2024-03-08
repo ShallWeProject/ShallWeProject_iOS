@@ -10,12 +10,12 @@ struct ExperienceDetailResponseDto: Codable {
     let title, subtitle: String
     let price: Int
     let explanation: [Explanation]
-    let description, location: String
+    let description, note, location: String
     let experienceGiftID: Int
 
     enum CodingKeys: String, CodingKey {
         case giftImgURL = "giftImgUrl"
-        case title, subtitle, price, explanation, description, location
+        case title, subtitle, price, explanation, description, note, location
         case experienceGiftID = "experienceGiftId"
     }
 }

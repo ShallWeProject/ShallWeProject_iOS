@@ -13,8 +13,9 @@ final class ExperienceDetailView: UIView {
     
     // MARK: - UI Components
     
+    private let segmentWidth = Int((SizeLiterals.Screen.screenWidth - 18) / 2)
     let explainDetailView = ExplainDetailView()
-    private let guideDetailView = GuideDetailView()
+    let guideDetailView = GuideDetailView()
     
     let navigationBar: CustomNavigationBar = {
         let nav = CustomNavigationBar()
@@ -85,7 +86,7 @@ final class ExperienceDetailView: UIView {
         
         for (index, title) in [I18N.ExperienceDetail.segementTitle1, I18N.ExperienceDetail.segementTitle2].enumerated() {
             segment.insertSegment(withTitle: title, at: index, animated: true)
-            segment.setWidth((UIScreen.main.bounds.width - 14) / 2, forSegmentAt: index)
+            segment.setWidth(SizeLiterals.Screen.screenWidth / 2, forSegmentAt: index)
         }
         
         let normalAttributes: [NSAttributedString.Key: Any] = [
@@ -114,7 +115,8 @@ final class ExperienceDetailView: UIView {
     lazy var gifButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.Icon.gift, for: .normal)
-        button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15)
+        button.setImage(ImageLiterals.Icon.gift, for: .highlighted)
+        button.imageEdgeInsets.right = 8
         button.setTitle(I18N.ExperienceDetail.giftButton, for: .normal)
         button.setTitleColor(.bg0, for: .normal)
         button.titleLabel?.font = .fontGuide(.B00_14)
@@ -216,7 +218,7 @@ private extension ExperienceDetailView {
         
         underLineView.snp.makeConstraints {
             $0.top.equalTo(segmentControl.snp.bottom)
-            $0.leading.equalTo(segmentControl.snp.leading).offset(9)
+            $0.leading.equalTo(segmentControl.snp.leading).offset(7 + (segmentWidth - 156) / 2)
             $0.width.equalTo(156)
             $0.height.equalTo(2)
         }
@@ -259,7 +261,7 @@ private extension ExperienceDetailView {
     
     @objc
     func changeSegmentedControlLinePosition(_ segment: UISegmentedControl) {
-        let leadingDistance = Int(183 * CGFloat(segment.selectedSegmentIndex) + (174 - self.underLineView.bounds.width) * 0.5)
+        let leadingDistance = Int(7 + (segmentWidth - 156) / 2 + segmentWidth * segmentControl.selectedSegmentIndex)
         UIView.animate(withDuration: 0.2, animations: {
             self.underLineView.snp.updateConstraints { $0.leading.equalTo(self.segmentControl.snp.leading).offset(leadingDistance) }
             self.layoutIfNeeded()
