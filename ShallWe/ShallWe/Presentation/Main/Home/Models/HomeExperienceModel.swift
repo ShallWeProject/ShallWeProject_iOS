@@ -7,11 +7,31 @@
 
 import UIKit
 
+import RxDataSources
+
+struct SectionOfHomeExperience {
+    var header: HomeExperienceHeader
+    var items: [HomeExperienceModel]
+}
+
 struct HomeExperienceModel {
     let image: UIImage
     let title: String
     let description: String
     let price: String
+}
+
+struct HomeExperienceHeader {
+    let title: String
+}
+
+extension SectionOfHomeExperience: SectionModelType {
+    typealias Item = HomeExperienceModel
+    
+    init(original: SectionOfHomeExperience, items: [HomeExperienceModel]) {
+        self = original
+        self.items = items
+    }
 }
 
 extension HomeExperienceModel {
