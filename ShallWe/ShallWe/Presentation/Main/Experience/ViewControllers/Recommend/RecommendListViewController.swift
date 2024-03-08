@@ -127,7 +127,6 @@ final class RecommendListViewController: BaseViewController {
     
     override func setRegister() {
         recommendView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
-        self.homeExperienceListView.sortButtonDelegate = self
     }
     
     func presentToHalfModal() {

@@ -27,8 +27,6 @@ final class HomeExperienceListView: BaseView {
     
     // MARK: - Properties
     
-    private let dummyModel = HomeExperienceModel.homeExperienceDummyData()
-    weak var sortButtonDelegate: SortButtonTapProtocol?
     var indexPath: IndexPath? {
         didSet {
             homelistCollectionView.reloadSections(IndexSet(integer: indexPath?.section ?? 0))
