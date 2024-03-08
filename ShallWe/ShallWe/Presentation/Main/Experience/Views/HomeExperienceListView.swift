@@ -11,6 +11,7 @@ import Then
 import SnapKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 protocol SortButtonTapProtocol: AnyObject {
     func presentToSortModal()
@@ -73,30 +74,30 @@ final class HomeExperienceListView: BaseView {
     // MARK: - Methods
     
     override func setDelegate() {
-        //        homelistCollectionView.delegate = self
+                homelistCollectionView.delegate = self
         //        homelistCollectionView.dataSource = self
-        //        homelistCollectionView.registerCell(HomeExperienceCell.self)
-        //        homelistCollectionView.registerHeader(ExperienceHeader.self)
+                homelistCollectionView.registerCell(HomeExperienceCell.self)
+                homelistCollectionView.registerHeader(ExperienceHeader.self)
     }
 }
 
-//extension HomeExperienceListView: UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width = SizeLiterals.Screen.screenWidth * 162 / 375
-//        let height = CGFloat(240)
-//        return CGSize(width: width, height: height)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        let inset = SizeLiterals.Screen.screenWidth * 16 / 375
-//        return UIEdgeInsets(top: 14, left: inset, bottom: 86, right: inset)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: collectionView.frame.width, height: 37.0) // 헤더 뷰의 폭과 높이를 설정
-//    }
-//}
+extension HomeExperienceListView: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = SizeLiterals.Screen.screenWidth * 162 / 375
+        let height = CGFloat(240)
+        return CGSize(width: width, height: height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let inset = SizeLiterals.Screen.screenWidth * 16 / 375
+        return UIEdgeInsets(top: 14, left: inset, bottom: 86, right: inset)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 37.0) // 헤더 뷰의 폭과 높이를 설정
+    }
+}
 
 //extension HomeExperienceListView: UICollectionViewDataSource {
 //

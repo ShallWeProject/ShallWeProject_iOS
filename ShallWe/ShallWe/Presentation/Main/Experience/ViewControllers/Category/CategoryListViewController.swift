@@ -11,6 +11,7 @@ import Then
 import SnapKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 final class CategoryListViewController: BaseViewController {
     
@@ -44,13 +45,18 @@ final class CategoryListViewController: BaseViewController {
     
     override func bindViewModel() {
         
+//        viewModel.outputs.expCategory
+//            .bind(to: homeExperienceListView.homelistCollectionView.rx
+//                .items(cellIdentifier: HomeExperienceCell.className,
+//                       cellType: HomeExperienceCell.self)) { (index, model, cell) in
+//                cell.configureCell(model)
+//            }
+//                       .disposed(by: disposeBag)
+        
         viewModel.outputs.expCategory
             .bind(to: homeExperienceListView.homelistCollectionView.rx
-                .items(cellIdentifier: HomeExperienceCell.className,
-                       cellType: HomeExperienceCell.self)) { (index, model, cell) in
-                cell.configureCell(model)
-            }
-                       .disposed(by: disposeBag)
+                .items(dataSource: dataSource))
+            .disposed(by: disposeBag)
         
         categoryView.navigationBar.backButton.rx.tap
             .subscribe(onNext: { [weak self] in
@@ -162,6 +168,27 @@ final class CategoryListViewController: BaseViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private lazy var dataSource = RxCollectionViewSectionedReloadDataSource<SectionOfHomeExperience>(
+        configureCell: { (dataSource, collectionView, indexPath, item) in
+        
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: HomeExperienceCell.className,
+                for: indexPath) as? HomeExperienceCell else { return UICollectionViewCell() }
+            cell.configureCell(item)
+            return cell
+        }, configureSupplementaryView: { [weak self] dataSource, collectionView, kind, indexPath in
+            
+            guard let self = self,
+                  let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ExperienceHeader.className, for: indexPath) as? ExperienceHeader else { return UICollectionReusableView() }
+            
+            header.setButtonTitle(IndexPath(row: 0, section: 0))
+            
+            // 헤더 조정
+            
+            return header
+        }
+    )
 }
 
 extension CategoryListViewController: SortButtonTapProtocol {
