@@ -14,7 +14,7 @@ final class SortHalfModalCell: UITableViewCell {
 
     // MARK: - UI Components
     
-    private let titleLabel = UILabel()
+    let titleLabel = UILabel()
     
     // MARK: - Properties
     

@@ -18,6 +18,7 @@ final class HomeAPI {
     private init() {}
     
     public private(set) var experienceGiftData: GeneralResponse<ExperienceGiftResponseDto>?
+    public private(set) var searchExpData: GeneralResponse<[SearchResponseDto]>?
     
     // MARK: - GET
     /// 메인 페이지 조회
@@ -47,6 +48,30 @@ final class HomeAPI {
                         completion(experienceGiftData)
                     } catch let err {
                         print(err.localizedDescription, 500)
+                    }
+                }
+            case .failure(let err):
+                print(err.localizedDescription)
+                completion(nil)
+            }
+        }
+    }
+    
+    /// 경험 검색 조회
+    func getExpSearch(title: String, completion: @escaping(GeneralResponse<[SearchResponseDto]>?) -> Void) {
+        homeProvider.request(.getSearch(title: title)) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let response):
+                if response.statusCode == 401 {
+                    // 토큰
+                } else {
+                    do {
+                        self.searchExpData = try response.map(GeneralResponse<[SearchResponseDto]>?.self)
+                        guard let searchExpData = self.searchExpData else { return }
+                        completion(searchExpData)
+                    } catch let err {
+                        print(err.localizedDescription)
                     }
                 }
             case .failure(let err):

@@ -11,6 +11,7 @@ import Then
 import SnapKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 final class CategoryListViewController: BaseViewController {
     
@@ -38,12 +39,16 @@ final class CategoryListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-        print(categoryIndex.item)
         categoryView.menuCollectionView.selectItem(at: IndexPath(item: categoryIndex.row, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     override func bindViewModel() {
-    
+        
+        viewModel.outputs.expCategory
+            .bind(to: homeExperienceListView.homelistCollectionView.rx
+                .items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
         categoryView.navigationBar.backButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
@@ -62,8 +67,7 @@ final class CategoryListViewController: BaseViewController {
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 viewModel.inputs.menuCellTap(at: indexPath)
-                homeExperienceListView.indexPath = IndexPath(item: 0, section: 0) // 정렬 버튼 초기화
-                // 셀 탭했을 시
+                homeExperienceListView.indexPath = IndexPath(item: 0, section: 0)
             })
             .disposed(by: disposeBag)
         
@@ -81,20 +85,7 @@ final class CategoryListViewController: BaseViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                print("??")
-            })
-            .disposed(by: disposeBag)
-        
-        viewModel.outputs.presentSortModal
-            .subscribe(onNext: { [weak self] in
-                self?.presentToHalfModal()
-            })
-            .disposed(by: disposeBag)
-        
-        viewModel.outputs.sortTypeChange
-            .subscribe(onNext: { [weak self] indexPath in
-                self?.sortType = indexPath
-                self?.homeExperienceListView.indexPath = indexPath
+                
             })
             .disposed(by: disposeBag)
     }
@@ -128,10 +119,10 @@ final class CategoryListViewController: BaseViewController {
     
     override func setRegister() {
         categoryView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
-        self.homeExperienceListView.sortButtonDelegate = self
+        self.homeExperienceListView.homelistCollectionView.registerCell(HomeExperienceCell.self)
     }
     
-    func presentToHalfModal() {
+    func presentToHalfModal(index: IndexPath) {
         let sortVC = SortHalfModal(viewModel: viewModel, index: sortType)
         sortVC.modalPresentationStyle = .pageSheet
         let customDetentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
@@ -146,20 +137,48 @@ final class CategoryListViewController: BaseViewController {
             sheet.delegate = self
             sheet.delegate = sortVC as? any UISheetPresentationControllerDelegate
         }
-        
-        present(sortVC, animated: true)
+        self.present(sortVC, animated: true)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension CategoryListViewController: SortButtonTapProtocol {
     
-    func presentToSortModal() {
-        viewModel.inputs.sortButtonTap()
-    }
+    private lazy var dataSource = RxCollectionViewSectionedReloadDataSource<SectionOfHomeExperience>(
+        configureCell: { (dataSource, collectionView, indexPath, item) in
+            
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: HomeExperienceCell.className,
+                for: indexPath) as? HomeExperienceCell else { return UICollectionViewCell() }
+            cell.configureCell(item)
+            return cell
+        }, configureSupplementaryView: { [weak self] dataSource, collectionView, kind, indexPath in
+            
+            guard let self = self,
+                  let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ExperienceHeader.className, for: indexPath) as? ExperienceHeader else { return UICollectionReusableView() }
+            
+            header.setButtonTitle(IndexPath(row: 0, section: 0))
+            
+            if let indexPath = self.homeExperienceListView.indexPath {
+                header.setButtonTitle(indexPath)
+            }
+            
+            // 카테고리 정렬 버튼
+            header.sortButton.rx.tap
+                .bind {
+                    self.presentToHalfModal(index: indexPath)
+                }
+                .disposed(by: disposeBag)
+            
+            viewModel.outputs.changeSortType
+                .subscribe(onNext: { [weak self] title in
+                    header.sortButton.setTitle(title, for: .normal)
+                })
+                .disposed(by: disposeBag)
+            
+            return header
+        }
+    )
 }
 
 extension CategoryListViewController: UISheetPresentationControllerDelegate {}
