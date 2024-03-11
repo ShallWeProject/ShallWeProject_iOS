@@ -34,7 +34,6 @@ final class ExperienceHeader: UICollectionReusableView {
         super.init(frame: frame)
         setUI()
         setLayout()
-        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -89,14 +88,5 @@ extension ExperienceHeader {
         default:
             return
         }
-    }
-    
-    private func setAddTarget() {
-        sortButton.addTarget(self, action: #selector(sortButtonTap), for: .touchUpInside)
-    }
-    
-    @objc
-    private func sortButtonTap() {
-        sortButtonTapHandler?()
     }
 }

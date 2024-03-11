@@ -84,18 +84,18 @@ final class RecommendListViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel.outputs.presentSortModal
-            .subscribe(onNext: { [weak self] in
-                self?.presentToHalfModal()
-            })
-            .disposed(by: disposeBag)
+//        viewModel.outputs.presentSortModal
+//            .subscribe(onNext: { [weak self] in
+//                self?.presentToHalfModal()
+//            })
+//            .disposed(by: disposeBag)
         
-        viewModel.outputs.sortTypeChange
-            .subscribe(onNext: { [weak self] indexPath in
-                self?.sortType = indexPath
-                self?.homeExperienceListView.indexPath = indexPath
-            })
-            .disposed(by: disposeBag)
+//        viewModel.outputs.sortTypeChange
+//            .subscribe(onNext: { [weak self] indexPath in
+//                self?.sortType = indexPath
+//                self?.homeExperienceListView.indexPath = indexPath
+//            })
+//            .disposed(by: disposeBag)
     }
     
     // MARK: - UI Components Property
@@ -129,34 +129,36 @@ final class RecommendListViewController: BaseViewController {
         recommendView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
     }
     
-    func presentToHalfModal() {
-        let sortVC = SortHalfModal(viewModel: viewModel, index: sortType)
-        sortVC.modalPresentationStyle = .pageSheet
-        let customDetentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
-        let customDetent = UISheetPresentationController.Detent.custom(identifier: customDetentIdentifier) { (_) in
-            return SizeLiterals.Screen.screenHeight * 258 / 812
-        }
+//    func presentToHalfModal() {
+//        let sortVC = SortHalfModal(viewModel: viewModel, index: sortType)
+//        sortVC.modalPresentationStyle = .pageSheet
+//        let customDetentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
+//        let customDetent = UISheetPresentationController.Detent.custom(identifier: customDetentIdentifier) { (_) in
+//            return SizeLiterals.Screen.screenHeight * 258 / 812
+//        }
+//        
+//        if let sheet = sortVC.sheetPresentationController {
+//            sheet.detents = [customDetent]
+//            sheet.preferredCornerRadius = 10
+//            sheet.prefersGrabberVisible = true
+//            sheet.delegate = self
+//            sheet.delegate = sortVC as? any UISheetPresentationControllerDelegate
+//        }
         
-        if let sheet = sortVC.sheetPresentationController {
-            sheet.detents = [customDetent]
-            sheet.preferredCornerRadius = 10
-            sheet.prefersGrabberVisible = true
-            sheet.delegate = self
-            sheet.delegate = sortVC as? any UISheetPresentationControllerDelegate
-        }
-        
-        present(sortVC, animated: true)
-    }
+//        present(sortVC, animated: true, completion: nil)
+//        if presentationController != nil {
+//            presentedViewController?.dismiss(animated: false) {
+//                // 현재 모달이 해제된 후에 새로운 모달을 표시
+//                self.present(sortVC, animated: true, completion: nil)
+//            }
+//        } else {
+//            self.present(sortVC, animated: true)
+//        }
+//
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension RecommendListViewController: SortButtonTapProtocol {
-    
-    func presentToSortModal() {
-        viewModel.inputs.sortButtonTap()
     }
 }
 

@@ -14,7 +14,7 @@ import RxCocoa
 import RxSwift
 
 final class SortHalfModal: BaseViewController {
-
+    
     // MARK: - UI Components
     
     private lazy var sortListTableView = UITableView(frame: .zero, style: .grouped)
@@ -27,11 +27,43 @@ final class SortHalfModal: BaseViewController {
     private var selectedCellIndex: IndexPath
     
     // MARK: - Initializer
-
+    
     init(viewModel: HomeExperienceViewModel, index: IndexPath) {
         self.viewModel = viewModel
         self.selectedCellIndex = index
+        self.viewModel.inputs.presentSortModal()
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    override func bindViewModel() {
+        
+        viewModel.outputs.sortMenu
+            .bind(to: sortListTableView.rx
+                .items(cellIdentifier: SortHalfModalCell.className,
+                       cellType: SortHalfModalCell.self)) { (index, model, cell) in
+                cell.configureCell(model)
+            }
+            .disposed(by: disposeBag)
+        
+        sortListTableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
+        sortListTableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+//                print(indexPath)
+                guard let self = self else { return }
+                self.dismiss(animated: true)
+                if let cell = self.sortListTableView.cellForRow(at: indexPath) as? SortHalfModalCell {
+//                    cell.isSelected = true
+                    print("VC", indexPath)
+//                    self.viewModel.inputs.sortType(indexPath: indexPath)
+                    if let title = cell.titleLabel.text {
+                        self.viewModel.inputs.sortTypeTap(title: title)
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     // MARK: - UI Components Property
@@ -64,17 +96,19 @@ final class SortHalfModal: BaseViewController {
     
     // MARK: - Methods
     
-    override func setDelegate() {
-        sortListTableView.delegate = self
-        sortListTableView.dataSource = self
-    }
-    
     override func setRegister() {
         sortListTableView.register(SortHalfModalCell.self, forCellReuseIdentifier: SortHalfModalCell.className)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension SortHalfModal {
+    
+    private func dismissToList() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -94,23 +128,24 @@ extension SortHalfModal: UITableViewDelegate {
     }
 }
 
-extension SortHalfModal: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sortModel.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SortHalfModalCell.className, for: indexPath) as! SortHalfModalCell
-        if indexPath == selectedCellIndex {
-            cell.isSelected = true
-        }
-        cell.configureCell(sortModel[indexPath.row])
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.inputs.sortType(indexPath: indexPath)
-        self.dismiss(animated: true)
-    }
-}
+//extension SortHalfModal: UITableViewDataSource {
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return sortModel.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: SortHalfModalCell.className, for: indexPath) as! SortHalfModalCell
+//        if indexPath == selectedCellIndex {
+//            cell.isSelected = true
+//        }
+//        cell.configureCell(sortModel[indexPath.row])
+//        return cell
+//    }
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print(indexPath.row)
+//        viewModel.inputs.sortType(indexPath: indexPath)
+//        self.dismiss(animated: true, completion: nil)
+//    }
+//}

@@ -39,7 +39,7 @@ final class CategoryListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-        print(categoryIndex.item)
+//        print(categoryIndex.item)
         categoryView.menuCollectionView.selectItem(at: IndexPath(item: categoryIndex.row, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
@@ -95,22 +95,17 @@ final class CategoryListViewController: BaseViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                print("??")
+                
             })
             .disposed(by: disposeBag)
         
-        viewModel.outputs.presentSortModal
-            .subscribe(onNext: { [weak self] in
-                self?.presentToHalfModal()
-            })
-            .disposed(by: disposeBag)
-        
-        viewModel.outputs.sortTypeChange
-            .subscribe(onNext: { [weak self] indexPath in
-                self?.sortType = indexPath
-                self?.homeExperienceListView.indexPath = indexPath
-            })
-            .disposed(by: disposeBag)
+//        viewModel.outputs.sortTypeChange
+//            .subscribe(onNext: { [weak self] indexPath in
+//                self?.sortType = indexPath
+//                self?.homeExperienceListView.indexPath = indexPath
+//            })
+//            .disposed(by: disposeBag)
+    
     }
     
     // MARK: - UI Components Property
@@ -145,7 +140,7 @@ final class CategoryListViewController: BaseViewController {
         self.homeExperienceListView.homelistCollectionView.registerCell(HomeExperienceCell.self)
     }
     
-    func presentToHalfModal() {
+    func presentToHalfModal(index: IndexPath) {
         let sortVC = SortHalfModal(viewModel: viewModel, index: sortType)
         sortVC.modalPresentationStyle = .pageSheet
         let customDetentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
@@ -161,7 +156,15 @@ final class CategoryListViewController: BaseViewController {
             sheet.delegate = sortVC as? any UISheetPresentationControllerDelegate
         }
         
-        present(sortVC, animated: true)
+//        present(sortVC, animated: true)
+        if let presentedVC = presentedViewController {
+            presentedVC.dismiss(animated: false) {
+                // 이전 모달이 해제된 후에 새로운 모달을 표시
+                self.present(sortVC, animated: true)
+            }
+        } else {
+            self.present(sortVC, animated: true)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -184,26 +187,33 @@ final class CategoryListViewController: BaseViewController {
             header.setButtonTitle(IndexPath(row: 0, section: 0))
             
             // 헤더 조정
-            header.sortButton.rx.tap
-                .subscribe(onNext: { _ in
-                    self.presentToHalfModal()
-            })
-            .disposed(by: disposeBag)
-            
+
             if let indexPath = self.homeExperienceListView.indexPath {
                 header.setButtonTitle(indexPath)
+//                header.sortButton.rx.tap
+//                    .bind {
+//                        print("😎 present")
+//                        self.presentToHalfModal(index: indexPath)
+//                    }
+//                .disposed(by: disposeBag)
             }
+            
+            header.sortButton.rx.tap
+                .bind {
+                    print("taptap")
+                    self.presentToHalfModal(index: indexPath)
+                }
+                .disposed(by: disposeBag)
+            
+            viewModel.outputs.changeSortType
+                .subscribe(onNext: { [weak self] title in
+                    header.sortButton.setTitle(title, for: .normal)
+                })
+                .disposed(by: disposeBag)
             
             return header
         }
     )
-}
-
-extension CategoryListViewController: SortButtonTapProtocol {
-    
-    func presentToSortModal() {
-        viewModel.inputs.sortButtonTap()
-    }
 }
 
 extension CategoryListViewController: UISheetPresentationControllerDelegate {}
