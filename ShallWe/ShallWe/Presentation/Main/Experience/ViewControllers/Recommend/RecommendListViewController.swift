@@ -11,6 +11,7 @@ import Then
 import SnapKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 final class RecommendListViewController: BaseViewController {
     
@@ -42,6 +43,11 @@ final class RecommendListViewController: BaseViewController {
     }
     
     override func bindViewModel() {
+        
+        viewModel.outputs.sttCategory
+            .bind(to: homeExperienceListView.homelistCollectionView.rx
+                .items(dataSource: dataSource))
+            .disposed(by: disposeBag)
     
         recommendView.navigationBar.backButton.rx.tap
             .subscribe(onNext: { [weak self] in
@@ -80,22 +86,8 @@ final class RecommendListViewController: BaseViewController {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                print("??")
             })
             .disposed(by: disposeBag)
-        
-//        viewModel.outputs.presentSortModal
-//            .subscribe(onNext: { [weak self] in
-//                self?.presentToHalfModal()
-//            })
-//            .disposed(by: disposeBag)
-        
-//        viewModel.outputs.sortTypeChange
-//            .subscribe(onNext: { [weak self] indexPath in
-//                self?.sortType = indexPath
-//                self?.homeExperienceListView.indexPath = indexPath
-//            })
-//            .disposed(by: disposeBag)
     }
     
     // MARK: - UI Components Property
@@ -129,33 +121,59 @@ final class RecommendListViewController: BaseViewController {
         recommendView.menuCollectionView.registerCell(HomeMenuCollectionViewCell.self)
     }
     
-//    func presentToHalfModal() {
-//        let sortVC = SortHalfModal(viewModel: viewModel, index: sortType)
-//        sortVC.modalPresentationStyle = .pageSheet
-//        let customDetentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
-//        let customDetent = UISheetPresentationController.Detent.custom(identifier: customDetentIdentifier) { (_) in
-//            return SizeLiterals.Screen.screenHeight * 258 / 812
-//        }
-//        
-//        if let sheet = sortVC.sheetPresentationController {
-//            sheet.detents = [customDetent]
-//            sheet.preferredCornerRadius = 10
-//            sheet.prefersGrabberVisible = true
-//            sheet.delegate = self
-//            sheet.delegate = sortVC as? any UISheetPresentationControllerDelegate
-//        }
+    func presentToHalfModal(index: IndexPath) {
+        let sortVC = SortHalfModal(viewModel: viewModel, index: sortType)
+        sortVC.modalPresentationStyle = .pageSheet
+        let customDetentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
+        let customDetent = UISheetPresentationController.Detent.custom(identifier: customDetentIdentifier) { (_) in
+            return SizeLiterals.Screen.screenHeight * 258 / 812
+        }
         
-//        present(sortVC, animated: true, completion: nil)
-//        if presentationController != nil {
-//            presentedViewController?.dismiss(animated: false) {
-//                // 현재 모달이 해제된 후에 새로운 모달을 표시
-//                self.present(sortVC, animated: true, completion: nil)
-//            }
-//        } else {
-//            self.present(sortVC, animated: true)
-//        }
-//
-//    }
+        if let sheet = sortVC.sheetPresentationController {
+            sheet.detents = [customDetent]
+            sheet.preferredCornerRadius = 10
+            sheet.prefersGrabberVisible = true
+            sheet.delegate = self
+            sheet.delegate = sortVC as? any UISheetPresentationControllerDelegate
+        }
+        self.present(sortVC, animated: true)
+    }
+    
+    private lazy var dataSource = RxCollectionViewSectionedReloadDataSource<SectionOfHomeExperience>(
+        configureCell: { (dataSource, collectionView, indexPath, item) in
+            
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: HomeExperienceCell.className,
+                for: indexPath) as? HomeExperienceCell else { return UICollectionViewCell() }
+            cell.configureCell(item)
+            return cell
+        }, configureSupplementaryView: { [weak self] dataSource, collectionView, kind, indexPath in
+            
+            guard let self = self,
+                  let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ExperienceHeader.className, for: indexPath) as? ExperienceHeader else { return UICollectionReusableView() }
+            
+            header.setButtonTitle(IndexPath(row: 0, section: 0))
+            
+            if let indexPath = self.homeExperienceListView.indexPath {
+                header.setButtonTitle(indexPath)
+            }
+            
+            // 카테고리 정렬 버튼
+            header.sortButton.rx.tap
+                .bind {
+                    self.presentToHalfModal(index: indexPath)
+                }
+                .disposed(by: disposeBag)
+            
+            viewModel.outputs.changeSortType
+                .subscribe(onNext: { [weak self] title in
+                    header.sortButton.setTitle(title, for: .normal)
+                })
+                .disposed(by: disposeBag)
+            
+            return header
+        }
+    )
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

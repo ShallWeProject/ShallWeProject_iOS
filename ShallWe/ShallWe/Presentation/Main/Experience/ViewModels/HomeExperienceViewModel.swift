@@ -22,6 +22,7 @@ protocol HomeExperienceViewModelOutputs {
     var setMenuCell: BehaviorRelay<IndexPath> { get }
     var isSelectedMenuCell: PublishSubject<IndexPath> { get }
     var expCategory: BehaviorRelay<[SectionOfHomeExperience]> { get }
+    var sttCategory: BehaviorRelay<[SectionOfHomeExperience]> { get }
     var sortMenu: BehaviorRelay<[SortModel]> { get }
     var changeSortType: PublishSubject<String> { get }
 }
@@ -38,6 +39,7 @@ final class HomeExperienceViewModel: HomeExperienceViewModelInputs, HomeExperien
     var isSelectedMenuCell: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     var setMenuCell: BehaviorRelay<IndexPath> = BehaviorRelay<IndexPath>(value: IndexPath(item: 0, section: 0))
     var expCategory: BehaviorRelay<[SectionOfHomeExperience]> = BehaviorRelay<[SectionOfHomeExperience]>(value: [])
+    var sttCategory: BehaviorRelay<[SectionOfHomeExperience]> = BehaviorRelay<[SectionOfHomeExperience]>(value: [])
     var sortMenu: BehaviorRelay<[SortModel]> = BehaviorRelay<[SortModel]>(value: [])
     var changeSortType: PublishSubject<String> = PublishSubject<String>()
     
@@ -49,6 +51,7 @@ final class HomeExperienceViewModel: HomeExperienceViewModelInputs, HomeExperien
         self.categoryMenu.accept(HomeExperienceType.categoryMenu())
         self.setMenuCell.accept(IndexPath(item: 0, section: 0))
         self.expCategory.accept(SectionOfHomeExperience.homeExperienceSectionDummy())
+        self.sttCategory.accept(SectionOfHomeExperience.homeExperienceSectionDummy())
     }
     
     func presentSortModal() {
