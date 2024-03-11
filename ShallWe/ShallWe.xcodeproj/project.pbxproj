@@ -91,8 +91,8 @@
 		0350E26F2B76187F00F3EA69 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E26E2B76187F00F3EA69 /* TokenManager.swift */; };
 		0350E2712B761B9D00F3EA69 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E2702B761B9D00F3EA69 /* BaseTargetType.swift */; };
 		0350E2752B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E2742B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift */; };
-		0350E27B2B8AEA3D00F3EA69 /* ExperienceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E27A2B8AEA3D00F3EA69 /* ExperienceTarget.swift */; };
-		0350E27D2B8B02F400F3EA69 /* ExperienceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E27C2B8B02F400F3EA69 /* ExperienceAPI.swift */; };
+		0350E27B2B8AEA3D00F3EA69 /* ExperienceGiftTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E27A2B8AEA3D00F3EA69 /* ExperienceGiftTarget.swift */; };
+		0350E27D2B8B02F400F3EA69 /* ExperienceGiftAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0350E27C2B8B02F400F3EA69 /* ExperienceGiftAPI.swift */; };
 		0350E2802B94379300F3EA69 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 0350E27F2B94379300F3EA69 /* Differentiator */; };
 		0350E2822B94379300F3EA69 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 0350E2812B94379300F3EA69 /* RxDataSources */; };
 		035A9F082B42AB4B007B3F50 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */; };
@@ -243,8 +243,8 @@
 		0350E26E2B76187F00F3EA69 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		0350E2702B761B9D00F3EA69 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 		0350E2742B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceCategoryDto.swift; sourceTree = "<group>"; };
-		0350E27A2B8AEA3D00F3EA69 /* ExperienceTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceTarget.swift; sourceTree = "<group>"; };
-		0350E27C2B8B02F400F3EA69 /* ExperienceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceAPI.swift; sourceTree = "<group>"; };
+		0350E27A2B8AEA3D00F3EA69 /* ExperienceGiftTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftTarget.swift; sourceTree = "<group>"; };
+		0350E27C2B8B02F400F3EA69 /* ExperienceGiftAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceGiftAPI.swift; sourceTree = "<group>"; };
 		035A9F072B42AB4B007B3F50 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		037EAB2C2B6651D500024F22 /* RecommendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendListViewController.swift; sourceTree = "<group>"; };
 		037EAB2E2B6651E300024F22 /* HomeExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExperienceView.swift; sourceTree = "<group>"; };
@@ -757,24 +757,24 @@
 			isa = PBXGroup;
 			children = (
 				03A6A5E12B7600AD007B24E4 /* Home */,
-				0350E2732B7A5A6100F3EA69 /* Experience */,
+				0350E2732B7A5A6100F3EA69 /* ExperienceGift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
 		};
-		0350E2732B7A5A6100F3EA69 /* Experience */ = {
+		0350E2732B7A5A6100F3EA69 /* ExperienceGift */ = {
 			isa = PBXGroup;
 			children = (
 				0350E2742B7A5AAD00F3EA69 /* ExperienceCategoryDto.swift */,
 			);
-			path = Experience;
+			path = ExperienceGift;
 			sourceTree = "<group>";
 		};
 		0350E2762B8AE99500F3EA69 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				0350E2682B760FDB00F3EA69 /* Home */,
-				0350E2782B8AEA1200F3EA69 /* Experience */,
+				0350E2782B8AEA1200F3EA69 /* ExperienceGift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -783,25 +783,25 @@
 			isa = PBXGroup;
 			children = (
 				0350E26B2B760FF200F3EA69 /* Home */,
-				0350E2792B8AEA1E00F3EA69 /* Experience */,
+				0350E2792B8AEA1E00F3EA69 /* ExperienceGift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
 		};
-		0350E2782B8AEA1200F3EA69 /* Experience */ = {
+		0350E2782B8AEA1200F3EA69 /* ExperienceGift */ = {
 			isa = PBXGroup;
 			children = (
-				0350E27C2B8B02F400F3EA69 /* ExperienceAPI.swift */,
+				0350E27C2B8B02F400F3EA69 /* ExperienceGiftAPI.swift */,
 			);
-			path = Experience;
+			path = ExperienceGift;
 			sourceTree = "<group>";
 		};
-		0350E2792B8AEA1E00F3EA69 /* Experience */ = {
+		0350E2792B8AEA1E00F3EA69 /* ExperienceGift */ = {
 			isa = PBXGroup;
 			children = (
-				0350E27A2B8AEA3D00F3EA69 /* ExperienceTarget.swift */,
+				0350E27A2B8AEA3D00F3EA69 /* ExperienceGiftTarget.swift */,
 			);
-			path = Experience;
+			path = ExperienceGift;
 			sourceTree = "<group>";
 		};
 		035A9F062B42AB3F007B3F50 /* ViewControllers */ = {
@@ -1314,7 +1314,7 @@
 				0350E2712B761B9D00F3EA69 /* BaseTargetType.swift in Sources */,
 				034011412B5CD87C00D1F371 /* SortModel.swift in Sources */,
 				95748DDE2B358190004157E0 /* ProfileEntryView.swift in Sources */,
-				0350E27D2B8B02F400F3EA69 /* ExperienceAPI.swift in Sources */,
+				0350E27D2B8B02F400F3EA69 /* ExperienceGiftAPI.swift in Sources */,
 				95748DE02B359802004157E0 /* CustomButton.swift in Sources */,
 				A42C33672B416AE300C4B477 /* ExperienceGiftView.swift in Sources */,
 				A431BE552B1A24F90049C126 /* (null) in Sources */,
@@ -1380,7 +1380,7 @@
 				95748DD82B2D9D86004157E0 /* SignUpCompletionViewController.swift in Sources */,
 				032213B52B241B3100FF5CF1 /* HomeView.swift in Sources */,
 				954E45BC2B20AEBE00D12242 /* AuthHeaderView.swift in Sources */,
-				0350E27B2B8AEA3D00F3EA69 /* ExperienceTarget.swift in Sources */,
+				0350E27B2B8AEA3D00F3EA69 /* ExperienceGiftTarget.swift in Sources */,
 				032213192B14B30A00FF5CF1 /* Config.swift in Sources */,
 				9515EF8C2B6593FB00C4E1AA /* MemoryPhotoAlbumView.swift in Sources */,
 				0322131B2B14B31E00FF5CF1 /* APIConstant.swift in Sources */,

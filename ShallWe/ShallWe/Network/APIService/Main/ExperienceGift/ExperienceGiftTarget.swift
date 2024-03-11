@@ -9,13 +9,13 @@ import Foundation
 
 import Moya
 
-enum ExperienceTarget {
+enum ExperienceGiftTarget {
     case getSttCategory(categoryId: Int, category: String)
     case getExpCategory(categoryId: Int, category: String)
     case getPopular
 }
 
-extension ExperienceTarget: BaseTargetType {
+extension ExperienceGiftTarget: BaseTargetType {
     
     var path: String {
         switch self {

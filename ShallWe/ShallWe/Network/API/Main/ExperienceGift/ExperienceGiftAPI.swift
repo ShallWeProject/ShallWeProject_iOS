@@ -9,11 +9,11 @@ import Foundation
 
 import Moya
 
-final class ExperienceAPI {
+final class ExperienceGiftAPI {
     
-    static let shared: ExperienceAPI = ExperienceAPI()
+    static let shared: ExperienceGiftAPI = ExperienceGiftAPI()
     
-    private let experienceProvider = MoyaProvider<ExperienceTarget>(plugins: [NetworkLoggerPlugin()])
+    private let experienceProvider = MoyaProvider<ExperienceGiftTarget>(plugins: [NetworkLoggerPlugin()])
     
     private init() {}
     
