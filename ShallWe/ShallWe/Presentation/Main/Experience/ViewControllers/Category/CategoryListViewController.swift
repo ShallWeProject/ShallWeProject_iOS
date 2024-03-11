@@ -39,19 +39,10 @@ final class CategoryListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-//        print(categoryIndex.item)
         categoryView.menuCollectionView.selectItem(at: IndexPath(item: categoryIndex.row, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
     override func bindViewModel() {
-        
-//        viewModel.outputs.expCategory
-//            .bind(to: homeExperienceListView.homelistCollectionView.rx
-//                .items(cellIdentifier: HomeExperienceCell.className,
-//                       cellType: HomeExperienceCell.self)) { (index, model, cell) in
-//                cell.configureCell(model)
-//            }
-//                       .disposed(by: disposeBag)
         
         viewModel.outputs.expCategory
             .bind(to: homeExperienceListView.homelistCollectionView.rx
@@ -76,8 +67,7 @@ final class CategoryListViewController: BaseViewController {
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 viewModel.inputs.menuCellTap(at: indexPath)
-                homeExperienceListView.indexPath = IndexPath(item: 0, section: 0) // 정렬 버튼 초기화
-                // 셀 탭했을 시
+                homeExperienceListView.indexPath = IndexPath(item: 0, section: 0)
             })
             .disposed(by: disposeBag)
         
@@ -98,14 +88,6 @@ final class CategoryListViewController: BaseViewController {
                 
             })
             .disposed(by: disposeBag)
-        
-//        viewModel.outputs.sortTypeChange
-//            .subscribe(onNext: { [weak self] indexPath in
-//                self?.sortType = indexPath
-//                self?.homeExperienceListView.indexPath = indexPath
-//            })
-//            .disposed(by: disposeBag)
-    
     }
     
     // MARK: - UI Components Property
@@ -155,16 +137,7 @@ final class CategoryListViewController: BaseViewController {
             sheet.delegate = self
             sheet.delegate = sortVC as? any UISheetPresentationControllerDelegate
         }
-        
-//        present(sortVC, animated: true)
-        if let presentedVC = presentedViewController {
-            presentedVC.dismiss(animated: false) {
-                // 이전 모달이 해제된 후에 새로운 모달을 표시
-                self.present(sortVC, animated: true)
-            }
-        } else {
-            self.present(sortVC, animated: true)
-        }
+        self.present(sortVC, animated: true)
     }
     
     required init?(coder: NSCoder) {
@@ -173,7 +146,7 @@ final class CategoryListViewController: BaseViewController {
     
     private lazy var dataSource = RxCollectionViewSectionedReloadDataSource<SectionOfHomeExperience>(
         configureCell: { (dataSource, collectionView, indexPath, item) in
-        
+            
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: HomeExperienceCell.className,
                 for: indexPath) as? HomeExperienceCell else { return UICollectionViewCell() }
@@ -186,21 +159,13 @@ final class CategoryListViewController: BaseViewController {
             
             header.setButtonTitle(IndexPath(row: 0, section: 0))
             
-            // 헤더 조정
-
             if let indexPath = self.homeExperienceListView.indexPath {
                 header.setButtonTitle(indexPath)
-//                header.sortButton.rx.tap
-//                    .bind {
-//                        print("😎 present")
-//                        self.presentToHalfModal(index: indexPath)
-//                    }
-//                .disposed(by: disposeBag)
             }
             
+            // 카테고리 정렬 버튼
             header.sortButton.rx.tap
                 .bind {
-                    print("taptap")
                     self.presentToHalfModal(index: indexPath)
                 }
                 .disposed(by: disposeBag)

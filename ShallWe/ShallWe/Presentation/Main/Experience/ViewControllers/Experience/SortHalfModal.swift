@@ -50,13 +50,9 @@ final class SortHalfModal: BaseViewController {
         
         sortListTableView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
-//                print(indexPath)
                 guard let self = self else { return }
                 self.dismiss(animated: true)
                 if let cell = self.sortListTableView.cellForRow(at: indexPath) as? SortHalfModalCell {
-//                    cell.isSelected = true
-                    print("VC", indexPath)
-//                    self.viewModel.inputs.sortType(indexPath: indexPath)
                     if let title = cell.titleLabel.text {
                         self.viewModel.inputs.sortTypeTap(title: title)
                     }
@@ -127,25 +123,3 @@ extension SortHalfModal: UITableViewDelegate {
         return SizeLiterals.Screen.screenHeight * 42 / 812
     }
 }
-
-//extension SortHalfModal: UITableViewDataSource {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return sortModel.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: SortHalfModalCell.className, for: indexPath) as! SortHalfModalCell
-//        if indexPath == selectedCellIndex {
-//            cell.isSelected = true
-//        }
-//        cell.configureCell(sortModel[indexPath.row])
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(indexPath.row)
-//        viewModel.inputs.sortType(indexPath: indexPath)
-//        self.dismiss(animated: true, completion: nil)
-//    }
-//}
