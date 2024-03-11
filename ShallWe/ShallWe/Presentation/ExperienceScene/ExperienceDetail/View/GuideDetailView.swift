@@ -15,7 +15,6 @@ final class GuideDetailView: UIView {
     
     private let noteTitle: UILabel = {
         let label = UILabel()
-        label.text = I18N.ExperienceDetail.noteTitle
         label.textColor = .black
         label.font = .fontGuide(.B00_12)
         return label
@@ -23,10 +22,10 @@ final class GuideDetailView: UIView {
     
     private let noteLabel: UILabel = {
         let label = UILabel()
-        label.text = "· 선물 시 호스트 연락처를 카카오톡으로 보내드립니다.\n· 예약 확정 시 환불이 불가합니다.\n· 예약 시간에 맞추어 늦지 않게 도착해 주시기 바랍니다.\n· 주차는 가능하나, 기계식이라 SUV는 주차가 불가합니다(소울, 레이 동급 차량 불가).\n· 홈클래스로 진행되는 점 참고 부탁드립니다."
         label.textColor = .black
         label.font = .fontGuide(.R00_12)
         label.numberOfLines = 0
+        label.textAlignment = .left
         return label
     }()
     
@@ -80,9 +79,10 @@ final class GuideDetailView: UIView {
     }
 }
 
-extension GuideDetailView {
+private extension GuideDetailView {
+    
     func setUI() {
-        backgroundColor = .bg0
+        backgroundColor = .white
     }
     
     func setHierarchy() {
@@ -122,5 +122,18 @@ extension GuideDetailView {
             $0.leading.equalTo(cancelTitle.snp.leading)
             $0.width.equalTo(343)
         }
+    }
+}
+
+extension GuideDetailView {
+    
+    func configureGuideView(model: ExperienceDetailResponseDto) {
+        let noteList = model.note.split(separator: "\n")
+        var noteListLabel = ""
+        for i in 1..<noteList.count {
+            noteListLabel.append(noteList[i].description + "\n")
+        }
+        noteTitle.text = noteList[0].description
+        noteLabel.text = noteListLabel
     }
 }

@@ -22,10 +22,13 @@ final class ExperienceGiftViewController: UIViewController {
     private var selectedDate: String = ""
     private var selectedTime: String = ""
     
+    private let detailViewModel: ExperienceDetailViewModel
+    private let giftViewModel = ExperienceGiftViewModel()
+    
     // MARK: - UI Components
     
     private let experienceGiftView = ExperienceGiftView()
-    private lazy var collectionView = experienceGiftView.timeCollectionView
+    private lazy var timeCollectionView = experienceGiftView.timeCollectionView
     
     private lazy var dateFormatter: DateFormatter = {
         let df = DateFormatter()
@@ -34,10 +37,16 @@ final class ExperienceGiftViewController: UIViewController {
         return df
     }()
     
+    // MARK: - Initializer
+
+    init(viewModel: ExperienceDetailViewModel) {
+        self.detailViewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     // MARK: - Life Cycles
     
     override func loadView() {
-        super.loadView()
         
         view = experienceGiftView
     }
@@ -47,12 +56,20 @@ final class ExperienceGiftViewController: UIViewController {
         
         setUI()
         setDelegate()
+        bindViewModel()
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
 extension ExperienceGiftViewController {
+    
     func setUI() {
         navigationController?.navigationBar.isHidden = true
+        experienceGiftView.calendarView.select(today)
         
         if fromMypage {
             experienceGiftView.navigationBar.titleText = I18N.ExperienceGift.fromMypageNavigationTitle
@@ -70,10 +87,21 @@ extension ExperienceGiftViewController {
     }
     
     func setDelegate() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
+        timeCollectionView.dataSource = self
+        timeCollectionView.delegate = self
         experienceGiftView.calendarDelegate = self
         experienceGiftView.calendarView.delegate = self
+        experienceGiftView.navigationBar.delegate = self
+    }
+    
+    func bindViewModel() {
+        guard let experienceDetail = detailViewModel.experienceDetail else { return }
+        self.experienceGiftView.configureGiftView(model: experienceDetail)
+        
+        giftViewModel.observeExperienceGift { [weak self] experienceGift in
+            guard experienceGift != nil else { return }
+            self?.experienceGiftView.timeCollectionView.reloadData()
+        }
     }
     
     func scrollCurrentPage(isPrev: Bool) {
@@ -93,8 +121,9 @@ extension ExperienceGiftViewController: UICollectionViewDelegate {
         if let cell = collectionView.cellForItem(at: indexPath) as? TimeCollectionViewCell {
             cell.timeLabel.backgroundColor = .point
             cell.timeLabel.textColor = .white
-            if let timeText = cell.timeLabel.text {
-                self.selectedTime = timeText
+            let components = cell.timeLabel.text?.components(separatedBy: CharacterSet.decimalDigits.inverted)
+            if let timeHour = components?.first {
+                giftViewModel.giftTimeInfo(time: timeHour)
             }
         }
         
@@ -109,11 +138,13 @@ extension ExperienceGiftViewController: UICollectionViewDelegate {
 
 extension ExperienceGiftViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return giftViewModel.reservationDate?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = TimeCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+        let cell = TimeCollectionViewCell.dequeueReusableCell(collectionView: timeCollectionView, indexPath: indexPath)
+        guard let data = giftViewModel.reservationDate else { return cell }
+        cell.configureCell(model: data[indexPath.item])
         return cell
     }
 }
@@ -141,7 +172,8 @@ extension ExperienceGiftViewController: CalendarDelegate {
                 self.navigationController?.pushViewController(nav, animated: true)
             })
         } else {
-            let nav = ExperienceLetterViewController()
+            giftViewModel.giftMemberInfo(member: Int(experienceGiftView.personCountLabel.text ?? "") ?? 1)
+            let nav = ExperienceLetterViewController(viewModel: self.giftViewModel)
             self.navigationController?.pushViewController(nav, animated: true)
         }
     }
@@ -150,12 +182,20 @@ extension ExperienceGiftViewController: CalendarDelegate {
 extension ExperienceGiftViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let components = Calendar.current.dateComponents([.year, .month, .day], from: date)
-        if let selectedMonth = components.month, let selectedDay = components.day {
-            self.selectedDate = "\(selectedMonth)월 \(selectedDay)일"
+        if let selectedYear = components.year, let selectedMonth = components.month, let selectedDay = components.day {
+            self.selectedDate = "\(selectedYear)-\(String(format: "%02d", selectedMonth))-\(String(format: "%02d", selectedDay))"
+            giftViewModel.reservationDate(giftId: 1, date: self.selectedDate)
         }
     }
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         experienceGiftView.monthLabel.text = self.dateFormatter.string(from: calendar.currentPage)
+    }
+}
+
+extension ExperienceGiftViewController: NavigationBarProtocol {
+    
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

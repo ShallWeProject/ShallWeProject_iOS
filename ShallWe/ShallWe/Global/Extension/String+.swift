@@ -21,6 +21,12 @@ extension String {
         return true
     }
     
+    func isValidPhoneNumber() -> Bool {
+        let phoneNumberRegex = #"^\d{4}$"#
+        let phoneNumberTest = NSPredicate(format: "SELF MATCHES %@", phoneNumberRegex)
+        return phoneNumberTest.evaluate(with: self)
+    }
+    
     func size(OfFont font: UIFont) -> CGSize {
         let size = (self as NSString).size(withAttributes: [.font: font])
         let buffer = 0.2

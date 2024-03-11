@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 import FSCalendar
+import Kingfisher
 
 protocol CalendarDelegate: AnyObject {
     func leftButtonTapped()
@@ -63,7 +64,6 @@ final class ExperienceGiftView: UIView {
     private let giftImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.image = UIImage(named: "example")
         image.clipsToBounds = true
         image.layer.cornerRadius = 10
         return image
@@ -79,15 +79,13 @@ final class ExperienceGiftView: UIView {
     
     private let giftTitle: UILabel = {
         let label = UILabel()
-        label.text = "[성수] 인기베이킹 클래스"
-        label.textColor = .black0
+        label.textColor = .black
         label.font = .fontGuide(.B00_12)
         return label
     }()
     
     private let giftSubTitle: UILabel = {
         let label = UILabel()
-        label.text = "기념일 레터링 케이크\n사지 말고 함께 만들어요"
         label.textColor = .black
         label.font = .fontGuide(.M00_14)
         label.setLineSpacing(lineSpacing: 2.3)
@@ -98,7 +96,6 @@ final class ExperienceGiftView: UIView {
     
     let giftPriceLabel: UILabel = {
         let label = UILabel()
-        label.text = "75,000원"
         label.textColor = .main
         label.font = .fontGuide(.B00_14)
         return label
@@ -130,6 +127,7 @@ final class ExperienceGiftView: UIView {
         button.setImage(ImageLiterals.Icon.minus, for: .normal)
         button.backgroundColor = .bg4
         button.layer.cornerRadius = 10
+        button.isEnabled = false
         return button
     }()
     
@@ -141,7 +139,7 @@ final class ExperienceGiftView: UIView {
         return button
     }()
     
-    private lazy var personCountLabel: UILabel = {
+    lazy var personCountLabel: UILabel = {
         let label = UILabel()
         label.text = String(self.personCount)
         label.textAlignment = .center
@@ -219,7 +217,8 @@ final class ExperienceGiftView: UIView {
     lazy var giftButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.Icon.gift, for: .normal)
-        button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15)
+        button.setImage(ImageLiterals.Icon.gift, for: .highlighted)
+        button.imageEdgeInsets.right = 8
         button.setTitle(I18N.ExperienceDetail.giftButton, for: .normal)
         button.setTitleColor(.bg0, for: .normal)
         button.titleLabel?.font = .fontGuide(.B00_14)
@@ -254,7 +253,8 @@ final class ExperienceGiftView: UIView {
     }
 }
 
-extension ExperienceGiftView {
+private extension ExperienceGiftView {
+    
     func setUI() {
         backgroundColor = .white
     }
@@ -426,5 +426,20 @@ extension ExperienceGiftView {
             break
         }
     }
+    
+    func formatNumber(_ number: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: NSNumber(value: number)) ?? "\(number)"
+    }
 }
 
+extension ExperienceGiftView {
+    
+    func configureGiftView(model: ExperienceDetailResponseDto) {
+        giftImage.kf.setImage(with: URL(string: model.giftImgURL[0]))
+        giftTitle.text = model.subtitle
+        giftSubTitle.text = model.title
+        giftPriceLabel.text = "\(formatNumber(model.price))원"
+    }
+}

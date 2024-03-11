@@ -10,6 +10,10 @@ import UIKit
 import Then
 import SnapKit
 
+protocol NavigationBarProtocol {
+    func backButtonTapped()
+}
+
 class CustomNavigationBar: BaseView {
     
     // MARK: - UI Components
@@ -21,6 +25,8 @@ class CustomNavigationBar: BaseView {
     private lazy var titleLabel = UILabel()
 
     // MARK: - Properties
+    
+    var delegate: NavigationBarProtocol?
     
     var isLogoViewIncluded: Bool {
         get { !logoView.isHidden }
@@ -96,5 +102,17 @@ class CustomNavigationBar: BaseView {
             $0.leading.equalToSuperview().inset(15)
             $0.centerY.equalToSuperview()
         }
+    }
+    
+    override func setAddTarget() {
+        backButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+    }
+}
+
+extension CustomNavigationBar {
+    
+    @objc
+    func buttonTapped() {
+        delegate?.backButtonTapped()
     }
 }
